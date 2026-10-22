@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité - Christophe Guillon</title>
+    <meta name="robots" content="noindex">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#04101A', 
+                        'brand-accent': '#0084FF', 
+                        'brand-yellow': '#F5A623', 
+                        'page-bg': '#F9FAFB', 
+                        'surface-card': '#FFFFFF' 
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-page-bg text-slate-700 font-sans antialiased selection:bg-brand-accent selection:text-white flex flex-col min-h-screen">
+
+    <!-- En-tête -->
+    <header class="fixed w-full top-0 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800 shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 md:gap-4 group">
+                <img src="logo_CG2.png" alt="Empreinte Christophe Guillon" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col">
+                    <span class="text-white font-heading font-extrabold text-sm md:text-base leading-none tracking-wide">CHRISTOPHE GUILLON</span>
+                    <span class="text-brand-yellow font-heading text-[9px] md:text-[10px] font-semibold mt-1 uppercase tracking-wider">CONSULTANT &amp; FORMATEUR</span>
+                </div>
+            </a>
+            <a href="index.html" class="text-slate-300 hover:text-white text-sm font-medium transition">&larr; Retour au site</a>
+        </div>
+    </header>
+
+    <!-- Contenu -->
+    <main class="pt-32 pb-24 px-6 max-w-3xl mx-auto flex-grow">
+        <h1 class="text-3xl font-heading font-bold text-slate-900 mb-8">Politique de Confidentialité</h1>
+        
+        <div class="bg-surface-card p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm space-y-8">
+            <section>
+                <h2 class="text-xl font-heading font-bold text-slate-900 mb-3">1. Collecte des données de contact</h2>
+                <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                    Lorsque vous me contactez par e-mail (contact@christophe-guillon.com), les informations transmises (nom, coordonnées, description du besoin) sont uniquement utilisées pour traiter votre demande et formaliser un premier échange. Vos données ne sont jamais vendues, cédées ou transmises à des tiers.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-xl font-heading font-bold text-slate-900 mb-3">2. Mesure d'audience et cookies (Google Analytics 4)</h2>
+                <p class="text-slate-600 text-sm leading-relaxed text-justify mb-3">
+                    Ce site utilise Google Analytics 4 (GA4) pour analyser la fréquentation et optimiser le parcours utilisateur. Ce service dépose des traceurs statistiques uniquement si vous donnez votre accord préalable.
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                    En cas de refus via le bandeau de consentement, aucun cookie de mesure n'est déposé et aucun suivi de votre navigation n'est effectué. Vous pouvez modifier votre choix à tout instant en cliquant sur « Gestion des cookies » en bas de page.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-heading font-bold text-slate-900 mb-3">3. Vos droits (RGPD)</h2>
+                <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                    Conformément à la réglementation européenne, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour toute demande, adressez un courriel à&nbsp;: contact@christophe-guillon.com.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="py-10 px-6 bg-brand-dark text-slate-400 border-t border-slate-800 text-center">
+        <p class="text-xs text-slate-500 font-medium tracking-wide mb-4">
+            &copy; 2026 CHRISTOPHE GUILLON - CONSULTANT &amp; FORMATEUR. TOUS DROITS RÉSERVÉS.
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-6 text-xs text-slate-400 font-medium">
+            <a href="index.html" class="hover:text-white hover:underline transition">Accueil</a>
+            <a href="mentions-legales.html" class="hover:text-white hover:underline transition">Mentions légales</a>
+            <button type="button" id="btn-open-cookie-settings" class="hover:text-white hover:underline transition text-slate-400 cursor-pointer">Gestion des cookies</button>
+        </div>
+    </footer>
+
+    <!-- Bandeau de Cookies universel -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-brand-dark text-slate-300 p-6 z-50 border-t border-slate-800 transform translate-y-full transition-transform duration-500 shadow-2xl hidden flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-sm leading-relaxed text-justify md:text-left max-w-4xl">
+            <strong class="text-white font-heading mb-1 block">Gestion de vos préférences sur les cookies</strong>
+            J'utilise des cookies (notamment via Google Analytics) pour mesurer l'audience du site, analyser le trafic et améliorer votre expérience. Vous pouvez accepter ou refuser ces cookies. Votre choix est modifiable à tout moment via le lien « Gestion des cookies » en bas de page.
+        </div>
+        <div class="flex gap-3 shrink-0">
+            <button id="btn-cookie-refuser" class="border border-slate-600 hover:border-white text-white px-5 py-2.5 rounded-full font-medium text-sm transition-colors">Refuser</button>
+            <button id="btn-cookie-accepter" class="bg-brand-accent hover:bg-blue-600 text-white px-5 py-2.5 rounded-full font-bold text-sm transition-colors shadow-md">Accepter</button>
+        </div>
+    </div>
+
+    <!-- Script de consentement -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const banner = document.getElementById("cookie-banner");
+            const btnAccepter = document.getElementById("btn-cookie-accepter");
+            const btnRefuser = document.getElementById("btn-cookie-refuser");
+            const btnOpenSettings = document.getElementById("btn-open-cookie-settings");
+            const consentKey = "cg_cookie_consent";
+
+            function showBanner() {
+                banner.classList.remove("hidden");
+                setTimeout(() => { banner.classList.remove("translate-y-full"); }, 50);
+            }
+
+            function hideBanner() {
+                banner.classList.add("translate-y-full");
+                setTimeout(() => { banner.classList.add("hidden"); }, 500);
+            }
+
+            if (!localStorage.getItem(consentKey)) { showBanner(); }
+
+            btnAccepter.addEventListener("click", function () {
+                localStorage.setItem(consentKey, "accepted");
+                hideBanner();
+            });
+
+            btnRefuser.addEventListener("click", function () {
+                localStorage.setItem(consentKey, "denied");
+                hideBanner();
+            });
+
+            if (btnOpenSettings) {
+                btnOpenSettings.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    showBanner();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
