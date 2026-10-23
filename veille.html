@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html lang="fr" class="h-full">
+<html lang="fr" class="scroll-smooth">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VESQ4YWCTS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VESQ4YWCTS');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille NoCode & IA - Feed Reader</title>
+    <title>Veille Stratégique IA &amp; NoCode | Christophe Guillon - Consultant &amp; Formateur</title>
+    <meta name="description" content="Veille technologique et opérationnelle en continu sur l'Intelligence Artificielle, le NoCode et la transformation digitale par Christophe Guillon, Saumur.">
+    <link rel="icon" type="image/png" href="logo_CG2.png">
+
+    <!-- Polices Google identiques au site principal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Configuration Tailwind CSS officielle -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#04101A',   
+                        'brand-accent': '#0084FF', 
+                        'brand-yellow': '#F5A623', 
+                        'page-bg': '#F9FAFB',     
+                        'surface-card': '#FFFFFF'  
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -40,16 +78,39 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 h-full flex flex-col antialiased">
+<body class="bg-page-bg text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-brand-accent selection:text-white">
 
-    <!-- En-tête Mobile & Tablette -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 flex items-center justify-between px-4 py-3 md:hidden shadow-sm">
+    <!-- En-tête principal officiel Christophe Guillon -->
+    <header class="sticky top-0 w-full bg-brand-dark/95 backdrop-blur-md z-50 border-b border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 md:gap-4 group">
+                <img src="logo_CG2.png" alt="Empreinte Christophe Guillon" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col">
+                    <span class="text-white font-heading font-extrabold text-sm md:text-base leading-none tracking-wide">CHRISTOPHE GUILLON</span>
+                    <span class="text-brand-yellow font-heading text-[9px] md:text-[10px] font-semibold mt-1 uppercase tracking-wider">CONSULTANT &amp; FORMATEUR</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex gap-8 text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-white transition">Accueil</a>
+                <a href="index.html#expertises" class="hover:text-white transition">Expertises</a>
+                <a href="index.html#a-propos" class="hover:text-white transition">À propos</a>
+                <a href="index.html#contact" class="hover:text-white transition">Contact</a>
+                <a href="veille.html" class="text-brand-accent font-semibold">Veille</a>
+            </nav>
+            <a href="index.html#contact" class="hidden md:inline-block bg-brand-accent hover:bg-blue-600 text-white text-sm font-semibold py-2.5 px-6 rounded-full transition shadow-sm">
+                M'écrire
+            </a>
+        </div>
+    </header>
+
+    <!-- Barre de contrôle Veille Mobile & Tablette -->
+    <div class="bg-white border-b border-slate-200 flex items-center justify-between px-4 py-3 md:hidden shadow-sm">
         <div class="flex items-center space-x-2.5">
             <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold shadow-sm">
                 ⚡
             </div>
             <div>
-                <h1 class="text-base font-bold text-slate-900 leading-tight">Veille NoCode & IA</h1>
+                <h1 class="text-sm font-bold text-slate-900 leading-tight">Veille NoCode &amp; IA</h1>
                 <p id="mobile-stats" class="text-xs text-slate-500">0 articles</p>
             </div>
         </div>
@@ -59,159 +120,221 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
             </button>
-            <button id="burger-btn" class="p-2 text-slate-700 hover:bg-slate-100 rounded-lg focus:outline-none transition-colors" aria-label="Menu principal">
+            <button id="burger-btn" class="p-2 text-slate-700 hover:bg-slate-100 rounded-lg focus:outline-none transition-colors" aria-label="Menu des filtres">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
-    </header>
+    </div>
 
-    <div class="flex flex-1 overflow-hidden relative">
-
-        <!-- Voile d'ombrage Mobile -->
-        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 hidden transition-opacity md:hidden"></div>
-
-        <!-- Tiroir Latéral (Sidebar) -->
-        <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-50 w-80 sm:w-96 bg-white border-r border-slate-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col shadow-xl md:shadow-none">
-            
-            <!-- En-tête Barre latérale -->
-            <div class="p-5 border-b border-slate-100 flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white text-lg font-bold shadow-md shadow-indigo-100">
-                        ⚡
-                    </div>
-                    <div>
-                        <h2 class="font-bold text-slate-900 text-lg tracking-tight">Veille Stratégique</h2>
-                        <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">NoCode & IA</span>
-                    </div>
-                </div>
-                <button id="close-sidebar-btn" class="md:hidden p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+    <!-- Conteneur principal de la page -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-6 sm:py-8 flex flex-col">
+        
+        <!-- En-tête éditorial de la veille -->
+        <div class="mb-6 px-1 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Flux &amp; Signaux Faibles</span>
+                <h1 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 mt-1">Veille Stratégique IA &amp; NoCode</h1>
+                <p class="text-sm text-slate-600 mt-1">Sélection d'actualités et d'innovations pour anticiper les transformations numériques des entreprises.</p>
             </div>
+            <a href="index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-brand-accent transition">
+                <span>&larr; Retour à l'accueil</span>
+            </a>
+        </div>
 
-            <!-- Contenu défilant des réglages -->
-            <div class="flex-1 overflow-y-auto p-5 space-y-6">
+        <!-- Lecteur de flux RSS (Console intégrée) -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm flex flex-col md:flex-row overflow-hidden h-[750px] md:h-[820px] relative">
 
-                <!-- Recherche et Filtrage direct -->
-                <div>
-                    <label for="filter-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Filtrer les articles</label>
-                    <div class="relative">
-                        <input type="text" id="filter-input" class="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all" placeholder="Mot-clé (ex: ChatGPT, Make, Bubble)...">
-                        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                        <button id="clear-search-btn" class="hidden absolute right-2.5 top-3 text-slate-400 hover:text-slate-600">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+            <!-- Voile d'ombrage Mobile -->
+            <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden transition-opacity md:hidden"></div>
 
-                <!-- Thématiques rapides -->
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Thématiques</label>
-                    <div class="flex flex-wrap gap-1.5" id="topic-tags">
-                        <button data-tag="" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-indigo-600 text-white transition-colors">Tous</button>
-                        <button data-tag="IA" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🤖 IA</button>
-                        <button data-tag="NoCode" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">⚡ NoCode</button>
-                        <button data-tag="Outils" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🛠️ Outils</button>
-                        <button data-tag="favoris" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors">⭐ Favoris (<span id="fav-count">0</span>)</button>
-                    </div>
-                </div>
-
-                <!-- Ajout de flux personnalisé -->
-                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
-                    <label for="rss-url-input" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Ajouter un flux RSS</label>
-                    <div class="space-y-2">
-                        <input type="url" id="rss-url-input" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://site.fr/feed.xml">
-                        <button id="add-feed-btn" class="w-full bg-slate-900 hover:bg-indigo-600 text-white py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors shadow-sm">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                            </svg>
-                            <span>Ajouter à la veille</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Liste déroulante des flux actifs avec renommage -->
-                <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden" open>
-                    <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none bg-slate-50/50 hover:bg-slate-50 transition-colors">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Flux actifs (<span id="feeds-count">0</span>)</span>
+            <!-- Tiroir Latéral (Sidebar) -->
+            <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-[60] md:z-auto w-80 sm:w-96 bg-white border-r border-slate-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col shadow-xl md:shadow-none">
+                
+                <!-- En-tête Barre latérale -->
+                <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white text-lg font-bold shadow-md shadow-indigo-100">
+                            ⚡
                         </div>
-                        <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </summary>
-                    <div class="p-3 border-t border-slate-100">
-                        <div class="flex justify-between items-center mb-2 px-1">
-                            <span class="text-[11px] text-slate-400">Cliquez sur un nom pour le renommer</span>
-                            <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser</button>
+                        <div>
+                            <h2 class="font-bold text-slate-900 text-lg tracking-tight">Veille Stratégique</h2>
+                            <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">NoCode &amp; IA</span>
                         </div>
-                        <ul id="feeds-list" class="space-y-1.5 max-h-56 overflow-y-auto pr-1 text-xs">
-                            <!-- Les flux seront injectés ici -->
-                        </ul>
                     </div>
-                </details>
-
-            </div>
-
-            <!-- Pied de la barre latérale -->
-            <div class="p-4 border-t border-slate-100 bg-slate-50/70 flex items-center justify-between text-xs text-slate-500">
-                <div class="flex items-center space-x-1.5 truncate">
-                    <span id="sync-indicator" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span id="last-updated-text" class="truncate">À jour</span>
-                </div>
-                <button id="desktop-refresh-btn" class="font-medium text-indigo-600 hover:text-indigo-800 flex items-center space-x-1">
-                    <svg id="desktop-refresh-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                    <span>Actualiser</span>
-                </button>
-            </div>
-        </aside>
-
-        <!-- Zone Principale : Flux d'articles -->
-        <main class="flex-1 flex flex-col h-full overflow-hidden bg-slate-50">
-
-            <!-- Barre d'état et filtres actifs -->
-            <div class="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between flex-shrink-0">
-                <div class="flex items-center space-x-3">
-                    <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Dernières actualités</h2>
-                    <span id="articles-badge" class="bg-slate-100 text-slate-600 font-semibold text-xs px-2.5 py-0.5 rounded-full border border-slate-200">0</span>
-                </div>
-                <div class="flex items-center space-x-2 text-xs text-slate-500">
-                    <span class="hidden sm:inline">Trié par récence</span>
-                    <button id="sync-all-btn" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-semibold px-2.5 py-1 rounded-lg transition-colors flex items-center space-x-1">
-                        <svg id="sync-spin-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    <button id="close-sidebar-btn" class="md:hidden p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
-                        <span id="sync-btn-text">Synchroniser</span>
                     </button>
                 </div>
-            </div>
 
-            <!-- Bannière de statut de synchronisation -->
-            <div id="sync-status-banner" class="hidden bg-indigo-50/80 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-700 flex items-center justify-between">
-                <span id="sync-status-msg" class="flex items-center space-x-2">
-                    <span class="inline-block w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
-                    <span>Synchronisation des flux d'actualité en direct...</span>
-                </span>
-                <span id="sync-progress" class="font-medium text-indigo-900"></span>
-            </div>
+                <!-- Contenu défilant des réglages -->
+                <div class="flex-1 overflow-y-auto p-5 space-y-6">
 
-            <!-- Liste des Cartes d'Articles -->
-            <div id="feed-container" class="flex-1 overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4">
-                <!-- Les cartes d'articles seront injectées dynamiquement ici -->
+                    <!-- Recherche et Filtrage direct -->
+                    <div>
+                        <label for="filter-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Filtrer les articles</label>
+                        <div class="relative">
+                            <input type="text" id="filter-input" class="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all" placeholder="Mot-clé (ex: ChatGPT, Make, Bubble)...">
+                            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <button id="clear-search-btn" class="hidden absolute right-2.5 top-3 text-slate-400 hover:text-slate-600">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Thématiques rapides -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Thématiques</label>
+                        <div class="flex flex-wrap gap-1.5" id="topic-tags">
+                            <button data-tag="" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-indigo-600 text-white transition-colors">Tous</button>
+                            <button data-tag="IA" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🤖 IA</button>
+                            <button data-tag="NoCode" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">⚡ NoCode</button>
+                            <button data-tag="Outils" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🛠️ Outils</button>
+                            <button data-tag="favoris" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors">⭐ Favoris (<span id="fav-count">0</span>)</button>
+                        </div>
+                    </div>
+
+                    <!-- Ajout de flux personnalisé -->
+                    <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
+                        <label for="rss-url-input" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Ajouter un flux RSS</label>
+                        <div class="space-y-2">
+                            <input type="url" id="rss-url-input" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://site.fr/feed.xml">
+                            <button id="add-feed-btn" class="w-full bg-slate-900 hover:bg-indigo-600 text-white py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors shadow-sm">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                                <span>Ajouter à la veille</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Liste déroulante des flux actifs avec renommage -->
+                    <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden" open>
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Flux actifs (<span id="feeds-count">0</span>)</span>
+                            </div>
+                            <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="p-3 border-t border-slate-100">
+                            <div class="flex justify-between items-center mb-2 px-1">
+                                <span class="text-[11px] text-slate-400">Cliquez sur un nom pour le renommer</span>
+                                <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser</button>
+                            </div>
+                            <ul id="feeds-list" class="space-y-1.5 max-h-56 overflow-y-auto pr-1 text-xs">
+                                <!-- Les flux seront injectés ici -->
+                            </ul>
+                        </div>
+                    </details>
+
+                </div>
+
+                <!-- Pied de la barre latérale -->
+                <div class="p-4 border-t border-slate-100 bg-slate-50/70 flex items-center justify-between text-xs text-slate-500">
+                    <div class="flex items-center space-x-1.5 truncate">
+                        <span id="sync-indicator" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span id="last-updated-text" class="truncate">À jour</span>
+                    </div>
+                    <button id="desktop-refresh-btn" class="font-medium text-indigo-600 hover:text-indigo-800 flex items-center space-x-1">
+                        <svg id="desktop-refresh-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        <span>Actualiser</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Zone Principale : Flux d'articles -->
+            <div class="flex-1 flex flex-col h-full overflow-hidden bg-slate-50">
+
+                <!-- Barre d'état et filtres actifs -->
+                <div class="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between flex-shrink-0">
+                    <div class="flex items-center space-x-3">
+                        <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Dernières actualités</h2>
+                        <span id="articles-badge" class="bg-slate-100 text-slate-600 font-semibold text-xs px-2.5 py-0.5 rounded-full border border-slate-200">0</span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-xs text-slate-500">
+                        <span class="hidden sm:inline">Trié par récence</span>
+                        <button id="sync-all-btn" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-semibold px-2.5 py-1 rounded-lg transition-colors flex items-center space-x-1">
+                            <svg id="sync-spin-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            <span id="sync-btn-text">Synchroniser</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bannière de statut de synchronisation -->
+                <div id="sync-status-banner" class="hidden bg-indigo-50/80 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-700 flex items-center justify-between">
+                    <span id="sync-status-msg" class="flex items-center space-x-2">
+                        <span class="inline-block w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
+                        <span>Synchronisation des flux d'actualité en direct...</span>
+                    </span>
+                    <span id="sync-progress" class="font-medium text-indigo-900"></span>
+                </div>
+
+                <!-- Liste des Cartes d'Articles -->
+                <div id="feed-container" class="flex-1 overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4">
+                    <!-- Les cartes d'articles seront injectées dynamiquement ici -->
+                </div>
             </div>
-        </main>
-    </div>
+        </div>
+
+        <!-- Bloc d'action / Conversion sous le lecteur -->
+        <div class="mt-8 bg-brand-dark text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm border border-slate-800">
+            <div class="text-center sm:text-left">
+                <h3 class="text-lg sm:text-xl font-heading font-bold text-white mb-1">
+                    Exploiter ces innovations dans votre structure ?
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                    Formez vos équipes ou intégrez directement les outils d'IA et d'automatisation dans vos processus quotidiens avec un accompagnement sur-mesure.
+                </p>
+            </div>
+            <a href="index.html#contact" class="shrink-0 px-6 py-3 rounded-full text-xs sm:text-sm font-bold bg-brand-accent hover:bg-blue-600 text-white transition shadow-md text-center">
+                Discutons de votre projet &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Pied de page officiel Christophe Guillon -->
+    <footer class="py-12 px-6 bg-brand-dark text-slate-400 border-t border-slate-800 text-center relative mt-8">
+        <div class="flex justify-center mb-6">
+            <img src="logo_CG2.png" alt="Christophe Guillon" width="32" height="32" class="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+        </div>
+
+        <!-- Balise sémantique officielle pour le référencement local -->
+        <address class="not-italic text-xs text-slate-400 leading-relaxed max-w-xl mx-auto mb-6">
+            <strong class="text-slate-200 font-semibold">Christophe Guillon — Conseil &amp; Formation</strong><br>
+            49400 Saumur (Maine-et-Loire, Pays de la Loire)<br>
+            Interventions : Saumur, Angers, Pays de la Loire et à distance<br>
+            <a href="tel:+33675052375" class="hover:text-white hover:underline transition">06 75 05 23 75</a>
+            <span class="mx-2 text-slate-600">•</span>
+            <a href="mailto:contact@christophe-guillon.com" class="hover:text-white hover:underline transition">contact@christophe-guillon.com</a>
+        </address>
+
+        <p class="text-xs text-slate-500 mb-6 font-medium tracking-wide">
+            &copy; 2026 CHRISTOPHE GUILLON - CONSULTANT &amp; FORMATEUR. TOUS DROITS RÉSERVÉS.
+        </p>
+
+        <div class="flex flex-wrap justify-center items-center gap-6 text-xs text-slate-400 font-medium">
+            <a href="https://www.linkedin.com/in/guillonchristophe/" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline transition">LinkedIn</a>
+            <a href="mentions-legales.html" class="hover:text-white hover:underline transition">Mentions légales</a>
+            <a href="politique-confidentialite.html" class="hover:text-white hover:underline transition">Politique de confidentialité</a>
+            <a href="/llms.txt" target="_blank" class="hover:text-white hover:underline transition">Données IA (llms.txt)</a>
+            <a href="veille.html" class="text-brand-accent font-semibold hover:underline">Veille IA &amp; Digital</a>
+        </div>
+    </footer>
 
     <!-- Notification Toast Discrète -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-xl transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none flex items-center space-x-2">
@@ -219,10 +342,10 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
+    <!-- Script du lecteur RSS (conservé à l'identique avec toutes ses fonctionnalités) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // Éléments du DOM
             const feedContainer = document.getElementById('feed-container');
             const filterInput = document.getElementById('filter-input');
             const clearSearchBtn = document.getElementById('clear-search-btn');
@@ -250,7 +373,6 @@
             const mobileRefreshBtn = document.getElementById('mobile-refresh-btn');
             const desktopRefreshBtn = document.getElementById('desktop-refresh-btn');
 
-            // 15 flux RSS par défaut configurés selon votre demande
             const defaultFeeds = [
                 { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?tbm=nws&q=intelligence+artificielle&scoring=n&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
                 { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
@@ -269,7 +391,6 @@
                 { id: '15', name: 'L\'Usine Nouvelle', url: 'https://www.usinenouvelle.com/rss/ia/', category: 'IA' }
             ];
 
-            // Articles garantis au démarrage (évite l'écran blanc si le réseau bloque temporairement)
             const fallbackArticles = [
                 {
                     title: "L'impact des agents autonomes et de l'IA générative dans l'automatisation NoCode",
@@ -313,15 +434,13 @@
                 }
             ];
 
-            // État de l'application
             let rssFeeds = loadFeeds();
             let allArticles = [...fallbackArticles];
             let favorites = JSON.parse(localStorage.getItem('savedFavorites') || '[]');
             let currentTag = '';
             let isSyncing = false;
-            const feedStatus = {}; // { feedUrl: 'ok' | 'loading' | 'error' }
+            const feedStatus = {};
 
-            // Chargement initial des flux sauvegardés
             function loadFeeds() {
                 try {
                     const saved = localStorage.getItem('rssFeeds_v2');
@@ -330,7 +449,7 @@
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
                     }
                 } catch (e) {
-                    console.error("Erreur lecture storage:", e);
+                    console.error("Erreur lecture storage :", e);
                 }
                 return defaultFeeds;
             }
@@ -344,7 +463,6 @@
                 favCountEl.textContent = favorites.length;
             }
 
-            // Notification toast
             function showToast(message, icon = '✓') {
                 toastMsg.textContent = message;
                 document.getElementById('toast-icon').textContent = icon;
@@ -354,7 +472,6 @@
                 }, 2800);
             }
 
-            // Nettoyage sécurisé du texte HTML
             function cleanHtml(rawHtml) {
                 if (!rawHtml) return '';
                 const doc = new DOMParser().parseFromString(rawHtml, 'text/html');
@@ -362,7 +479,6 @@
                 return text.replace(/\s+/g, ' ').trim();
             }
 
-            // Formatage de date relative humaine
             function formatRelativeTime(date) {
                 if (!date || isNaN(date.getTime())) return "Récemment";
                 const diffMs = Date.now() - date.getTime();
@@ -378,7 +494,6 @@
                 return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
             }
 
-            // Rendu de la liste des flux dans la barre latérale
             function renderFeedsList() {
                 feedsList.innerHTML = '';
                 feedsCountEl.textContent = rssFeeds.length;
@@ -420,7 +535,6 @@
                         </div>
                     `;
 
-                    // Gestion du renommage en ligne
                     const titleSpan = li.querySelector('.feed-title');
                     const editBtn = li.querySelector('.edit-feed-btn');
                     const startEdit = () => {
@@ -453,7 +567,6 @@
                     titleSpan.addEventListener('click', startEdit);
                     editBtn.addEventListener('click', startEdit);
 
-                    // Gestion de la suppression
                     li.querySelector('.delete-feed-btn').addEventListener('click', () => {
                         rssFeeds = rssFeeds.filter(f => f.url !== feed.url);
                         saveFeeds();
@@ -467,7 +580,6 @@
                 });
             }
 
-            // Affichage des articles
             function renderArticles() {
                 const query = filterInput.value.toLowerCase().trim();
                 
@@ -493,7 +605,6 @@
                     return matchQuery && matchTag;
                 });
 
-                // Tri chronologique
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
                 articlesBadge.textContent = filtered.length;
@@ -565,7 +676,6 @@
                         </div>
                     `;
 
-                    // Gestion Favoris
                     card.querySelector('.fav-btn').addEventListener('click', () => {
                         const idx = favorites.indexOf(article.link);
                         if (idx > -1) {
@@ -579,7 +689,6 @@
                         renderArticles();
                     });
 
-                    // Partage sécurisé (compatible iframe)
                     card.querySelector('.share-btn').addEventListener('click', () => {
                         copyLinkSafely(article.link);
                     });
@@ -588,7 +697,6 @@
                 });
             }
 
-            // Copie dans le presse-papier sans dépendance fragile
             function copyLinkSafely(url) {
                 const tempInput = document.createElement('textarea');
                 tempInput.value = url;
@@ -605,10 +713,8 @@
                 document.body.removeChild(tempInput);
             }
 
-            // Système de récupération multi-proxies avec timeout
             async function fetchRssContent(feedUrl) {
                 const proxyEndpoints = [
-                    // Proxy 1 : Allorigins JSON (très tolérant au formatage et encodages)
                     async (url) => {
                         const controller = new AbortController();
                         const timer = setTimeout(() => controller.abort(), 6000);
@@ -619,7 +725,6 @@
                         if (data && data.contents && data.contents.includes('<')) return data.contents;
                         throw new Error('Contenu vide');
                     },
-                    // Proxy 2 : CodeTabs (simple et direct)
                     async (url) => {
                         const controller = new AbortController();
                         const timer = setTimeout(() => controller.abort(), 6000);
@@ -630,7 +735,6 @@
                         if (text && text.includes('<')) return text;
                         throw new Error('Contenu non XML');
                     },
-                    // Proxy 3 : Cors.dev
                     async (url) => {
                         const controller = new AbortController();
                         const timer = setTimeout(() => controller.abort(), 6000);
@@ -655,7 +759,6 @@
                 throw lastErr || new Error("Passerelles inaccessibles");
             }
 
-            // Analyseur XML robuste (supporte RSS 2.0, Atom, RDF)
             function parseRssString(xmlString, feed) {
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(xmlString, "application/xml");
@@ -671,21 +774,18 @@
                     const titleNode = node.querySelector("title");
                     const title = titleNode ? cleanHtml(titleNode.textContent) : "Article sans titre";
 
-                    // Détection du lien (balise ou attribut href pour Atom)
                     let link = "#";
                     const linkNode = node.querySelector("link");
                     if (linkNode) {
                         link = linkNode.textContent.trim() || linkNode.getAttribute("href") || "#";
                     }
 
-                    // Description / Extrait
                     const descNode = node.querySelector("description, summary, content");
                     let description = descNode ? cleanHtml(descNode.textContent) : "";
                     if (description.length > 250) {
                         description = description.substring(0, 250) + "…";
                     }
 
-                    // Date de publication
                     const dateNode = node.querySelector("pubDate, published, updated, date");
                     let pubDate = new Date();
                     if (dateNode && dateNode.textContent) {
@@ -710,12 +810,10 @@
                 return articles;
             }
 
-            // Synchronisation progressive (met à jour la vue flux par flux)
             async function syncAllFeeds() {
                 if (isSyncing) return;
                 isSyncing = true;
 
-                // UI loading
                 syncStatusBanner.classList.remove('hidden');
                 syncSpinIcon.classList.add('animate-spin');
                 document.getElementById('mobile-refresh-icon').classList.add('animate-spin');
@@ -738,7 +836,6 @@
                         if (items.length > 0) {
                             feedStatus[feed.url] = 'ok';
                             
-                            // Fusion sans doublons par lien
                             const existingLinks = new Set(allArticles.map(a => a.link));
                             items.forEach(newItem => {
                                 if (!existingLinks.has(newItem.link)) {
@@ -748,13 +845,12 @@
                                 }
                             });
                             
-                            // Affichage progressif
                             renderArticles();
                         } else {
                             feedStatus[feed.url] = 'error';
                         }
                     } catch (e) {
-                        console.warn(`Échec de récupération pour ${feed.name}:`, e.message);
+                        console.warn(`Échec de récupération pour ${feed.name} :`, e.message);
                         feedStatus[feed.url] = 'error';
                     }
 
@@ -762,7 +858,6 @@
                     renderFeedsList();
                 }
 
-                // Fin de synchro
                 isSyncing = false;
                 syncSpinIcon.classList.remove('animate-spin');
                 document.getElementById('mobile-refresh-icon').classList.remove('animate-spin');
@@ -776,7 +871,6 @@
                 showToast(newArticlesFound > 0 ? `${newArticlesFound} nouveaux articles récupérés !` : "Veille à jour");
             }
 
-            // Gestion de l'ajout de flux personnalisé
             function handleAddFeed() {
                 const url = rssUrlInput.value.trim();
                 if (!url) {
@@ -796,7 +890,6 @@
                     return;
                 }
 
-                // Déduction du nom
                 let hostName = 'Flux';
                 try {
                     const parsedUrl = new URL(url);
@@ -819,7 +912,6 @@
                 syncAllFeeds();
             }
 
-            // Bascule UI des tags
             function updateTagUI() {
                 document.querySelectorAll('.tag-btn').forEach(btn => {
                     const tag = btn.dataset.tag;
@@ -833,7 +925,6 @@
                 });
             }
 
-            // Gestion du menu burger mobile
             function toggleSidebar(forceClose = false) {
                 const isOpen = !sidebar.classList.contains('-translate-x-full');
                 if (forceClose || isOpen) {
@@ -847,7 +938,6 @@
                 }
             }
 
-            // Écouteurs d'événements UI
             burgerBtn.addEventListener('click', () => toggleSidebar());
             closeSidebarBtn.addEventListener('click', () => toggleSidebar(true));
             overlay.addEventListener('click', () => toggleSidebar(true));
@@ -857,7 +947,6 @@
                 if (e.key === 'Enter') handleAddFeed();
             });
 
-            // Filtre temps réel
             filterInput.addEventListener('input', () => {
                 clearSearchBtn.classList.toggle('hidden', !filterInput.value);
                 renderArticles();
@@ -870,7 +959,6 @@
                 filterInput.focus();
             });
 
-            // Boutons de réinitialisation
             resetFeedsBtn.addEventListener('click', () => {
                 rssFeeds = [...defaultFeeds];
                 saveFeeds();
@@ -879,12 +967,10 @@
                 syncAllFeeds();
             });
 
-            // Boutons de rafraîchissement
             syncAllBtn.addEventListener('click', syncAllFeeds);
             mobileRefreshBtn.addEventListener('click', syncAllFeeds);
             desktopRefreshBtn.addEventListener('click', syncAllFeeds);
 
-            // Tags thématiques
             document.querySelectorAll('.tag-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     currentTag = btn.dataset.tag;
@@ -893,16 +979,12 @@
                 });
             });
 
-            // Initialisation
             favCountEl.textContent = favorites.length;
             renderFeedsList();
             renderArticles();
             updateTagUI();
 
-            // Lancement de la synchronisation automatique
             syncAllFeeds();
-
-            // Rafraîchissement automatique toutes les 15 minutes
             setInterval(syncAllFeeds, 15 * 60 * 1000);
         });
     </script>
