@@ -50,100 +50,102 @@
     </script>
     <!-- Favicon -->
 <link rel="icon" type="image/png" href="logo_CG2.png">
-    <!-- Données structurées pour les moteurs et les IA (Schema.org) -->
-    <script type="application/ld+json">
+    <!-- Données structurées complètes (Entités + FAQ SEO IA) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "Person",
+      "@id": "https://www.christophe-guillon.com/#person",
+      "name": "Christophe Guillon",
+      "jobTitle": "Consultant & Formateur",
+      "description": "Formateur et consultant en Intelligence Artificielle, stratégie digitale et performance commerciale.",
+      "url": "https://www.christophe-guillon.com",
+      "image": "https://www.christophe-guillon.com/Logo_CG%20(1).png",
+      "sameAs": [
+        "https://www.linkedin.com/in/guillonchristophe/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "18 rue du pressoir",
+        "addressLocality": "Saumur",
+        "postalCode": "49400",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.christophe-guillon.com/#service",
+      "name": "Christophe Guillon - Conseil & Formation",
+      "url": "https://www.christophe-guillon.com",
+      "logo": "https://www.christophe-guillon.com/Logo_CG%20(1).png",
+      "telephone": "+33675052375",
+      "email": "contact@christophe-guillon.com",
+      "priceRange": "€€",
+      "founder": {
+        "@id": "https://www.christophe-guillon.com/#person"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "18 rue du pressoir",
+        "addressLocality": "Saumur",
+        "postalCode": "49400",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.2600,
+        "longitude": -0.0769
+      },
+      "areaServed": [
+        "Saumur",
+        "Angers",
+        "Maine-et-Loire",
+        "Pays de la Loire",
+        "France"
+      ],
+      "knowsAbout": [
+        "Intelligence Artificielle",
+        "Stratégie Digitale",
+        "Performance Commerciale",
+        "Formation professionnelle",
+        "Conseil technique web"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.christophe-guillon.com/#faq",
+      "mainEntity": [
         {
-          "@type": "Person",
-          "@id": "https://www.christophe-guillon.com/#person",
-          "name": "Christophe Guillon",
-          "jobTitle": "Consultant & Formateur",
-          "description": "Formateur et consultant en Intelligence Artificielle, stratégie digitale et performance commerciale.",
-          "url": "https://www.christophe-guillon.com",
-          "image": "https://www.christophe-guillon.com/logo_CG2.png",
-          "sameAs": [
-            "https://www.linkedin.com/in/guillonchristophe/"
-          ],
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "18 rue du pressoir",
-            "addressLocality": "Saumur",
-            "postalCode": "49400",
-            "addressCountry": "FR"
+          "@type": "Question",
+          "name": "Dans quelles zones géographiques intervient Christophe Guillon ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Basé à Saumur (49400), Christophe Guillon intervient en présentiel à Saumur, Angers, dans tout le Maine-et-Loire et la région Pays de la Loire, ainsi qu'à distance dans toute la France."
           }
         },
         {
-          "@type": "ProfessionalService",
-          "@id": "https://www.christophe-guillon.com/#service",
-          "name": "Christophe Guillon - Conseil & Formation",
-          "url": "https://www.christophe-guillon.com",
-          "logo": "https://www.christophe-guillon.com/logo_CG2.png",
-          "telephone": "+33675052375",
-          "email": "contact@christophe-guillon.com",
-          "priceRange": "€€",
-          "founder": {
-            "@id": "https://www.christophe-guillon.com/#person"
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "18 rue du pressoir",
-            "addressLocality": "Saumur",
-            "postalCode": "49400",
-            "addressCountry": "FR"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 47.2600,
-            "longitude": -0.0769
-          },
-          "areaServed": [
-            "Saumur",
-            "Angers",
-            "Maine-et-Loire",
-            "Pays de la Loire",
-            "France"
-          ],
-          "knowsAbout": [
-            "Intelligence Artificielle",
-            "Stratégie Digitale",
-            "Performance Commerciale",
-            "Formation professionnelle",
-            "Conseil technique web"
-          ]
+          "@type": "Question",
+          "name": "Quels sont les domaines d'intervention de Christophe Guillon ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Christophe Guillon accompagne les dirigeants de TPE, PME et organismes de formation sur trois piliers majeurs : l'intégration concrète de l'IA dans les processus métiers, la stratégie digitale orientée retour sur investissement et l'efficacité commerciale terrain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment solliciter Christophe Guillon pour un accompagnement ou une formation ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous pouvez prendre contact directement par courriel à contact@christophe-guillon.com ou par téléphone au 06 75 05 23 75 pour organiser un premier échange de cadrage sans engagement."
+          }
         }
-      ]{
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Dans quelles zones intervient Christophe Guillon ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Basé à Saumur en Maine-et-Loire (49), Christophe Guillon intervient en présentiel dans le Saumurois, à Angers, en région Pays de la Loire, ainsi qu'à distance dans toute la France pour des missions de conseil et des sessions de formation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels sont les domaines d'accompagnement proposés aux entreprises ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Christophe Guillon accompagne les dirigeants de TPE, PME et organismes de formation sur trois piliers : l'intégration concrète de l'Intelligence Artificielle dans les processus métiers, la définition de la stratégie digitale orientée retour sur investissement, et le renforcement de la performance commerciale sur le terrain."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment initier un premier échange ou diagnostic ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La prise de contact se fait directement par courriel à contact@christophe-guillon.com ou par téléphone au 06 75 05 23 75 pour convenir d'un premier échange de cadrage sans engagement."
-      }
+      ]
     }
   ]
 }
-    }
-    </script>
+</script>
     <!-- Balises Open Graph (Partage LinkedIn, WhatsApp, Facebook) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.christophe-guillon.com/">
