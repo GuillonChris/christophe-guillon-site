@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# Moteurs d'IA et recherche générative
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://www.christophe-guillon.com/sitemap.xml
