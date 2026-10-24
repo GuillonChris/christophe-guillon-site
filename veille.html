@@ -342,7 +342,7 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script du lecteur RSS (conservé à l'identique avec toutes ses fonctionnalités) -->
+    <!-- Script optimisé avec extraction d'URL précise -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -391,51 +391,40 @@
                 { id: '15', name: 'L\'Usine Nouvelle', url: 'https://www.usinenouvelle.com/rss/ia/', category: 'IA' }
             ];
 
+            // Articles d'attente (avec liens directs complets)
             const fallbackArticles = [
                 {
                     title: "L'impact des agents autonomes et de l'IA générative dans l'automatisation NoCode",
-                    link: "https://siecledigital.fr",
+                    link: "https://siecledigital.fr/intelligence-artificielle/",
                     feedName: "Siècle Digital",
                     pubDate: new Date(Date.now() - 1000 * 60 * 35),
-                    description: "Les nouveaux connecteurs NoCode permettent d'orchestrer des agents intelligents capables d'analyser des documents, de générer du code ou de qualifier des leads en temps réel.",
-                    category: "NoCode"
+                    description: "Les nouveaux connecteurs NoCode permettent d'orchestrer des agents intelligents capables d'analyser des documents et de traiter des tâches complexes en temps réel.",
+                    category: "NoCode",
+                    isFallback: true
                 },
                 {
                     title: "Régulation de l'IA en Europe : les clés de conformité pour les créateurs et entreprises",
-                    link: "https://fr.euronews.com",
+                    link: "https://fr.euronews.com/next/intelligence-artificielle",
                     feedName: "Euronews IA",
                     pubDate: new Date(Date.now() - 1000 * 60 * 90),
                     description: "Analyse des critères d'évaluation des risques et des obligations de transparence pour les modèles d'intelligence artificielle déployés dans les services web.",
-                    category: "IA"
+                    category: "IA",
+                    isFallback: true
                 },
                 {
                     title: "N8N, Make et Zapier : comparatif des meilleures solutions pour interconnecter les LLM",
-                    link: "https://www.usine-digitale.fr",
+                    link: "https://www.usine-digitale.fr/intelligence-artificielle/",
                     feedName: "L'Usine Digitale",
                     pubDate: new Date(Date.now() - 1000 * 60 * 180),
-                    description: "Comment concevoir des flux automatisés résilients associant modèles open source hébergés et APIs de pointe sans écrire une seule ligne de code.",
-                    category: "NoCode"
-                },
-                {
-                    title: "OpenAI, Anthropic et Google : la course aux modèles de raisonnement avancé",
-                    link: "https://www.journaldunet.com",
-                    feedName: "Journal du Net",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 240),
-                    description: "Les benchmarks démontrent une nette amélioration dans la résolution des problèmes complexes, des mathématiques et de l'ingénierie logicielle.",
-                    category: "IA"
-                },
-                {
-                    title: "Créer une application métier complète en 48 heures grâce aux outils NoCode & IA",
-                    link: "https://www.presse-citron.net",
-                    feedName: "Presse Citron IA",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 360),
-                    description: "De la modélisation de base de données à la génération des interfaces utilisateurs, découvrez comment accélérer radicalement le time-to-market.",
-                    category: "NoCode"
+                    description: "Comment concevoir des flux automatisés résilients associant modèles d'IA générative et APIs de pointe sans écrire une seule ligne de code.",
+                    category: "NoCode",
+                    isFallback: true
                 }
             ];
 
             let rssFeeds = loadFeeds();
             let allArticles = [...fallbackArticles];
+            let hasLiveArticles = false;
             let favorites = JSON.parse(localStorage.getItem('savedFavorites') || '[]');
             let currentTag = '';
             let isSyncing = false;
@@ -662,7 +651,7 @@
                         </div>
                         <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                             <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1 group">
-                                <span>Lire l'article</span>
+                                <span>Lire l'article complet</span>
                                 <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
@@ -759,6 +748,44 @@
                 throw lastErr || new Error("Passerelles inaccessibles");
             }
 
+            // Extraction multi-critères du lien direct et précis de l'article
+            function extractPreciseLink(node) {
+                // 1. Atom : recherche de la balise rel="alternate"
+                const altLink = node.querySelector('link[rel="alternate"]');
+                if (altLink && altLink.getAttribute('href')) {
+                    const href = altLink.getAttribute('href').trim();
+                    if (href.startsWith('http')) return href;
+                }
+
+                // 2. FeedBurner : recherche du lien original direct
+                const origLink = node.querySelector('origLink');
+                if (origLink && origLink.textContent) {
+                    const url = origLink.textContent.trim();
+                    if (url.startsWith('http')) return url;
+                }
+
+                // 3. RSS 2.0 classique : parcourir toutes les balises <link>
+                const linkNodes = node.querySelectorAll('link');
+                for (const l of linkNodes) {
+                    const text = (l.textContent || '').trim();
+                    if (text.startsWith('http')) return text;
+
+                    const href = l.getAttribute('href');
+                    if (href && href.startsWith('http') && l.getAttribute('rel') !== 'self') {
+                        return href.trim();
+                    }
+                }
+
+                // 4. Balise <guid> (si elle contient une URL absolue)
+                const guidNode = node.querySelector('guid');
+                if (guidNode && guidNode.textContent) {
+                    const guidText = guidNode.textContent.trim();
+                    if (guidText.startsWith('http')) return guidText;
+                }
+
+                return '#';
+            }
+
             function parseRssString(xmlString, feed) {
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(xmlString, "application/xml");
@@ -774,11 +801,8 @@
                     const titleNode = node.querySelector("title");
                     const title = titleNode ? cleanHtml(titleNode.textContent) : "Article sans titre";
 
-                    let link = "#";
-                    const linkNode = node.querySelector("link");
-                    if (linkNode) {
-                        link = linkNode.textContent.trim() || linkNode.getAttribute("href") || "#";
-                    }
+                    // Extraction du lien précis vers la page de l'article
+                    const link = extractPreciseLink(node);
 
                     const descNode = node.querySelector("description, summary, content");
                     let description = descNode ? cleanHtml(descNode.textContent) : "";
@@ -836,6 +860,12 @@
                         if (items.length > 0) {
                             feedStatus[feed.url] = 'ok';
                             
+                            // Dès que les premiers vrais articles arrivent, purge des exemples d'attente
+                            if (!hasLiveArticles) {
+                                allArticles = allArticles.filter(a => !a.isFallback);
+                                hasLiveArticles = true;
+                            }
+
                             const existingLinks = new Set(allArticles.map(a => a.link));
                             items.forEach(newItem => {
                                 if (!existingLinks.has(newItem.link)) {
