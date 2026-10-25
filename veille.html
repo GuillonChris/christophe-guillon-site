@@ -82,7 +82,7 @@
     <header class="sticky top-0 w-full bg-brand-dark/95 backdrop-blur-md z-50 border-b border-slate-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 md:gap-4 group">
-                <img src="logo_CG2.png" alt="Christophe Guillon - Consultant &amp; Formateur" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <img src="logo_CG2.png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='Logo_CG%20(1).png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col">
                     <span class="text-white font-heading font-extrabold text-sm md:text-base leading-none tracking-wide">CHRISTOPHE GUILLON</span>
                     <span class="text-brand-yellow font-heading text-[9px] md:text-[10px] font-semibold mt-1 uppercase tracking-wider">CONSULTANT &amp; FORMATEUR</span>
@@ -134,7 +134,7 @@
             <div>
                 <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Flux &amp; Signaux Faibles</span>
                 <h1 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 mt-1">Veille Stratégique IA &amp; NoCode</h1>
-                <p class="text-sm text-slate-600 mt-1">Sélection continue des 20 dernières actualités avec accès direct aux articles sources.</p>
+                <p class="text-sm text-slate-600 mt-1">Sélection continue des 20 dernières actualités vérifiées sur l'IA, le NoCode et l'automatisation.</p>
             </div>
             <a href="index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-brand-accent transition">
                 <span>&larr; Retour à l'accueil</span>
@@ -258,7 +258,7 @@
                 <!-- Barre d'état et filtres actifs -->
                 <div class="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between flex-shrink-0">
                     <div class="flex items-center space-x-3">
-                        <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Dernières actualités en continu</h2>
+                        <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Dernières actualités IA &amp; NoCode</h2>
                         <span id="articles-badge" class="bg-slate-100 text-slate-600 font-semibold text-xs px-2.5 py-0.5 rounded-full border border-slate-200">0</span>
                     </div>
                     <div class="flex items-center space-x-2 text-xs text-slate-500">
@@ -340,7 +340,7 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script Robuste : Récupération Directe des Liens Profonds sans faux articles -->
+    <!-- Script Robuste avec Filtrage Sémantique IA & NoCode Strict -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -374,21 +374,21 @@
             const mobileRefreshBtn = document.getElementById('mobile-refresh-btn');
             const desktopRefreshBtn = document.getElementById('desktop-refresh-btn');
 
-            // 10 flux RSS réputés, stables et à forte fréquence de publication
+            // 10 flux RSS ciblés précisément sur l'IA, le NoCode et la tech pro
             const defaultFeeds = [
-                { id: '1', name: 'Le Monde Pixels & IA', url: 'https://www.lemonde.fr/pixels/rss_full.xml', category: 'IA' },
-                { id: '2', name: 'Clubic Actus Tech', url: 'https://www.clubic.com/feed/news.rss', category: 'IA' },
-                { id: '3', name: 'Frandroid Tech', url: 'https://www.frandroid.com/feed', category: 'IA' },
-                { id: '4', name: '01Net Actualités', url: 'https://www.01net.com/actualites/feed/', category: 'IA' },
-                { id: '5', name: 'Siècle Digital', url: 'https://siecledigital.fr/feed/', category: 'IA' },
-                { id: '6', name: 'Presse Citron', url: 'https://www.presse-citron.net/feed/', category: 'IA' },
-                { id: '7', name: 'L\'Usine Digitale', url: 'https://www.usine-digitale.fr/rss', category: 'IA' },
-                { id: '8', name: 'Korben Tech', url: 'https://korben.info/feed', category: 'NoCode' },
-                { id: '9', name: 'Silicon.fr', url: 'https://www.silicon.fr/feed', category: 'IA' },
-                { id: '10', name: 'Journal du Net Tech', url: 'https://www.journaldunet.com/rubrique/rss/', category: 'IA' }
+                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?q=%22intelligence+artificielle%22+OR+ChatGPT+OR+LLM&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
+                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22+OR+make+OR+n8n&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
+                { id: '3', name: 'L\'Usine Digitale IA', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss', category: 'IA' },
+                { id: '4', name: 'Siècle Digital IA', url: 'https://siecledigital.fr/intelligence-artificielle/feed/', category: 'IA' },
+                { id: '5', name: '01Net IA', url: 'https://www.01net.com/actualites/intelligence-artificielle/feed/', category: 'IA' },
+                { id: '6', name: 'Presse Citron IA', url: 'https://www.presse-citron.net/category/intelligence-artificielle/feed/', category: 'IA' },
+                { id: '7', name: 'Journal du Net IA', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/', category: 'IA' },
+                { id: '8', name: 'Silicon Data & IA', url: 'https://www.silicon.fr/rss/data-ia-1372.xml', category: 'IA' },
+                { id: '9', name: 'Le Monde Pixels & IA', url: 'https://www.lemonde.fr/pixels/rss_full.xml', category: 'IA' },
+                { id: '10', name: 'Clubic IA & Pro', url: 'https://www.clubic.com/feed/news.rss', category: 'IA' }
             ];
 
-            // Validation stricte : exclut catégoriquement les pages d'accueil et racines de domaines
+            // Validation stricte d'URL profonde
             function isDeepLink(url) {
                 if (!url || typeof url !== 'string' || !url.startsWith('http')) return false;
                 try {
@@ -401,6 +401,23 @@
                 }
             }
 
+            // GARDE-FOU THÉMATIQUE : vérifie que l'article traite bien d'IA, de NoCode, de productivité ou de transformation digitale
+            function isRelevantTopic(title, description) {
+                const text = `${title} ${description}`.toLowerCase();
+                const keywords = [
+                    'ia', 'intelligence artificielle', 'nocode', 'no-code', 'chatgpt', 'openai', 'claude', 
+                    'gemini', 'copilot', 'llm', 'make', 'zapier', 'n8n', 'automatisation', 'automation', 
+                    'prompt', 'deepseek', 'mistral', 'midjourney', 'machine learning', 'algorithme', 
+                    'data', 'logiciel', 'saas', 'crm', 'digital', 'numérique', 'cloud', 'cybersécurité',
+                    'technologie', 'bot', 'agent', 'outil', 'productivité', 'api'
+                ];
+                // Élimination des matériels grand public hors-sujet
+                const blacklisted = ['trottinette', 'aspirateur', 'lave-linge', 'frigo', 'téléviseur', 'vélo électrique', 'barre de son', 'four'];
+                if (blacklisted.some(b => text.includes(b))) return false;
+
+                return keywords.some(k => text.includes(k));
+            }
+
             let rssFeeds = loadFeeds();
             let allArticles = loadCachedArticles();
             let favorites = JSON.parse(localStorage.getItem('savedFavorites') || '[]');
@@ -410,7 +427,7 @@
 
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('cg_rss_feeds_v8');
+                    const saved = localStorage.getItem('cg_rss_feeds_v9');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -422,18 +439,17 @@
             }
 
             function saveFeeds() {
-                localStorage.setItem('cg_rss_feeds_v8', JSON.stringify(rssFeeds));
+                localStorage.setItem('cg_rss_feeds_v9', JSON.stringify(rssFeeds));
             }
 
-            // Chargement sécurisé : ne retient que les vrais liens profonds vérifiés
             function loadCachedArticles() {
                 try {
-                    const saved = localStorage.getItem('cg_live_articles_v8');
+                    const saved = localStorage.getItem('cg_live_articles_v9');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) {
                             return parsed
-                                .filter(a => isDeepLink(a.link) && !a.link.includes('a12345') && !a.link.includes('N2254321'))
+                                .filter(a => isDeepLink(a.link) && isRelevantTopic(a.title, a.description))
                                 .map(a => ({ ...a, pubDate: new Date(a.pubDate) }));
                         }
                     }
@@ -445,8 +461,8 @@
 
             function saveCachedArticles() {
                 try {
-                    const toSave = allArticles.filter(a => isDeepLink(a.link)).slice(0, 40);
-                    localStorage.setItem('cg_live_articles_v8', JSON.stringify(toSave));
+                    const toSave = allArticles.filter(a => isDeepLink(a.link) && isRelevantTopic(a.title, a.description)).slice(0, 40);
+                    localStorage.setItem('cg_live_articles_v9', JSON.stringify(toSave));
                 } catch (e) {
                     console.warn("Erreur sauvegarde :", e);
                 }
@@ -469,7 +485,7 @@
             function cleanHtml(rawHtml) {
                 if (!rawHtml) return '';
                 const doc = new DOMParser().parseFromString(rawHtml, 'text/html');
-                return (doc.body.textContent || "").replace(/\s+/g, ' ').trim();
+                return (doc.body.textContent || "").replace(/\\s+/g, ' ').trim();
             }
 
             function formatRelativeTime(date) {
@@ -579,6 +595,7 @@
                 
                 let filtered = allArticles.filter(article => {
                     if (!isDeepLink(article.link)) return false;
+                    if (!isRelevantTopic(article.title, article.description)) return false;
 
                     const matchQuery = !query || 
                         article.title.toLowerCase().includes(query) ||
@@ -601,7 +618,7 @@
                     return matchQuery && matchTag;
                 });
 
-                // Tri chronologique décroissant : les parutions les plus récentes en tête
+                // Tri par récence absolue
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
                 // Plafonnement strict aux 20 premiers résultats
@@ -616,8 +633,8 @@
                             <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl">
                                 🔄
                             </div>
-                            <h3 class="font-bold text-slate-800 text-base mb-1">Connexion aux flux en direct...</h3>
-                            <p class="text-xs text-slate-500 mb-4">Interrogation des rédactions partenaires en cours sans intermédiaire.</p>
+                            <h3 class="font-bold text-slate-800 text-base mb-1">Connexion aux flux IA &amp; NoCode...</h3>
+                            <p class="text-xs text-slate-500 mb-4">Récupération des 20 dernières actualités ciblées en cours.</p>
                             <button id="force-load-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">
                                 Lancer la synchronisation
                             </button>
@@ -701,35 +718,31 @@
                 tempInput.select();
                 try {
                     document.execCommand('copy');
-                    showToast("Lien copié dans le presse-papiers !");
+                    showToast("Lien de l'article copié !");
                 } catch (e) {
                     showToast("Impossible de copier automatiquement");
                 }
                 document.body.removeChild(tempInput);
             }
 
-            // Extraction multi-critères : garantit la récupération de l'URL spécifique de l'article
+            // Extraction multi-formats du lien spécifique
             function extractPreciseLink(node) {
                 const candidates = [];
 
-                // 1. Balise origLink
                 const origLink = node.querySelector('origLink');
                 if (origLink && origLink.textContent) candidates.push(origLink.textContent.trim());
 
-                // 2. Guid permalink
                 const guidNode = node.querySelector('guid');
                 if (guidNode && guidNode.textContent) {
                     const g = guidNode.textContent.trim();
                     if (g.startsWith('http')) candidates.push(g);
                 }
 
-                // 3. Atom rel="alternate"
                 const altLink = node.querySelector('link[rel="alternate"]');
                 if (altLink && altLink.getAttribute('href')) {
                     candidates.push(altLink.getAttribute('href').trim());
                 }
 
-                // 4. Balises link
                 const linkNodes = node.querySelectorAll('link');
                 for (const l of linkNodes) {
                     const t = (l.textContent || '').trim();
@@ -740,12 +753,15 @@
                     }
                 }
 
-                // Retourne le premier vrai lien profond
+                const rawNodeXml = node.outerHTML || node.innerHTML || '';
+                const match = rawNodeXml.match(/<link[^>]*>(https?:\/\/[^<]+)<\/link>/i);
+                if (match && match[1]) candidates.push(match[1].trim());
+
                 for (const url of candidates) {
                     if (isDeepLink(url)) return url;
                 }
 
-                return '#';
+                return candidates.find(c => c.startsWith('http')) || '#';
             }
 
             function parseRssXml(xmlString, feed) {
@@ -761,6 +777,18 @@
                     let title = titleNode ? cleanHtml(titleNode.textContent) : "Article sans titre";
                     const link = extractPreciseLink(node);
 
+                    let sourceBadge = feed.name;
+                    const sourceNode = node.querySelector("source");
+                    if (sourceNode && sourceNode.textContent.trim()) {
+                        sourceBadge = sourceNode.textContent.trim();
+                    } else if (title.includes(' - ')) {
+                        const parts = title.split(' - ');
+                        if (parts.length > 1) {
+                            sourceBadge = parts.pop().trim();
+                            title = parts.join(' - ').trim();
+                        }
+                    }
+
                     const descNode = node.querySelector("description, summary, content");
                     let description = descNode ? cleanHtml(descNode.textContent) : "";
                     if (description.length > 250) {
@@ -774,14 +802,14 @@
                         if (!isNaN(parsedDate.getTime())) pubDate = parsedDate;
                     }
 
-                    // Seuls les articles avec lien profond et titre valide sont retenus
-                    if (title && isDeepLink(link)) {
+                    // Seuls les articles valides ET pertinents thématiquement sont acceptés
+                    if (title && isDeepLink(link) && isRelevantTopic(title, description)) {
                         articles.push({
                             title,
                             link,
                             description,
                             pubDate,
-                            feedName: feed.name,
+                            feedName: sourceBadge,
                             category: feed.category || (title.toLowerCase().includes('nocode') ? 'NoCode' : 'IA')
                         });
                     }
@@ -790,11 +818,11 @@
                 return articles;
             }
 
-            // Récupération multi-passerelles sécurisée
+            // Récupération multi-passerelles sans blocage
             async function fetchArticlesFromFeed(feed) {
                 const bust = Date.now();
 
-                // 1. rss2json direct (retourne les vrais liens complets directement)
+                // 1. rss2json (Priorité absolue pour flux XML)
                 try {
                     const ctrl = new AbortController();
                     const timer = setTimeout(() => ctrl.abort(), 6000);
@@ -814,29 +842,12 @@
                                     feedName: feed.name,
                                     category: feed.category || 'IA'
                                 }))
-                                .filter(a => isDeepLink(a.link));
+                                .filter(a => isDeepLink(a.link) && isRelevantTopic(a.title, a.description));
                         }
                     }
                 } catch (_) {}
 
-                // 2. AllOrigins RAW
-                try {
-                    const ctrl = new AbortController();
-                    const timer = setTimeout(() => ctrl.abort(), 6500);
-                    const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(feed.url)}&_=${bust}`, {
-                        signal: ctrl.signal
-                    });
-                    clearTimeout(timer);
-                    if (res.ok) {
-                        const xmlText = await res.text();
-                        if (xmlText && xmlText.includes('<')) {
-                            const items = parseRssXml(xmlText, feed);
-                            if (items.length > 0) return items;
-                        }
-                    }
-                } catch (_) {}
-
-                // 3. CorsProxy.io
+                // 2. CorsProxy.io
                 try {
                     const ctrl = new AbortController();
                     const timer = setTimeout(() => ctrl.abort(), 6500);
@@ -853,10 +864,27 @@
                     }
                 } catch (_) {}
 
-                throw new Error("Flux momentanément indisponible");
+                // 3. AllOrigins RAW
+                try {
+                    const ctrl = new AbortController();
+                    const timer = setTimeout(() => ctrl.abort(), 6500);
+                    const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(feed.url)}&_=${bust}`, {
+                        signal: ctrl.signal
+                    });
+                    clearTimeout(timer);
+                    if (res.ok) {
+                        const xmlText = await res.text();
+                        if (xmlText && xmlText.includes('<')) {
+                            const items = parseRssXml(xmlText, feed);
+                            if (items.length > 0) return items;
+                        }
+                    }
+                } catch (_) {}
+
+                throw new Error("Flux inaccessible");
             }
 
-            // Synchronisation par lots cadencée
+            // Synchronisation cadencée
             async function syncAllFeeds() {
                 if (isSyncing) return;
                 isSyncing = true;
@@ -890,7 +918,7 @@
 
                             const existingLinks = new Set(allArticles.map(a => a.link));
                             res.value.forEach(newItem => {
-                                if (isDeepLink(newItem.link) && !existingLinks.has(newItem.link)) {
+                                if (isDeepLink(newItem.link) && isRelevantTopic(newItem.title, newItem.description) && !existingLinks.has(newItem.link)) {
                                     allArticles.push(newItem);
                                     existingLinks.add(newItem.link);
                                     newArticlesFound++;
@@ -1012,15 +1040,15 @@
                 rssFeeds = [...defaultFeeds];
                 saveFeeds();
                 renderFeedsList();
-                showToast("10 flux réinitialisés par défaut !");
+                showToast("10 flux IA & NoCode réinitialisés !");
                 syncAllFeeds();
             });
 
             clearCacheBtn.addEventListener('click', () => {
-                localStorage.removeItem('cg_live_articles_v8');
+                localStorage.removeItem('cg_live_articles_v9');
                 allArticles = [];
                 renderArticles();
-                showToast("Cache vidé, rechargement en direct...", "🔄");
+                showToast("Rechargement propre en cours...", "🔄");
                 syncAllFeeds();
             });
 
@@ -1041,7 +1069,7 @@
             renderArticles();
             updateTagUI();
 
-            // Lancement automatique de la synchronisation en direct
+            // Synchronisation en direct
             syncAllFeeds();
             setInterval(syncAllFeeds, 10 * 60 * 1000);
         });
