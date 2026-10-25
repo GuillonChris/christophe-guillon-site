@@ -217,17 +217,17 @@
             <div>
                 <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Flux &amp; Signaux Faibles</span>
                 <h1 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 mt-1">Veille Stratégique IA &amp; NoCode</h1>
-                <p class="text-sm text-slate-600 mt-1">Sélection continue des 20 dernières actualités en direct issues de la presse tech et des médias spécialisés.</p>
+                <p class="text-sm text-slate-600 mt-1">Sélection continue des actualités en direct issues de la presse tech et des médias spécialisés mondiaux et français.</p>
             </div>
             <a href="index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-brand-accent transition">
                 <span>&larr; Retour à l'accueil</span>
             </a>
         </div>
 
-        <!-- Lecteur de flux RSS (Pleine largeur) -->
+        <!-- Lecteur de flux RSS (Pleine largeur avec pagination) -->
         <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm flex flex-col overflow-hidden h-[750px] md:h-[820px] relative">
 
-            <!-- Barre d'outils supérieure avec HORODATEUR EN TÊTE -->
+            <!-- Barre d'outils supérieure -->
             <div class="bg-white border-b border-slate-200 px-4 sm:px-6 py-3.5 flex items-center justify-between flex-shrink-0 gap-3">
                 
                 <div class="flex items-center space-x-3">
@@ -246,7 +246,6 @@
 
                 <!-- Zone Horodateur & Bouton de synchronisation -->
                 <div class="flex items-center space-x-2.5 text-xs">
-                    <!-- Horodateur principal visible en permanence -->
                     <div class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-slate-50 border border-slate-200/80 rounded-xl text-slate-600 font-medium">
                         <span id="main-sync-dot" class="w-2 h-2 rounded-full bg-emerald-500"></span>
                         <span id="main-sync-time" class="truncate">Dernière mise à jour&nbsp;: --:--</span>
@@ -270,9 +269,24 @@
                 <span id="sync-progress" class="font-medium text-indigo-900"></span>
             </div>
 
-            <!-- Liste des cartes d'articles -->
+            <!-- Liste défilante des cartes d'articles -->
             <div id="feed-container" class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3 sm:space-y-4 bg-slate-50">
                 <!-- Les cartes d'articles sont injectées dynamiquement ici -->
+            </div>
+
+            <!-- Barre de pagination fixe en bas du lecteur -->
+            <div id="pagination-bar" class="bg-white border-t border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between text-xs flex-shrink-0">
+                <button id="prev-page-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-semibold border border-slate-200 hover:bg-slate-50 text-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-xs">
+                    <span>&larr;</span>
+                    <span>Précédent</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <span id="pagination-info" class="font-semibold text-slate-700">Page 1 sur 1</span>
+                </div>
+                <button id="next-page-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-semibold border border-slate-200 hover:bg-slate-50 text-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-xs">
+                    <span>Suivant</span>
+                    <span>&rarr;</span>
+                </button>
             </div>
         </div>
 
@@ -328,11 +342,12 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script Temps Réel avec Horodateur Visible -->
+    <!-- Script Temps Réel avec Flux Illimités et Pagination à 20 articles -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            const MAX_DISPLAY_ARTICLES = 20;
+            const ARTICLES_PER_PAGE = 20;
+            let currentPage = 1;
 
             const feedContainer = document.getElementById('feed-container');
             const filterInput = document.getElementById('filter-input');
@@ -361,6 +376,9 @@
             const syncAllBtn = document.getElementById('sync-all-btn');
             const syncSpinIcon = document.getElementById('sync-spin-icon');
             const drawerRefreshBtn = document.getElementById('drawer-refresh-btn');
+            const prevPageBtn = document.getElementById('prev-page-btn');
+            const nextPageBtn = document.getElementById('next-page-btn');
+            const paginationInfo = document.getElementById('pagination-info');
 
             // 10 flux calibrés en direct avec scoring=n (actualisation continue)
             const defaultFeeds = [
@@ -376,7 +394,7 @@
                 { id: '10', name: 'Ars Technica AI', url: 'https://arstechnica.com/tag/ai/feed/', category: 'IA' }
             ];
 
-            // Validation d'URL profonde
+            // Validation stricte d'URL profonde (rejette toute racine)
             function isDeepLink(url) {
                 if (!url || typeof url !== 'string' || !url.startsWith('http')) return false;
                 try {
@@ -389,7 +407,7 @@
                 }
             }
 
-            // Filtrage thématique
+            // Filtrage thématique bilingue
             function isRelevantTopic(title, description) {
                 const text = `${title} ${description}`.toLowerCase();
                 const blacklisted = ['trottinette', 'aspirateur', 'scooter', 'lave-linge', 'frigo', 'réfrigérateur', 'téléviseur', 'barre de son', 'four'];
@@ -443,7 +461,7 @@
 
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('cg_rss_feeds_v15');
+                    const saved = localStorage.getItem('cg_rss_feeds_v16');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -455,7 +473,7 @@
             }
 
             function saveFeeds() {
-                localStorage.setItem('cg_rss_feeds_v15', JSON.stringify(rssFeeds));
+                localStorage.setItem('cg_rss_feeds_v16', JSON.stringify(rssFeeds));
             }
 
             function saveFavorites() {
@@ -607,22 +625,33 @@
                     return matchQuery && matchTag;
                 });
 
-                // Tri chronologique décroissant : dépêches les plus fraîches en premier
+                // Tri chronologique décroissant de l'intégralité des flux récupérés
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
-                // Limitation stricte aux 20 premiers résultats
-                const displayedArticles = filtered.slice(0, MAX_DISPLAY_ARTICLES);
+                // Calculs de pagination
+                const totalArticles = filtered.length;
+                articlesBadge.textContent = `${totalArticles} article${totalArticles > 1 ? 's' : ''}`;
 
-                articlesBadge.textContent = displayedArticles.length;
+                const totalPages = Math.max(1, Math.ceil(totalArticles / ARTICLES_PER_PAGE));
+                if (currentPage > totalPages) currentPage = totalPages;
+                if (currentPage < 1) currentPage = 1;
 
-                if (displayedArticles.length === 0) {
+                const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
+                const displayedArticles = filtered.slice(startIndex, startIndex + ARTICLES_PER_PAGE);
+
+                // Mise à jour des contrôles de pagination
+                paginationInfo.textContent = `Page ${currentPage} sur ${totalPages} (${totalArticles} au total)`;
+                prevPageBtn.disabled = (currentPage <= 1);
+                nextPageBtn.disabled = (currentPage >= totalPages);
+
+                if (totalArticles === 0) {
                     feedContainer.innerHTML = `
                         <div class="bg-white rounded-2xl border border-slate-200/80 p-8 text-center max-w-md mx-auto my-12 shadow-sm">
                             <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl animate-spin">
                                 🔄
                             </div>
                             <h3 class="font-bold text-slate-800 text-base mb-1">Connexion aux flux en direct...</h3>
-                            <p class="text-xs text-slate-500 mb-4">Interrogation des rédactions en cours sans aucun cache intermédiaire.</p>
+                            <p class="text-xs text-slate-500 mb-4">Interrogation directe des flux en cours sans aucun cache intermédiaire.</p>
                             <button id="force-load-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">
                                 Lancer la synchronisation
                             </button>
@@ -696,6 +725,25 @@
                     feedContainer.appendChild(card);
                 });
             }
+
+            // Événements de pagination
+            prevPageBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderArticles();
+                    feedContainer.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+
+            nextPageBtn.addEventListener('click', () => {
+                const totalArticles = allArticles.length;
+                const totalPages = Math.max(1, Math.ceil(totalArticles / ARTICLES_PER_PAGE));
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderArticles();
+                    feedContainer.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
 
             function copyLinkSafely(url) {
                 const tempInput = document.createElement('textarea');
@@ -872,15 +920,13 @@
                 throw new Error("Flux inaccessible");
             }
 
-            // Synchronisation cadencée avec horodatage en direct
+            // Synchronisation cadencée
             async function syncAllFeeds() {
                 if (isSyncing) return;
                 isSyncing = true;
 
                 syncStatusBanner.classList.remove('hidden');
                 syncSpinIcon.classList.add('animate-spin');
-                
-                // Animation de l'horodateur
                 mainSyncDot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
                 mainSyncTime.textContent = 'Actualisation...';
                 syncIndicator.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
@@ -927,16 +973,13 @@
                 isSyncing = false;
                 syncSpinIcon.classList.remove('animate-spin');
                 syncStatusBanner.classList.add('hidden');
+                syncIndicator.className = 'w-2 h-2 rounded-full bg-emerald-500';
+                mainSyncDot.className = 'w-2 h-2 rounded-full bg-emerald-500';
 
-                // Mise à jour de l'horodatage en direct
                 const now = new Date();
                 const timeString = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-                
-                mainSyncDot.className = 'w-2 h-2 rounded-full bg-emerald-500';
                 mainSyncTime.textContent = `Mis à jour à ${timeString}`;
-                syncIndicator.className = 'w-2 h-2 rounded-full bg-emerald-500';
                 lastUpdatedText.textContent = `Actualisé à ${timeString}`;
-
                 localStorage.setItem('cg_last_sync_time', timeString);
 
                 showToast(newArticlesFound > 0 ? `${newArticlesFound} nouveaux articles récupérés !` : "Veille à jour");
@@ -1002,12 +1045,14 @@
             });
 
             filterInput.addEventListener('input', () => {
+                currentPage = 1;
                 clearSearchBtn.classList.toggle('hidden', !filterInput.value);
                 renderArticles();
             });
 
             clearSearchBtn.addEventListener('click', () => {
                 filterInput.value = '';
+                currentPage = 1;
                 clearSearchBtn.classList.add('hidden');
                 renderArticles();
                 filterInput.focus();
@@ -1023,17 +1068,25 @@
 
             clearCacheBtn.addEventListener('click', () => {
                 allArticles = [];
+                currentPage = 1;
                 renderArticles();
                 showToast("Actualisation en direct forcée...", "🔄");
                 syncAllFeeds();
             });
 
-            syncAllBtn.addEventListener('click', syncAllFeeds);
-            drawerRefreshBtn.addEventListener('click', syncAllFeeds);
+            syncAllBtn.addEventListener('click', () => {
+                currentPage = 1;
+                syncAllFeeds();
+            });
+            drawerRefreshBtn.addEventListener('click', () => {
+                currentPage = 1;
+                syncAllFeeds();
+            });
 
             document.querySelectorAll('.tag-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     currentTag = btn.dataset.tag;
+                    currentPage = 1;
                     updateTagUI();
                     renderArticles();
                 });
