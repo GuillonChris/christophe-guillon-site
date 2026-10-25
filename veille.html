@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-VESQ4YWCTS');
     </script>
 
@@ -342,7 +341,7 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script optimisé (Top 20, bris de cache et liens profonds) -->
+    <!-- Script robuste et persistant avec parsing hybride et limitation à 20 articles -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -376,21 +375,18 @@
             const desktopRefreshBtn = document.getElementById('desktop-refresh-btn');
 
             const defaultFeeds = [
-                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?tbm=nws&q=intelligence+artificielle&scoring=n&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
-                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
-                { id: '3', name: 'Euronews IA', url: 'https://fr.euronews.com/rss?level=tag&name=intelligence-artificielle', category: 'IA' },
+                { id: '1', name: 'Siècle Digital', url: 'https://siecledigital.fr/intelligence-artificielle/feed/', category: 'IA' },
+                { id: '2', name: 'Presse Citron IA', url: 'https://www.presse-citron.net/category/intelligence-artificielle/feed/', category: 'IA' },
+                { id: '3', name: 'L\'Usine Digitale', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss', category: 'IA' },
                 { id: '4', name: '01Net IA', url: 'https://www.01net.com/actualites/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '5', name: 'Intelligence-Artificielle.com', url: 'https://intelligence-artificielle.com/feed/', category: 'IA' },
-                { id: '6', name: 'Journal du Net', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/', category: 'IA' },
-                { id: '7', name: 'L\'Usine Digitale', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss', category: 'IA' },
-                { id: '8', name: 'Les Numériques', url: 'https://www.lesnumeriques.com/intelligence-artificielle/rss.xml', category: 'IA' },
-                { id: '9', name: 'Monde Tech', url: 'https://mondetech.fr/categories/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '10', name: 'Presse Citron IA', url: 'https://www.presse-citron.net/category/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '11', name: 'Silicon', url: 'https://www.silicon.fr/rss/data-ia-1372.xml', category: 'IA' },
-                { id: '12', name: 'Siècle Digital', url: 'https://siecledigital.fr/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '13', name: 'TechnoMedia', url: 'https://www.technomedia.org/feeds/posts/default/-/IA', category: 'IA' },
-                { id: '14', name: 'Business Edition', url: 'https://fr.blog.businessdecision.com/datascience/feed/feed/', category: 'IA' },
-                { id: '15', name: 'L\'Usine Nouvelle', url: 'https://www.usinenouvelle.com/rss/ia/', category: 'IA' }
+                { id: '5', name: 'Journal du Net', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/', category: 'IA' },
+                { id: '6', name: 'Les Numériques', url: 'https://www.lesnumeriques.com/intelligence-artificielle/rss.xml', category: 'IA' },
+                { id: '7', name: 'Silicon', url: 'https://www.silicon.fr/rss/data-ia-1372.xml', category: 'IA' },
+                { id: '8', name: 'Euronews IA', url: 'https://fr.euronews.com/rss?level=tag&name=intelligence-artificielle', category: 'IA' },
+                { id: '9', name: 'Intelligence-Artificielle.com', url: 'https://intelligence-artificielle.com/feed/', category: 'IA' },
+                { id: '10', name: 'L\'Usine Nouvelle', url: 'https://www.usinenouvelle.com/rss/ia/', category: 'IA' },
+                { id: '11', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
+                { id: '12', name: 'Google News IA', url: 'https://news.google.com/rss/search?tbm=nws&q=intelligence+artificielle&scoring=n&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' }
             ];
 
             const fallbackArticles = [
@@ -424,8 +420,12 @@
             ];
 
             let rssFeeds = loadFeeds();
-            let allArticles = [...fallbackArticles];
-            let hasLiveArticles = false;
+            let allArticles = loadCachedArticles();
+            let hasLiveArticles = allArticles.length > 0;
+            if (allArticles.length === 0) {
+                allArticles = [...fallbackArticles];
+            }
+
             let favorites = JSON.parse(localStorage.getItem('savedFavorites') || '[]');
             let currentTag = '';
             let isSyncing = false;
@@ -433,7 +433,7 @@
 
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('rssFeeds_v2');
+                    const saved = localStorage.getItem('rssFeeds_v3');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -445,7 +445,31 @@
             }
 
             function saveFeeds() {
-                localStorage.setItem('rssFeeds_v2', JSON.stringify(rssFeeds));
+                localStorage.setItem('rssFeeds_v3', JSON.stringify(rssFeeds));
+            }
+
+            function loadCachedArticles() {
+                try {
+                    const saved = localStorage.getItem('cached_articles_v3');
+                    if (saved) {
+                        const parsed = JSON.parse(saved);
+                        if (Array.isArray(parsed) && parsed.length > 0) {
+                            return parsed.map(a => ({ ...a, pubDate: new Date(a.pubDate) }));
+                        }
+                    }
+                } catch (e) {
+                    console.warn("Erreur lecture cache articles :", e);
+                }
+                return [];
+            }
+
+            function saveCachedArticles() {
+                try {
+                    const toSave = allArticles.filter(a => !a.isFallback).slice(0, 50);
+                    localStorage.setItem('cached_articles_v3', JSON.stringify(toSave));
+                } catch (e) {
+                    console.warn("Erreur écriture cache articles :", e);
+                }
             }
 
             function saveFavorites() {
@@ -561,6 +585,7 @@
                         rssFeeds = rssFeeds.filter(f => f.url !== feed.url);
                         saveFeeds();
                         allArticles = allArticles.filter(a => a.feedName !== feed.name);
+                        saveCachedArticles();
                         renderFeedsList();
                         renderArticles();
                         showToast(`Flux "${feed.name}" supprimé`);
@@ -595,10 +620,10 @@
                     return matchQuery && matchTag;
                 });
 
-                // Tri chronologique décroissant
+                // Tri par récence décroissante
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
-                // Limitation stricte aux 20 premiers résultats
+                // Découpage strict aux 20 premiers articles
                 const displayedArticles = filtered.slice(0, MAX_DISPLAY_ARTICLES);
 
                 articlesBadge.textContent = displayedArticles.length;
@@ -707,58 +732,7 @@
                 document.body.removeChild(tempInput);
             }
 
-            // Passerelles avec bris de cache forcé
-            async function fetchRssContent(feedUrl) {
-                const bust = Date.now();
-                const proxyEndpoints = [
-                    async (url) => {
-                        const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6500);
-                        const proxyUrl = `https://corsproxy.io/?url=${encodeURIComponent(url)}&_=${bust}`;
-                        const res = await fetch(proxyUrl, { signal: controller.signal, cache: 'no-store' });
-                        clearTimeout(timer);
-                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                        const text = await res.text();
-                        if (text && text.includes('<')) return text;
-                        throw new Error('Contenu non XML');
-                    },
-                    async (url) => {
-                        const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6500);
-                        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}&_=${bust}`;
-                        const res = await fetch(proxyUrl, { signal: controller.signal, cache: 'no-store' });
-                        clearTimeout(timer);
-                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                        const text = await res.text();
-                        if (text && text.includes('<')) return text;
-                        throw new Error('Contenu vide');
-                    },
-                    async (url) => {
-                        const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6500);
-                        const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}&_=${bust}`;
-                        const res = await fetch(proxyUrl, { signal: controller.signal, cache: 'no-store' });
-                        clearTimeout(timer);
-                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                        const text = await res.text();
-                        if (text && text.includes('<')) return text;
-                        throw new Error('Erreur proxy');
-                    }
-                ];
-
-                let lastErr = null;
-                for (const fetcher of proxyEndpoints) {
-                    try {
-                        const xmlText = await fetcher(feedUrl);
-                        if (xmlText && xmlText.length > 50) return xmlText;
-                    } catch (e) {
-                        lastErr = e;
-                    }
-                }
-                throw lastErr || new Error("Passerelles inaccessibles");
-            }
-
-            // Extraction multi-formats du lien spécifique de l'article
+            // Extraction multi-critères des liens réels
             function extractPreciseLink(node) {
                 const altLink = node.querySelector('link[rel="alternate"]');
                 if (altLink && altLink.getAttribute('href')) {
@@ -792,13 +766,10 @@
                 return '#';
             }
 
-            function parseRssString(xmlString, feed) {
+            function parseRssXml(xmlString, feed) {
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(xmlString, "application/xml");
-
-                if (xmlDoc.querySelector("parsererror")) {
-                    throw new Error("Format XML invalide");
-                }
+                if (xmlDoc.querySelector("parsererror")) throw new Error("XML invalide");
 
                 const items = xmlDoc.querySelectorAll("item, entry");
                 const articles = [];
@@ -818,9 +789,7 @@
                     let pubDate = new Date();
                     if (dateNode && dateNode.textContent) {
                         const parsedDate = new Date(dateNode.textContent);
-                        if (!isNaN(parsedDate.getTime())) {
-                            pubDate = parsedDate;
-                        }
+                        if (!isNaN(parsedDate.getTime())) pubDate = parsedDate;
                     }
 
                     if (title && link !== "#") {
@@ -838,7 +807,71 @@
                 return articles;
             }
 
-            // Synchronisation progressive cadencée
+            // Récupération hybride robuste (rss2json + AllOrigins JSON + CorsProxy)
+            async function fetchArticlesFromFeed(feed) {
+                const bust = Date.now();
+
+                // 1. Priorité à rss2json (analyseur serveur dédié et rapide)
+                try {
+                    const controller = new AbortController();
+                    const timer = setTimeout(() => controller.abort(), 6000);
+                    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&_=${bust}`, {
+                        signal: controller.signal
+                    });
+                    clearTimeout(timer);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data && data.status === 'ok' && Array.isArray(data.items) && data.items.length > 0) {
+                            return data.items.map(item => ({
+                                title: cleanHtml(item.title) || 'Article sans titre',
+                                link: (item.link || item.guid || '#').trim(),
+                                description: cleanHtml(item.description || item.content || '').slice(0, 250),
+                                pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
+                                feedName: feed.name,
+                                category: feed.category || (item.title.toLowerCase().includes('nocode') ? 'NoCode' : 'IA')
+                            })).filter(a => a.link && a.link !== '#');
+                        }
+                    }
+                } catch (_) {}
+
+                // 2. Passerelle AllOrigins JSON (get?url=)
+                try {
+                    const controller = new AbortController();
+                    const timer = setTimeout(() => controller.abort(), 6000);
+                    const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}&_=${bust}`, {
+                        signal: controller.signal
+                    });
+                    clearTimeout(timer);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data && data.contents && data.contents.includes('<')) {
+                            const items = parseRssXml(data.contents, feed);
+                            if (items.length > 0) return items;
+                        }
+                    }
+                } catch (_) {}
+
+                // 3. Passerelle CorsProxy.io directe
+                try {
+                    const controller = new AbortController();
+                    const timer = setTimeout(() => controller.abort(), 6000);
+                    const res = await fetch(`https://corsproxy.io/?${encodeURIComponent(feed.url)}`, {
+                        signal: controller.signal
+                    });
+                    clearTimeout(timer);
+                    if (res.ok) {
+                        const xmlText = await res.text();
+                        if (xmlText && xmlText.includes('<')) {
+                            const items = parseRssXml(xmlText, feed);
+                            if (items.length > 0) return items;
+                        }
+                    }
+                } catch (_) {}
+
+                throw new Error("Flux inaccessible");
+            }
+
+            // Synchronisation par lots pour rapidité et fluidité
             async function syncAllFeeds() {
                 if (isSyncing) return;
                 isSyncing = true;
@@ -853,44 +886,46 @@
                 let completed = 0;
                 let newArticlesFound = 0;
 
-                for (const feed of rssFeeds) {
-                    feedStatus[feed.url] = 'loading';
+                // Traitement par lots de 3 flux en parallèle
+                const batchSize = 3;
+                for (let i = 0; i < rssFeeds.length; i += batchSize) {
+                    const batch = rssFeeds.slice(i, i + batchSize);
+
+                    batch.forEach(f => {
+                        feedStatus[f.url] = 'loading';
+                    });
                     renderFeedsList();
-                    syncProgress.textContent = `${completed + 1} / ${rssFeeds.length}`;
+                    syncProgress.textContent = `${Math.min(i + batchSize, rssFeeds.length)} / ${rssFeeds.length}`;
 
-                    try {
-                        const xmlText = await fetchRssContent(feed.url);
-                        const items = parseRssString(xmlText, feed);
+                    const results = await Promise.allSettled(batch.map(f => fetchArticlesFromFeed(f)));
 
-                        if (items.length > 0) {
-                            feedStatus[feed.url] = 'ok';
-                            
+                    results.forEach((res, index) => {
+                        const currentFeed = batch[index];
+                        if (res.status === 'fulfilled' && res.value.length > 0) {
+                            feedStatus[currentFeed.url] = 'ok';
+
                             if (!hasLiveArticles) {
                                 allArticles = allArticles.filter(a => !a.isFallback);
                                 hasLiveArticles = true;
                             }
 
                             const existingLinks = new Set(allArticles.map(a => a.link));
-                            items.forEach(newItem => {
+                            res.value.forEach(newItem => {
                                 if (!existingLinks.has(newItem.link)) {
                                     allArticles.push(newItem);
                                     existingLinks.add(newItem.link);
                                     newArticlesFound++;
                                 }
                             });
-                            
-                            renderArticles();
                         } else {
-                            feedStatus[feed.url] = 'error';
+                            feedStatus[currentFeed.url] = 'error';
                         }
-                    } catch (e) {
-                        console.warn(`Échec de récupération pour ${feed.name} :`, e.message);
-                        feedStatus[feed.url] = 'error';
-                    }
+                    });
 
-                    completed++;
+                    completed += batch.length;
                     renderFeedsList();
-                    await new Promise(resolve => setTimeout(resolve, 250));
+                    renderArticles();
+                    saveCachedArticles();
                 }
 
                 isSyncing = false;
@@ -998,7 +1033,7 @@
                 rssFeeds = [...defaultFeeds];
                 saveFeeds();
                 renderFeedsList();
-                showToast("15 flux réinitialisés par défaut !");
+                showToast("Flux réinitialisés !");
                 syncAllFeeds();
             });
 
@@ -1019,6 +1054,7 @@
             renderArticles();
             updateTagUI();
 
+            // Lancement initial de la synchronisation
             syncAllFeeds();
             setInterval(syncAllFeeds, 15 * 60 * 1000);
         });
