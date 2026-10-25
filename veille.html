@@ -82,7 +82,7 @@
     <header class="sticky top-0 w-full bg-brand-dark/95 backdrop-blur-md z-50 border-b border-slate-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 md:gap-4 group">
-                <img src="logo_CG2.png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='Logo_CG%20(1).png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <img src="logo_CG2.png" alt="Christophe Guillon - Consultant &amp; Formateur" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col">
                     <span class="text-white font-heading font-extrabold text-sm md:text-base leading-none tracking-wide">CHRISTOPHE GUILLON</span>
                     <span class="text-brand-yellow font-heading text-[9px] md:text-[10px] font-semibold mt-1 uppercase tracking-wider">CONSULTANT &amp; FORMATEUR</span>
@@ -109,7 +109,7 @@
             </div>
             <div>
                 <h1 class="text-sm font-bold text-slate-900 leading-tight">Veille NoCode &amp; IA</h1>
-                <p id="mobile-stats" class="text-xs text-slate-500">20 articles</p>
+                <p id="mobile-stats" class="text-xs text-slate-500">Actualisation en cours...</p>
             </div>
         </div>
         <div class="flex items-center space-x-1">
@@ -308,7 +308,7 @@
     <!-- Pied de page officiel Christophe Guillon -->
     <footer class="py-12 px-6 bg-brand-dark text-slate-400 border-t border-slate-800 text-center relative mt-8">
         <div class="flex justify-center mb-6">
-            <img src="logo_CG2.png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='Logo_CG%20(1).png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="32" height="32" class="h-8 w-auto opacity-75 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+            <img src="logo_CG2.png" alt="Christophe Guillon - Consultant &amp; Formateur" width="32" height="32" class="h-8 w-auto opacity-75 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
         </div>
 
         <!-- Balise sémantique officielle pour le référencement local -->
@@ -340,7 +340,7 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script Robuste avec Extraction Stricte des Liens Profonds d'Articles -->
+    <!-- Script Robuste : Récupération Directe des Liens Profonds sans faux articles -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -374,18 +374,18 @@
             const mobileRefreshBtn = document.getElementById('mobile-refresh-btn');
             const desktopRefreshBtn = document.getElementById('desktop-refresh-btn');
 
-            // 10 flux RSS à haute fréquence d'actualité
+            // 10 flux RSS réputés, stables et à forte fréquence de publication
             const defaultFeeds = [
-                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?q=intelligence+artificielle&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
-                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22+OR+make+OR+n8n&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
-                { id: '3', name: 'Les Numériques', url: 'https://www.lesnumeriques.com/rss.xml', category: 'IA' },
-                { id: '4', name: 'Frandroid Tech', url: 'https://www.frandroid.com/feed', category: 'IA' },
-                { id: '5', name: 'Presse Citron', url: 'https://www.presse-citron.net/feed/', category: 'IA' },
-                { id: '6', name: '01Net Actualités', url: 'https://www.01net.com/actualites/feed/', category: 'IA' },
-                { id: '7', name: 'Clubic Actus', url: 'https://www.clubic.com/feed/news.rss', category: 'IA' },
-                { id: '8', name: 'L\'Usine Digitale', url: 'https://www.usine-digitale.fr/rss', category: 'IA' },
+                { id: '1', name: 'Le Monde Pixels & IA', url: 'https://www.lemonde.fr/pixels/rss_full.xml', category: 'IA' },
+                { id: '2', name: 'Clubic Actus Tech', url: 'https://www.clubic.com/feed/news.rss', category: 'IA' },
+                { id: '3', name: 'Frandroid Tech', url: 'https://www.frandroid.com/feed', category: 'IA' },
+                { id: '4', name: '01Net Actualités', url: 'https://www.01net.com/actualites/feed/', category: 'IA' },
+                { id: '5', name: 'Siècle Digital', url: 'https://siecledigital.fr/feed/', category: 'IA' },
+                { id: '6', name: 'Presse Citron', url: 'https://www.presse-citron.net/feed/', category: 'IA' },
+                { id: '7', name: 'L\'Usine Digitale', url: 'https://www.usine-digitale.fr/rss', category: 'IA' },
+                { id: '8', name: 'Korben Tech', url: 'https://korben.info/feed', category: 'NoCode' },
                 { id: '9', name: 'Silicon.fr', url: 'https://www.silicon.fr/feed', category: 'IA' },
-                { id: '10', name: 'Siècle Digital', url: 'https://siecledigital.fr/feed/', category: 'IA' }
+                { id: '10', name: 'Journal du Net Tech', url: 'https://www.journaldunet.com/rubrique/rss/', category: 'IA' }
             ];
 
             // Validation stricte : exclut catégoriquement les pages d'accueil et racines de domaines
@@ -401,61 +401,8 @@
                 }
             }
 
-            // Articles de pré-affichage (avec URLs d'articles réelles et complètes, AUCUNE home page)
-            const seedArticles = [
-                {
-                    title: "L'essor des agents IA autonomes dans la productivité des PME",
-                    link: "https://www.lesnumeriques.com/vie-du-net/chatgpt-intelligence-artificielle-productivite-entreprises-a12345.html",
-                    feedName: "Les Numériques",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 18),
-                    description: "Les nouveaux modèles multimodaux permettent d'orchestrer des agents intelligents capables d'analyser des documents commerciaux et d'automatiser le support client.",
-                    category: "IA",
-                    isSeed: true
-                },
-                {
-                    title: "Make et N8N : comment interconnecter les LLM avec les logiciels métiers",
-                    link: "https://www.usine-digitale.fr/article/n8n-make-automatisation-processus-ia-entreprises.N2254321",
-                    feedName: "L'Usine Digitale",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 45),
-                    description: "Comparatif des solutions d'orchestration NoCode pour automatiser la prospection, la qualification des leads et la synchronisation CRM en toute sécurité.",
-                    category: "NoCode",
-                    isSeed: true
-                },
-                {
-                    title: "OpenAI et Google renforcent la sécurité des modèles d'entreprise",
-                    link: "https://www.01net.com/actualites/les-agents-ia-autonomes-au-service-des-pme.html",
-                    feedName: "01Net",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 75),
-                    description: "Nouvelles certifications de conformité RGPD et protocoles de chiffrement renforcés pour le traitement confidentiel des données professionnelles.",
-                    category: "IA",
-                    isSeed: true
-                },
-                {
-                    title: "Transformation digitale : les 3 priorités des dirigeants de TPE en 2026",
-                    link: "https://siecledigital.fr/2026/10/guide-transformation-digitale-et-ia-dirigeants/",
-                    feedName: "Siècle Digital",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 110),
-                    description: "L'acculturation des équipes aux outils d'IA générative et la refonte des parcours clients s'imposent comme des facteurs clés de différenciation locale.",
-                    category: "IA",
-                    isSeed: true
-                },
-                {
-                    title: "Automatisation no-code : structurer une base client sans développeur",
-                    link: "https://www.frandroid.com/culture-tech/intelligence-artificielle/guide-outils-ia-2026",
-                    feedName: "Frandroid Tech",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 150),
-                    description: "Guide méthodologique pour connecter formulaires web, notifications instantanées et tableaux de bord opérationnels avec un investissement technique minimal.",
-                    category: "NoCode",
-                    isSeed: true
-                }
-            ];
-
             let rssFeeds = loadFeeds();
             let allArticles = loadCachedArticles();
-            if (allArticles.length === 0) {
-                allArticles = [...seedArticles];
-            }
-
             let favorites = JSON.parse(localStorage.getItem('savedFavorites') || '[]');
             let currentTag = '';
             let isSyncing = false;
@@ -463,7 +410,7 @@
 
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('cg_rss_feeds_v7');
+                    const saved = localStorage.getItem('cg_rss_feeds_v8');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -475,18 +422,18 @@
             }
 
             function saveFeeds() {
-                localStorage.setItem('cg_rss_feeds_v7', JSON.stringify(rssFeeds));
+                localStorage.setItem('cg_rss_feeds_v8', JSON.stringify(rssFeeds));
             }
 
-            // Chargement sécurisé : élimine immédiatement tout ancien article dont le lien pointerait vers une home
+            // Chargement sécurisé : ne retient que les vrais liens profonds vérifiés
             function loadCachedArticles() {
                 try {
-                    const saved = localStorage.getItem('cg_live_articles_v7');
+                    const saved = localStorage.getItem('cg_live_articles_v8');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) {
                             return parsed
-                                .filter(a => isDeepLink(a.link))
+                                .filter(a => isDeepLink(a.link) && !a.link.includes('a12345') && !a.link.includes('N2254321'))
                                 .map(a => ({ ...a, pubDate: new Date(a.pubDate) }));
                         }
                     }
@@ -498,8 +445,8 @@
 
             function saveCachedArticles() {
                 try {
-                    const toSave = allArticles.filter(a => !a.isSeed && isDeepLink(a.link)).slice(0, 40);
-                    localStorage.setItem('cg_live_articles_v7', JSON.stringify(toSave));
+                    const toSave = allArticles.filter(a => isDeepLink(a.link)).slice(0, 40);
+                    localStorage.setItem('cg_live_articles_v8', JSON.stringify(toSave));
                 } catch (e) {
                     console.warn("Erreur sauvegarde :", e);
                 }
@@ -631,7 +578,6 @@
                 const query = filterInput.value.toLowerCase().trim();
                 
                 let filtered = allArticles.filter(article => {
-                    // Exclusion systématique de tout lien racine
                     if (!isDeepLink(article.link)) return false;
 
                     const matchQuery = !query || 
@@ -655,7 +601,7 @@
                     return matchQuery && matchTag;
                 });
 
-                // Tri chronologique rigoureux : du plus récent au plus ancien
+                // Tri chronologique décroissant : les parutions les plus récentes en tête
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
                 // Plafonnement strict aux 20 premiers résultats
@@ -668,21 +614,16 @@
                     feedContainer.innerHTML = `
                         <div class="bg-white rounded-2xl border border-slate-200/80 p-8 text-center max-w-md mx-auto my-12 shadow-sm">
                             <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl">
-                                🔍
+                                🔄
                             </div>
-                            <h3 class="font-bold text-slate-800 text-base mb-1">Aucun article trouvé</h3>
-                            <p class="text-xs text-slate-500 mb-4">Ajustez vos filtres de recherche ou réinitialisez la liste.</p>
-                            <button id="reset-filter-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">
-                                Réinitialiser les filtres
+                            <h3 class="font-bold text-slate-800 text-base mb-1">Connexion aux flux en direct...</h3>
+                            <p class="text-xs text-slate-500 mb-4">Interrogation des rédactions partenaires en cours sans intermédiaire.</p>
+                            <button id="force-load-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">
+                                Lancer la synchronisation
                             </button>
                         </div>
                     `;
-                    document.getElementById('reset-filter-btn')?.addEventListener('click', () => {
-                        filterInput.value = '';
-                        currentTag = '';
-                        updateTagUI();
-                        renderArticles();
-                    });
+                    document.getElementById('force-load-btn')?.addEventListener('click', syncAllFeeds);
                     return;
                 }
 
@@ -760,22 +701,22 @@
                 tempInput.select();
                 try {
                     document.execCommand('copy');
-                    showToast("Lien de l'article copié !");
+                    showToast("Lien copié dans le presse-papiers !");
                 } catch (e) {
                     showToast("Impossible de copier automatiquement");
                 }
                 document.body.removeChild(tempInput);
             }
 
-            // Extraction multi-critères : garantit la récupération du lien profond vers l'article
+            // Extraction multi-critères : garantit la récupération de l'URL spécifique de l'article
             function extractPreciseLink(node) {
                 const candidates = [];
 
-                // 1. OrigLink (FeedBurner)
+                // 1. Balise origLink
                 const origLink = node.querySelector('origLink');
                 if (origLink && origLink.textContent) candidates.push(origLink.textContent.trim());
 
-                // 2. Guid (si permalien avec http)
+                // 2. Guid permalink
                 const guidNode = node.querySelector('guid');
                 if (guidNode && guidNode.textContent) {
                     const g = guidNode.textContent.trim();
@@ -788,7 +729,7 @@
                     candidates.push(altLink.getAttribute('href').trim());
                 }
 
-                // 4. Balises link directes
+                // 4. Balises link
                 const linkNodes = node.querySelectorAll('link');
                 for (const l of linkNodes) {
                     const t = (l.textContent || '').trim();
@@ -799,17 +740,12 @@
                     }
                 }
 
-                // 5. Regex de secours dans le bloc XML brut de l'article
-                const rawNodeXml = node.outerHTML || node.innerHTML || '';
-                const match = rawNodeXml.match(/<link[^>]*>(https?:\/\/[^<]+)<\/link>/i);
-                if (match && match[1]) candidates.push(match[1].trim());
-
-                // Sélectionne en priorité absolue le premier lien profond valide
+                // Retourne le premier vrai lien profond
                 for (const url of candidates) {
                     if (isDeepLink(url)) return url;
                 }
 
-                return candidates.find(c => c.startsWith('http')) || '#';
+                return '#';
             }
 
             function parseRssXml(xmlString, feed) {
@@ -825,19 +761,6 @@
                     let title = titleNode ? cleanHtml(titleNode.textContent) : "Article sans titre";
                     const link = extractPreciseLink(node);
 
-                    // Si c'est Google News, extraction du média source d'origine
-                    let sourceBadge = feed.name;
-                    const sourceNode = node.querySelector("source");
-                    if (sourceNode && sourceNode.textContent.trim()) {
-                        sourceBadge = sourceNode.textContent.trim();
-                    } else if (title.includes(' - ')) {
-                        const parts = title.split(' - ');
-                        if (parts.length > 1) {
-                            sourceBadge = parts.pop().trim();
-                            title = parts.join(' - ').trim();
-                        }
-                    }
-
                     const descNode = node.querySelector("description, summary, content");
                     let description = descNode ? cleanHtml(descNode.textContent) : "";
                     if (description.length > 250) {
@@ -851,14 +774,14 @@
                         if (!isNaN(parsedDate.getTime())) pubDate = parsedDate;
                     }
 
-                    // Seuls les articles disposant d'un vrai lien profond sont conservés
+                    // Seuls les articles avec lien profond et titre valide sont retenus
                     if (title && isDeepLink(link)) {
                         articles.push({
                             title,
                             link,
                             description,
                             pubDate,
-                            feedName: sourceBadge,
+                            feedName: feed.name,
                             category: feed.category || (title.toLowerCase().includes('nocode') ? 'NoCode' : 'IA')
                         });
                     }
@@ -867,11 +790,11 @@
                 return articles;
             }
 
-            // Récupération multi-passerelles résiliente
+            // Récupération multi-passerelles sécurisée
             async function fetchArticlesFromFeed(feed) {
                 const bust = Date.now();
 
-                // 1. rss2json (API JSON sans blocage de sécurité navigateur)
+                // 1. rss2json direct (retourne les vrais liens complets directement)
                 try {
                     const ctrl = new AbortController();
                     const timer = setTimeout(() => ctrl.abort(), 6000);
@@ -896,24 +819,7 @@
                     }
                 } catch (_) {}
 
-                // 2. CorsProxy.io direct (syntaxe sans 'url=')
-                try {
-                    const ctrl = new AbortController();
-                    const timer = setTimeout(() => ctrl.abort(), 6500);
-                    const res = await fetch(`https://corsproxy.io/?${encodeURIComponent(feed.url)}`, {
-                        signal: ctrl.signal
-                    });
-                    clearTimeout(timer);
-                    if (res.ok) {
-                        const xmlText = await res.text();
-                        if (xmlText && xmlText.includes('<')) {
-                            const items = parseRssXml(xmlText, feed);
-                            if (items.length > 0) return items;
-                        }
-                    }
-                } catch (_) {}
-
-                // 3. AllOrigins RAW
+                // 2. AllOrigins RAW
                 try {
                     const ctrl = new AbortController();
                     const timer = setTimeout(() => ctrl.abort(), 6500);
@@ -930,11 +836,11 @@
                     }
                 } catch (_) {}
 
-                // 4. CodeTabs Proxy
+                // 3. CorsProxy.io
                 try {
                     const ctrl = new AbortController();
                     const timer = setTimeout(() => ctrl.abort(), 6500);
-                    const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(feed.url)}`, {
+                    const res = await fetch(`https://corsproxy.io/?${encodeURIComponent(feed.url)}`, {
                         signal: ctrl.signal
                     });
                     clearTimeout(timer);
@@ -947,10 +853,10 @@
                     }
                 } catch (_) {}
 
-                throw new Error("Flux inaccessible");
+                throw new Error("Flux momentanément indisponible");
             }
 
-            // Synchronisation par lots de 3 flux en continu
+            // Synchronisation par lots cadencée
             async function syncAllFeeds() {
                 if (isSyncing) return;
                 isSyncing = true;
@@ -981,11 +887,6 @@
                         const currentFeed = batch[index];
                         if (res.status === 'fulfilled' && res.value.length > 0) {
                             feedStatus[currentFeed.url] = 'ok';
-
-                            // Dès la première réception d'articles réels, purge des articles de démarrage
-                            if (allArticles.some(a => a.isSeed)) {
-                                allArticles = allArticles.filter(a => !a.isSeed);
-                            }
 
                             const existingLinks = new Set(allArticles.map(a => a.link));
                             res.value.forEach(newItem => {
@@ -1116,10 +1017,10 @@
             });
 
             clearCacheBtn.addEventListener('click', () => {
-                localStorage.removeItem('cg_live_articles_v7');
-                allArticles = [...seedArticles];
+                localStorage.removeItem('cg_live_articles_v8');
+                allArticles = [];
                 renderArticles();
-                showToast("Rechargement en direct forcé...", "🔄");
+                showToast("Cache vidé, rechargement en direct...", "🔄");
                 syncAllFeeds();
             });
 
@@ -1137,9 +1038,10 @@
 
             favCountEl.textContent = favorites.length;
             renderFeedsList();
+            renderArticles();
             updateTagUI();
 
-            // Synchronisation en direct lancée au chargement
+            // Lancement automatique de la synchronisation en direct
             syncAllFeeds();
             setInterval(syncAllFeeds, 10 * 60 * 1000);
         });
