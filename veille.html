@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Stratégique IA &amp; NoCode | Christophe Guillon - Consultant &amp; Formateur</title>
     <meta name="description" content="Veille technologique et opérationnelle en continu sur l'Intelligence Artificielle, le NoCode et la transformation digitale par Christophe Guillon, Saumur.">
-    <link rel="icon" type="image/png" href="logo_CG2.png">
+    <link rel="icon" type="image/png" href="Logo_CG (1).png">
 
     <!-- Polices Google identiques au site principal -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,7 +84,7 @@
     <header class="sticky top-0 w-full bg-brand-dark/95 backdrop-blur-md z-50 border-b border-slate-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 md:gap-4 group">
-                <img src="logo_CG2.png" alt="Empreinte Christophe Guillon" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <img src="Logo_CG (1).png" alt="Empreinte Christophe Guillon" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col">
                     <span class="text-white font-heading font-extrabold text-sm md:text-base leading-none tracking-wide">CHRISTOPHE GUILLON</span>
                     <span class="text-brand-yellow font-heading text-[9px] md:text-[10px] font-semibold mt-1 uppercase tracking-wider">CONSULTANT &amp; FORMATEUR</span>
@@ -111,7 +111,7 @@
             </div>
             <div>
                 <h1 class="text-sm font-bold text-slate-900 leading-tight">Veille NoCode &amp; IA</h1>
-                <p id="mobile-stats" class="text-xs text-slate-500">0 articles</p>
+                <p id="mobile-stats" class="text-xs text-slate-500">0 article</p>
             </div>
         </div>
         <div class="flex items-center space-x-1">
@@ -136,7 +136,7 @@
             <div>
                 <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Flux &amp; Signaux Faibles</span>
                 <h1 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 mt-1">Veille Stratégique IA &amp; NoCode</h1>
-                <p class="text-sm text-slate-600 mt-1">Sélection d'actualités et d'innovations pour anticiper les transformations numériques des entreprises.</p>
+                <p class="text-sm text-slate-600 mt-1">Sélection des 20 dernières actualités et innovations pour anticiper les transformations numériques.</p>
             </div>
             <a href="index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-brand-accent transition">
                 <span>&larr; Retour à l'accueil</span>
@@ -264,7 +264,7 @@
                         <span id="articles-badge" class="bg-slate-100 text-slate-600 font-semibold text-xs px-2.5 py-0.5 rounded-full border border-slate-200">0</span>
                     </div>
                     <div class="flex items-center space-x-2 text-xs text-slate-500">
-                        <span class="hidden sm:inline">Trié par récence</span>
+                        <span class="hidden sm:inline">Top 20 par récence</span>
                         <button id="sync-all-btn" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-semibold px-2.5 py-1 rounded-lg transition-colors flex items-center space-x-1">
                             <svg id="sync-spin-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -310,7 +310,7 @@
     <!-- Pied de page officiel Christophe Guillon -->
     <footer class="py-12 px-6 bg-brand-dark text-slate-400 border-t border-slate-800 text-center relative mt-8">
         <div class="flex justify-center mb-6">
-            <img src="logo_CG2.png" alt="Christophe Guillon" width="32" height="32" class="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+            <img src="Logo_CG (1).png" alt="Christophe Guillon" width="32" height="32" class="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
         </div>
 
         <!-- Balise sémantique officielle pour le référencement local -->
@@ -342,9 +342,11 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script optimisé avec extraction d'URL précise -->
+    <!-- Script optimisé (Top 20, bris de cache et liens profonds) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            const MAX_DISPLAY_ARTICLES = 20;
 
             const feedContainer = document.getElementById('feed-container');
             const filterInput = document.getElementById('filter-input');
@@ -391,7 +393,6 @@
                 { id: '15', name: 'L\'Usine Nouvelle', url: 'https://www.usinenouvelle.com/rss/ia/', category: 'IA' }
             ];
 
-            // Articles d'attente (avec liens directs complets)
             const fallbackArticles = [
                 {
                     title: "L'impact des agents autonomes et de l'IA générative dans l'automatisation NoCode",
@@ -594,19 +595,23 @@
                     return matchQuery && matchTag;
                 });
 
+                // Tri chronologique décroissant
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
-                articlesBadge.textContent = filtered.length;
-                mobileStatsEl.textContent = `${filtered.length} article${filtered.length > 1 ? 's' : ''}`;
+                // Limitation stricte aux 20 premiers résultats
+                const displayedArticles = filtered.slice(0, MAX_DISPLAY_ARTICLES);
 
-                if (filtered.length === 0) {
+                articlesBadge.textContent = displayedArticles.length;
+                mobileStatsEl.textContent = `${displayedArticles.length} article${displayedArticles.length > 1 ? 's' : ''}`;
+
+                if (displayedArticles.length === 0) {
                     feedContainer.innerHTML = `
                         <div class="bg-white rounded-2xl border border-slate-200/80 p-8 text-center max-w-md mx-auto my-12 shadow-sm">
                             <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl">
                                 🔍
                             </div>
                             <h3 class="font-bold text-slate-800 text-base mb-1">Aucun article trouvé</h3>
-                            <p class="text-xs text-slate-500 mb-4">Ajustez vos mots-clés ou réinitialisez les filtres pour afficher l'ensemble de votre veille.</p>
+                            <p class="text-xs text-slate-500 mb-4">Ajustez vos mots-clés ou réinitialisez les filtres pour afficher votre veille.</p>
                             <button id="reset-filter-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">
                                 Réinitialiser les filtres
                             </button>
@@ -622,7 +627,7 @@
                 }
 
                 feedContainer.innerHTML = '';
-                filtered.forEach(article => {
+                displayedArticles.forEach(article => {
                     const isFav = favorites.includes(article.link);
                     const card = document.createElement('article');
                     card.className = 'bg-white rounded-2xl border border-slate-200/80 hover:border-indigo-200 p-4 sm:p-5 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between';
@@ -702,22 +707,15 @@
                 document.body.removeChild(tempInput);
             }
 
+            // Passerelles avec bris de cache forcé
             async function fetchRssContent(feedUrl) {
+                const bust = Date.now();
                 const proxyEndpoints = [
                     async (url) => {
                         const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6000);
-                        const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`, { signal: controller.signal });
-                        clearTimeout(timer);
-                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                        const data = await res.json();
-                        if (data && data.contents && data.contents.includes('<')) return data.contents;
-                        throw new Error('Contenu vide');
-                    },
-                    async (url) => {
-                        const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6000);
-                        const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`, { signal: controller.signal });
+                        const timer = setTimeout(() => controller.abort(), 6500);
+                        const proxyUrl = `https://corsproxy.io/?url=${encodeURIComponent(url)}&_=${bust}`;
+                        const res = await fetch(proxyUrl, { signal: controller.signal, cache: 'no-store' });
                         clearTimeout(timer);
                         if (!res.ok) throw new Error(`HTTP ${res.status}`);
                         const text = await res.text();
@@ -726,13 +724,25 @@
                     },
                     async (url) => {
                         const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6000);
-                        const res = await fetch(`https://proxy.cors.dev/${url}`, { signal: controller.signal });
+                        const timer = setTimeout(() => controller.abort(), 6500);
+                        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}&_=${bust}`;
+                        const res = await fetch(proxyUrl, { signal: controller.signal, cache: 'no-store' });
                         clearTimeout(timer);
                         if (!res.ok) throw new Error(`HTTP ${res.status}`);
                         const text = await res.text();
                         if (text && text.includes('<')) return text;
-                        throw new Error('Erreur proxy 3');
+                        throw new Error('Contenu vide');
+                    },
+                    async (url) => {
+                        const controller = new AbortController();
+                        const timer = setTimeout(() => controller.abort(), 6500);
+                        const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}&_=${bust}`;
+                        const res = await fetch(proxyUrl, { signal: controller.signal, cache: 'no-store' });
+                        clearTimeout(timer);
+                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                        const text = await res.text();
+                        if (text && text.includes('<')) return text;
+                        throw new Error('Erreur proxy');
                     }
                 ];
 
@@ -748,23 +758,20 @@
                 throw lastErr || new Error("Passerelles inaccessibles");
             }
 
-            // Extraction multi-critères du lien direct et précis de l'article
+            // Extraction multi-formats du lien spécifique de l'article
             function extractPreciseLink(node) {
-                // 1. Atom : recherche de la balise rel="alternate"
                 const altLink = node.querySelector('link[rel="alternate"]');
                 if (altLink && altLink.getAttribute('href')) {
                     const href = altLink.getAttribute('href').trim();
                     if (href.startsWith('http')) return href;
                 }
 
-                // 2. FeedBurner : recherche du lien original direct
                 const origLink = node.querySelector('origLink');
                 if (origLink && origLink.textContent) {
                     const url = origLink.textContent.trim();
                     if (url.startsWith('http')) return url;
                 }
 
-                // 3. RSS 2.0 classique : parcourir toutes les balises <link>
                 const linkNodes = node.querySelectorAll('link');
                 for (const l of linkNodes) {
                     const text = (l.textContent || '').trim();
@@ -776,7 +783,6 @@
                     }
                 }
 
-                // 4. Balise <guid> (si elle contient une URL absolue)
                 const guidNode = node.querySelector('guid');
                 if (guidNode && guidNode.textContent) {
                     const guidText = guidNode.textContent.trim();
@@ -800,8 +806,6 @@
                 items.forEach(node => {
                     const titleNode = node.querySelector("title");
                     const title = titleNode ? cleanHtml(titleNode.textContent) : "Article sans titre";
-
-                    // Extraction du lien précis vers la page de l'article
                     const link = extractPreciseLink(node);
 
                     const descNode = node.querySelector("description, summary, content");
@@ -834,6 +838,7 @@
                 return articles;
             }
 
+            // Synchronisation progressive cadencée
             async function syncAllFeeds() {
                 if (isSyncing) return;
                 isSyncing = true;
@@ -860,7 +865,6 @@
                         if (items.length > 0) {
                             feedStatus[feed.url] = 'ok';
                             
-                            // Dès que les premiers vrais articles arrivent, purge des exemples d'attente
                             if (!hasLiveArticles) {
                                 allArticles = allArticles.filter(a => !a.isFallback);
                                 hasLiveArticles = true;
@@ -886,6 +890,7 @@
 
                     completed++;
                     renderFeedsList();
+                    await new Promise(resolve => setTimeout(resolve, 250));
                 }
 
                 isSyncing = false;
