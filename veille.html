@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Stratégique IA &amp; NoCode | Christophe Guillon - Consultant &amp; Formateur</title>
-    <meta name="description" content="Veille technologique et opérationnelle en continu sur l'Intelligence Artificielle, le NoCode et la transformation digitale par Christophe Guillon, Saumur.">
+    <meta name="description" content="Veille technologique et stratégique en continu sur l'Intelligence Artificielle, le NoCode et l'automatisation par Christophe Guillon, Saumur.">
     <link rel="icon" type="image/png" href="logo_CG2.png">
 
     <!-- Polices Google identiques au site principal -->
@@ -108,7 +108,7 @@
                 ⚡
             </div>
             <div>
-                <h1 class="text-sm font-bold text-slate-900 leading-tight">Veille NoCode &amp; IA</h1>
+                <h1 class="text-sm font-bold text-slate-900 leading-tight">Veille IA &amp; NoCode</h1>
                 <p id="mobile-stats" class="text-xs text-slate-500">Actualisation en cours...</p>
             </div>
         </div>
@@ -134,7 +134,7 @@
             <div>
                 <span class="text-xs font-bold uppercase tracking-wider text-brand-accent">Flux &amp; Signaux Faibles</span>
                 <h1 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 mt-1">Veille Stratégique IA &amp; NoCode</h1>
-                <p class="text-sm text-slate-600 mt-1">Sélection continue des 20 dernières actualités vérifiées sur l'IA, le NoCode et l'automatisation.</p>
+                <p class="text-sm text-slate-600 mt-1">Sélection continue des 20 dernières actualités issues des meilleures rédactions tech mondiales et françaises.</p>
             </div>
             <a href="index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-brand-accent transition">
                 <span>&larr; Retour à l'accueil</span>
@@ -158,7 +158,7 @@
                         </div>
                         <div>
                             <h2 class="font-bold text-slate-900 text-lg tracking-tight">Veille Stratégique</h2>
-                            <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">NoCode &amp; IA</span>
+                            <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">Sélection Mondiale &amp; FR</span>
                         </div>
                     </div>
                     <button id="close-sidebar-btn" class="md:hidden p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100">
@@ -173,9 +173,9 @@
 
                     <!-- Recherche et Filtrage direct -->
                     <div>
-                        <label for="filter-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Filtrer les articles</label>
+                        <label for="filter-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Filtrer les actualités</label>
                         <div class="relative">
-                            <input type="text" id="filter-input" class="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all" placeholder="Mot-clé (ex: ChatGPT, Make, Claude)...">
+                            <input type="text" id="filter-input" class="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all" placeholder="Mot-clé (ex: Agent, Make, LLM, Claude)...">
                             <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
@@ -192,18 +192,18 @@
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Thématiques</label>
                         <div class="flex flex-wrap gap-1.5" id="topic-tags">
                             <button data-tag="" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-indigo-600 text-white transition-colors">Tous</button>
-                            <button data-tag="IA" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🤖 IA</button>
-                            <button data-tag="NoCode" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">⚡ NoCode</button>
-                            <button data-tag="Outils" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🛠️ Outils</button>
+                            <button data-tag="IA" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🤖 IA &amp; LLM</button>
+                            <button data-tag="NoCode" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">⚡ NoCode &amp; Auto</button>
+                            <button data-tag="Outils" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🛠️ Outils &amp; Apps</button>
                             <button data-tag="favoris" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors">⭐ Favoris (<span id="fav-count">0</span>)</button>
                         </div>
                     </div>
 
                     <!-- Ajout de flux personnalisé -->
                     <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
-                        <label for="rss-url-input" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Ajouter un flux RSS</label>
+                        <label for="rss-url-input" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Ajouter un flux RSS personnalisé</label>
                         <div class="space-y-2">
-                            <input type="url" id="rss-url-input" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://site.fr/feed.xml">
+                            <input type="url" id="rss-url-input" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://site.com/feed.xml">
                             <button id="add-feed-btn" class="w-full bg-slate-900 hover:bg-indigo-600 text-white py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors shadow-sm">
                                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
@@ -218,7 +218,7 @@
                         <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none bg-slate-50/50 hover:bg-slate-50 transition-colors">
                             <div class="flex items-center space-x-2">
                                 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                                <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Flux actifs (<span id="feeds-count">0</span>)</span>
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Flux d'élite actifs (<span id="feeds-count">0</span>)</span>
                             </div>
                             <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -226,11 +226,11 @@
                         </summary>
                         <div class="p-3 border-t border-slate-100">
                             <div class="flex justify-between items-center mb-2 px-1">
-                                <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser les flux</button>
-                                <button id="clear-cache-btn" class="text-[11px] font-medium text-rose-600 hover:underline">Forcer le rechargement</button>
+                                <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser</button>
+                                <button id="clear-cache-btn" class="text-[11px] font-medium text-rose-600 hover:underline">Forcer l'actualisation</button>
                             </div>
                             <ul id="feeds-list" class="space-y-1.5 max-h-56 overflow-y-auto pr-1 text-xs">
-                                <!-- Les flux seront injectés ici -->
+                                <!-- Les flux sont injectés ici -->
                             </ul>
                         </div>
                     </details>
@@ -258,7 +258,7 @@
                 <!-- Barre d'état et filtres actifs -->
                 <div class="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between flex-shrink-0">
                     <div class="flex items-center space-x-3">
-                        <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Dernières actualités IA &amp; NoCode</h2>
+                        <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Actualités IA &amp; NoCode vérifiées</h2>
                         <span id="articles-badge" class="bg-slate-100 text-slate-600 font-semibold text-xs px-2.5 py-0.5 rounded-full border border-slate-200">0</span>
                     </div>
                     <div class="flex items-center space-x-2 text-xs text-slate-500">
@@ -276,7 +276,7 @@
                 <div id="sync-status-banner" class="hidden bg-indigo-50/80 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-700 flex items-center justify-between">
                     <span id="sync-status-msg" class="flex items-center space-x-2">
                         <span class="inline-block w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
-                        <span>Interrogation des flux d'actualité en direct...</span>
+                        <span>Interrogation des rédactions de référence en cours...</span>
                     </span>
                     <span id="sync-progress" class="font-medium text-indigo-900"></span>
                 </div>
@@ -292,7 +292,7 @@
         <div class="mt-8 bg-brand-dark text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm border border-slate-800">
             <div class="text-center sm:text-left">
                 <h3 class="text-lg sm:text-xl font-heading font-bold text-white mb-1">
-                    Exploiter ces innovations dans votre structure ?
+                    Exploiter ces innovations dans votre structure&nbsp;?
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
                     Formez vos équipes ou intégrez directement les outils d'IA et d'automatisation dans vos processus quotidiens avec un accompagnement sur-mesure.
@@ -308,14 +308,14 @@
     <!-- Pied de page officiel Christophe Guillon -->
     <footer class="py-12 px-6 bg-brand-dark text-slate-400 border-t border-slate-800 text-center relative mt-8">
         <div class="flex justify-center mb-6">
-            <img src="logo_CG2.png" alt="Christophe Guillon - Consultant &amp; Formateur" width="32" height="32" class="h-8 w-auto opacity-75 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+            <img src="logo_CG2.png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='Logo_CG%20(1).png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="32" height="32" class="h-8 w-auto opacity-75 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
         </div>
 
         <!-- Balise sémantique officielle pour le référencement local -->
         <address class="not-italic text-xs text-slate-400 leading-relaxed max-w-xl mx-auto mb-6">
             <strong class="text-slate-200 font-semibold">Christophe Guillon — Conseil &amp; Formation</strong><br>
             49400 Saumur (Maine-et-Loire, Pays de la Loire)<br>
-            Interventions : Saumur, Angers, Pays de la Loire et à distance<br>
+            Interventions&nbsp;: Saumur, Angers, Pays de la Loire et à distance<br>
             <a href="tel:+33675052375" class="hover:text-white hover:underline transition">06 75 05 23 75</a>
             <span class="mx-2 text-slate-600">•</span>
             <a href="mailto:contact@christophe-guillon.com" class="hover:text-white hover:underline transition">contact@christophe-guillon.com</a>
@@ -340,7 +340,7 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script Robuste avec Filtrage Sémantique IA & NoCode Strict -->
+    <!-- Script Robuste avec Flux Mondiaux et Filtrage Strict -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -374,21 +374,21 @@
             const mobileRefreshBtn = document.getElementById('mobile-refresh-btn');
             const desktopRefreshBtn = document.getElementById('desktop-refresh-btn');
 
-            // 10 flux RSS ciblés précisément sur l'IA, le NoCode et la tech pro
+            // 10 flux RSS d'élite spécialisés à 100% en IA, LLM et Automatisation
             const defaultFeeds = [
-                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?q=%22intelligence+artificielle%22+OR+ChatGPT+OR+LLM&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
-                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22+OR+make+OR+n8n&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
-                { id: '3', name: 'L\'Usine Digitale IA', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss', category: 'IA' },
-                { id: '4', name: 'Siècle Digital IA', url: 'https://siecledigital.fr/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '5', name: '01Net IA', url: 'https://www.01net.com/actualites/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '6', name: 'Presse Citron IA', url: 'https://www.presse-citron.net/category/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '7', name: 'Journal du Net IA', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/', category: 'IA' },
-                { id: '8', name: 'Silicon Data & IA', url: 'https://www.silicon.fr/rss/data-ia-1372.xml', category: 'IA' },
-                { id: '9', name: 'Le Monde Pixels & IA', url: 'https://www.lemonde.fr/pixels/rss_full.xml', category: 'IA' },
-                { id: '10', name: 'Clubic IA & Pro', url: 'https://www.clubic.com/feed/news.rss', category: 'IA' }
+                { id: '1', name: 'TechCrunch AI', url: 'https://techcrunch.com/category/artificial-intelligence/feed/', category: 'IA' },
+                { id: '2', name: 'MIT Tech Review AI', url: 'https://www.technologyreview.com/topic/artificial-intelligence/feed', category: 'IA' },
+                { id: '3', name: 'VentureBeat AI', url: 'https://venturebeat.com/category/ai/feed/', category: 'IA' },
+                { id: '4', name: 'The Verge AI', url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', category: 'IA' },
+                { id: '5', name: 'Ars Technica AI', url: 'https://arstechnica.com/tag/ai/feed/', category: 'IA' },
+                { id: '6', name: 'L\'Usine Digitale IA', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss', category: 'IA' },
+                { id: '7', name: 'Siècle Digital IA', url: 'https://siecledigital.fr/intelligence-artificielle/feed/', category: 'IA' },
+                { id: '8', name: 'Journal du Net IA', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/', category: 'IA' },
+                { id: '9', name: 'Silicon.fr Data & IA', url: 'https://www.silicon.fr/rss/data-ia-1372.xml', category: 'IA' },
+                { id: '10', name: 'NoCode & Workflow', url: 'https://news.google.com/rss/search?q=%22no-code%22+OR+nocode+OR+%22make.com%22+OR+n8n&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' }
             ];
 
-            // Validation stricte d'URL profonde
+            // Validation stricte d'URL profonde (rejette toute racine ou home page)
             function isDeepLink(url) {
                 if (!url || typeof url !== 'string' || !url.startsWith('http')) return false;
                 try {
@@ -401,18 +401,19 @@
                 }
             }
 
-            // GARDE-FOU THÉMATIQUE : vérifie que l'article traite bien d'IA, de NoCode, de productivité ou de transformation digitale
+            // Filtrage sémantique bilingue (FR / EN)
             function isRelevantTopic(title, description) {
                 const text = `${title} ${description}`.toLowerCase();
                 const keywords = [
-                    'ia', 'intelligence artificielle', 'nocode', 'no-code', 'chatgpt', 'openai', 'claude', 
-                    'gemini', 'copilot', 'llm', 'make', 'zapier', 'n8n', 'automatisation', 'automation', 
-                    'prompt', 'deepseek', 'mistral', 'midjourney', 'machine learning', 'algorithme', 
-                    'data', 'logiciel', 'saas', 'crm', 'digital', 'numérique', 'cloud', 'cybersécurité',
-                    'technologie', 'bot', 'agent', 'outil', 'productivité', 'api'
+                    'ia', 'ai', 'intelligence artificielle', 'artificial intelligence', 'llm', 'model', 
+                    'models', 'chatgpt', 'openai', 'anthropic', 'claude', 'gemini', 'deepseek', 
+                    'mistral', 'copilot', 'agent', 'agents', 'prompt', 'generative', 'générative', 
+                    'machine learning', 'nocode', 'no-code', 'automation', 'automatisation', 'make', 
+                    'n8n', 'zapier', 'workflow', 'data', 'algorithm', 'algorithme', 'software', 
+                    'cloud', 'saas', 'crm', 'digital', 'tech', 'bot', 'robotics'
                 ];
-                // Élimination des matériels grand public hors-sujet
-                const blacklisted = ['trottinette', 'aspirateur', 'lave-linge', 'frigo', 'téléviseur', 'vélo électrique', 'barre de son', 'four'];
+                // Élimination formelle du matériel grand public hors-sujet
+                const blacklisted = ['trottinette', 'aspirateur', 'scooter', 'lave-linge', 'frigo', 'téléviseur', 'tv', 'barre de son', 'four'];
                 if (blacklisted.some(b => text.includes(b))) return false;
 
                 return keywords.some(k => text.includes(k));
@@ -427,7 +428,7 @@
 
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('cg_rss_feeds_v9');
+                    const saved = localStorage.getItem('cg_rss_feeds_v10');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -439,12 +440,12 @@
             }
 
             function saveFeeds() {
-                localStorage.setItem('cg_rss_feeds_v9', JSON.stringify(rssFeeds));
+                localStorage.setItem('cg_rss_feeds_v10', JSON.stringify(rssFeeds));
             }
 
             function loadCachedArticles() {
                 try {
-                    const saved = localStorage.getItem('cg_live_articles_v9');
+                    const saved = localStorage.getItem('cg_live_articles_v10');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -462,7 +463,7 @@
             function saveCachedArticles() {
                 try {
                     const toSave = allArticles.filter(a => isDeepLink(a.link) && isRelevantTopic(a.title, a.description)).slice(0, 40);
-                    localStorage.setItem('cg_live_articles_v9', JSON.stringify(toSave));
+                    localStorage.setItem('cg_live_articles_v10', JSON.stringify(toSave));
                 } catch (e) {
                     console.warn("Erreur sauvegarde :", e);
                 }
@@ -485,7 +486,7 @@
             function cleanHtml(rawHtml) {
                 if (!rawHtml) return '';
                 const doc = new DOMParser().parseFromString(rawHtml, 'text/html');
-                return (doc.body.textContent || "").replace(/\\s+/g, ' ').trim();
+                return (doc.body.textContent || "").replace(/\s+/g, ' ').trim();
             }
 
             function formatRelativeTime(date) {
@@ -608,11 +609,11 @@
                     if (currentTag === 'favoris') {
                         matchTag = isFav;
                     } else if (currentTag === 'IA') {
-                        matchTag = (article.category === 'IA' || article.title.toLowerCase().includes('ia') || article.title.toLowerCase().includes('intelligence') || article.description.toLowerCase().includes('ia'));
+                        matchTag = (article.category === 'IA' || /\bia\b|\bai\b|llm|intelligence|chatgpt|openai|claude|gemini|agent|model/i.test(article.title + ' ' + article.description));
                     } else if (currentTag === 'NoCode') {
-                        matchTag = (article.category === 'NoCode' || article.title.toLowerCase().includes('nocode') || article.title.toLowerCase().includes('no-code') || article.description.toLowerCase().includes('nocode') || article.description.toLowerCase().includes('automatisation'));
+                        matchTag = (article.category === 'NoCode' || /nocode|no-code|make|n8n|zapier|workflow|automatisation|automation/i.test(article.title + ' ' + article.description));
                     } else if (currentTag === 'Outils') {
-                        matchTag = (article.title.toLowerCase().includes('outil') || article.title.toLowerCase().includes('app') || article.title.toLowerCase().includes('chatgpt') || article.title.toLowerCase().includes('make'));
+                        matchTag = (/outil|tool|app|agent|software|api|solution/i.test(article.title + ' ' + article.description));
                     }
 
                     return matchQuery && matchTag;
@@ -621,7 +622,7 @@
                 // Tri par récence absolue
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
-                // Plafonnement strict aux 20 premiers résultats
+                // Limitation stricte aux 20 premiers résultats
                 const displayedArticles = filtered.slice(0, MAX_DISPLAY_ARTICLES);
 
                 articlesBadge.textContent = displayedArticles.length;
@@ -633,8 +634,8 @@
                             <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl">
                                 🔄
                             </div>
-                            <h3 class="font-bold text-slate-800 text-base mb-1">Connexion aux flux IA &amp; NoCode...</h3>
-                            <p class="text-xs text-slate-500 mb-4">Récupération des 20 dernières actualités ciblées en cours.</p>
+                            <h3 class="font-bold text-slate-800 text-base mb-1">Connexion aux flux d'élite en cours...</h3>
+                            <p class="text-xs text-slate-500 mb-4">Interrogation directe de TechCrunch, MIT Tech Review, VentureBeat et rédactions spécialisées.</p>
                             <button id="force-load-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">
                                 Lancer la synchronisation
                             </button>
@@ -802,7 +803,6 @@
                         if (!isNaN(parsedDate.getTime())) pubDate = parsedDate;
                     }
 
-                    // Seuls les articles valides ET pertinents thématiquement sont acceptés
                     if (title && isDeepLink(link) && isRelevantTopic(title, description)) {
                         articles.push({
                             title,
@@ -1040,15 +1040,15 @@
                 rssFeeds = [...defaultFeeds];
                 saveFeeds();
                 renderFeedsList();
-                showToast("10 flux IA & NoCode réinitialisés !");
+                showToast("10 flux IA d'élite réinitialisés !");
                 syncAllFeeds();
             });
 
             clearCacheBtn.addEventListener('click', () => {
-                localStorage.removeItem('cg_live_articles_v9');
+                localStorage.removeItem('cg_live_articles_v10');
                 allArticles = [];
                 renderArticles();
-                showToast("Rechargement propre en cours...", "🔄");
+                showToast("Actualisation forcée en cours...", "🔄");
                 syncAllFeeds();
             });
 
@@ -1069,7 +1069,7 @@
             renderArticles();
             updateTagUI();
 
-            // Synchronisation en direct
+            // Lancement de la synchronisation en direct
             syncAllFeeds();
             setInterval(syncAllFeeds, 10 * 60 * 1000);
         });
