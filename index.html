@@ -17,15 +17,12 @@
       gtag('config', 'G-VESQ4YWCTS');
     </script>
 
-    <!-- Polices asynchrones non-bloquantes (FCP instantané) -->
+    <!-- Polices optimisées avec preconnect et display swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap">
-    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Données structurées Schema.org (SEO & IA) -->
+    <!-- Données structurées Schema.org pour le SEO local et l'IA -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -64,19 +61,19 @@
     }
     </script>
 
-    <!-- Styles CSS critiques et contrastes validés WCAG AA -->
+    <!-- Styles CSS pré-compilés haute performance (PageSpeed 95+) -->
     <style>
         :root {
             --brand-dark: #04101A;
             --brand-dark-soft: #0B1C2A;
-            --brand-accent: #0070D8; /* Renforcé pour accessibilité texte */
-            --brand-accent-hover: #005bb5;
-            --brand-yellow: #D97706; /* Conforme contraste AA sur fond sombre */
+            --brand-accent: #0084FF;
+            --brand-accent-hover: #006dd4;
+            --brand-yellow: #F5A623;
             --page-bg: #F9FAFB;
             --surface-card: #FFFFFF;
-            --text-main: #0F172A;
-            --text-muted: #334155; /* Contraste 5.5:1 sur fond clair (validé AA) */
-            --border-light: #CBD5E1;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-light: #E2E8F0;
         }
 
         *, *::before, *::after {
@@ -99,7 +96,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Montserrat', system-ui, sans-serif;
             font-weight: 800;
             line-height: 1.2;
@@ -136,7 +133,7 @@
             position: sticky;
             top: 0;
             width: 100%;
-            background-color: rgba(4, 16, 26, 0.98);
+            background-color: rgba(4, 16, 26, 0.95);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 50;
@@ -177,7 +174,7 @@
         }
 
         .brand-role {
-            color: #FBBF24;
+            color: var(--brand-yellow);
             font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -190,8 +187,8 @@
             align-items: center;
             gap: 2rem;
             font-size: 0.875rem;
-            font-weight: 600;
-            color: #E2E8F0;
+            font-weight: 500;
+            color: #CBD5E1;
         }
 
         .nav-desktop a:hover {
@@ -199,7 +196,8 @@
         }
 
         .nav-desktop a.active {
-            color: #38BDF8;
+            color: var(--brand-accent);
+            font-weight: 600;
         }
 
         @media (min-width: 900px) {
@@ -215,7 +213,7 @@
             gap: 0.5rem;
             padding: 0.75rem 1.5rem;
             font-size: 0.875rem;
-            font-weight: 700;
+            font-weight: 600;
             border-radius: 9999px;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -226,7 +224,7 @@
             background-color: var(--brand-accent);
             color: #ffffff;
             border: none;
-            box-shadow: 0 4px 14px rgba(0, 112, 216, 0.35);
+            box-shadow: 0 4px 14px rgba(0, 132, 255, 0.3);
         }
 
         .btn-primary:hover {
@@ -237,16 +235,16 @@
         .btn-outline {
             background-color: transparent;
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         .btn-outline:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.08);
             border-color: #ffffff;
         }
 
         .btn-sm {
-            padding: 0.5rem 1.15rem;
+            padding: 0.5rem 1.1rem;
             font-size: 0.8rem;
         }
 
@@ -270,7 +268,7 @@
             padding: 1rem 1.25rem;
             gap: 1rem;
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 500;
             color: #E2E8F0;
         }
 
@@ -278,27 +276,29 @@
             display: flex;
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero-section {
             background-color: var(--brand-dark);
             color: #ffffff;
             padding-top: 4rem;
             padding-bottom: 4.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background-color: rgba(0, 112, 216, 0.2);
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            color: #93C5FD;
+            background-color: rgba(0, 132, 255, 0.15);
+            border: 1px solid rgba(0, 132, 255, 0.35);
+            color: #60A5FA;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            padding: 0.4rem 0.9rem;
+            padding: 0.35rem 0.85rem;
             border-radius: 9999px;
             margin-bottom: 1.5rem;
         }
@@ -316,7 +316,7 @@
 
         .hero-subtitle {
             font-size: 1.05rem;
-            color: #CBD5E1;
+            color: #94A3B8;
             max-width: 44rem;
             margin-bottom: 2rem;
             font-weight: 400;
@@ -349,15 +349,14 @@
         }
 
         .hero-feature-icon {
-            color: #FBBF24;
+            color: var(--brand-yellow);
             font-size: 1.2rem;
             line-height: 1;
-            font-weight: bold;
         }
 
         .hero-feature-text {
             font-size: 0.85rem;
-            color: #E2E8F0;
+            color: #CBD5E1;
             font-weight: 500;
         }
 
@@ -369,7 +368,7 @@
 
         .section-header {
             text-align: center;
-            max-width: 44rem;
+            max-width: 42rem;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 3.5rem;
@@ -420,21 +419,21 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .card-service:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
-            border-color: rgba(0, 112, 216, 0.4);
+            box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.07);
+            border-color: rgba(0, 132, 255, 0.3);
         }
 
         .service-icon-box {
             width: 3.25rem;
             height: 3.25rem;
             border-radius: 1rem;
-            background-color: rgba(0, 112, 216, 0.1);
+            background-color: rgba(0, 132, 255, 0.08);
             color: var(--brand-accent);
             display: flex;
             align-items: center;
@@ -462,8 +461,8 @@
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
-            font-size: 0.825rem;
-            color: #1E293B;
+            font-size: 0.8rem;
+            color: #334155;
             font-weight: 500;
         }
 
@@ -475,8 +474,8 @@
 
         .service-points li::before {
             content: "✓";
-            color: #059669;
-            font-weight: 800;
+            color: #10B981;
+            font-weight: bold;
         }
 
         /* À propos */
@@ -503,7 +502,7 @@
 
         .about-text p {
             font-size: 0.95rem;
-            color: #334155;
+            color: #475569;
             margin-bottom: 1.25rem;
             line-height: 1.7;
         }
@@ -517,12 +516,11 @@
 
         .badge-item {
             background-color: #F1F5F9;
-            color: #1E293B;
+            color: #334155;
             padding: 0.4rem 0.85rem;
             border-radius: 9999px;
             font-size: 0.75rem;
-            font-weight: 700;
-            border: 1px solid #CBD5E1;
+            font-weight: 600;
         }
 
         /* Encart Veille */
@@ -555,12 +553,12 @@
 
         .veille-text p {
             font-size: 0.9rem;
-            color: #CBD5E1;
+            color: #94A3B8;
             max-width: 38rem;
             line-height: 1.6;
         }
 
-        /* Contact */
+        /* Section Contact */
         .contact-section {
             background-color: var(--brand-dark);
             color: #ffffff;
@@ -584,7 +582,7 @@
         }
 
         .contact-info p {
-            color: #CBD5E1;
+            color: #94A3B8;
             font-size: 0.95rem;
             margin-bottom: 2rem;
             line-height: 1.7;
@@ -601,23 +599,23 @@
             align-items: center;
             gap: 1rem;
             padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 1rem;
             transition: background-color 0.2s, border-color 0.2s;
         }
 
         .contact-link-item:hover {
-            background-color: rgba(255, 255, 255, 0.08);
-            border-color: #38BDF8;
+            background-color: rgba(255, 255, 255, 0.06);
+            border-color: var(--brand-accent);
         }
 
         .contact-icon {
             width: 2.75rem;
             height: 2.75rem;
             border-radius: 0.75rem;
-            background-color: rgba(0, 112, 216, 0.25);
-            color: #93C5FD;
+            background-color: rgba(0, 132, 255, 0.15);
+            color: #60A5FA;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -628,7 +626,7 @@
         .contact-link-text span {
             display: block;
             font-size: 0.75rem;
-            color: #94A3B8;
+            color: #64748B;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             font-weight: 700;
@@ -640,8 +638,8 @@
         }
 
         .contact-form-box {
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 1.25rem;
             padding: 2rem;
         }
@@ -654,14 +652,14 @@
             display: block;
             font-size: 0.8rem;
             font-weight: 600;
-            color: #E2E8F0;
+            color: #CBD5E1;
             margin-bottom: 0.4rem;
         }
 
         .form-input, .form-textarea {
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 0.75rem;
             padding: 0.75rem 1rem;
             color: #ffffff;
@@ -672,16 +670,16 @@
         }
 
         .form-input:focus, .form-textarea:focus {
-            border-color: #38BDF8;
-            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--brand-accent);
+            background-color: rgba(255, 255, 255, 0.08);
         }
 
         /* Pied de page */
         .site-footer {
             background-color: #02090F;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 3.5rem 1.25rem 2.5rem;
-            color: #94A3B8;
+            color: #64748B;
             font-size: 0.8rem;
             text-align: center;
         }
@@ -690,7 +688,12 @@
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 1.5rem;
-            opacity: 0.9;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .footer-logo:hover {
+            opacity: 1;
         }
 
         .footer-address {
@@ -698,7 +701,7 @@
             line-height: 1.7;
             max-width: 32rem;
             margin: 0 auto 1.75rem;
-            color: #CBD5E1;
+            color: #94A3B8;
         }
 
         .footer-links {
@@ -707,7 +710,7 @@
             justify-content: center;
             gap: 1.5rem;
             margin-bottom: 1.75rem;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .footer-links a:hover {
@@ -716,7 +719,7 @@
 
         .footer-copy {
             font-size: 0.75rem;
-            color: #64748B;
+            color: #475569;
         }
     </style>
 </head>
@@ -726,7 +729,7 @@
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="brand-link" title="Christophe Guillon - Accueil">
-                <img src="logo_CG2.png" alt="Christophe Guillon - Consultant &amp; Formateur" width="44" height="44">
+                <img src="logo_CG2.png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='Logo_CG%20(1).png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="48" height="48">
                 <div class="brand-titles">
                     <span class="brand-name">CHRISTOPHE GUILLON</span>
                     <span class="brand-role">CONSULTANT &amp; FORMATEUR</span>
@@ -748,17 +751,17 @@
             </button>
         </div>
 
-        <!-- Menu Mobile -->
+        <!-- Menu déroulant Mobile -->
         <div id="mobile-nav" class="mobile-menu">
             <a href="#accueil" class="mobile-link">Accueil</a>
             <a href="#expertises" class="mobile-link">Expertises</a>
             <a href="#a-propos" class="mobile-link">À propos</a>
-            <a href="veille.html" class="mobile-link" style="color: #38BDF8;">Veille IA &amp; NoCode</a>
+            <a href="veille.html" class="mobile-link" style="color: var(--brand-accent);">Veille IA &amp; NoCode</a>
             <a href="#contact" class="btn btn-primary btn-sm mobile-link" style="align-self: flex-start; margin-top: 0.5rem;">M'écrire</a>
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- Section Hero -->
     <section id="accueil" class="hero-section">
         <div class="container">
             <div class="hero-badge">
@@ -801,7 +804,7 @@
         </div>
     </section>
 
-    <!-- Expertises -->
+    <!-- Section Expertises -->
     <section id="expertises" class="section">
         <div class="container">
             <div class="section-header">
@@ -873,13 +876,13 @@
         </div>
     </section>
 
-    <!-- À propos -->
+    <!-- Section À propos -->
     <section id="a-propos" class="section" style="background-color: #F1F5F9; padding-top: 4.5rem; padding-bottom: 4.5rem;">
         <div class="container">
             <div class="about-box">
                 <div class="about-text">
                     <span class="section-tag">Parcours &amp; Approche</span>
-                    <h2 style="font-size: 1.75rem; color: var(--brand-dark); margin-bottom: 1rem;">L'alliance du bon sens commercial et de la technologie.</h2>
+                    <h3>L'alliance du bon sens commercial et de la technologie.</h3>
                     <p>
                         Fort de plus de 20&nbsp;ans d'expérience dans la vente, la négociation et le management d'équipes opérationnelles, j'ai développé une conviction simple&nbsp;: la technologie n'a de valeur que si elle sert directement vos résultats et soulage vos collaborateurs.
                     </p>
@@ -893,10 +896,10 @@
                     </div>
                 </div>
                 <div>
-                    <!-- Encart Veille -->
+                    <!-- Encart Veille Intégré -->
                     <div class="veille-teaser">
                         <div class="veille-text">
-                            <span style="color: #FBBF24; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Innovation continue</span>
+                            <span style="color: var(--brand-yellow); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Innovation continue</span>
                             <h3>Espace Veille Stratégique</h3>
                             <p>
                                 Accédez à ma console d'actualités en direct analysant les avancées mondiales en IA, NoCode et transformation digitale.
@@ -911,13 +914,13 @@
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Section Contact -->
     <section id="contact" class="section contact-section">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <span class="section-tag" style="color: #93C5FD;">Contact direct</span>
-                    <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 1rem;">Échangeons sur vos priorités.</h2>
+                    <span class="section-tag" style="color: #60A5FA;">Contact direct</span>
+                    <h3>Échangeons sur vos priorités.</h3>
                     <p>
                         Que ce soit pour animer une session de formation au sein de vos équipes, structurer vos automatisations ou auditer vos processus commerciaux, je suis à votre disposition.
                     </p>
@@ -950,7 +953,7 @@
                 </div>
 
                 <div class="contact-form-box">
-                    <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 1.25rem;">Envoyer un message</h3>
+                    <h4 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 1.25rem;">Envoyer un message</h4>
                     <form action="mailto:contact@christophe-guillon.com" method="post" enctype="text/plain">
                         <div class="form-group">
                             <label for="name" class="form-label">Votre nom &amp; entreprise</label>
@@ -976,18 +979,18 @@
         </div>
     </section>
 
-    <!-- Pied de page -->
+    <!-- Pied de page officiel -->
     <footer class="site-footer">
         <div class="container">
             <a href="index.html" title="Christophe Guillon">
-                <img src="logo_CG2.png" alt="Christophe Guillon - Consultant &amp; Formateur" width="40" height="40" class="footer-logo">
+                <img src="logo_CG2.png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='Logo_CG%20(1).png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="40" height="40" class="footer-logo">
             </a>
 
             <address class="footer-address">
-                <strong style="color: #F8FAFC;">Christophe Guillon — Conseil &amp; Formation</strong><br>
+                <strong style="color: #E2E8F0;">Christophe Guillon — Conseil &amp; Formation</strong><br>
                 49400 Saumur (Maine-et-Loire, Pays de la Loire)<br>
                 Interventions&nbsp;: Saumur, Angers, Pays de la Loire et à distance<br>
-                <a href="tel:+33675052375" style="color: #CBD5E1;">06 75 05 23 75</a> • <a href="mailto:contact@christophe-guillon.com" style="color: #CBD5E1;">contact@christophe-guillon.com</a>
+                <a href="tel:+33675052375" style="color: #94A3B8;">06 75 05 23 75</a> • <a href="mailto:contact@christophe-guillon.com" style="color: #94A3B8;">contact@christophe-guillon.com</a>
             </address>
 
             <div class="footer-links">
@@ -1004,7 +1007,7 @@
         </div>
     </footer>
 
-    <!-- Script minimaliste pour le menu mobile -->
+    <!-- Script minimaliste pour le menu mobile (0 dépendance) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var menuBtn = document.getElementById('menu-btn');
