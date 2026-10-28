@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding Vitrine Universel — Cahier des charges & Médias</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #cbd5e1;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --success: #166534;
+      --success-bg: #dcfce7;
+      --warning-bg: #fef3c7;
+      --warning-text: #92400e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2.5rem 1rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--card);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+    }
+    h1 { color: var(--primary); font-size: 1.85rem; margin-bottom: 0.5rem; }
+    p.intro { color: #64748b; font-size: 0.95rem; margin-bottom: 2rem; }
+    fieldset {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      background: #fafafa;
+    }
+    legend {
+      padding: 0 0.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+    .field { margin-bottom: 1.25rem; }
+    .field:last-child { margin-bottom: 0; }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    @media (max-width: 768px) {
+      .row-2, .row-3 { grid-template-columns: 1fr; }
+      .container { padding: 1.5rem; }
+    }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+    span.hint {
+      font-weight: normal;
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: var(--text-dark);
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #ffffff;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .checkbox-item input { width: auto; cursor: pointer; }
+    .photo-slot {
+      background: #ffffff;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .photo-slot:last-child { margin-bottom: 0; }
+    .photo-slot-header {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+    }
+    button.btn-primary {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 1.15rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button.btn-primary:hover { background: var(--accent-hover); }
+    button.btn-primary:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    /* ZONE DE SORTIE */
+    #output-zone {
+      margin-top: 3rem;
+      display: none;
+      border-top: 2px solid var(--border);
+      padding-top: 2rem;
+    }
+    .instruction-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .instruction-card h3 {
+      color: #1e40af;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .instruction-card p {
+      font-size: 0.9rem;
+      color: #1e3a8a;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 650px) {
+      .actions-grid { grid-template-columns: 1fr; }
+    }
+    .btn-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.2rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+    .btn-email {
+      background: #1e40af;
+      color: #ffffff;
+    }
+    .btn-email:hover { background: #1d4ed8; }
+    .btn-copy {
+      background: #ffffff;
+      color: var(--text-dark);
+      border-color: var(--border);
+    }
+    .btn-copy:hover { background: #f8fafc; }
+    #prompt-result {
+      width: 100%;
+      height: 480px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      padding: 1.25rem;
+      background: #0f172a;
+      color: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+    .alert-copy {
+      background: var(--success-bg);
+      color: var(--success);
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Cahier des charges & Onboarding Web Vitrine</h1>
+    <p class="intro">Ce formulaire recueille vos informations professionnelles, optimise vos photos et génère les données complètes nécessaires à la conception de votre site vitrine.</p>
+
+    <form id="onboarding-form">
+
+      <!-- 1. IDENTITÉ LÉGALE & STRUCTURE -->
+      <fieldset>
+        <legend>1. Statut juridique & Mentions obligatoires</legend>
+        
+        <div class="row-2">
+          <div class="field">
+            <label for="nomCommercial">Nom commercial ou Enseigne *</label>
+            <input type="text" id="nomCommercial" required placeholder="Ex. Boulangerie du Parc, Nova Conseil, Atelier Durand...">
+          </div>
+          <div class="field">
+            <label for="raisonSociale">Raison sociale officielle *</label>
+            <input type="text" id="raisonSociale" required placeholder="Ex. SARL NOVA, SAS DURAND ou Jean Dupont (EI)">
+          </div>
+        </div>
+
+        <div class="row-3">
+          <div class="field">
+            <label for="statutJuridique">Forme juridique *</label>
+            <select id="statutJuridique" required>
+              <option value="Micro-entreprise">Micro-entreprise / Auto-entrepreneur</option>
+              <option value="Entreprise Individuelle (EI)">Entreprise Individuelle (EI)</option>
+              <option value="SARL / EURL">SARL / EURL</option>
+              <option value="SAS / SASU">SAS / SASU</option>
+              <option value="Profession libérale / SELARL">Profession libérale / SCM / SELARL</option>
+              <option value="Association">Association</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="capitalSocial">Capital social <span class="hint">(facultatif si EI)</span></label>
+            <input type="text" id="capitalSocial" placeholder="Ex. 5 000 € ou N/A">
+          </div>
+          <div class="field">
+            <label for="siret">Numéro SIRET (14 chiffres) *</label>
+            <input type="text" id="siret" required placeholder="Ex. 123 456 789 00012">
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="rcs">RCS / RM / RNE (Ville d'immatriculation) *</label>
+            <input type="text" id="rcs" required placeholder="Ex. RCS Angers, RM Saumur, ou RNE">
+          </div>
+          <div class="field">
+            <label for="tva">N° TVA <span class="hint">(ou statut d'exonération)</span></label>
+            <input type="text" id="tva" placeholder="Ex. FR 12 345678901 ou Exonération art. 293 B du CGI">
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="dirigeant">Dirigeant(e) & Directeur de la publication *</label>
+            <input type="text" id="dirigeant" required placeholder="Ex. Sophie Martin">
+          </div>
+          <div class="field">
+            <label for="assurancePro">Assurance professionnelle <span class="hint">(Décennale BTP, RC Pro, etc.)</span></label>
+            <input type="text" id="assurancePro" placeholder="Ex. RC Pro Allianz n° 987654 ou Décennale Pro BTP (optionnel)">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="mediateur">Médiateur de la consommation agréé <span class="hint">(obligatoire en B2C)</span></label>
+          <input type="text" id="mediateur" placeholder="Ex. Médiateur CM2C (14 rue Saint-Jean 75017 Paris) ou CNPM Médiation">
+        </div>
+      </fieldset>
+
+      <!-- 2. CONTACT, ADRESSE & GÉOGRAPHIE -->
+      <fieldset>
+        <legend>2. Coordonnées & Ancrage local</legend>
+
+        <div class="row-3">
+          <div class="field">
+            <label for="telephone">Téléphone de contact *</label>
+            <input type="tel" id="telephone" required placeholder="Ex. 02 41 00 00 00">
+          </div>
+          <div class="field">
+            <label for="email">E-mail officiel de contact *</label>
+            <input type="email" id="email" required placeholder="Ex. contact@votre-domaine.fr">
+          </div>
+          <div class="field">
+            <label for="gaId">Google Analytics ID <span class="hint">(facultatif)</span></label>
+            <input type="text" id="gaId" placeholder="Ex. G-XXXXXXXXXX">
+          </div>
+        </div>
+
+        <div class="row-3">
+          <div class="field">
+            <label for="adresse">Adresse de l'établissement ou siège *</label>
+            <input type="text" id="adresse" required placeholder="Ex. 14 rue de la République">
+          </div>
+          <div class="field">
+            <label for="codePostal">Code postal *</label>
+            <input type="text" id="codePostal" required placeholder="Ex. 49400">
+          </div>
+          <div class="field">
+            <label for="ville">Ville d'implantation *</label>
+            <input type="text" id="ville" required placeholder="Ex. Saumur">
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="zoneIntervention">Rayon d'action ou Modalités d'accès *</label>
+            <input type="text" id="zoneIntervention" required placeholder="Ex. Rayon de 30 km / Sur place uniquement (parking privé) / France entière (visio)">
+          </div>
+          <div class="field">
+            <label for="horaires">Horaires d'accueil ou d'astreinte *</label>
+            <input type="text" id="horaires" required placeholder="Ex. Mar-Sam : 9h-19h / Lun-Ven : 8h30-18h / Sur RDV">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 3. POSITIONNEMENT, SECTEUR & VALEUR -->
+      <fieldset>
+        <legend>3. Activité, Cibles & Valeur ajoutée</legend>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="secteurActivite">Secteur d'activité principal *</label>
+            <select id="secteurActivite" required>
+              <option value="Artisanat du bâtiment / Travaux">Artisanat du bâtiment / Dépannage / Rénovation</option>
+              <option value="Commerce de proximité / Boutique / Restauration">Commerce de proximité / Métiers de bouche / Boutique</option>
+              <option value="Prestation de services aux entreprises (B2B)">Services aux entreprises / Agence / Conseil / B2B</option>
+              <option value="Prestation de services aux particuliers (B2C)">Services aux particuliers / Domicile / Cours</option>
+              <option value="Santé, Bien-être & Beauté">Santé, Beauté, Bien-être & Soins</option>
+              <option value="Autre profession">Autre secteur d'activité</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="metierPrincipal">Cœur de métier exact *</label>
+            <input type="text" id="metierPrincipal" required placeholder="Ex. Menuisier agenceur, Opticien indépendant, Développeur web, Ostéopathe...">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Typologie de clientèle ciblée *</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" name="cible" value="Particuliers (B2C)" checked> Particuliers (B2C)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="cible" value="Professionnels & Entreprises (B2B)"> Entreprises & Pros (B2B)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="cible" value="Prescripteurs & Partenaires"> Prescripteurs & Réseaux
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="specialites">Spécialité, offre signature ou niche à forte valeur ajoutée</label>
+          <input type="text" id="specialites" placeholder="Ex. Fabrication sur-mesure bois local, Lunettes écoresponsables, Audit SEO technique...">
+        </div>
+
+        <div class="field">
+          <label for="engagements">Points forts, garanties et réassurance (3 à 4 arguments clés) *</label>
+          <textarea id="engagements" rows="2" required placeholder="Ex. Devis gratuit sous 24h, 15 ans d'expérience locale, produits 100 % artisanaux, labellisé éco-artisan, satisfaction garantie..."></textarea>
+        </div>
+      </fieldset>
+
+      <!-- 4. STRATÉGIE SEO LOCAL & GEO (MOTEURS IA) -->
+      <fieldset>
+        <legend>4. Référencement local (Google) & Visibilité IA (Perplexity, ChatGPT)</legend>
+
+        <div class="field">
+          <label for="motsClesLocaux">Mots-clés et recherches locales prioritaires *</label>
+          <textarea id="motsClesLocaux" rows="2" required placeholder="Ex. menuisier saumur, pose parquet saumur 49400, agencement sur mesure maine-et-loire, menuiserie artisanale"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="requetesLLM">Questions que posent vos clients aux IA ou sur les moteurs *</label>
+          <textarea id="requetesLLM" rows="2" required placeholder="Ex. « Quel est le meilleur artisan pour un dressing sur-mesure à Saumur ? », « Combien coûte la création d'une bibliothèque en chêne ? »"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- 5. PRESTATIONS & FAQ -->
+      <fieldset>
+        <legend>5. Prestations majeures, Tarifs & Questions fréquentes</legend>
+
+        <div class="field">
+          <label for="prestations">3 ou 4 prestations majeures avec tarifs indicatifs d'appel *</label>
+          <textarea id="prestations" rows="4" required placeholder="Prestation 1 : Agencement de dressing sur-mesure — À partir de 1 200 € TTC posé&#10;Prestation 2 : Pose de parquet massif ou contrecollé — À partir de 45 € / m²&#10;Prestation 3 : Rénovation de fenêtres et baies vitrées — Sur devis personnalisé gratuit"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="objections">Questions fréquentes & objections clients (pour la FAQ locale) *</label>
+          <textarea id="objections" rows="3" required placeholder="Ex. Comment se passe la première consultation ? Quels sont les délais de fabrication ? Le devis est-il payant ? Proposez-vous des facilités de règlement ?"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- 6. MÉDIAS : LOGO & PHOTOS -->
+      <fieldset>
+        <legend>6. Médias (Logo & 3 à 5 photos représentatives)</legend>
+        <p class="hint" style="margin-bottom: 1rem;">
+          Les fichiers bruts déposés sont allégés et convertis automatiquement au format WebP haute performance.
+        </p>
+
+        <!-- Logo -->
+        <div class="photo-slot">
+          <div class="photo-slot-header">Logo de l'entreprise (PNG, JPG, WebP)</div>
+          <div class="row-2">
+            <div>
+              <label for="logoFile">Fichier image :</label>
+              <input type="file" id="logoFile" accept="image/png, image/jpeg, image/jpg, image/webp">
+            </div>
+            <div>
+              <label for="logoAlt">Texte alternatif (SEO) :</label>
+              <input type="text" id="logoAlt" placeholder="Ex. Logo Atelier Durand Saumur">
+            </div>
+          </div>
+        </div>
+
+        <!-- Photos -->
+        <div id="photos-container">
+          <div class="photo-slot">
+            <div class="photo-slot-header">Photo 1 (Prestation phare, vitrine ou équipe) *</div>
+            <div class="field">
+              <input type="file" class="photo-file" data-index="1" accept="image/png, image/jpeg, image/jpg, image/webp">
+            </div>
+            <div class="row-2">
+              <div>
+                <label>Titre / Sujet :</label>
+                <input type="text" class="photo-title" data-index="1" placeholder="Ex. Pose de cuisine contemporaine">
+              </div>
+              <div>
+                <label>Description courte :</label>
+                <input type="text" class="photo-desc" data-index="1" placeholder="Ex. Aménagement sur-mesure avec îlot central à Saumur.">
+              </div>
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-slot-header">Photo 2 (Réalisation, boutique ou atelier)</div>
+            <div class="field">
+              <input type="file" class="photo-file" data-index="2" accept="image/png, image/jpeg, image/jpg, image/webp">
+            </div>
+            <div class="row-2">
+              <div>
+                <label>Titre / Sujet :</label>
+                <input type="text" class="photo-title" data-index="2" placeholder="Ex. Dressing sur-mesure sous pente">
+              </div>
+              <div>
+                <label>Description courte :</label>
+                <input type="text" class="photo-desc" data-index="2" placeholder="Ex. Optimisation des espaces en chêne naturel.">
+              </div>
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-slot-header">Photo 3 (Réalisation, équipement ou savoir-faire)</div>
+            <div class="field">
+              <input type="file" class="photo-file" data-index="3" accept="image/png, image/jpeg, image/jpg, image/webp">
+            </div>
+            <div class="row-2">
+              <div>
+                <label>Titre / Sujet :</label>
+                <input type="text" class="photo-title" data-index="3" placeholder="Ex. Bibliothèque murale intégrée">
+              </div>
+              <div>
+                <label>Description courte :</label>
+                <input type="text" class="photo-desc" data-index="3" placeholder="Ex. Fabrication sur mesure en atelier.">
+              </div>
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-slot-header">Photo 4 (Optionnelle)</div>
+            <div class="field">
+              <input type="file" class="photo-file" data-index="4" accept="image/png, image/jpeg, image/jpg, image/webp">
+            </div>
+            <div class="row-2">
+              <div>
+                <label>Titre / Sujet :</label>
+                <input type="text" class="photo-title" data-index="4" placeholder="Ex. Détail de finition et assemblage">
+              </div>
+              <div>
+                <label>Description courte :</label>
+                <input type="text" class="photo-desc" data-index="4" placeholder="Ex. Travail artisanal soigné.">
+              </div>
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-slot-header">Photo 5 (Optionnelle)</div>
+            <div class="field">
+              <input type="file" class="photo-file" data-index="5" accept="image/png, image/jpeg, image/jpg, image/webp">
+            </div>
+            <div class="row-2">
+              <div>
+                <label>Titre / Sujet :</label>
+                <input type="text" class="photo-title" data-index="5" placeholder="Ex. Façade d'atelier ou véhicule floqué">
+              </div>
+              <div>
+                <label>Description courte :</label>
+                <input type="text" class="photo-desc" data-index="5" placeholder="Ex. Notre équipe sur le terrain.">
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="btn-submit" class="btn-primary">Générer le cahier des charges & Optimiser les médias</button>
+    </form>
+
+    <!-- ZONE DE SORTIE ET DE TRANSMISSION -->
+    <div id="output-zone">
+      <div class="instruction-card">
+        <h3>Votre cahier des charges est prêt !</h3>
+        <p>
+          Vérifiez les données générées. Vous pouvez ensuite transmettre directement ce document à Christophe pour lancer la création de votre site vitrine.
+        </p>
+        <p>
+          Si votre boîte mail ne s'ouvre pas automatiquement, cliquez sur <strong>« Copier le texte complet »</strong> et collez le contenu dans un e-mail à l'adresse <strong>contact@christophe-guillon.com</strong>.
+        </p>
+      </div>
+
+      <div class="alert-copy" id="alert-copy">✓ Contenu copié dans le presse-papier !</div>
+
+      <div class="actions-grid">
+        <a id="btn-mailto" href="#" class="btn-action btn-email">
+          ✉️ Transmettre par e-mail
+        </a>
+        <button type="button" id="btn-copy-prompt" class="btn-action btn-copy">
+          📋 Copier le texte complet
+        </button>
+      </div>
+
+      <label for="prompt-result"><strong>Contenu textuel du cahier des charges généré :</strong></label>
+      <textarea id="prompt-result" readonly></textarea>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // CONFIGURATION STOCKAGE CLOUD (Solution 2 - Cloudinary)
+    // Renseignez votre Cloud Name. Le preset 'onboarding_sites' est déjà configuré.
+    // Si laissé vide (""), le script télécharge automatiquement les images WebP sur le poste client.
+    // =========================================================================
+    const CLOUDINARY_CLOUD_NAME = "qupy9lhi";
+    const CLOUDINARY_UPLOAD_PRESET = "onboarding_sites";
+
+    // Fonction de nettoyage pour créer un nom de dossier et des noms de fichiers valides
+    function slugifier(texte) {
+      return texte
+        .toString()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // Supprime les accents
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '-')     // Remplace les caractères spéciaux et espaces par un tiret
+        .replace(/^-+|-+$/g, '');        // Nettoie les tirets au début et à la fin
+    }
+
+    // Optimisation de l'image locale en Blob WebP via Canvas
+    function optimiserImage(file, maxWidth, quality = 0.82) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (e) => {
+          const img = new Image();
+          img.src = e.target.result;
+          img.onload = () => {
+            let width = img.width;
+            let height = img.height;
+
+            if (width > maxWidth) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+
+            canvas.toBlob(
+              (blob) => resolve(blob),
+              'image/webp',
+              quality
+            );
+          };
+          img.onerror = reject;
+        };
+        reader.onerror = reject;
+      });
+    }
+
+    // Téléchargement de secours sur la machine cliente
+    function telechargerBlob(blob, nomFichier) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = nomFichier;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Upload direct vers Cloudinary avec nommage unique et classement en dossier
+    async function uploaderCloudinary(blob, nomCourtSansExtension, dossierEntreprise) {
+      const formData = new FormData();
+      formData.append("file", blob);
+      formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+      // Nom public avec horodatage pour éviter le blocage "Already exists" (Overwrite: false)
+      const publicIdUnique = `${nomCourtSansExtension}-${Date.now()}`;
+      formData.append("public_id", publicIdUnique);
+
+      // Rangement dans la Media Library (Cloudinary utilise folder ou asset_folder selon l'ancienneté du compte)
+      const cheminDossier = `sites/${dossierEntreprise}`;
+      formData.append("folder", cheminDossier);
+      formData.append("asset_folder", cheminDossier);
+
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Extraction détaillée de l'erreur Cloudinary pour diagnostic
+        const messageErreur = data.error?.message || "Erreur inconnue";
+        console.error("Détail du rejet Cloudinary :", data);
+        throw new Error(`Rejet Cloudinary : ${messageErreur}`);
+      }
+
+      return data.secure_url;
+    }
+
+    const form = document.getElementById('onboarding-form');
+    const outputZone = document.getElementById('output-zone');
+    const promptResult = document.getElementById('prompt-result');
+    const btnSubmit = document.getElementById('btn-submit');
+    const btnMailto = document.getElementById('btn-mailto');
+    const btnCopy = document.getElementById('btn-copy-prompt');
+    const alertCopy = document.getElementById('alert-copy');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btnSubmit.disabled = true;
+      btnSubmit.innerText = "Traitement et conversion des visuels en WebP...";
+
+      const cloudUploadActive = CLOUDINARY_CLOUD_NAME.trim() !== "" && CLOUDINARY_UPLOAD_PRESET.trim() !== "";
+
+      // 1. Identité légale
+      const nomCommercial = document.getElementById('nomCommercial').value;
+      const entrepriseSlug = slugifier(nomCommercial || "entreprise");
+
+      const raisonSociale = document.getElementById('raisonSociale').value;
+      const statutJuridique = document.getElementById('statutJuridique').value;
+      const capitalSocial = document.getElementById('capitalSocial').value || "N/A";
+      const siret = document.getElementById('siret').value;
+      const rcs = document.getElementById('rcs').value;
+      const tva = document.getElementById('tva').value || "Franchise en base de TVA (art. 293 B du CGI)";
+      const dirigeant = document.getElementById('dirigeant').value;
+      const assurancePro = document.getElementById('assurancePro').value.trim();
+      const mediateur = document.getElementById('mediateur').value.trim();
+
+      // 2. Coordonnées & Géo
+      const telephone = document.getElementById('telephone').value;
+      const telLien = telephone.replace(/\s+/g, '').replace(/^0/, '+33');
+      const email = document.getElementById('email').value;
+      const gaId = document.getElementById('gaId').value || "G-XXXXXXXXXX";
+      const adresse = document.getElementById('adresse').value;
+      const codePostal = document.getElementById('codePostal').value;
+      const ville = document.getElementById('ville').value;
+      const zoneIntervention = document.getElementById('zoneIntervention').value;
+      const horaires = document.getElementById('horaires').value;
+
+      // 3. Activité & Cibles
+      const secteurActivite = document.getElementById('secteurActivite').value;
+      const metierPrincipal = document.getElementById('metierPrincipal').value;
+      const ciblesChecked = Array.from(document.querySelectorAll('input[name="cible"]:checked')).map(el => el.value).join(', ') || "Particuliers (B2C)";
+      const specialites = document.getElementById('specialites').value || "Non spécifié";
+      const engagements = document.getElementById('engagements').value;
+
+      // 4. SEO & GEO
+      const motsClesLocaux = document.getElementById('motsClesLocaux').value;
+      const requetesLLM = document.getElementById('requetesLLM').value;
+      const prestations = document.getElementById('prestations').value;
+      const objections = document.getElementById('objections').value;
+
+      // 5. Traitement des médias avec nommage explicite
+      let logoData = null;
+      const logoFileInput = document.getElementById('logoFile');
+      const logoAltInput = document.getElementById('logoAlt').value || `Logo ${nomCommercial}`;
+
+      try {
+        if (logoFileInput.files && logoFileInput.files[0]) {
+          btnSubmit.innerText = "Optimisation du logo...";
+          const logoBlob = await optimiserImage(logoFileInput.files[0], 400, 0.85);
+          
+          if (cloudUploadActive) {
+            btnSubmit.innerText = "Hébergement du logo sur Cloudinary...";
+            // On ne passe pas le .webp dans le nom court, l'extension est gérée par Cloudinary
+            const logoUrl = await uploaderCloudinary(logoBlob, `${entrepriseSlug}-logo`, entrepriseSlug);
+            logoData = { url: logoUrl, alt: logoAltInput };
+          } else {
+            const logoFileName = `${entrepriseSlug}-logo.webp`;
+            telechargerBlob(logoBlob, logoFileName);
+            logoData = { url: `/images/${logoFileName}`, alt: logoAltInput };
+          }
+        }
+
+        const photosArray = [];
+        const fileInputs = document.querySelectorAll('.photo-file');
+        let indexVisuel = 1;
+
+        for (const input of fileInputs) {
+          const index = input.getAttribute('data-index');
+          const titleInput = document.querySelector(`.photo-title[data-index="${index}"]`).value;
+          const descInput = document.querySelector(`.photo-desc[data-index="${index}"]`).value;
+
+          if (input.files && input.files[0]) {
+            btnSubmit.innerText = `Optimisation du visuel ${indexVisuel}...`;
+            const photoBlob = await optimiserImage(input.files[0], 1200, 0.80);
+
+            let photoUrl = "";
+            if (cloudUploadActive) {
+              btnSubmit.innerText = `Hébergement de l'image ${indexVisuel}...`;
+              photoUrl = await uploaderCloudinary(photoBlob, `${entrepriseSlug}-visuel-${index}`, entrepriseSlug);
+            } else {
+              const photoFileName = `${entrepriseSlug}-visuel-${index}.webp`;
+              telechargerBlob(photoBlob, photoFileName);
+              photoUrl = `/images/${photoFileName}`;
+            }
+
+            photosArray.push({
+              url: photoUrl,
+              titre: titleInput || `Présentation ${index}`,
+              description: descInput || `Réalisation de ${nomCommercial} à ${ville}.`
+            });
+            indexVisuel++;
+          }
+        }
+
+        const mediasStructure = {
+          logo: logoData,
+          photos: photosArray
+        };
+
+        // Construction du prompt pour l'IA
+        const promptCompiled = `Tu es "Architecte Vitrine AI", copywriter d'élite et référenceur SEO local / GEO (moteurs de recherche IA) pour les artisans, commerçants et prestataires de services en France.
+
+Mission : Transforme ces notes brutes d'onboarding en un fichier JSON unique et rigoureusement conforme au schéma ci-dessous.
+
+DONNÉES CLIENT BRUTES :
+--------------------------------------------------
+[IDENTITÉ LÉGALE & STRUCTURE]
+- Nom commercial : 
+${nomCommercial}
+- Raison sociale : 
+${raisonSociale}
+- Forme juridique : 
+${statutJuridique} (Capital : ${capitalSocial})
+- SIRET : 
+${siret} | Immatriculation : ${rcs}
+- N° TVA : 
+${tva}
+- Dirigeant & Publication : 
+${dirigeant}
+- Assurance professionnelle : 
+${assurancePro || "Non renseignée"}
+- Médiateur de la consommation : 
+${mediateur || "Non renseigné"}
+
+[CONTACT, ADRESSE & GÉOGRAPHIE]
+- Téléphone : 
+${telephone} (Format international : ${telLien})
+- E-mail : 
+${email}
+- Adresse : 
+${adresse}, ${codePostal} ${ville}
+- Modalités d'intervention / Zone : 
+${zoneIntervention}
+- Horaires d'ouverture / Astreinte : 
+${horaires}
+- Google Analytics ID : 
+${gaId}
+
+[POSITIONNEMENT & ACTIVITÉ]
+- Secteur : 
+${secteurActivite}
+- Cœur de métier : 
+${metierPrincipal}
+- Typologie de cibles : 
+${ciblesChecked}
+- Offre signature / Niche : 
+${specialites}
+- Engagements & Garanties : 
+${engagements}
+
+[SEO LOCAL & RECHERCHE IA (GEO/LLM)]
+- Mots-clés locaux : 
+${motsClesLocaux}
+- Requêtes naturelles IA : 
+${requetesLLM}
+- Services bruts et tarifs : 
+${prestations}
+- Objections & Questions fréquentes : 
+${objections}
+
+[MÉDIAS STRUCTURÉS FOURNIS (WebP)]
+${JSON.stringify(mediasStructure, null, 2)}
+
+DIRECTIVES DE RÉDACTION :
+--------------------------------------------------
+1. POSITIONNEMENT & TON :
+   - Adapte le ton au secteur d'activité (${secteurActivite}) et aux cibles (${ciblesChecked}).
+   - Pour les commerçants/métiers de bouche : chaleureux, convivial, axé sur l'expérience, le goût et l'accueil en boutique.
+   - Pour les artisans/BTP : réassurance, réactivité, savoir-faire technique, garanties solides.
+   - Pour les prestataires B2B/conseil : expertise, rigueur méthodologique, clarté des livrables et ROI.
+2. ACCROCHE (Tagline) : Une phrase percutante axée sur le bénéfice client intégrant impérativement la ville (${ville}) ou la zone.
+3. DESCRIPTION META & SCHEMA : 150 à 160 caractères maximum, synthétisant le métier (${metierPrincipal}), l'ancrage local (${ville}) et un appel à l'action.
+4. SERVICES : 3 à 4 prestations précises et vendeuses avec tarifs d'appel réalistes sous la forme "À partir de...".
+5. FAQ LOCALE & GEO : 4 questions/réponses précises et stratégiques répondant aux intentions de recherche locales pour ${ville} et le métier.
+6. MENTIONS FACULTATIVES : Si l'assurance professionnelle ou le médiateur ne sont pas renseignés, insère une chaîne vide "" dans le JSON.
+7. RÉPONSE STRICTE : Renvoie UNIQUEMENT le bloc JSON brut, sans commentaire ni texte explicatif avant ou après.
+
+SCHÉMA JSON ATTENDU :
+{
+  "identite": {
+    "nomCommercial": "${nomCommercial}",
+    "raisonSociale": "${raisonSociale}",
+    "statutJuridique": "${statutJuridique}",
+    "capitalSocial": "${capitalSocial}",
+    "directeurPublication": "${dirigeant}",
+    "secteur": "${secteurActivite}",
+    "metier": "${metierPrincipal}",
+    "tagline": "string",
+    "description": "string",
+    "siret": "${siret}",
+    "rcs": "${rcs}",
+    "tva": "${tva}",
+    "assurancePro": "${assurancePro}",
+    "mediateur": "${mediateur}"
+  },
+  "contact": {
+    "telephone": "${telephone}",
+    "telephoneLien": "${telLien}",
+    "email": "${email}",
+    "adresse": "${adresse}",
+    "codePostal": "${codePostal}",
+    "ville": "${ville}",
+    "zoneIntervention": "${zoneIntervention}",
+    "horaires": "${horaires}"
+  },
+  "analytics": {
+    "googleAnalyticsId": "${gaId}"
+  },
+  "seo": {
+    "motsCles": ["string", "string", "string"],
+    "metaTitle": "string",
+    "metaDescription": "string"
+  },
+  "medias": ${JSON.stringify(mediasStructure, null, 2)},
+  "engagements": [
+    "string", "string", "string", "string"
+  ],
+  "services": [
+    {
+      "titre": "string",
+      "description": "string",
+      "tarif": "string"
+    }
+  ],
+  "faq": [
+    {
+      "question": "string",
+      "reponse": "string"
+    }
+  ]
+}`;
+
+        promptResult.value = promptCompiled;
+        outputZone.style.display = 'block';
+
+        // Configuration du bouton mailto
+        const emailSubject = encodeURIComponent(`Nouveau projet vitrine — ${nomCommercial} (${ville})`);
+        const messageIntroduction = `Bonjour Christophe,\n\nVous trouverez ci-joint le cahier des charges complet pour la création du site vitrine de "${nomCommercial}".\n\n` +
+          (cloudUploadActive 
+            ? `Les photos ont été converties en WebP et sont hébergées dans le dossier Cloudinary : sites/${entrepriseSlug}/\n\n` 
+            : `Les photos optimisées en WebP ont été enregistrées sur mon poste et vous sont jointes.\n\n`) +
+          `--- CAHIER DES CHARGES COMPLET ---\n\n` + promptCompiled;
+
+        btnMailto.href = `mailto:contact@christophe-guillon.com?subject=${emailSubject}&body=${encodeURIComponent(messageIntroduction)}`;
+
+        window.scrollTo({ top: outputZone.offsetTop - 20, behavior: 'smooth' });
+
+      } catch (err) {
+        console.error(err);
+        alert("Erreur lors de l'envoi : " + err.message);
+      } finally {
+        btnSubmit.disabled = false;
+        btnSubmit.innerText = "Générer le cahier des charges & Optimiser les médias";
+      }
+    });
+
+    // Copie presse-papier
+    btnCopy.addEventListener('click', () => {
+      navigator.clipboard.writeText(promptResult.value).then(() => {
+        alertCopy.style.display = 'block';
+        setTimeout(() => { alertCopy.style.display = 'none'; }, 4000);
+      });
+    });
+  </script>
+</body>
+</html>
