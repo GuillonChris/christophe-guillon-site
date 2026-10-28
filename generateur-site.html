@@ -85,6 +85,94 @@
       border-color: var(--accent);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
     }
+
+    /* SÉLECTEUR VISUEL DE TEMPLATES */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .template-option {
+      position: relative;
+      cursor: pointer;
+    }
+    .template-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .template-card {
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      background: #ffffff;
+      transition: all 0.2s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .template-card-header {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.35rem;
+    }
+    .template-card-desc {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.35;
+    }
+    .template-option input[type="radio"]:checked + .template-card {
+      border-color: var(--accent);
+      background: #eff6ff;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+
+    /* SÉLECTEUR DE PALETTES */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .palette-option {
+      position: relative;
+      cursor: pointer;
+    }
+    .palette-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .palette-box {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: all 0.2s;
+    }
+    .palette-colors {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1px solid #cbd5e1;
+    }
+    .palette-option input[type="radio"]:checked + .palette-box {
+      border-color: var(--accent);
+      background: #eff6ff;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+
     .checkbox-group {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -104,6 +192,7 @@
       cursor: pointer;
     }
     .checkbox-item input { width: auto; cursor: pointer; }
+
     .photo-slot {
       background: #ffffff;
       border: 1px dashed var(--border);
@@ -118,6 +207,7 @@
       margin-bottom: 0.75rem;
       font-size: 0.9rem;
     }
+
     button.btn-primary {
       display: block;
       width: 100%;
@@ -227,12 +317,74 @@
     <h1>Cahier des charges & Onboarding Web Vitrine</h1>
     <p class="intro">Ce formulaire recueille vos informations professionnelles, optimise vos photos et génère les données complètes nécessaires à la conception de votre site vitrine.</p>
 
-    <!-- Zone masquée affichant le design choisi (optionnel mais rassurant) -->
-    <div id="design-selection-info" style="display:none; background: #e0f2fe; color: #0369a1; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; font-size: 0.9rem; font-weight: 600;">
-      ✓ Design présélectionné : <span id="design-nom"></span>
-    </div>
-
     <form id="onboarding-form">
+
+      <!-- 0. CHOIX DU DESIGN & COULEURS -->
+      <fieldset>
+        <legend>Style visuel & Ambiance</legend>
+
+        <label>Modèle de structure (Layout) :</label>
+        <div class="template-grid">
+          <label class="template-option">
+            <input type="radio" name="layoutChoice" value="artisan-btp" checked>
+            <div class="template-card">
+              <div class="template-card-header">🔨 Artisan & BTP</div>
+              <div class="template-card-desc">Idéal travaux, dépannage : appels d'urgence mis en avant, badges de réassurance et garanties.</div>
+            </div>
+          </label>
+
+          <label class="template-option">
+            <input type="radio" name="layoutChoice" value="corporate-b2b">
+            <div class="template-card">
+              <div class="template-card-header">💼 Corporate & B2B</div>
+              <div class="template-card-desc">Idéal conseil, agences, services pros : structure sobre, cartes bento et présentation d'expertises.</div>
+            </div>
+          </label>
+
+          <label class="template-option">
+            <input type="radio" name="layoutChoice" value="elegant">
+            <div class="template-card">
+              <div class="template-card-header">✨ Élégance & Boutique</div>
+              <div class="template-card-desc">Idéal commerces, restauration, bien-être : typographie soignée et grande galerie photographique.</div>
+            </div>
+          </label>
+        </div>
+
+        <label style="margin-top: 1rem;">Harmonie de couleurs :</label>
+        <div class="palette-grid">
+          <label class="palette-option">
+            <input type="radio" name="paletteChoice" value="ardoise-orange" checked>
+            <div class="palette-box">
+              <div class="palette-colors" style="background: linear-gradient(135deg, #0f172a 50%, #ea580c 50%);"></div>
+              <span>Ardoise / Orange</span>
+            </div>
+          </label>
+
+          <label class="palette-option">
+            <input type="radio" name="paletteChoice" value="bleu-marine-or">
+            <div class="palette-box">
+              <div class="palette-colors" style="background: linear-gradient(135deg, #0a192f 50%, #d4af37 50%);"></div>
+              <span>Bleu / Or</span>
+            </div>
+          </label>
+
+          <label class="palette-option">
+            <input type="radio" name="paletteChoice" value="vert-sauge-sable">
+            <div class="palette-box">
+              <div class="palette-colors" style="background: linear-gradient(135deg, #2d3748 50%, #4a7c59 50%);"></div>
+              <span>Sauge / Nature</span>
+            </div>
+          </label>
+
+          <label class="palette-option">
+            <input type="radio" name="paletteChoice" value="indigo-cyan">
+            <div class="palette-box">
+              <div class="palette-colors" style="background: linear-gradient(135deg, #312e81 50%, #06b6d4 50%);"></div>
+              <span>Indigo / Cyan</span>
+            </div>
+          </label>
+        </div>
+      </fieldset>
 
       <!-- 1. IDENTITÉ LÉGALE & STRUCTURE -->
       <fieldset>
@@ -568,16 +720,20 @@
 
   <script>
     // =========================================================================
-    // 0. CAPTURE DES PARAMÈTRES DU CATALOGUE DE THÈMES (URL PARAMS)
+    // 0. GESTION DU THÈME ET DES PARAMÈTRES D'URL DU CATALOGUE
     // =========================================================================
     const urlParams = new URLSearchParams(window.location.search);
-    const designLayout = urlParams.get('layout') || 'artisan-btp';
-    const designPalette = urlParams.get('palette') || 'ardoise-orange';
+    const layoutParam = urlParams.get('layout');
+    const paletteParam = urlParams.get('palette');
 
-    // Affichage dynamique pour rassurer le client
-    if (urlParams.has('layout')) {
-      document.getElementById('design-selection-info').style.display = 'block';
-      document.getElementById('design-nom').innerText = `${designLayout} (Couleur : ${designPalette})`;
+    // Présélectionne automatiquement si transmis dans l'URL
+    if (layoutParam) {
+      const radioLayout = document.querySelector(`input[name="layoutChoice"][value="${layoutParam}"]`);
+      if (radioLayout) radioLayout.checked = true;
+    }
+    if (paletteParam) {
+      const radioPalette = document.querySelector(`input[name="paletteChoice"][value="${paletteParam}"]`);
+      if (radioPalette) radioPalette.checked = true;
     }
 
     // =========================================================================
@@ -682,6 +838,10 @@
 
       const cloudUploadActive = CLOUDINARY_CLOUD_NAME.trim() !== "" && CLOUDINARY_UPLOAD_PRESET.trim() !== "";
 
+      // 0. Récupération du Design sélectionné
+      const selectedLayout = document.querySelector('input[name="layoutChoice"]:checked')?.value || 'artisan-btp';
+      const selectedPalette = document.querySelector('input[name="paletteChoice"]:checked')?.value || 'ardoise-orange';
+
       // 1. Identité légale
       const nomCommercial = document.getElementById('nomCommercial').value;
       const entrepriseSlug = slugifier(nomCommercial || "entreprise");
@@ -785,6 +945,10 @@ Mission : Transforme ces notes brutes d'onboarding en un fichier JSON unique et 
 
 DONNÉES CLIENT BRUTES :
 --------------------------------------------------
+[DESIGN & THÈME SÉLECTIONNÉ]
+- Structure (Layout) : ${selectedLayout}
+- Palette de couleurs : ${selectedPalette}
+
 [IDENTITÉ LÉGALE & STRUCTURE]
 - Nom commercial : ${nomCommercial}
 - Raison sociale : ${raisonSociale}
@@ -836,8 +1000,8 @@ DIRECTIVES DE RÉDACTION :
 SCHÉMA JSON ATTENDU :
 {
   "design": {
-    "layout": "${designLayout}",
-    "palette": "${designPalette}",
+    "layout": "${selectedLayout}",
+    "palette": "${selectedPalette}",
     "typo": "moderne"
   },
   "identite": {
@@ -898,6 +1062,7 @@ SCHÉMA JSON ATTENDU :
 
         const emailSubject = encodeURIComponent(`Nouveau projet vitrine — ${nomCommercial} (${ville})`);
         const messageIntroduction = `Bonjour Christophe,\n\nVous trouverez ci-joint le cahier des charges complet pour la création du site vitrine de "${nomCommercial}".\n\n` +
+          `Design sélectionné : ${selectedLayout} | Palette : ${selectedPalette}\n\n` +
           (cloudUploadActive 
             ? `Les photos ont été converties en WebP et sont hébergées dans le dossier Cloudinary : sites/${entrepriseSlug}/\n\n` 
             : `Les photos optimisées en WebP ont été enregistrées sur mon poste et vous sont jointes.\n\n`) +
