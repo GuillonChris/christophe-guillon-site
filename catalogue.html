@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catalogue de Thèmes — Choisissez votre design</title>
+  <title>Catalogue de thèmes — Choisissez votre design</title>
+  <meta name="description" content="Sélectionnez un design adapté à votre activité et démarrez la génération de votre site vitrine.">
   <style>
     :root {
       --bg-page: #f8fafc;
@@ -14,7 +15,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg-page);
       color: var(--text-main);
       line-height: 1.5;
@@ -27,14 +28,15 @@
       border-bottom: 1px solid var(--border);
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       color: var(--text-dark);
       margin-bottom: 0.5rem;
+      font-weight: 800;
     }
     header p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #64748b;
-      max-width: 600px;
+      max-width: 640px;
       margin: 0 auto;
     }
 
@@ -52,16 +54,15 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: flex;
       flex-direction: column;
     }
     .theme-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.08);
     }
 
-    /* Simulation de l'aperçu du thème avec la couleur d'accent dynamique */
     .theme-preview {
       height: 220px;
       background-color: #f1f5f9;
@@ -73,37 +74,38 @@
       overflow: hidden;
     }
     
-    /* On utilise une variable CSS locale pour changer la couleur d'accent en direct */
     .mockup-window {
-      width: 80%;
-      height: 70%;
+      width: 82%;
+      height: 72%;
       background: white;
       border-radius: 8px;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
     }
     .mockup-header {
-      height: 20px;
+      height: 22px;
       background: var(--active-primary, #0f172a);
-      border-radius: 8px 8px 0 0;
-      transition: background 0.3s ease;
+      transition: background-color 0.25s ease;
     }
     .mockup-body {
-      padding: 10px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
       gap: 8px;
       flex: 1;
     }
     .mockup-btn {
-      height: 16px;
-      width: 40%;
+      height: 18px;
+      width: 45%;
       background: var(--active-accent, #ea580c);
       border-radius: 4px;
-      transition: background 0.3s ease;
+      transition: background-color 0.25s ease;
+      margin-top: auto;
     }
-    .mockup-line { height: 8px; background: #e2e8f0; border-radius: 4px; }
+    .mockup-line { height: 8px; background: #e2e8f0; border-radius: 4px; width: 100%; }
     .mockup-line.short { width: 60%; }
 
     .theme-info {
@@ -119,47 +121,54 @@
     }
     .theme-info p {
       font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+      color: #64748b;
+      margin-bottom: 1.25rem;
       flex: 1;
     }
 
-    /* Sélecteur de couleurs */
     .color-picker {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.6rem;
       margin-bottom: 1.5rem;
     }
     .swatch {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       border: 2px solid white;
       box-shadow: 0 0 0 1px #cbd5e1;
       cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      padding: 0;
+    }
+    .swatch:hover {
+      transform: scale(1.08);
     }
     .swatch.active {
       box-shadow: 0 0 0 2px #0f172a;
-      transform: scale(1.1);
+      transform: scale(1.15);
     }
 
-    /* Actions */
     .actions {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
     }
     .btn {
       flex: 1;
-      padding: 0.75rem;
+      padding: 0.75rem 1rem;
       text-align: center;
       border-radius: 6px;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
     }
     .btn-preview {
-      background: #f1f5f9;
+      background: #f8fafc;
       color: var(--text-dark);
       border: 1px solid var(--border);
     }
@@ -167,8 +176,8 @@
     
     .btn-select {
       background: var(--text-dark);
-      color: white;
-      border: none;
+      color: #ffffff;
+      border: 1px solid var(--text-dark);
     }
     .btn-select:hover { background: #1e293b; }
   </style>
@@ -177,92 +186,113 @@
 
   <header>
     <h1>Catalogue de designs</h1>
-    <p>Choisissez l'architecture visuelle qui correspond à votre métier. Personnalisez les couleurs et validez pour commencer votre projet.</p>
+    <p>Choisissez l'architecture visuelle qui correspond à votre métier, personnalisez vos couleurs et démarrez votre création.</p>
   </header>
 
   <main class="catalog-container">
 
-    <!-- THEME 1 : ARTISAN -->
-    <article class="theme-card" data-layout="artisan-btp" data-selected-palette="ardoise-orange">
+    <!-- DESIGN 1 : ARTISAN & TRAVAUX -->
+    <article 
+      class="theme-card" 
+      data-layout="artisan-btp" 
+      data-selected-palette="ardoise-orange"
+      data-primary="#0f172a"
+      data-accent="#ea580c"
+      data-demo="https://artisan-demo.christophe-guillon.com"
+    >
       <div class="theme-preview" style="--active-primary: #0f172a; --active-accent: #ea580c;">
         <div class="mockup-window">
           <div class="mockup-header"></div>
           <div class="mockup-body">
             <div class="mockup-line"></div>
             <div class="mockup-line short"></div>
-            <div class="mockup-btn" style="margin-top: auto;"></div>
+            <div class="mockup-btn"></div>
           </div>
         </div>
       </div>
       <div class="theme-info">
         <h2>Artisan & Travaux</h2>
-        <p>Conçu pour le bâtiment et le dépannage. Mise en avant des boutons d'urgence et des badges de garantie.</p>
+        <p>Conçu pour le bâtiment et le dépannage. Mise en avant des boutons d'appel d'urgence, des certifications et devis rapides.</p>
         
-        <div class="color-picker">
-          <button class="swatch active" data-palette="ardoise-orange" data-primary="#0f172a" data-accent="#ea580c" style="background: linear-gradient(135deg, #0f172a 50%, #ea580c 50%)" title="Ardoise & Orange"></button>
-          <button class="swatch" data-palette="bleu-chantier" data-primary="#1e3a8a" data-accent="#2563eb" style="background: linear-gradient(135deg, #1e3a8a 50%, #2563eb 50%)" title="Bleu Chantier"></button>
-          <button class="swatch" data-palette="vert-artisan" data-primary="#14532d" data-accent="#16a34a" style="background: linear-gradient(135deg, #14532d 50%, #16a34a 50%)" title="Vert Artisan"></button>
+        <div class="color-picker" role="radiogroup" aria-label="Palette de couleurs">
+          <button type="button" class="swatch active" data-palette="ardoise-orange" data-primary="#0f172a" data-accent="#ea580c" style="background: linear-gradient(135deg, #0f172a 50%, #ea580c 50%)" title="Ardoise & Orange" aria-label="Ardoise et Orange"></button>
+          <button type="button" class="swatch" data-palette="bleu-chantier" data-primary="#1e3a8a" data-accent="#2563eb" style="background: linear-gradient(135deg, #1e3a8a 50%, #2563eb 50%)" title="Bleu Chantier" aria-label="Bleu Chantier"></button>
+          <button type="button" class="swatch" data-palette="vert-artisan" data-primary="#14532d" data-accent="#16a34a" style="background: linear-gradient(135deg, #14532d 50%, #16a34a 50%)" title="Vert Artisan" aria-label="Vert Artisan"></button>
         </div>
 
         <div class="actions">
-          <!-- Lien vers un faux site de démo (Optionnel) -->
-          <a href="#" class="btn btn-preview">Voir la démo</a>
-          <button class="btn btn-select">Choisir ce design</button>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-preview">Voir la démo</a>
+          <button type="button" class="btn btn-select">Choisir ce design</button>
         </div>
       </div>
     </article>
 
-    <!-- THEME 2 : CORPORATE -->
-    <article class="theme-card" data-layout="corporate-b2b" data-selected-palette="bleu-marine-or">
+    <!-- DESIGN 2 : CORPORATE & CONSEIL -->
+    <article 
+      class="theme-card" 
+      data-layout="corporate-b2b" 
+      data-selected-palette="bleu-marine-or"
+      data-primary="#0a192f"
+      data-accent="#d4af37"
+      data-demo="https://corporate-demo.christophe-guillon.com"
+    >
       <div class="theme-preview" style="--active-primary: #0a192f; --active-accent: #d4af37;">
-        <div class="mockup-window" style="border-radius: 0;">
-          <div class="mockup-header" style="border-radius: 0; height: 12px;"></div>
+        <div class="mockup-window" style="border-radius: 4px;">
+          <div class="mockup-header" style="height: 16px;"></div>
           <div class="mockup-body" style="align-items: center; justify-content: center;">
             <div class="mockup-line" style="width: 80%;"></div>
-            <div class="mockup-btn" style="width: 30%; border-radius: 0;"></div>
+            <div class="mockup-btn" style="width: 35%; margin-top: 10px;"></div>
           </div>
         </div>
       </div>
       <div class="theme-info">
         <h2>Corporate & Conseil (B2B)</h2>
-        <p>Design épuré et structuré. Idéal pour les agences, les consultants et les professions libérales.</p>
+        <p>Design épuré et structuré. Idéal pour les agences, consultants, experts-comptables et professions libérales.</p>
         
-        <div class="color-picker">
-          <button class="swatch active" data-palette="bleu-marine-or" data-primary="#0a192f" data-accent="#d4af37" style="background: linear-gradient(135deg, #0a192f 50%, #d4af37 50%)" title="Bleu Marine & Or"></button>
-          <button class="swatch" data-palette="noir-minimaliste" data-primary="#000000" data-accent="#333333" style="background: linear-gradient(135deg, #000000 50%, #333333 50%)" title="Noir Minimaliste"></button>
-          <button class="swatch" data-palette="indigo-cyan" data-primary="#312e81" data-accent="#06b6d4" style="background: linear-gradient(135deg, #312e81 50%, #06b6d4 50%)" title="Indigo & Cyan"></button>
+        <div class="color-picker" role="radiogroup" aria-label="Palette de couleurs">
+          <button type="button" class="swatch active" data-palette="bleu-marine-or" data-primary="#0a192f" data-accent="#d4af37" style="background: linear-gradient(135deg, #0a192f 50%, #d4af37 50%)" title="Bleu Marine & Or" aria-label="Bleu Marine et Or"></button>
+          <button type="button" class="swatch" data-palette="noir-minimaliste" data-primary="#000000" data-accent="#475569" style="background: linear-gradient(135deg, #000000 50%, #475569 50%)" title="Noir Minimaliste" aria-label="Noir Minimaliste"></button>
+          <button type="button" class="swatch" data-palette="indigo-cyan" data-primary="#312e81" data-accent="#06b6d4" style="background: linear-gradient(135deg, #312e81 50%, #06b6d4 50%)" title="Indigo & Cyan" aria-label="Indigo et Cyan"></button>
         </div>
 
         <div class="actions">
-          <a href="#" class="btn btn-preview">Voir la démo</a>
-          <button class="btn btn-select">Choisir ce design</button>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-preview">Voir la démo</a>
+          <button type="button" class="btn btn-select">Choisir ce design</button>
         </div>
       </div>
     </article>
 
-    <!-- THEME 3 : ELEGANT -->
-    <article class="theme-card" data-layout="elegant" data-selected-palette="vert-sauge-sable">
+    <!-- DESIGN 3 : ÉLÉGANCE & BIEN-ÊTRE -->
+    <article 
+      class="theme-card" 
+      data-layout="elegant" 
+      data-selected-palette="vert-sauge-sable"
+      data-primary="#2d3748"
+      data-accent="#4a7c59"
+      data-demo="https://elegance-demo.christophe-guillon.com"
+    >
       <div class="theme-preview" style="--active-primary: #2d3748; --active-accent: #4a7c59;">
-        <div class="mockup-window" style="width: 100%; height: 100%; border-radius: 0;">
-          <div class="mockup-header" style="height: 40px; border-radius: 0; background: var(--active-accent);"></div>
+        <div class="mockup-window" style="border-radius: 4px;">
+          <div class="mockup-header" style="height: 36px; background: var(--active-accent);"></div>
           <div class="mockup-body" style="background: #fafafa;">
              <div class="mockup-line short"></div>
+             <div class="mockup-btn" style="width: 50%;"></div>
           </div>
         </div>
       </div>
       <div class="theme-info">
         <h2>Élégance & Boutique</h2>
-        <p>Design doux laissant la part belle aux photographies. Parfait pour la restauration, la beauté et le bien-être.</p>
+        <p>Design aéré mettant en valeur la photographie. Idéal pour les instituts, restaurants, thérapeutes et créateurs.</p>
         
-        <div class="color-picker">
-          <button class="swatch active" data-palette="vert-sauge-sable" data-primary="#2d3748" data-accent="#4a7c59" style="background: linear-gradient(135deg, #2d3748 50%, #4a7c59 50%)" title="Vert Sauge"></button>
-          <button class="swatch" data-palette="bordeaux-creme" data-primary="#4a0404" data-accent="#9f1239" style="background: linear-gradient(135deg, #4a0404 50%, #9f1239 50%)" title="Bordeaux Gastronomie"></button>
-          <button class="swatch" data-palette="terracotta" data-primary="#431407" data-accent="#ea580c" style="background: linear-gradient(135deg, #431407 50%, #ea580c 50%)" title="Terracotta"></button>
+        <div class="color-picker" role="radiogroup" aria-label="Palette de couleurs">
+          <button type="button" class="swatch active" data-palette="vert-sauge-sable" data-primary="#2d3748" data-accent="#4a7c59" style="background: linear-gradient(135deg, #2d3748 50%, #4a7c59 50%)" title="Vert Sauge" aria-label="Vert Sauge"></button>
+          <button type="button" class="swatch" data-palette="bordeaux-creme" data-primary="#4a0404" data-accent="#9f1239" style="background: linear-gradient(135deg, #4a0404 50%, #9f1239 50%)" title="Bordeaux Gastronomie" aria-label="Bordeaux Gastronomie"></button>
+          <button type="button" class="swatch" data-palette="terracotta" data-primary="#431407" data-accent="#ea580c" style="background: linear-gradient(135deg, #431407 50%, #ea580c 50%)" title="Terracotta" aria-label="Terracotta"></button>
         </div>
 
         <div class="actions">
-          <a href="#" class="btn btn-preview">Voir la démo</a>
-          <button class="btn btn-select">Choisir ce design</button>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-preview">Voir la démo</a>
+          <button type="button" class="btn btn-select">Choisir ce design</button>
         </div>
       </div>
     </article>
@@ -270,47 +300,62 @@
   </main>
 
   <script>
-    // URL DE TON FORMULAIRE D'ONBOARDING
-    const ONBOARDING_URL = "https://lien-vers-ton-formulaire-onboarding.html";
+    // Cible ton générateur fonctionnel existant
+    const GENERATEUR_PATH = '/generateur-site';
 
-    // Gestion du sélecteur de couleurs interactif
     document.querySelectorAll('.theme-card').forEach(card => {
       const swatches = card.querySelectorAll('.swatch');
       const previewArea = card.querySelector('.theme-preview');
       const btnSelect = card.querySelector('.btn-select');
+      const btnPreview = card.querySelector('.btn-preview');
       const layoutId = card.getAttribute('data-layout');
 
+      // 1. Initialisation du lien de démo
+      const demoUrl = card.getAttribute('data-demo');
+      if (demoUrl && demoUrl !== '#') {
+        btnPreview.setAttribute('href', demoUrl);
+      } else {
+        btnPreview.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('Démo en cours de configuration pour ce design.');
+        });
+      }
+
+      // 2. Gestion dynamique du choix de couleur
       swatches.forEach(swatch => {
         swatch.addEventListener('click', () => {
-          // Retire l'état actif des autres pastilles
           swatches.forEach(s => s.classList.remove('active'));
           swatch.classList.add('active');
 
-          // Récupère les données de la couleur cliquée
           const paletteId = swatch.getAttribute('data-palette');
           const colorPrimary = swatch.getAttribute('data-primary');
           const colorAccent = swatch.getAttribute('data-accent');
 
-          // Met à jour la carte avec la nouvelle sélection
+          // Mise à jour des attributs sur la carte
           card.setAttribute('data-selected-palette', paletteId);
+          card.setAttribute('data-primary', colorPrimary);
+          card.setAttribute('data-accent', colorAccent);
           
-          // Met à jour l'aperçu visuel en direct (modification des variables CSS locales)
+          // Mise à jour visuelle immédiate du mockup
           previewArea.style.setProperty('--active-primary', colorPrimary);
           previewArea.style.setProperty('--active-accent', colorAccent);
         });
       });
 
-      // Gestion du clic sur "Choisir ce design"
+      // 3. Redirection vers le générateur avec toutes les variables utiles
       btnSelect.addEventListener('click', () => {
         const selectedPalette = card.getAttribute('data-selected-palette');
+        const primaryColor = card.getAttribute('data-primary');
+        const accentColor = card.getAttribute('data-accent');
         
-        // Construction de l'URL avec les paramètres
-        const redirectUrl = new URL(ONBOARDING_URL);
-        redirectUrl.searchParams.set('layout', layoutId);
-        redirectUrl.searchParams.set('palette', selectedPalette);
+        // Construction robuste de l'URL cible
+        const targetUrl = new URL(GENERATEUR_PATH, window.location.origin);
+        targetUrl.searchParams.set('layout', layoutId);
+        targetUrl.searchParams.set('palette', selectedPalette);
+        targetUrl.searchParams.set('primary', primaryColor);
+        targetUrl.searchParams.set('accent', accentColor);
         
-        // Redirection vers le formulaire
-        window.location.href = redirectUrl.toString();
+        window.location.href = targetUrl.toString();
       });
     });
   </script>
