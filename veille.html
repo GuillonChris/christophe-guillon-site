@@ -15,8 +15,9 @@
     <title>Veille Stratégique IA &amp; NoCode | Christophe Guillon - Consultant &amp; Formateur</title>
     <meta name="description" content="Veille technologique et stratégique en direct sur l'Intelligence Artificielle, le NoCode et l'automatisation par Christophe Guillon, Saumur.">
     <link rel="icon" type="image/png" href="logo_CG2.png">
-<!-- URL canonique officielle du site -->
-    <link rel="canonical" href="https://www.christophe-guillon.com/">
+    <!-- URL canonique officielle de la veille -->
+    <link rel="canonical" href="https://www.christophe-guillon.com/veille.html">
+
     <!-- Polices Google identiques au site principal -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -265,7 +266,7 @@
             <div id="sync-status-banner" class="hidden bg-indigo-50/80 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-700 flex items-center justify-between">
                 <span id="sync-status-msg" class="flex items-center space-x-2">
                     <span class="inline-block w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
-                    <span>Interrogation des flux d'actualité en direct...</span>
+                    <span>Interrogation simultanée des rédactions en temps réel...</span>
                 </span>
                 <span id="sync-progress" class="font-medium text-indigo-900"></span>
             </div>
@@ -343,7 +344,7 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script Temps Réel avec CorsProxy.io & Extraction Stricte des Permaliens -->
+    <!-- Script Temps Réel Haute Vitesse : Anti-Cache & Parallélisation Totale -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -381,10 +382,10 @@
             const nextPageBtn = document.getElementById('next-page-btn');
             const paginationInfo = document.getElementById('pagination-info');
 
-            // 10 flux RSS réputés avec scoring=n (actualisation continue à la minute)
+            // 10 flux RSS vérifiés avec filtre d'actualité récente (when:2d)
             const defaultFeeds = [
-                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?tbm=nws&q=%22intelligence+artificielle%22+OR+ChatGPT+OR+Claude+OR+Gemini+OR+LLM&scoring=n&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
-                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?tbm=nws&q=nocode+OR+%22no-code%22+OR+%22make.com%22+OR+n8n+OR+automatisation&scoring=n&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
+                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?q=%22intelligence+artificielle%22+OR+ChatGPT+OR+Claude+OR+Gemini+when:2d&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
+                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22+OR+make.com+OR+n8n+when:3d&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
                 { id: '3', name: 'TechCrunch AI', url: 'https://techcrunch.com/category/artificial-intelligence/feed/', category: 'IA' },
                 { id: '4', name: 'Le Monde Pixels', url: 'https://www.lemonde.fr/pixels/rss_full.xml', category: 'IA' },
                 { id: '5', name: 'L\'Usine Digitale IA', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss', category: 'IA' },
@@ -395,41 +396,38 @@
                 { id: '10', name: 'Ars Technica AI', url: 'https://arstechnica.com/tag/ai/feed/', category: 'IA' }
             ];
 
-            // Validation stricte : exclut les racines et les pages d'index de catégories
+            // Validation d'URL profonde (rejet strict des index et catégories)
             function isArticleDeepLink(url) {
                 if (!url || typeof url !== 'string' || !url.startsWith('http')) return false;
                 try {
                     const u = new URL(url);
                     const path = u.pathname.replace(/^\/+|\/+$/g, '');
                     if (!path || path === 'index.html' || path === 'index.php' || path === 'accueil') return false;
-
-                    // Rejette formellement les URLs de rubriques
                     if (/(^|\/)(category|categories|rubrique|rubriques|tag|tags|topic|topics|section)\/[^\/]+$/i.test(path)) return false;
                     if (['pixels', 'intelligence-artificielle', 'artificial-intelligence', 'actualites'].includes(path.toLowerCase())) return false;
-
                     return true;
                 } catch (_) {
                     return false;
                 }
             }
 
-            // Filtrage des gadgets grand public hors-sujet
             function isExcludedGadget(title, description) {
                 const text = `${title} ${description}`.toLowerCase();
                 const blacklisted = ['trottinette', 'aspirateur', 'scooter', 'lave-linge', 'frigo', 'réfrigérateur', 'téléviseur', 'barre de son', 'four'];
                 return blacklisted.some(b => text.includes(b));
             }
 
-            // Chargement sécurisé depuis le stockage local (uniquement les vrais articles vérifiés)
+            // Chargement du cache avec purge automatique des articles de plus de 48h
             function loadCachedArticles() {
                 try {
-                    const saved = localStorage.getItem('cg_live_articles_v25');
+                    const saved = localStorage.getItem('cg_live_articles_v30');
                     if (saved) {
                         const parsed = JSON.parse(saved);
+                        const maxAge = Date.now() - (48 * 60 * 60 * 1000);
                         if (Array.isArray(parsed) && parsed.length > 0) {
                             return parsed
-                                .filter(a => isArticleDeepLink(a.link) && !isExcludedGadget(a.title, a.description))
-                                .map(a => ({ ...a, pubDate: new Date(a.pubDate) }));
+                                .map(a => ({ ...a, pubDate: new Date(a.pubDate) }))
+                                .filter(a => isArticleDeepLink(a.link) && !isExcludedGadget(a.title, a.description) && !isNaN(a.pubDate.getTime()) && a.pubDate.getTime() > maxAge);
                         }
                     }
                 } catch (e) {
@@ -441,7 +439,7 @@
             function saveCachedArticles() {
                 try {
                     const toSave = allArticles.filter(a => isArticleDeepLink(a.link)).slice(0, 100);
-                    localStorage.setItem('cg_live_articles_v25', JSON.stringify(toSave));
+                    localStorage.setItem('cg_live_articles_v30', JSON.stringify(toSave));
                 } catch (e) {
                     console.warn("Erreur sauvegarde :", e);
                 }
@@ -460,11 +458,9 @@
                 lastUpdatedText.textContent = `Actualisé à ${savedTime}`;
             }
 
-            // Gestion du panneau latéral
             function toggleSidebar(forceState) {
                 const isOpen = !sidebar.classList.contains('-translate-x-full');
                 const shouldOpen = forceState !== undefined ? forceState : !isOpen;
-
                 if (shouldOpen) {
                     sidebar.classList.remove('-translate-x-full');
                     overlay.classList.remove('hidden');
@@ -485,7 +481,7 @@
 
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('cg_rss_feeds_v25');
+                    const saved = localStorage.getItem('cg_rss_feeds_v30');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -497,7 +493,7 @@
             }
 
             function saveFeeds() {
-                localStorage.setItem('cg_rss_feeds_v25', JSON.stringify(rssFeeds));
+                localStorage.setItem('cg_rss_feeds_v30', JSON.stringify(rssFeeds));
             }
 
             function saveFavorites() {
@@ -650,7 +646,7 @@
                     return matchQuery && matchTag;
                 });
 
-                // Tri chronologique décroissant strict
+                // Tri chronologique rigoureux : les articles parus il y a quelques minutes en premier
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
                 const totalArticles = filtered.length;
@@ -674,7 +670,7 @@
                                 🔄
                             </div>
                             <h3 class="font-bold text-slate-800 text-base mb-1">Connexion aux flux en direct...</h3>
-                            <p class="text-xs text-slate-500 mb-4">Interrogation des rédactions partenaires en cours sans aucun cache intermédiaire.</p>
+                            <p class="text-xs text-slate-500 mb-4">Interrogation immédiate des rédactions partenaires.</p>
                             <button id="force-load-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">
                                 Lancer la synchronisation
                             </button>
@@ -783,10 +779,8 @@
                 document.body.removeChild(tempInput);
             }
 
-            // Extraction multi-critères du lien profond
             function extractPreciseLink(node) {
                 const candidates = [];
-
                 const linkNodes = node.querySelectorAll("link");
                 for (const l of linkNodes) {
                     const t = (l.textContent || "").trim();
@@ -812,7 +806,6 @@
                     candidates.push(alt.getAttribute("href").trim());
                 }
 
-                // Recherche par expression régulière dans le nœud brut
                 const rawNodeXml = node.outerHTML || node.innerHTML || '';
                 const match = rawNodeXml.match(/<link[^>]*>(https?:\/\/[^<]+)<\/link>/i);
                 if (match && match[1]) candidates.push(match[1].trim());
@@ -820,7 +813,6 @@
                 for (const url of candidates) {
                     if (isArticleDeepLink(url)) return url;
                 }
-
                 return '#';
             }
 
@@ -879,47 +871,49 @@
                 return articles;
             }
 
-            // Récupération multi-passerelles sans paramètre parasite
+            // Récupération multi-passerelles avec contournement de cache dynamique (_t=...)
             async function fetchRssContent(feedUrl) {
-                const encoded = encodeURIComponent(feedUrl);
+                // Horodatage dynamique injecté dans l'URL pour forcer les passerelles à servir le direct absolu
+                const bustUrl = feedUrl + (feedUrl.includes('?') ? '&' : '?') + '_t=' + Date.now();
+                const encoded = encodeURIComponent(bustUrl);
 
-                // Passerelle 1 : CorsProxy.io (accès direct XML)
+                // 1. AllOrigins GET (Convertit en JSON, rapide et insensible aux redirections de domaines)
                 try {
                     const ctrl = new AbortController();
-                    const t = setTimeout(() => ctrl.abort(), 6000);
-                    const res = await fetch(`https://corsproxy.io/?${encoded}`, { signal: ctrl.signal });
-                    clearTimeout(t);
-                    if (res.ok) {
-                        const text = await res.text();
-                        if (text && text.includes('<') && (text.includes('<item') || text.includes('<entry'))) {
-                            return text;
-                        }
-                    }
-                } catch (_) {}
-
-                // Passerelle 2 : AllOrigins GET (encapsulé en JSON)
-                try {
-                    const ctrl = new AbortController();
-                    const t = setTimeout(() => ctrl.abort(), 6000);
+                    const t = setTimeout(() => ctrl.abort(), 3500);
                     const res = await fetch(`https://api.allorigins.win/get?url=${encoded}`, { signal: ctrl.signal });
                     clearTimeout(t);
                     if (res.ok) {
                         const data = await res.json();
-                        if (data && data.contents && data.contents.includes('<') && (data.contents.includes('<item') || data.contents.includes('<entry'))) {
+                        if (data && data.contents && (data.contents.includes('<item') || data.contents.includes('<entry'))) {
                             return data.contents;
                         }
                     }
                 } catch (_) {}
 
-                // Passerelle 3 : CodeTabs Proxy
+                // 2. CorsProxy.io (Second recours direct)
                 try {
                     const ctrl = new AbortController();
-                    const t = setTimeout(() => ctrl.abort(), 6000);
+                    const t = setTimeout(() => ctrl.abort(), 3000);
+                    const res = await fetch(`https://corsproxy.io/?${encoded}`, { signal: ctrl.signal });
+                    clearTimeout(t);
+                    if (res.ok) {
+                        const text = await res.text();
+                        if (text && (text.includes('<item') || text.includes('<entry'))) {
+                            return text;
+                        }
+                    }
+                } catch (_) {}
+
+                // 3. CodeTabs Proxy (Troisième filet de sécurité)
+                try {
+                    const ctrl = new AbortController();
+                    const t = setTimeout(() => ctrl.abort(), 3000);
                     const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encoded}`, { signal: ctrl.signal });
                     clearTimeout(t);
                     if (res.ok) {
                         const text = await res.text();
-                        if (text && text.includes('<') && (text.includes('<item') || text.includes('<entry'))) {
+                        if (text && (text.includes('<item') || text.includes('<entry'))) {
                             return text;
                         }
                     }
@@ -928,7 +922,7 @@
                 throw new Error("Flux inaccessible");
             }
 
-            // Synchronisation cadencée
+            // Synchronisation 100% parallèle avec rendu progressif en temps réel
             async function syncAllFeeds() {
                 if (isSyncing) return;
                 isSyncing = true;
@@ -940,47 +934,52 @@
                 syncIndicator.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
                 lastUpdatedText.textContent = 'Actualisation en direct...';
 
-                let completed = 0;
+                let completedFeeds = 0;
                 let newArticlesFound = 0;
+                syncProgress.textContent = `0 / ${rssFeeds.length}`;
 
-                const batchSize = 3;
-                for (let i = 0; i < rssFeeds.length; i += batchSize) {
-                    const batch = rssFeeds.slice(i, i + batchSize);
-
-                    batch.forEach(f => {
-                        feedStatus[f.url] = 'loading';
-                    });
+                // Lancement simultané de l'ensemble des flux sans attente par lot
+                const fetchPromises = rssFeeds.map(async (feed) => {
+                    feedStatus[feed.url] = 'loading';
                     renderFeedsList();
-                    syncProgress.textContent = `${Math.min(i + batchSize, rssFeeds.length)} / ${rssFeeds.length}`;
 
-                    const results = await Promise.allSettled(batch.map(async f => {
-                        const xmlText = await fetchRssContent(f.url);
-                        return parseRssXml(xmlText, f);
-                    }));
+                    try {
+                        const xmlText = await fetchRssContent(feed.url);
+                        const items = parseRssXml(xmlText, feed);
 
-                    results.forEach((res, index) => {
-                        const currentFeed = batch[index];
-                        if (res.status === 'fulfilled' && res.value.length > 0) {
-                            feedStatus[currentFeed.url] = 'ok';
-
+                        if (items && items.length > 0) {
+                            feedStatus[feed.url] = 'ok';
                             const existingLinks = new Set(allArticles.map(a => a.link));
-                            res.value.forEach(newItem => {
+                            let feedAdded = 0;
+
+                            items.forEach(newItem => {
                                 if (isArticleDeepLink(newItem.link) && !existingLinks.has(newItem.link)) {
                                     allArticles.push(newItem);
                                     existingLinks.add(newItem.link);
+                                    feedAdded++;
                                     newArticlesFound++;
                                 }
                             });
-                        } else {
-                            feedStatus[currentFeed.url] = 'error';
-                        }
-                    });
 
-                    completed += batch.length;
-                    renderFeedsList();
-                    renderArticles();
-                    saveCachedArticles();
-                }
+                            // Rendu progressif : affichage immédiat dès qu'un flux répond
+                            if (feedAdded > 0) {
+                                renderArticles();
+                                saveCachedArticles();
+                            }
+                        } else {
+                            feedStatus[feed.url] = 'error';
+                        }
+                    } catch (e) {
+                        feedStatus[feed.url] = 'error';
+                    } finally {
+                        completedFeeds++;
+                        syncProgress.textContent = `${completedFeeds} / ${rssFeeds.length}`;
+                        renderFeedsList();
+                    }
+                });
+
+                // Attente de la résolution de l'ensemble des flux
+                await Promise.allSettled(fetchPromises);
 
                 isSyncing = false;
                 syncSpinIcon.classList.remove('animate-spin');
@@ -993,6 +992,9 @@
                 mainSyncTime.textContent = `Mis à jour à ${timeString}`;
                 lastUpdatedText.textContent = `Actualisé à ${timeString}`;
                 localStorage.setItem('cg_last_sync_time', timeString);
+
+                renderArticles();
+                saveCachedArticles();
 
                 showToast(newArticlesFound > 0 ? `${newArticlesFound} nouveaux articles récupérés !` : "Veille à jour");
             }
@@ -1074,13 +1076,13 @@
                 rssFeeds = [...defaultFeeds];
                 saveFeeds();
                 renderFeedsList();
-                showToast("10 flux IA d'élite réinitialisés !");
+                showToast("10 flux réinitialisés !");
                 syncAllFeeds();
             });
 
             clearCacheBtn.addEventListener('click', () => {
                 allArticles = [];
-                localStorage.removeItem('cg_live_articles_v25');
+                localStorage.removeItem('cg_live_articles_v30');
                 currentPage = 1;
                 renderArticles();
                 showToast("Actualisation en direct forcée...", "🔄");
