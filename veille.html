@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Stratégique IA &amp; NoCode | Christophe Guillon - Consultant &amp; Formateur</title>
     <meta name="description" content="Veille technologique et stratégique en direct sur l'Intelligence Artificielle, le NoCode et l'automatisation par Christophe Guillon, Saumur.">
-    <link rel="icon" type="image/png" href="logo_CG2.png">
+    <link rel="icon" type="image/png" href="Logo_CG%20(1).png">
     <!-- URL canonique officielle de la veille -->
     <link rel="canonical" href="https://www.christophe-guillon.com/veille.html">
 
@@ -84,7 +84,7 @@
     <header class="sticky top-0 w-full bg-brand-dark/95 backdrop-blur-md z-50 border-b border-slate-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 md:gap-4 group">
-                <img src="logo_CG2.png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='Logo_CG%20(1).png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <img src="Logo_CG%20(1).png" alt="Christophe Guillon - Consultant &amp; Formateur" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col">
                     <span class="text-white font-heading font-extrabold text-sm md:text-base leading-none tracking-wide">CHRISTOPHE GUILLON</span>
                     <span class="text-brand-yellow font-heading text-[9px] md:text-[10px] font-semibold mt-1 uppercase tracking-wider">CONSULTANT &amp; FORMATEUR</span>
@@ -185,7 +185,7 @@
                 </summary>
                 <div class="p-3 border-t border-slate-100">
                     <div class="flex justify-between items-center mb-2 px-1">
-                        <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser</button>
+                        <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser les flux</button>
                         <button id="clear-cache-btn" class="text-[11px] font-medium text-rose-600 hover:underline">Forcer le direct</button>
                     </div>
                     <ul id="feeds-list" class="space-y-1.5 max-h-56 overflow-y-auto pr-1 text-xs">
@@ -266,7 +266,7 @@
             <div id="sync-status-banner" class="hidden bg-indigo-50/80 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-700 flex items-center justify-between">
                 <span id="sync-status-msg" class="flex items-center space-x-2">
                     <span class="inline-block w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
-                    <span>Interrogation des rédactions en direct...</span>
+                    <span>Interrogation simultanée des rédactions en direct...</span>
                 </span>
                 <span id="sync-progress" class="font-medium text-indigo-900"></span>
             </div>
@@ -312,7 +312,7 @@
     <!-- Pied de page officiel Christophe Guillon -->
     <footer class="py-12 px-6 bg-brand-dark text-slate-400 border-t border-slate-800 text-center relative mt-8">
         <div class="flex justify-center mb-6">
-            <img src="logo_CG2.png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='Logo_CG%20(1).png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="32" height="32" class="h-8 w-auto opacity-75 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+            <img src="Logo_CG%20(1).png" alt="Christophe Guillon - Consultant &amp; Formateur" width="32" height="32" class="h-8 w-auto opacity-75 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
         </div>
 
         <!-- Balise sémantique officielle pour le référencement local -->
@@ -344,7 +344,7 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script Temps Réel Résilient : Zéro Écran Blanc & Parallélisation Réseau -->
+    <!-- Script Temps Réel Résilient : Non-Destructivité & Quadruple Passerelle -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -382,7 +382,7 @@
             const nextPageBtn = document.getElementById('next-page-btn');
             const paginationInfo = document.getElementById('pagination-info');
 
-            // 10 flux RSS officiels éprouvés (adresses standard sans altération)
+            // 10 flux RSS officiels calibrés (adresses standard sans aucun paramètre parasite)
             const defaultFeeds = [
                 { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?q=%22intelligence+artificielle%22+OR+ChatGPT+OR+Claude&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
                 { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22+OR+make.com+OR+n8n&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
@@ -396,13 +396,13 @@
                 { id: '10', name: 'Ars Technica AI', url: 'https://arstechnica.com/tag/ai/feed/', category: 'IA' }
             ];
 
-            // Articles de secours immédiats (pour ne jamais afficher "Aucune remontée" à l'ouverture)
+            // Articles de secours immédiats (pour ne jamais afficher d'écran vide lors de la première seconde)
             const fallbackArticles = [
                 {
                     title: "Intelligence Artificielle et productivité : les nouveaux cas d'usage concrets en entreprise",
                     link: "https://www.usine-digitale.fr/editorial/intelligence-artificielle-et-productivite-les-cas-d-usage-en-entreprise.N2200000",
                     feedName: "L'Usine Digitale IA",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 25),
+                    pubDate: new Date(Date.now() - 1000 * 60 * 20),
                     description: "Comment les équipes opérationnelles déploient les modèles génératifs et l'automatisation pour simplifier les processus métiers et libérer du temps commercial.",
                     category: "IA",
                     isFallback: true
@@ -411,7 +411,7 @@
                     title: "Make et N8N : automatiser ses flux CRM sans écrire une seule ligne de code",
                     link: "https://siecledigital.fr/2026/02/automatisation-nocode-make-n8n-entreprises/",
                     feedName: "Siècle Digital IA",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 55),
+                    pubDate: new Date(Date.now() - 1000 * 60 * 45),
                     description: "Panorama des meilleures pratiques pour interconnecter les bases de données, formulaires et messageries professionnelles de façon fiable et pérenne.",
                     category: "NoCode",
                     isFallback: true
@@ -420,14 +420,14 @@
                     title: "Modèles de fondation et agents autonomes : l'état de l'art en entreprise",
                     link: "https://techcrunch.com/2026/02/ai-agents-autonomous-workflows-enterprise/",
                     feedName: "TechCrunch AI",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 95),
+                    pubDate: new Date(Date.now() - 1000 * 60 * 75),
                     description: "Analyse des récentes évolutions technologiques autour des agents capables d'exécuter des séquences d'actions complexes en milieu professionnel.",
                     category: "IA",
                     isFallback: true
                 }
             ];
 
-            // Validation d'URL profonde (rejet strict des index et catégories)
+            // Validation stricte des permaliens (rejet des rubriques)
             function isArticleDeepLink(url) {
                 if (!url || typeof url !== 'string' || !url.startsWith('http')) return false;
                 try {
@@ -450,7 +450,7 @@
 
             function loadCachedArticles() {
                 try {
-                    const saved = localStorage.getItem('cg_live_articles_v35');
+                    const saved = localStorage.getItem('cg_live_articles_v38');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -468,7 +468,7 @@
             function saveCachedArticles() {
                 try {
                     const toSave = allArticles.filter(a => isArticleDeepLink(a.link) && !a.isFallback).slice(0, 100);
-                    localStorage.setItem('cg_live_articles_v35', JSON.stringify(toSave));
+                    localStorage.setItem('cg_live_articles_v38', JSON.stringify(toSave));
                 } catch (e) {
                     console.warn("Erreur sauvegarde :", e);
                 }
@@ -514,7 +514,7 @@
 
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('cg_rss_feeds_v35');
+                    const saved = localStorage.getItem('cg_rss_feeds_v38');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -526,7 +526,7 @@
             }
 
             function saveFeeds() {
-                localStorage.setItem('cg_rss_feeds_v35', JSON.stringify(rssFeeds));
+                localStorage.setItem('cg_rss_feeds_v38', JSON.stringify(rssFeeds));
             }
 
             function saveFavorites() {
@@ -679,7 +679,6 @@
                     return matchQuery && matchTag;
                 });
 
-                // Tri chronologique rigoureux : les articles parus récemment en premier
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
                 const totalArticles = filtered.length;
@@ -709,7 +708,7 @@
                             </button>
                         </div>
                     `;
-                    document.getElementById('force-load-btn')?.addEventListener('click', syncAllFeeds);
+                    document.getElementById('force-load-btn')?.addEventListener('click', () => syncAllFeeds(true));
                     return;
                 }
 
@@ -904,49 +903,75 @@
                 return articles;
             }
 
-            // Récupération multi-passerelles sans altérer l'URL source
-            async function fetchRssContent(feedUrl) {
-                const encoded = encodeURIComponent(feedUrl);
-                const nocache = Date.now();
+            // Récupération multi-passerelles sans jamais altérer l'URL source
+            async function fetchArticlesFromFeed(feed) {
+                const encoded = encodeURIComponent(feed.url);
+                const cb = Date.now();
 
-                // 1. AllOrigins GET (Convertit en JSON, rapide, tolère les redirections)
+                // 1. rss2json (Rapide, direct JSON, évite les erreurs de DOMParser XML)
                 try {
                     const ctrl = new AbortController();
-                    const t = setTimeout(() => ctrl.abort(), 6000);
-                    const res = await fetch(`https://api.allorigins.win/get?url=${encoded}&_nocache=${nocache}`, { signal: ctrl.signal });
+                    const t = setTimeout(() => ctrl.abort(), 4500);
+                    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encoded}`, { signal: ctrl.signal });
                     clearTimeout(t);
                     if (res.ok) {
                         const data = await res.json();
-                        if (data && data.contents && (data.contents.includes('<item') || data.contents.includes('<entry'))) {
-                            return data.contents;
+                        if (data && data.status === 'ok' && Array.isArray(data.items) && data.items.length > 0) {
+                            return data.items
+                                .map(item => ({
+                                    title: cleanHtml(item.title) || 'Article sans titre',
+                                    link: (item.link || item.guid || '#').trim(),
+                                    description: cleanHtml(item.description || item.content || '').slice(0, 240),
+                                    pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
+                                    feedName: cleanHtml(item.author) || feed.name,
+                                    category: feed.category || 'IA'
+                                }))
+                                .filter(a => isArticleDeepLink(a.link) && !isExcludedGadget(a.title, a.description));
                         }
                     }
                 } catch (_) {}
 
-                // 2. CodeTabs Proxy (Secours n°1)
-                try {
-                    const ctrl = new AbortController();
-                    const t = setTimeout(() => ctrl.abort(), 6000);
-                    const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encoded}`, { signal: ctrl.signal });
-                    clearTimeout(t);
-                    if (res.ok) {
-                        const text = await res.text();
-                        if (text && (text.includes('<item') || text.includes('<entry'))) {
-                            return text;
-                        }
-                    }
-                } catch (_) {}
-
-                // 3. CorsProxy.io (Secours n°2)
+                // 2. AllOrigins GET (Convertit le XML en JSON sans blocage CORS)
                 try {
                     const ctrl = new AbortController();
                     const t = setTimeout(() => ctrl.abort(), 5000);
+                    const res = await fetch(`https://api.allorigins.win/get?url=${encoded}&_cb=${cb}`, { signal: ctrl.signal });
+                    clearTimeout(t);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data && data.contents && data.contents.includes('<')) {
+                            const items = parseRssXml(data.contents, feed);
+                            if (items.length > 0) return items;
+                        }
+                    }
+                } catch (_) {}
+
+                // 3. CorsProxy.io (Second recours direct)
+                try {
+                    const ctrl = new AbortController();
+                    const t = setTimeout(() => ctrl.abort(), 4500);
                     const res = await fetch(`https://corsproxy.io/?url=${encoded}`, { signal: ctrl.signal });
                     clearTimeout(t);
                     if (res.ok) {
                         const text = await res.text();
-                        if (text && (text.includes('<item') || text.includes('<entry'))) {
-                            return text;
+                        if (text && text.includes('<')) {
+                            const items = parseRssXml(text, feed);
+                            if (items.length > 0) return items;
+                        }
+                    }
+                } catch (_) {}
+
+                // 4. CodeTabs Proxy (Dernier filet de sécurité)
+                try {
+                    const ctrl = new AbortController();
+                    const t = setTimeout(() => ctrl.abort(), 4500);
+                    const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encoded}`, { signal: ctrl.signal });
+                    clearTimeout(t);
+                    if (res.ok) {
+                        const text = await res.text();
+                        if (text && text.includes('<')) {
+                            const items = parseRssXml(text, feed);
+                            if (items.length > 0) return items;
                         }
                     }
                 } catch (_) {}
@@ -954,9 +979,9 @@
                 throw new Error("Flux inaccessible");
             }
 
-            // Synchronisation 100% parallèle avec rendu progressif en temps réel
-            async function syncAllFeeds() {
-                if (isSyncing) return;
+            // Synchronisation parallèle avec protection de l'état d'affichage
+            async function syncAllFeeds(force = false) {
+                if (isSyncing && !force) return;
                 isSyncing = true;
 
                 syncStatusBanner.classList.remove('hidden');
@@ -970,70 +995,69 @@
                 let newArticlesFound = 0;
                 syncProgress.textContent = `0 / ${rssFeeds.length}`;
 
-                // Lancement simultané de l'ensemble des flux
-                const fetchPromises = rssFeeds.map(async (feed) => {
-                    feedStatus[feed.url] = 'loading';
-                    renderFeedsList();
-
-                    try {
-                        const xmlText = await fetchRssContent(feed.url);
-                        const items = parseRssXml(xmlText, feed);
-
-                        if (items && items.length > 0) {
-                            feedStatus[feed.url] = 'ok';
-
-                            // Dès la première réponse en direct, suppression des articles de secours
-                            if (allArticles.some(a => a.isFallback)) {
-                                allArticles = allArticles.filter(a => !a.isFallback);
-                            }
-
-                            const existingLinks = new Set(allArticles.map(a => a.link));
-                            let feedAdded = 0;
-
-                            items.forEach(newItem => {
-                                if (isArticleDeepLink(newItem.link) && !existingLinks.has(newItem.link)) {
-                                    allArticles.push(newItem);
-                                    existingLinks.add(newItem.link);
-                                    feedAdded++;
-                                    newArticlesFound++;
-                                }
-                            });
-
-                            // Rendu progressif : affichage immédiat à chaque flux complété
-                            if (feedAdded > 0) {
-                                renderArticles();
-                                saveCachedArticles();
-                            }
-                        } else {
-                            feedStatus[feed.url] = 'error';
-                        }
-                    } catch (e) {
-                        feedStatus[feed.url] = 'error';
-                    } finally {
-                        completedFeeds++;
-                        syncProgress.textContent = `${completedFeeds} / ${rssFeeds.length}`;
+                try {
+                    const fetchPromises = rssFeeds.map(async (feed) => {
+                        feedStatus[feed.url] = 'loading';
                         renderFeedsList();
-                    }
-                });
 
-                await Promise.allSettled(fetchPromises);
+                        try {
+                            const items = await fetchArticlesFromFeed(feed);
 
-                isSyncing = false;
-                syncSpinIcon.classList.remove('animate-spin');
-                syncStatusBanner.classList.add('hidden');
-                syncIndicator.className = 'w-2 h-2 rounded-full bg-emerald-500';
-                mainSyncDot.className = 'w-2 h-2 rounded-full bg-emerald-500';
+                            if (items && items.length > 0) {
+                                feedStatus[feed.url] = 'ok';
 
-                const now = new Date();
-                const timeString = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-                mainSyncTime.textContent = `Mis à jour à ${timeString}`;
-                lastUpdatedText.textContent = `Actualisé à ${timeString}`;
-                localStorage.setItem('cg_last_sync_time', timeString);
+                                // Dès le premier flux en direct reçu, on supprime les articles de secours
+                                if (allArticles.some(a => a.isFallback)) {
+                                    allArticles = allArticles.filter(a => !a.isFallback);
+                                }
 
-                renderArticles();
-                saveCachedArticles();
+                                const existingLinks = new Set(allArticles.map(a => a.link));
+                                let feedAdded = 0;
 
-                showToast(newArticlesFound > 0 ? `${newArticlesFound} nouveaux articles récupérés !` : "Veille à jour");
+                                items.forEach(newItem => {
+                                    if (isArticleDeepLink(newItem.link) && !existingLinks.has(newItem.link)) {
+                                        allArticles.push(newItem);
+                                        existingLinks.add(newItem.link);
+                                        feedAdded++;
+                                        newArticlesFound++;
+                                    }
+                                });
+
+                                if (feedAdded > 0) {
+                                    renderArticles();
+                                    saveCachedArticles();
+                                }
+                            } else {
+                                feedStatus[feed.url] = 'error';
+                            }
+                        } catch (e) {
+                            feedStatus[feed.url] = 'error';
+                        } finally {
+                            completedFeeds++;
+                            syncProgress.textContent = `${completedFeeds} / ${rssFeeds.length}`;
+                            renderFeedsList();
+                        }
+                    });
+
+                    await Promise.allSettled(fetchPromises);
+                } finally {
+                    isSyncing = false;
+                    syncSpinIcon.classList.remove('animate-spin');
+                    syncStatusBanner.classList.add('hidden');
+                    syncIndicator.className = 'w-2 h-2 rounded-full bg-emerald-500';
+                    mainSyncDot.className = 'w-2 h-2 rounded-full bg-emerald-500';
+
+                    const now = new Date();
+                    const timeString = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+                    mainSyncTime.textContent = `Mis à jour à ${timeString}`;
+                    lastUpdatedText.textContent = `Actualisé à ${timeString}`;
+                    localStorage.setItem('cg_last_sync_time', timeString);
+
+                    renderArticles();
+                    saveCachedArticles();
+
+                    showToast(newArticlesFound > 0 ? `${newArticlesFound} nouveaux articles récupérés !` : "Veille à jour");
+                }
             }
 
             function handleAddFeed() {
@@ -1074,7 +1098,7 @@
                 rssUrlInput.value = '';
                 renderFeedsList();
                 showToast(`Flux "${hostName}" ajouté !`);
-                syncAllFeeds();
+                syncAllFeeds(true);
             }
 
             function updateTagUI() {
@@ -1109,30 +1133,29 @@
                 filterInput.focus();
             });
 
+            // Réinitialisation sûre : restaure la liste sans vider l'écran d'articles
             resetFeedsBtn.addEventListener('click', () => {
-                rssFeeds = [...defaultFeeds];
+                rssFeeds = JSON.parse(JSON.stringify(defaultFeeds));
                 saveFeeds();
                 renderFeedsList();
-                showToast("10 flux réinitialisés !");
-                syncAllFeeds();
+                showToast("10 flux officiels réinitialisés !");
+                syncAllFeeds(true);
             });
 
+            // Forçage du direct sûr : ne vide plus allArticles prématurément
             clearCacheBtn.addEventListener('click', () => {
-                allArticles = [];
-                localStorage.removeItem('cg_live_articles_v35');
-                currentPage = 1;
-                renderArticles();
+                localStorage.removeItem('cg_live_articles_v38');
                 showToast("Actualisation en direct forcée...", "🔄");
-                syncAllFeeds();
+                syncAllFeeds(true);
             });
 
             syncAllBtn.addEventListener('click', () => {
                 currentPage = 1;
-                syncAllFeeds();
+                syncAllFeeds(true);
             });
             drawerRefreshBtn.addEventListener('click', () => {
                 currentPage = 1;
-                syncAllFeeds();
+                syncAllFeeds(true);
             });
 
             document.querySelectorAll('.tag-btn').forEach(btn => {
@@ -1149,9 +1172,9 @@
             renderArticles();
             updateTagUI();
 
-            // Lancement automatique dès l'ouverture
+            // Synchronisation automatique au chargement
             syncAllFeeds();
-            setInterval(syncAllFeeds, 10 * 60 * 1000);
+            setInterval(() => syncAllFeeds(), 10 * 60 * 1000);
         });
     </script>
 </body>
