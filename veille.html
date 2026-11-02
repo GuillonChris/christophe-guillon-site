@@ -266,7 +266,7 @@
             <div id="sync-status-banner" class="hidden bg-indigo-50/80 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-700 flex items-center justify-between">
                 <span id="sync-status-msg" class="flex items-center space-x-2">
                     <span class="inline-block w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
-                    <span>Interrogation simultanée des rédactions en direct...</span>
+                    <span>Interrogation des rédactions en direct...</span>
                 </span>
                 <span id="sync-progress" class="font-medium text-indigo-900"></span>
             </div>
@@ -344,7 +344,7 @@
         <span id="toast-msg">Opération effectuée</span>
     </div>
 
-    <!-- Script Temps Réel Résilient : Non-Destructivité & Quadruple Passerelle -->
+    <!-- Script Temps Réel : Tri Chronologique & Zéro Blocage Cache -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -382,10 +382,10 @@
             const nextPageBtn = document.getElementById('next-page-btn');
             const paginationInfo = document.getElementById('pagination-info');
 
-            // 10 flux RSS officiels calibrés (adresses standard sans aucun paramètre parasite)
+            // 10 flux RSS officiels avec scoring=n (tri strict par nouveauté à la minute)
             const defaultFeeds = [
-                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?q=%22intelligence+artificielle%22+OR+ChatGPT+OR+Claude&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
-                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22+OR+make.com+OR+n8n&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
+                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?q=%22intelligence+artificielle%22+OR+ChatGPT+OR+Claude+OR+Gemini+OR+LLM&scoring=n&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
+                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22+OR+make.com+OR+n8n+OR+automatisation&scoring=n&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
                 { id: '3', name: 'Le Monde Pixels', url: 'https://www.lemonde.fr/pixels/rss_full.xml', category: 'IA' },
                 { id: '4', name: 'L\'Usine Digitale IA', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss', category: 'IA' },
                 { id: '5', name: 'Siècle Digital IA', url: 'https://siecledigital.fr/intelligence-artificielle/feed/', category: 'IA' },
@@ -396,38 +396,7 @@
                 { id: '10', name: 'Ars Technica AI', url: 'https://arstechnica.com/tag/ai/feed/', category: 'IA' }
             ];
 
-            // Articles de secours immédiats (pour ne jamais afficher d'écran vide lors de la première seconde)
-            const fallbackArticles = [
-                {
-                    title: "Intelligence Artificielle et productivité : les nouveaux cas d'usage concrets en entreprise",
-                    link: "https://www.usine-digitale.fr/editorial/intelligence-artificielle-et-productivite-les-cas-d-usage-en-entreprise.N2200000",
-                    feedName: "L'Usine Digitale IA",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 20),
-                    description: "Comment les équipes opérationnelles déploient les modèles génératifs et l'automatisation pour simplifier les processus métiers et libérer du temps commercial.",
-                    category: "IA",
-                    isFallback: true
-                },
-                {
-                    title: "Make et N8N : automatiser ses flux CRM sans écrire une seule ligne de code",
-                    link: "https://siecledigital.fr/2026/02/automatisation-nocode-make-n8n-entreprises/",
-                    feedName: "Siècle Digital IA",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 45),
-                    description: "Panorama des meilleures pratiques pour interconnecter les bases de données, formulaires et messageries professionnelles de façon fiable et pérenne.",
-                    category: "NoCode",
-                    isFallback: true
-                },
-                {
-                    title: "Modèles de fondation et agents autonomes : l'état de l'art en entreprise",
-                    link: "https://techcrunch.com/2026/02/ai-agents-autonomous-workflows-enterprise/",
-                    feedName: "TechCrunch AI",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 75),
-                    description: "Analyse des récentes évolutions technologiques autour des agents capables d'exécuter des séquences d'actions complexes en milieu professionnel.",
-                    category: "IA",
-                    isFallback: true
-                }
-            ];
-
-            // Validation stricte des permaliens (rejet des rubriques)
+            // Permaliens stricts sans pages de rubriques
             function isArticleDeepLink(url) {
                 if (!url || typeof url !== 'string' || !url.startsWith('http')) return false;
                 try {
@@ -450,7 +419,7 @@
 
             function loadCachedArticles() {
                 try {
-                    const saved = localStorage.getItem('cg_live_articles_v38');
+                    const saved = localStorage.getItem('cg_live_articles_v40');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -467,8 +436,8 @@
 
             function saveCachedArticles() {
                 try {
-                    const toSave = allArticles.filter(a => isArticleDeepLink(a.link) && !a.isFallback).slice(0, 100);
-                    localStorage.setItem('cg_live_articles_v38', JSON.stringify(toSave));
+                    const toSave = allArticles.filter(a => isArticleDeepLink(a.link)).slice(0, 100);
+                    localStorage.setItem('cg_live_articles_v40', JSON.stringify(toSave));
                 } catch (e) {
                     console.warn("Erreur sauvegarde :", e);
                 }
@@ -476,10 +445,6 @@
 
             let rssFeeds = loadFeeds();
             let allArticles = loadCachedArticles();
-            if (allArticles.length === 0) {
-                allArticles = [...fallbackArticles];
-            }
-
             let favorites = JSON.parse(localStorage.getItem('savedFavorites') || '[]');
             let currentTag = '';
             let isSyncing = false;
@@ -514,7 +479,7 @@
 
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('cg_rss_feeds_v38');
+                    const saved = localStorage.getItem('cg_rss_feeds_v40');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -526,7 +491,7 @@
             }
 
             function saveFeeds() {
-                localStorage.setItem('cg_rss_feeds_v38', JSON.stringify(rssFeeds));
+                localStorage.setItem('cg_rss_feeds_v40', JSON.stringify(rssFeeds));
             }
 
             function saveFavorites() {
@@ -679,6 +644,7 @@
                     return matchQuery && matchTag;
                 });
 
+                // Tri chronologique rigoureux : les articles parus il y a 5 minutes en premier
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
                 const totalArticles = filtered.length;
@@ -903,50 +869,12 @@
                 return articles;
             }
 
-            // Récupération multi-passerelles sans jamais altérer l'URL source
+            // Récupération multi-passerelles sans cache intermédiaire d'une heure
             async function fetchArticlesFromFeed(feed) {
                 const encoded = encodeURIComponent(feed.url);
                 const cb = Date.now();
 
-                // 1. rss2json (Rapide, direct JSON, évite les erreurs de DOMParser XML)
-                try {
-                    const ctrl = new AbortController();
-                    const t = setTimeout(() => ctrl.abort(), 4500);
-                    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encoded}`, { signal: ctrl.signal });
-                    clearTimeout(t);
-                    if (res.ok) {
-                        const data = await res.json();
-                        if (data && data.status === 'ok' && Array.isArray(data.items) && data.items.length > 0) {
-                            return data.items
-                                .map(item => ({
-                                    title: cleanHtml(item.title) || 'Article sans titre',
-                                    link: (item.link || item.guid || '#').trim(),
-                                    description: cleanHtml(item.description || item.content || '').slice(0, 240),
-                                    pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
-                                    feedName: cleanHtml(item.author) || feed.name,
-                                    category: feed.category || 'IA'
-                                }))
-                                .filter(a => isArticleDeepLink(a.link) && !isExcludedGadget(a.title, a.description));
-                        }
-                    }
-                } catch (_) {}
-
-                // 2. AllOrigins GET (Convertit le XML en JSON sans blocage CORS)
-                try {
-                    const ctrl = new AbortController();
-                    const t = setTimeout(() => ctrl.abort(), 5000);
-                    const res = await fetch(`https://api.allorigins.win/get?url=${encoded}&_cb=${cb}`, { signal: ctrl.signal });
-                    clearTimeout(t);
-                    if (res.ok) {
-                        const data = await res.json();
-                        if (data && data.contents && data.contents.includes('<')) {
-                            const items = parseRssXml(data.contents, feed);
-                            if (items.length > 0) return items;
-                        }
-                    }
-                } catch (_) {}
-
-                // 3. CorsProxy.io (Second recours direct)
+                // 1. CorsProxy.io (direct sans cache serveur)
                 try {
                     const ctrl = new AbortController();
                     const t = setTimeout(() => ctrl.abort(), 4500);
@@ -961,7 +889,22 @@
                     }
                 } catch (_) {}
 
-                // 4. CodeTabs Proxy (Dernier filet de sécurité)
+                // 2. AllOrigins GET avec paramètre anti-cache _cb
+                try {
+                    const ctrl = new AbortController();
+                    const t = setTimeout(() => ctrl.abort(), 5000);
+                    const res = await fetch(`https://api.allorigins.win/get?url=${encoded}&_cb=${cb}`, { signal: ctrl.signal });
+                    clearTimeout(t);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data && data.contents && data.contents.includes('<')) {
+                            const items = parseRssXml(data.contents, feed);
+                            if (items.length > 0) return items;
+                        }
+                    }
+                } catch (_) {}
+
+                // 3. CodeTabs Proxy
                 try {
                     const ctrl = new AbortController();
                     const t = setTimeout(() => ctrl.abort(), 4500);
@@ -979,7 +922,7 @@
                 throw new Error("Flux inaccessible");
             }
 
-            // Synchronisation parallèle avec protection de l'état d'affichage
+            // Synchronisation parallèle sans écrasement prématuré de la liste
             async function syncAllFeeds(force = false) {
                 if (isSyncing && !force) return;
                 isSyncing = true;
@@ -1005,11 +948,6 @@
 
                             if (items && items.length > 0) {
                                 feedStatus[feed.url] = 'ok';
-
-                                // Dès le premier flux en direct reçu, on supprime les articles de secours
-                                if (allArticles.some(a => a.isFallback)) {
-                                    allArticles = allArticles.filter(a => !a.isFallback);
-                                }
 
                                 const existingLinks = new Set(allArticles.map(a => a.link));
                                 let feedAdded = 0;
@@ -1133,7 +1071,7 @@
                 filterInput.focus();
             });
 
-            // Réinitialisation sûre : restaure la liste sans vider l'écran d'articles
+            // Réinitialisation sécurisée
             resetFeedsBtn.addEventListener('click', () => {
                 rssFeeds = JSON.parse(JSON.stringify(defaultFeeds));
                 saveFeeds();
@@ -1142,9 +1080,9 @@
                 syncAllFeeds(true);
             });
 
-            // Forçage du direct sûr : ne vide plus allArticles prématurément
+            // Forçage du direct sans vider prématurément la liste
             clearCacheBtn.addEventListener('click', () => {
-                localStorage.removeItem('cg_live_articles_v38');
+                localStorage.removeItem('cg_live_articles_v40');
                 showToast("Actualisation en direct forcée...", "🔄");
                 syncAllFeeds(true);
             });
@@ -1172,9 +1110,9 @@
             renderArticles();
             updateTagUI();
 
-            // Synchronisation automatique au chargement
+            // Synchronisation automatique au chargement puis toutes les 5 minutes
             syncAllFeeds();
-            setInterval(() => syncAllFeeds(), 10 * 60 * 1000);
+            setInterval(() => syncAllFeeds(), 5 * 60 * 1000);
         });
     </script>
 </body>
