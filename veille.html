@@ -1,17 +1,54 @@
 <!DOCTYPE html>
-<html lang="fr" class="h-full">
+<html lang="fr" class="scroll-smooth">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VESQ4YWCTS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VESQ4YWCTS');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecteur de Veille NoCode & IA</title>
+    <title>Veille Stratégique IA &amp; NoCode | Christophe Guillon - Consultant &amp; Formateur</title>
+    <meta name="description" content="Veille technologique et stratégique en direct sur l'Intelligence Artificielle, le NoCode et l'automatisation par Christophe Guillon, Saumur.">
+    <link rel="icon" type="image/png" href="Logo_CG%20(1).png">
+    <link rel="canonical" href="https://www.christophe-guillon.com/veille.html">
+
+    <!-- Polices Google identiques au site principal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Configuration Tailwind CSS officielle -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#04101A',   
+                        'brand-accent': '#0084FF', 
+                        'brand-yellow': '#F5A623', 
+                        'page-bg': '#F9FAFB',     
+                        'surface-card': '#FFFFFF'  
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
-        /* Barres de défilement discrètes */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -40,827 +77,113 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 h-full flex flex-col antialiased">
+<body class="bg-page-bg text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-brand-accent selection:text-white">
 
-    <!-- En-tête Mobile & Tablette -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 flex items-center justify-between px-4 py-3 md:hidden shadow-sm">
-        <div class="flex items-center space-x-2.5">
-            <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold shadow-sm">
-                ⚡
-            </div>
-            <div>
-                <h1 class="text-base font-bold text-slate-900 leading-tight">Veille NoCode & IA</h1>
-                <p id="mobile-stats" class="text-xs text-slate-500">Chargement...</p>
-            </div>
-        </div>
-        <div class="flex items-center space-x-1">
-            <button id="mobile-refresh-btn" class="p-2 text-slate-600 hover:text-indigo-600 hover:bg-slate-100 rounded-lg transition-colors" title="Actualiser les flux">
-                <svg id="mobile-refresh-icon" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-            </button>
-            <button id="burger-btn" class="p-2 text-slate-700 hover:bg-slate-100 rounded-lg focus:outline-none transition-colors" aria-label="Menu principal">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
+    <!-- En-tête principal officiel Christophe Guillon -->
+    <header class="sticky top-0 w-full bg-brand-dark/95 backdrop-blur-md z-50 border-b border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 md:gap-4 group">
+                <img src="Logo_CG%20(1).png" onerror="if(!this.dataset.retry){this.dataset.retry='1'; this.src='logo_CG2.png';}" alt="Christophe Guillon - Consultant &amp; Formateur" width="48" height="48" class="h-10 md:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col">
+                    <span class="text-white font-heading font-extrabold text-sm md:text-base leading-none tracking-wide">CHRISTOPHE GUILLON</span>
+                    <span class="text-brand-yellow font-heading text-[9px] md:text-[10px] font-semibold mt-1 uppercase tracking-wider">CONSULTANT &amp; FORMATEUR</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex gap-8 text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-white transition">Accueil</a>
+                <a href="index.html#expertises" class="hover:text-white transition">Expertises</a>
+                <a href="index.html#a-propos" class="hover:text-white transition">À propos</a>
+                <a href="index.html#contact" class="hover:text-white transition">Contact</a>
+                <a href="veille.html" class="text-brand-accent font-semibold">Veille</a>
+            </nav>
+            <a href="index.html#contact" class="hidden md:inline-block bg-brand-accent hover:bg-blue-600 text-white text-sm font-semibold py-2.5 px-6 rounded-full transition shadow-sm">
+                M'écrire
+            </a>
         </div>
     </header>
 
-    <div class="flex flex-1 overflow-hidden relative">
+    <!-- Voile d'ombrage du tiroir latéral -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden transition-opacity"></div>
 
-        <!-- Voile d'ombrage Mobile -->
-        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 hidden transition-opacity md:hidden"></div>
-
-        <!-- Tiroir Latéral (Sidebar) -->
-        <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-50 w-80 sm:w-96 bg-white border-r border-slate-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col shadow-xl md:shadow-none">
-            
-            <!-- En-tête Barre latérale -->
-            <div class="p-5 border-b border-slate-100 flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white text-lg font-bold shadow-md shadow-indigo-100">
-                        ⚡
-                    </div>
-                    <div>
-                        <h2 class="font-bold text-slate-900 text-lg tracking-tight">Veille Automatisée</h2>
-                        <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">NoCode & IA</span>
-                    </div>
+    <!-- Tiroir latéral -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-[60] w-80 sm:w-96 bg-white border-r border-slate-200 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-2xl">
+        
+        <!-- En-tête du tiroir -->
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white text-lg font-bold shadow-md shadow-indigo-100">
+                    ⚡
                 </div>
-                <button id="close-sidebar-btn" class="md:hidden p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Contenu défilant des réglages -->
-            <div class="flex-1 overflow-y-auto p-5 space-y-6">
-
-                <!-- Recherche et Filtrage direct -->
                 <div>
-                    <label for="filter-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Filtrer par mot-clé</label>
-                    <div class="relative">
-                        <input type="text" id="filter-input" class="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all" placeholder="Ex: automatisation, ChatGPT, Make...">
-                        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                        <button id="clear-search-btn" class="hidden absolute right-2.5 top-3 text-slate-400 hover:text-slate-600">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
+                    <h2 class="font-bold text-slate-900 text-lg tracking-tight">Filtres &amp; Sources</h2>
+                    <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">Veille en direct</span>
                 </div>
-
-                <!-- Vues rapides -->
-                <div class="flex items-center space-x-2">
-                    <button id="view-all-btn" class="flex-1 text-xs px-3 py-2 rounded-xl font-semibold bg-indigo-600 text-white shadow-sm transition-colors">
-                        Tous les articles
-                    </button>
-                    <button id="view-fav-btn" class="text-xs px-3 py-2 rounded-xl font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors flex items-center space-x-1">
-                        <span>⭐ Favoris</span>
-                        <span id="fav-count" class="font-bold ml-1">0</span>
-                    </button>
-                </div>
-
-                <!-- Ajout de flux personnalisé -->
-                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
-                    <label for="rss-url-input" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Ajouter un flux RSS</label>
-                    <div class="space-y-2">
-                        <input type="url" id="rss-url-input" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://exemple.com/feed.xml">
-                        <button id="add-feed-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors shadow-sm">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                            </svg>
-                            <span>Ajouter le flux</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Liste déroulante des flux actifs avec renommage -->
-                <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden" open>
-                    <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none bg-slate-50/50 hover:bg-slate-50 transition-colors">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Flux actifs (<span id="feeds-count">0</span>)</span>
-                        </div>
-                        <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </summary>
-                    <div class="p-3 border-t border-slate-100">
-                        <div class="flex justify-between items-center mb-2 px-1">
-                            <span class="text-[11px] text-slate-400">Cliquez sur un nom pour renommer</span>
-                            <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser (15)</button>
-                        </div>
-                        <ul id="feeds-list" class="space-y-1 max-h-60 overflow-y-auto pr-1 text-xs">
-                            <!-- Les flux seront injectés ici -->
-                        </ul>
-                    </div>
-                </details>
-
             </div>
+            <button id="close-sidebar-btn" class="p-2 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors" title="Fermer le panneau">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
 
-            <!-- Pied de la barre latérale -->
-            <div class="p-4 border-t border-slate-100 bg-slate-50/70 flex items-center justify-between text-xs text-slate-500">
-                <div class="flex items-center space-x-1.5 truncate">
-                    <span id="sync-indicator" class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    <span id="last-updated-text" class="truncate">Prêt</span>
-                </div>
-                <button id="desktop-refresh-btn" class="font-medium text-indigo-600 hover:text-indigo-800 flex items-center space-x-1">
-                    <svg id="desktop-refresh-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        <!-- Contenu défilant des réglages -->
+        <div class="flex-1 overflow-y-auto p-5 space-y-6">
+
+            <!-- Recherche directe -->
+            <div>
+                <label for="filter-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Filtrer les actualités</label>
+                <div class="relative">
+                    <input type="text" id="filter-input" class="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all" placeholder="Mot-clé (ex: ChatGPT, Make, Claude)...">
+                    <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                    <span>Actualiser</span>
-                </button>
-            </div>
-        </aside>
-
-        <!-- Zone Principale : Flux d'articles réels -->
-        <main class="flex-1 flex flex-col h-full overflow-hidden bg-slate-50">
-
-            <!-- Barre d'état et filtres actifs -->
-            <div class="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between flex-shrink-0">
-                <div class="flex items-center space-x-3">
-                    <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Articles en direct</h2>
-                    <span id="articles-badge" class="bg-slate-100 text-slate-600 font-semibold text-xs px-2.5 py-0.5 rounded-full border border-slate-200">0</span>
-                </div>
-                <div class="flex items-center space-x-2 text-xs text-slate-500">
-                    <button id="sync-all-btn" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-semibold px-3 py-1.5 rounded-lg transition-colors flex items-center space-x-1.5">
-                        <svg id="sync-spin-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    <button id="clear-search-btn" class="hidden absolute right-2.5 top-3 text-slate-400 hover:text-slate-600">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
-                        <span id="sync-btn-text">Synchroniser</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Bannière de statut de synchronisation -->
-            <div id="sync-status-banner" class="hidden bg-indigo-50 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-800 flex items-center justify-between">
-                <span class="flex items-center space-x-2">
-                    <span class="inline-block w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
-                    <span id="sync-status-msg">Récupération des articles en cours...</span>
-                </span>
-                <span id="sync-progress" class="font-bold text-indigo-950"></span>
-            </div>
-
-            <!-- Liste des Cartes d'Articles -->
-            <div id="feed-container" class="flex-1 overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4">
-                <div id="initial-loader" class="flex flex-col items-center justify-center h-64 text-slate-500 space-y-3">
-                    <div class="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-                    <p class="text-sm">Interrogation de vos 15 flux d'actualité en direct...</p>
+            <!-- Thématiques rapides -->
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Thématiques</label>
+                <div class="flex flex-wrap gap-1.5" id="topic-tags">
+                    <button data-tag="" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-indigo-600 text-white transition-colors">Tous</button>
+                    <button data-tag="IA" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🤖 IA &amp; LLM</button>
+                    <button data-tag="NoCode" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">⚡ NoCode &amp; Auto</button>
+                    <button data-tag="Outils" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🛠️ Outils &amp; Apps</button>
+                    <button data-tag="favoris" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors">⭐ Favoris (<span id="fav-count">0</span>)</button>
                 </div>
             </div>
-        </main>
-    </div>
 
-    <!-- Notification Toast Discrète -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-xl transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none flex items-center space-x-2">
-        <span id="toast-icon">✓</span>
-        <span id="toast-msg">Opération effectuée</span>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // Éléments du DOM
-            const feedContainer = document.getElementById('feed-container');
-            const filterInput = document.getElementById('filter-input');
-            const clearSearchBtn = document.getElementById('clear-search-btn');
-            const addFeedBtn = document.getElementById('add-feed-btn');
-            const rssUrlInput = document.getElementById('rss-url-input');
-            const feedsList = document.getElementById('feeds-list');
-            const feedsCountEl = document.getElementById('feeds-count');
-            const mobileStatsEl = document.getElementById('mobile-stats');
-            const articlesBadge = document.getElementById('articles-badge');
-            const lastUpdatedText = document.getElementById('last-updated-text');
-            const syncIndicator = document.getElementById('sync-indicator');
-            const sidebar = document.getElementById('sidebar');
-            const burgerBtn = document.getElementById('burger-btn');
-            const closeSidebarBtn = document.getElementById('close-sidebar-btn');
-            const overlay = document.getElementById('sidebar-overlay');
-            const resetFeedsBtn = document.getElementById('reset-feeds-btn');
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-msg');
-            const favCountEl = document.getElementById('fav-count');
-            const syncStatusBanner = document.getElementById('sync-status-banner');
-            const syncStatusMsg = document.getElementById('sync-status-msg');
-            const syncProgress = document.getElementById('sync-progress');
-            const syncAllBtn = document.getElementById('sync-all-btn');
-            const syncSpinIcon = document.getElementById('sync-spin-icon');
-            const mobileRefreshBtn = document.getElementById('mobile-refresh-btn');
-            const desktopRefreshBtn = document.getElementById('desktop-refresh-btn');
-            const viewAllBtn = document.getElementById('view-all-btn');
-            const viewFavBtn = document.getElementById('view-fav-btn');
-
-            // Vos 15 flux d'actualités exacts
-            const defaultFeeds = [
-                { name: 'Google News IA', url: 'https://news.google.com/rss/search?tbm=nws&q=intelligence+artificielle&scoring=n&hl=fr&gl=FR&ceid=FR:fr' },
-                { name: 'Euronews IA', url: 'https://fr.euronews.com/rss?level=tag&name=intelligence-artificielle' },
-                { name: 'EveryIA', url: 'https://everydai.eu/rss.xml' },
-                { name: '01Net IA', url: 'https://www.01net.com/actualites/intelligence-artificielle/feed/' },
-                { name: 'Intelligence-Artificielle', url: 'https://intelligence-artificielle.com/feed/' },
-                { name: 'Journal du Net IA', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/' },
-                { name: 'L\'Usine Digitale IA', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss' },
-                { name: 'Les Numériques IA', url: 'https://www.lesnumeriques.com/intelligence-artificielle/rss.xml' },
-                { name: 'Monde Tech', url: 'https://mondetech.fr/categories/intelligence-artificielle/feed/' },
-                { name: 'Presse Citron IA', url: 'https://www.presse-citron.net/category/intelligence-artificielle/feed/' },
-                { name: 'Silicon IA', url: 'https://www.silicon.fr/rss/data-ia-1372.xml' },
-                { name: 'Siècle Digital IA', url: 'https://siecledigital.fr/intelligence-artificielle/feed/' },
-                { name: 'TechnoMedia IA', url: 'https://www.technomedia.org/feeds/posts/default/-/IA' },
-                { name: 'Business Edition', url: 'https://fr.blog.businessdecision.com/datascience/feed/feed/' },
-                { name: 'L\'Usine Nouvelle IA', url: 'https://www.usinenouvelle.com/rss/ia/' }
-            ];
-
-            // État de l'application (AUCUN article factice, 100% réel)
-            let rssFeeds = loadFeeds();
-            let allArticles = [];
-            let favorites = JSON.parse(localStorage.getItem('savedFavorites_v4') || '[]');
-            let showOnlyFavorites = false;
-            let isSyncing = false;
-            const feedStatus = {}; // { feedUrl: 'ok' | 'loading' | 'error' }
-
-            function loadFeeds() {
-                try {
-                    const saved = localStorage.getItem('rssFeeds_v5');
-                    if (saved) {
-                        const parsed = JSON.parse(saved);
-                        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-                    }
-                } catch (e) {
-                    console.error("Erreur storage:", e);
-                }
-                return defaultFeeds;
-            }
-
-            function saveFeeds() {
-                localStorage.setItem('rssFeeds_v5', JSON.stringify(rssFeeds));
-            }
-
-            function saveFavorites() {
-                localStorage.setItem('savedFavorites_v4', JSON.stringify(favorites));
-                favCountEl.textContent = favorites.length;
-            }
-
-            function showToast(message, icon = '✓') {
-                toastMsg.textContent = message;
-                document.getElementById('toast-icon').textContent = icon;
-                toast.classList.remove('translate-y-16', 'opacity-0');
-                setTimeout(() => {
-                    toast.classList.add('translate-y-16', 'opacity-0');
-                }, 2600);
-            }
-
-            // Nettoyage HTML pour les descriptions
-            function cleanHtml(rawHtml) {
-                if (!rawHtml) return '';
-                const doc = new DOMParser().parseFromString(rawHtml, 'text/html');
-                const text = doc.body.textContent || '';
-                return text.replace(/\s+/g, ' ').trim();
-            }
-
-            function formatRelativeTime(date) {
-                if (!date || isNaN(date.getTime())) return "Récemment";
-                const diffMs = Date.now() - date.getTime();
-                const diffMin = Math.floor(diffMs / 60000);
-                const diffHours = Math.floor(diffMin / 60);
-                const diffDays = Math.floor(diffHours / 24);
-
-                if (diffMin < 2) return "À l'instant";
-                if (diffMin < 60) return `Il y a ${diffMin} min`;
-                if (diffHours < 24) return `Il y a ${diffHours} h`;
-                if (diffDays === 1) return `Hier`;
-                if (diffDays < 7) return `Il y a ${diffDays} j`;
-                return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
-            }
-
-            // Extraction robuste du VRAI lien d'article (jamais de catégorie, jamais de 404)
-            function extractRealArticleLink(node) {
-                // 1. Essayer les balises <link>
-                const links = Array.from(node.querySelectorAll('link'));
-                for (const l of links) {
-                    const href = l.getAttribute('href');
-                    const rel = l.getAttribute('rel');
-                    if (href && (!rel || rel === 'alternate') && href.startsWith('http')) {
-                        return href.trim();
-                    }
-                    if (l.textContent && l.textContent.trim().startsWith('http')) {
-                        return l.textContent.trim();
-                    }
-                }
-
-                // 2. Essayer <guid>
-                const guid = node.querySelector('guid');
-                if (guid && guid.textContent && guid.textContent.trim().startsWith('http')) {
-                    return guid.textContent.trim();
-                }
-
-                // 3. Essayer <id> (Atom)
-                const idEl = node.querySelector('id');
-                if (idEl && idEl.textContent && idEl.textContent.trim().startsWith('http')) {
-                    return idEl.textContent.trim();
-                }
-
-                return null;
-            }
-
-            // Parser XML universel (RSS 2.0 et Atom)
-            function parseFeedXml(xmlString, feedName) {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
-
-                if (xmlDoc.querySelector('parsererror')) {
-                    throw new Error('Erreur de parsing XML');
-                }
-
-                const items = xmlDoc.querySelectorAll('item, entry');
-                const results = [];
-
-                items.forEach(node => {
-                    const titleEl = node.querySelector('title');
-                    const title = titleEl ? titleEl.textContent.trim() : '';
-
-                    const link = extractRealArticleLink(node);
-                    if (!title || !link) return;
-
-                    // Description
-                    const descEl = node.querySelector('description, summary, content');
-                    let description = descEl ? cleanHtml(descEl.textContent) : '';
-                    if (description.length > 220) {
-                        description = description.substring(0, 220) + '…';
-                    }
-
-                    // Date
-                    const dateEl = node.querySelector('pubDate, published, updated, date');
-                    let pubDate = new Date();
-                    if (dateEl && dateEl.textContent) {
-                        const parsed = new Date(dateEl.textContent);
-                        if (!isNaN(parsed.getTime())) {
-                            pubDate = parsed;
-                        }
-                    }
-
-                    results.push({
-                        title,
-                        link,
-                        description,
-                        pubDate,
-                        feedName
-                    });
-                });
-
-                return results;
-            }
-
-            // Récupération multi-passerelles avec basculement automatique
-            async function fetchFeedItems(feed) {
-                const proxies = [
-                    // Passerelle 1 : AllOrigins Raw
-                    async () => {
-                        const controller = new AbortController();
-                        const t = setTimeout(() => controller.abort(), 6500);
-                        const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(feed.url)}`, { signal: controller.signal });
-                        clearTimeout(t);
-                        if (!res.ok) throw new Error('Proxy 1 failed');
-                        const text = await res.text();
-                        if (text && text.includes('<')) return parseFeedXml(text, feed.name);
-                        throw new Error('Empty proxy 1');
-                    },
-                    // Passerelle 2 : CodeTabs
-                    async () => {
-                        const controller = new AbortController();
-                        const t = setTimeout(() => controller.abort(), 6500);
-                        const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(feed.url)}`, { signal: controller.signal });
-                        clearTimeout(t);
-                        if (!res.ok) throw new Error('Proxy 2 failed');
-                        const text = await res.text();
-                        if (text && text.includes('<')) return parseFeedXml(text, feed.name);
-                        throw new Error('Empty proxy 2');
-                    },
-                    // Passerelle 3 : AllOrigins JSON
-                    async () => {
-                        const controller = new AbortController();
-                        const t = setTimeout(() => controller.abort(), 6500);
-                        const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`, { signal: controller.signal });
-                        clearTimeout(t);
-                        if (!res.ok) throw new Error('Proxy 3 failed');
-                        const data = await res.json();
-                        if (data && data.contents && data.contents.includes('<')) {
-                            return parseFeedXml(data.contents, feed.name);
-                        }
-                        throw new Error('Empty proxy 3 contents');
-                    },
-                    // Passerelle 4 : RSS2JSON (Secours)
-                    async () => {
-                        const controller = new AbortController();
-                        const t = setTimeout(() => controller.abort(), 6500);
-                        const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`, { signal: controller.signal });
-                        clearTimeout(t);
-                        if (!res.ok) throw new Error('Proxy 4 failed');
-                        const data = await res.json();
-                        if (data.status === 'ok' && Array.isArray(data.items)) {
-                            return data.items.map(it => ({
-                                title: it.title || 'Article sans titre',
-                                link: it.link || it.guid,
-                                description: cleanHtml(it.description).substring(0, 220) + '…',
-                                pubDate: it.pubDate ? new Date(it.pubDate.replace(/-/g, '/')) : new Date(),
-                                feedName: feed.name
-                            })).filter(it => it.link && it.link.startsWith('http'));
-                        }
-                        throw new Error('RSS2JSON status not ok');
-                    }
-                ];
-
-                let lastErr = null;
-                for (const attempt of proxies) {
-                    try {
-                        const items = await attempt();
-                        if (items && items.length > 0) return items;
-                    } catch (e) {
-                        lastErr = e;
-                    }
-                }
-                throw lastErr || new Error('Impossible de charger le flux');
-            }
-
-            // Affichage de la liste des flux dans la barre latérale
-            function renderFeedsList() {
-                feedsList.innerHTML = '';
-                feedsCountEl.textContent = rssFeeds.length;
-
-                rssFeeds.forEach(feed => {
-                    const status = feedStatus[feed.url] || 'idle';
-                    let statusColor = 'bg-slate-300';
-                    let statusTitle = 'En attente';
-
-                    if (status === 'loading') {
-                        statusColor = 'bg-amber-400 animate-ping';
-                        statusTitle = 'Chargement en direct...';
-                    } else if (status === 'ok') {
-                        statusColor = 'bg-emerald-500';
-                        statusTitle = 'Actif et synchronisé';
-                    } else if (status === 'error') {
-                        statusColor = 'bg-rose-500';
-                        statusTitle = 'Erreur d\'accès';
-                    }
-
-                    const li = document.createElement('li');
-                    li.className = 'group flex items-center justify-between p-2 rounded-xl hover:bg-slate-100 transition-colors border border-transparent hover:border-slate-200';
-                    li.innerHTML = `
-                        <div class="flex items-center space-x-2 truncate flex-1 min-w-0 pr-2">
-                            <span class="w-2 h-2 rounded-full ${statusColor} flex-shrink-0" title="${statusTitle}"></span>
-                            <span class="feed-name truncate font-medium text-slate-700 cursor-pointer hover:text-indigo-600" title="Cliquer pour renommer">${feed.name}</span>
-                        </div>
-                        <div class="flex items-center space-x-1 opacity-80 group-hover:opacity-100">
-                            <button class="rename-feed-btn p-1 text-slate-400 hover:text-indigo-600 rounded" title="Renommer">
-                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                </svg>
-                            </button>
-                            <button class="delete-feed-btn p-1 text-slate-400 hover:text-rose-600 rounded" title="Supprimer">
-                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                            </button>
-                        </div>
-                    `;
-
-                    // Renommage direct
-                    const nameSpan = li.querySelector('.feed-name');
-                    const renameBtn = li.querySelector('.rename-feed-btn');
-                    const triggerRename = () => {
-                        const input = document.createElement('input');
-                        input.type = 'text';
-                        input.value = feed.name;
-                        input.className = 'w-full text-xs font-semibold px-2 py-1 bg-white border border-indigo-400 rounded focus:outline-none';
-                        nameSpan.replaceWith(input);
-                        input.focus();
-                        input.select();
-
-                        const save = () => {
-                            const newName = input.value.trim();
-                            if (newName && newName !== feed.name) {
-                                feed.name = newName;
-                                saveFeeds();
-                                showToast(`Flux renommé en : ${newName}`);
-                            }
-                            renderFeedsList();
-                            renderArticles();
-                        };
-
-                        input.addEventListener('blur', save);
-                        input.addEventListener('keydown', (e) => {
-                            if (e.key === 'Enter') save();
-                            if (e.key === 'Escape') renderFeedsList();
-                        });
-                    };
-
-                    nameSpan.addEventListener('click', triggerRename);
-                    renameBtn.addEventListener('click', triggerRename);
-
-                    // Suppression
-                    li.querySelector('.delete-feed-btn').addEventListener('click', () => {
-                        rssFeeds = rssFeeds.filter(f => f.url !== feed.url);
-                        saveFeeds();
-                        allArticles = allArticles.filter(a => a.feedName !== feed.name);
-                        renderFeedsList();
-                        renderArticles();
-                        showToast(`Flux "${feed.name}" supprimé`);
-                    });
-
-                    feedsList.appendChild(li);
-                });
-            }
-
-            // Rendu de la liste d'articles
-            function renderArticles() {
-                const query = filterInput.value.toLowerCase().trim();
-
-                let filtered = allArticles.filter(article => {
-                    const matchQuery = !query || 
-                        article.title.toLowerCase().includes(query) ||
-                        article.description.toLowerCase().includes(query) ||
-                        article.feedName.toLowerCase().includes(query);
-
-                    const isFav = favorites.includes(article.link);
-                    const matchFav = !showOnlyFavorites || isFav;
-
-                    return matchQuery && matchFav;
-                });
-
-                // Tri chronologique rigoureux (du plus récent au plus ancien)
-                filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
-
-                articlesBadge.textContent = filtered.length;
-                mobileStatsEl.textContent = `${filtered.length} article${filtered.length > 1 ? 's' : ''}`;
-
-                if (filtered.length === 0) {
-                    feedContainer.innerHTML = `
-                        <div class="bg-white rounded-2xl border border-slate-200/80 p-8 text-center max-w-md mx-auto my-12 shadow-sm">
-                            <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl">
-                                🔍
-                            </div>
-                            <h3 class="font-bold text-slate-800 text-base mb-1">Aucun article trouvé</h3>
-                            <p class="text-xs text-slate-500 mb-4">${showOnlyFavorites ? 'Aucun article favori enregistré.' : 'Ajustez vos filtres de recherche ou lancez une synchronisation.'}</p>
-                            ${query ? `<button id="reset-search-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">Effacer la recherche</button>` : ''}
-                        </div>
-                    `;
-                    document.getElementById('reset-search-btn')?.addEventListener('click', () => {
-                        filterInput.value = '';
-                        clearSearchBtn.classList.add('hidden');
-                        renderArticles();
-                    });
-                    return;
-                }
-
-                feedContainer.innerHTML = '';
-                filtered.forEach(article => {
-                    const isFav = favorites.includes(article.link);
-                    const card = document.createElement('article');
-                    card.className = 'bg-white rounded-2xl border border-slate-200/80 hover:border-indigo-300 p-4 sm:p-5 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between';
-
-                    card.innerHTML = `
-                        <div>
-                            <div class="flex items-center justify-between gap-2 mb-2">
-                                <div class="flex items-center space-x-2 truncate">
-                                    <span class="inline-flex items-center text-[11px] font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100/60 px-2.5 py-0.5 rounded-full truncate">
-                                        ${article.feedName}
-                                    </span>
-                                    <span class="text-[11px] text-slate-400 font-medium">· ${formatRelativeTime(article.pubDate)}</span>
-                                </div>
-                                <button class="fav-btn p-1.5 text-slate-300 hover:text-amber-500 transition-colors" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
-                                    <svg class="w-4 h-4 ${isFav ? 'text-amber-500 fill-amber-500' : ''}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-2 hover:text-indigo-600 transition-colors">
-                                <a href="${article.link}" target="_blank" rel="noopener noreferrer">${article.title}</a>
-                            </h3>
-                            <p class="text-xs sm:text-sm text-slate-600 line-clamp-2 sm:line-clamp-3 mb-4 leading-relaxed font-normal">
-                                ${article.description || 'Cliquez pour ouvrir l\'article complet directement sur le média.'}
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                            <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1.5 group bg-indigo-50/70 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition-colors">
-                                <span>Ouvrir l'article</span>
-                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
-                            </a>
-                            <button class="share-btn text-slate-400 hover:text-slate-700 flex items-center space-x-1 p-1.5 rounded hover:bg-slate-100 transition-colors" title="Copier le lien direct">
-                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                </svg>
-                                <span class="hidden sm:inline">Copier le lien</span>
-                            </button>
-                        </div>
-                    `;
-
-                    // Gestion Favoris
-                    card.querySelector('.fav-btn').addEventListener('click', () => {
-                        const idx = favorites.indexOf(article.link);
-                        if (idx > -1) {
-                            favorites.splice(idx, 1);
-                            showToast('Retiré des favoris');
-                        } else {
-                            favorites.push(article.link);
-                            showToast('Ajouté aux favoris ⭐');
-                        }
-                        saveFavorites();
-                        renderArticles();
-                    });
-
-                    // Copie lien
-                    card.querySelector('.share-btn').addEventListener('click', () => {
-                        copyLinkSafely(article.link);
-                    });
-
-                    feedContainer.appendChild(card);
-                });
-            }
-
-            function copyLinkSafely(url) {
-                const tempInput = document.createElement('textarea');
-                tempInput.value = url;
-                tempInput.style.position = 'fixed';
-                tempInput.style.opacity = '0';
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                try {
-                    document.execCommand('copy');
-                    showToast('Lien direct de l\'article copié !');
-                } catch (e) {
-                    showToast('Impossible de copier');
-                }
-                document.body.removeChild(tempInput);
-            }
-
-            // Synchronisation progressive de tous les flux en direct
-            async function syncAllFeeds() {
-                if (isSyncing) return;
-                isSyncing = true;
-
-                syncStatusBanner.classList.remove('hidden');
-                syncSpinIcon.classList.add('animate-spin');
-                document.getElementById('mobile-refresh-icon').classList.add('animate-spin');
-                document.getElementById('desktop-refresh-icon').classList.add('animate-spin');
-                syncIndicator.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
-                lastUpdatedText.textContent = 'Synchronisation...';
-
-                let completed = 0;
-                let newCount = 0;
-                const existingLinks = new Set(allArticles.map(a => a.link));
-
-                // Interrogation concurrente par lots pour une vitesse maximale
-                const fetchPromises = rssFeeds.map(async (feed) => {
-                    feedStatus[feed.url] = 'loading';
-                    renderFeedsList();
-
-                    try {
-                        const items = await fetchFeedItems(feed);
-                        if (items && items.length > 0) {
-                            feedStatus[feed.url] = 'ok';
-                            items.forEach(it => {
-                                if (!existingLinks.has(it.link)) {
-                                    allArticles.push(it);
-                                    existingLinks.add(it.link);
-                                    newCount++;
-                                }
-                            });
-                            // Mise à jour immédiate dès qu'un flux répond
-                            renderArticles();
-                        } else {
-                            feedStatus[feed.url] = 'error';
-                        }
-                    } catch (e) {
-                        console.warn(`Erreur flux ${feed.name}:`, e.message);
-                        feedStatus[feed.url] = 'error';
-                    }
-
-                    completed++;
-                    syncProgress.textContent = `${completed} / ${rssFeeds.length} flux`;
-                    renderFeedsList();
-                });
-
-                await Promise.all(fetchPromises);
-
-                isSyncing = false;
-                syncSpinIcon.classList.remove('animate-spin');
-                document.getElementById('mobile-refresh-icon').classList.remove('animate-spin');
-                document.getElementById('desktop-refresh-icon').classList.remove('animate-spin');
-                syncStatusBanner.classList.add('hidden');
-                syncIndicator.className = 'w-2 h-2 rounded-full bg-emerald-500';
-
-                const now = new Date();
-                lastUpdatedText.textContent = `À jour (${now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })})`;
-
-                showToast(allArticles.length > 0 ? `${allArticles.length} articles réels en ligne !` : 'Veille synchronisée');
-            }
-
-            // Ajout de flux
-            function handleAddFeed() {
-                const url = rssUrlInput.value.trim();
-                if (!url) return showToast('Veuillez entrer une URL valide', '⚠️');
-                try {
-                    new URL(url);
-                } catch (_) {
-                    return showToast('L\'adresse URL est invalide', '⚠️');
-                }
-
-                if (rssFeeds.some(f => f.url.toLowerCase() === url.toLowerCase())) {
-                    return showToast('Ce flux est déjà présent', 'ℹ️');
-                }
-
-                let hostName = 'Nouveau Flux';
-                try {
-                    const u = new URL(url);
-                    hostName = u.hostname.replace('www.', '').split('.')[0];
-                    hostName = hostName.charAt(0).toUpperCase() + hostName.slice(1);
-                } catch (_) {}
-
-                rssFeeds.push({ name: hostName, url: url });
-                saveFeeds();
-                rssUrlInput.value = '';
-                renderFeedsList();
-                showToast(`Flux "${hostName}" ajouté !`);
-                syncAllFeeds();
-            }
-
-            // Gestion tiroir mobile
-            function toggleSidebar(forceClose = false) {
-                const isOpen = !sidebar.classList.contains('-translate-x-full');
-                if (forceClose || isOpen) {
-                    sidebar.classList.add('-translate-x-full');
-                    overlay.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                } else {
-                    sidebar.classList.remove('-translate-x-full');
-                    overlay.classList.remove('hidden');
-                    document.body.classList.add('overflow-hidden');
-                }
-            }
-
-            burgerBtn.addEventListener('click', () => toggleSidebar());
-            closeSidebarBtn.addEventListener('click', () => toggleSidebar(true));
-            overlay.addEventListener('click', () => toggleSidebar(true));
-
-            addFeedBtn.addEventListener('click', handleAddFeed);
-            rssUrlInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') handleAddFeed();
-            });
-
-            // Filtre de recherche
-            filterInput.addEventListener('input', () => {
-                clearSearchBtn.classList.toggle('hidden', !filterInput.value);
-                renderArticles();
-            });
-
-            clearSearchBtn.addEventListener('click', () => {
-                filterInput.value = '';
-                clearSearchBtn.classList.add('hidden');
-                renderArticles();
-                filterInput.focus();
-            });
-
-            // Vues Tous / Favoris
-            viewAllBtn.addEventListener('click', () => {
-                showOnlyFavorites = false;
-                viewAllBtn.className = 'flex-1 text-xs px-3 py-2 rounded-xl font-semibold bg-indigo-600 text-white shadow-sm transition-colors';
-                viewFavBtn.className = 'text-xs px-3 py-2 rounded-xl font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors flex items-center space-x-1';
-                renderArticles();
-            });
-
-            viewFavBtn.addEventListener('click', () => {
-                showOnlyFavorites = true;
-                viewFavBtn.className = 'text-xs px-3 py-2 rounded-xl font-semibold bg-amber-600 text-white shadow-sm transition-colors flex items-center space-x-1';
-                viewAllBtn.className = 'flex-1 text-xs px-3 py-2 rounded-xl font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors';
-                renderArticles();
-            });
-
-            // Réinitialisation des 15 flux
-            resetFeedsBtn.addEventListener('click', () => {
-                rssFeeds = [...defaultFeeds];
-                saveFeeds();
-                renderFeedsList();
-                showToast('15 flux d\'origine réinitialisés !');
-                syncAllFeeds();
-            });
-
-            syncAllBtn.addEventListener('click', syncAllFeeds);
-            mobileRefreshBtn.addEventListener('click', syncAllFeeds);
-            desktopRefreshBtn.addEventListener('click', syncAllFeeds);
-
-            // Initialisation
-            favCountEl.textContent = favorites.length;
-            renderFeedsList();
-
-            // Lancement immédiat de la synchronisation en direct
-            syncAllFeeds();
-
-            // Rechargement automatique toutes les 15 minutes
-            setInterval(syncAllFeeds, 15 * 60 * 1000);
-        });
-    </script>
-</body>
-</html>
+            <!-- Ajout de flux personnalisé -->
+            <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
+                <label for="rss-url-input" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Ajouter un flux RSS personnalisé</label>
+                <div class="space-y-2">
+                    <input type="url" id="rss-url-input" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://site.com/feed.xml">
+                    <button id="add-feed-btn" class="w-full bg-slate-900 hover:bg-indigo-600 text-white py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors shadow-sm">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span>Ajouter à la veille</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Liste des flux actifs -->
+            <details class="group bg-white rounded-2xl border border-slate-200/80 overflow-hidden" open>
+                <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Flux actifs (<span id="feeds-count">0</span>)</span>
+                    </div>
+                    <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </summary>
+                <div class="p-3 border-t border-slate-100">
+                    <div class="flex justify-between items-center mb-2 px-1">
+                        <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser (15)</button>
+                        <button id="clear-cache-btn
+                            
