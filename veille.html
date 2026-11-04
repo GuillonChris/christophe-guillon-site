@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille NoCode & IA - Feed Reader</title>
+    <title>Lecteur de Veille NoCode & IA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -11,7 +11,7 @@
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
-        /* Défilement fluide et discret */
+        /* Barres de défilement discrètes */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -50,7 +50,7 @@
             </div>
             <div>
                 <h1 class="text-base font-bold text-slate-900 leading-tight">Veille NoCode & IA</h1>
-                <p id="mobile-stats" class="text-xs text-slate-500">0 articles</p>
+                <p id="mobile-stats" class="text-xs text-slate-500">Chargement...</p>
             </div>
         </div>
         <div class="flex items-center space-x-1">
@@ -82,7 +82,7 @@
                         ⚡
                     </div>
                     <div>
-                        <h2 class="font-bold text-slate-900 text-lg tracking-tight">Veille Stratégique</h2>
+                        <h2 class="font-bold text-slate-900 text-lg tracking-tight">Veille Automatisée</h2>
                         <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">NoCode & IA</span>
                     </div>
                 </div>
@@ -98,9 +98,9 @@
 
                 <!-- Recherche et Filtrage direct -->
                 <div>
-                    <label for="filter-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Filtrer les articles</label>
+                    <label for="filter-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Filtrer par mot-clé</label>
                     <div class="relative">
-                        <input type="text" id="filter-input" class="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all" placeholder="Mot-clé (ex: ChatGPT, Make, Bubble)...">
+                        <input type="text" id="filter-input" class="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all" placeholder="Ex: automatisation, ChatGPT, Make...">
                         <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
@@ -112,28 +112,27 @@
                     </div>
                 </div>
 
-                <!-- Thématiques rapides -->
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Thématiques</label>
-                    <div class="flex flex-wrap gap-1.5" id="topic-tags">
-                        <button data-tag="" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-indigo-600 text-white transition-colors">Tous</button>
-                        <button data-tag="IA" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🤖 IA</button>
-                        <button data-tag="NoCode" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">⚡ NoCode</button>
-                        <button data-tag="Outils" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">🛠️ Outils</button>
-                        <button data-tag="favoris" class="tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors">⭐ Favoris (<span id="fav-count">0</span>)</button>
-                    </div>
+                <!-- Vues rapides -->
+                <div class="flex items-center space-x-2">
+                    <button id="view-all-btn" class="flex-1 text-xs px-3 py-2 rounded-xl font-semibold bg-indigo-600 text-white shadow-sm transition-colors">
+                        Tous les articles
+                    </button>
+                    <button id="view-fav-btn" class="text-xs px-3 py-2 rounded-xl font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors flex items-center space-x-1">
+                        <span>⭐ Favoris</span>
+                        <span id="fav-count" class="font-bold ml-1">0</span>
+                    </button>
                 </div>
 
                 <!-- Ajout de flux personnalisé -->
                 <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
                     <label for="rss-url-input" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Ajouter un flux RSS</label>
                     <div class="space-y-2">
-                        <input type="url" id="rss-url-input" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://site.fr/feed.xml">
-                        <button id="add-feed-btn" class="w-full bg-slate-900 hover:bg-indigo-600 text-white py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors shadow-sm">
+                        <input type="url" id="rss-url-input" class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://exemple.com/feed.xml">
+                        <button id="add-feed-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors shadow-sm">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                             </svg>
-                            <span>Ajouter à la veille</span>
+                            <span>Ajouter le flux</span>
                         </button>
                     </div>
                 </div>
@@ -151,10 +150,10 @@
                     </summary>
                     <div class="p-3 border-t border-slate-100">
                         <div class="flex justify-between items-center mb-2 px-1">
-                            <span class="text-[11px] text-slate-400">Cliquez sur un nom pour le renommer</span>
-                            <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser</button>
+                            <span class="text-[11px] text-slate-400">Cliquez sur un nom pour renommer</span>
+                            <button id="reset-feeds-btn" class="text-[11px] font-medium text-indigo-600 hover:underline">Réinitialiser (15)</button>
                         </div>
-                        <ul id="feeds-list" class="space-y-1.5 max-h-56 overflow-y-auto pr-1 text-xs">
+                        <ul id="feeds-list" class="space-y-1 max-h-60 overflow-y-auto pr-1 text-xs">
                             <!-- Les flux seront injectés ici -->
                         </ul>
                     </div>
@@ -165,8 +164,8 @@
             <!-- Pied de la barre latérale -->
             <div class="p-4 border-t border-slate-100 bg-slate-50/70 flex items-center justify-between text-xs text-slate-500">
                 <div class="flex items-center space-x-1.5 truncate">
-                    <span id="sync-indicator" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span id="last-updated-text" class="truncate">À jour</span>
+                    <span id="sync-indicator" class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span id="last-updated-text" class="truncate">Prêt</span>
                 </div>
                 <button id="desktop-refresh-btn" class="font-medium text-indigo-600 hover:text-indigo-800 flex items-center space-x-1">
                     <svg id="desktop-refresh-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -177,18 +176,17 @@
             </div>
         </aside>
 
-        <!-- Zone Principale : Flux d'articles -->
+        <!-- Zone Principale : Flux d'articles réels -->
         <main class="flex-1 flex flex-col h-full overflow-hidden bg-slate-50">
 
             <!-- Barre d'état et filtres actifs -->
             <div class="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between flex-shrink-0">
                 <div class="flex items-center space-x-3">
-                    <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Dernières actualités</h2>
+                    <h2 id="main-view-title" class="text-sm sm:text-base font-bold text-slate-900">Articles en direct</h2>
                     <span id="articles-badge" class="bg-slate-100 text-slate-600 font-semibold text-xs px-2.5 py-0.5 rounded-full border border-slate-200">0</span>
                 </div>
                 <div class="flex items-center space-x-2 text-xs text-slate-500">
-                    <span class="hidden sm:inline">Trié par récence</span>
-                    <button id="sync-all-btn" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-semibold px-2.5 py-1 rounded-lg transition-colors flex items-center space-x-1">
+                    <button id="sync-all-btn" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-semibold px-3 py-1.5 rounded-lg transition-colors flex items-center space-x-1.5">
                         <svg id="sync-spin-icon" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                         </svg>
@@ -198,17 +196,20 @@
             </div>
 
             <!-- Bannière de statut de synchronisation -->
-            <div id="sync-status-banner" class="hidden bg-indigo-50/80 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-700 flex items-center justify-between">
-                <span id="sync-status-msg" class="flex items-center space-x-2">
+            <div id="sync-status-banner" class="hidden bg-indigo-50 border-b border-indigo-100 px-4 py-2 text-xs text-indigo-800 flex items-center justify-between">
+                <span class="flex items-center space-x-2">
                     <span class="inline-block w-2 h-2 rounded-full bg-indigo-600 animate-ping"></span>
-                    <span>Synchronisation des flux d'actualité en direct...</span>
+                    <span id="sync-status-msg">Récupération des articles en cours...</span>
                 </span>
-                <span id="sync-progress" class="font-medium text-indigo-900"></span>
+                <span id="sync-progress" class="font-bold text-indigo-950"></span>
             </div>
 
             <!-- Liste des Cartes d'Articles -->
             <div id="feed-container" class="flex-1 overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4">
-                <!-- Les cartes d'articles seront injectées dynamiquement ici -->
+                <div id="initial-loader" class="flex flex-col items-center justify-center h-64 text-slate-500 space-y-3">
+                    <div class="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-sm">Interrogation de vos 15 flux d'actualité en direct...</p>
+                </div>
             </div>
         </main>
     </div>
@@ -249,120 +250,75 @@
             const syncSpinIcon = document.getElementById('sync-spin-icon');
             const mobileRefreshBtn = document.getElementById('mobile-refresh-btn');
             const desktopRefreshBtn = document.getElementById('desktop-refresh-btn');
+            const viewAllBtn = document.getElementById('view-all-btn');
+            const viewFavBtn = document.getElementById('view-fav-btn');
 
-            // 15 flux RSS par défaut configurés selon votre demande
+            // Vos 15 flux d'actualités exacts
             const defaultFeeds = [
-                { id: '1', name: 'Google News IA', url: 'https://news.google.com/rss/search?tbm=nws&q=intelligence+artificielle&scoring=n&hl=fr&gl=FR&ceid=FR:fr', category: 'IA' },
-                { id: '2', name: 'Google News NoCode', url: 'https://news.google.com/rss/search?q=nocode+OR+%22no-code%22&hl=fr&gl=FR&ceid=FR:fr', category: 'NoCode' },
-                { id: '3', name: 'Euronews IA', url: 'https://fr.euronews.com/rss?level=tag&name=intelligence-artificielle', category: 'IA' },
-                { id: '4', name: '01Net IA', url: 'https://www.01net.com/actualites/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '5', name: 'Intelligence-Artificielle.com', url: 'https://intelligence-artificielle.com/feed/', category: 'IA' },
-                { id: '6', name: 'Journal du Net', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/', category: 'IA' },
-                { id: '7', name: 'L\'Usine Digitale', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss', category: 'IA' },
-                { id: '8', name: 'Les Numériques', url: 'https://www.lesnumeriques.com/intelligence-artificielle/rss.xml', category: 'IA' },
-                { id: '9', name: 'Monde Tech', url: 'https://mondetech.fr/categories/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '10', name: 'Presse Citron IA', url: 'https://www.presse-citron.net/category/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '11', name: 'Silicon', url: 'https://www.silicon.fr/rss/data-ia-1372.xml', category: 'IA' },
-                { id: '12', name: 'Siècle Digital', url: 'https://siecledigital.fr/intelligence-artificielle/feed/', category: 'IA' },
-                { id: '13', name: 'TechnoMedia', url: 'https://www.technomedia.org/feeds/posts/default/-/IA', category: 'IA' },
-                { id: '14', name: 'Business Edition', url: 'https://fr.blog.businessdecision.com/datascience/feed/feed/', category: 'IA' },
-                { id: '15', name: 'L\'Usine Nouvelle', url: 'https://www.usinenouvelle.com/rss/ia/', category: 'IA' }
+                { name: 'Google News IA', url: 'https://news.google.com/rss/search?tbm=nws&q=intelligence+artificielle&scoring=n&hl=fr&gl=FR&ceid=FR:fr' },
+                { name: 'Euronews IA', url: 'https://fr.euronews.com/rss?level=tag&name=intelligence-artificielle' },
+                { name: 'EveryIA', url: 'https://everydai.eu/rss.xml' },
+                { name: '01Net IA', url: 'https://www.01net.com/actualites/intelligence-artificielle/feed/' },
+                { name: 'Intelligence-Artificielle', url: 'https://intelligence-artificielle.com/feed/' },
+                { name: 'Journal du Net IA', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/' },
+                { name: 'L\'Usine Digitale IA', url: 'https://www.usine-digitale.fr/intelligence-artificielle/rss' },
+                { name: 'Les Numériques IA', url: 'https://www.lesnumeriques.com/intelligence-artificielle/rss.xml' },
+                { name: 'Monde Tech', url: 'https://mondetech.fr/categories/intelligence-artificielle/feed/' },
+                { name: 'Presse Citron IA', url: 'https://www.presse-citron.net/category/intelligence-artificielle/feed/' },
+                { name: 'Silicon IA', url: 'https://www.silicon.fr/rss/data-ia-1372.xml' },
+                { name: 'Siècle Digital IA', url: 'https://siecledigital.fr/intelligence-artificielle/feed/' },
+                { name: 'TechnoMedia IA', url: 'https://www.technomedia.org/feeds/posts/default/-/IA' },
+                { name: 'Business Edition', url: 'https://fr.blog.businessdecision.com/datascience/feed/feed/' },
+                { name: 'L\'Usine Nouvelle IA', url: 'https://www.usinenouvelle.com/rss/ia/' }
             ];
 
-            // Articles garantis au démarrage (évite l'écran blanc si le réseau bloque temporairement)
-            const fallbackArticles = [
-                {
-                    title: "L'impact des agents autonomes et de l'IA générative dans l'automatisation NoCode",
-                    link: "https://siecledigital.fr",
-                    feedName: "Siècle Digital",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 35),
-                    description: "Les nouveaux connecteurs NoCode permettent d'orchestrer des agents intelligents capables d'analyser des documents, de générer du code ou de qualifier des leads en temps réel.",
-                    category: "NoCode"
-                },
-                {
-                    title: "Régulation de l'IA en Europe : les clés de conformité pour les créateurs et entreprises",
-                    link: "https://fr.euronews.com",
-                    feedName: "Euronews IA",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 90),
-                    description: "Analyse des critères d'évaluation des risques et des obligations de transparence pour les modèles d'intelligence artificielle déployés dans les services web.",
-                    category: "IA"
-                },
-                {
-                    title: "N8N, Make et Zapier : comparatif des meilleures solutions pour interconnecter les LLM",
-                    link: "https://www.usine-digitale.fr",
-                    feedName: "L'Usine Digitale",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 180),
-                    description: "Comment concevoir des flux automatisés résilients associant modèles open source hébergés et APIs de pointe sans écrire une seule ligne de code.",
-                    category: "NoCode"
-                },
-                {
-                    title: "OpenAI, Anthropic et Google : la course aux modèles de raisonnement avancé",
-                    link: "https://www.journaldunet.com",
-                    feedName: "Journal du Net",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 240),
-                    description: "Les benchmarks démontrent une nette amélioration dans la résolution des problèmes complexes, des mathématiques et de l'ingénierie logicielle.",
-                    category: "IA"
-                },
-                {
-                    title: "Créer une application métier complète en 48 heures grâce aux outils NoCode & IA",
-                    link: "https://www.presse-citron.net",
-                    feedName: "Presse Citron IA",
-                    pubDate: new Date(Date.now() - 1000 * 60 * 360),
-                    description: "De la modélisation de base de données à la génération des interfaces utilisateurs, découvrez comment accélérer radicalement le time-to-market.",
-                    category: "NoCode"
-                }
-            ];
-
-            // État de l'application
+            // État de l'application (AUCUN article factice, 100% réel)
             let rssFeeds = loadFeeds();
-            let allArticles = [...fallbackArticles];
-            let favorites = JSON.parse(localStorage.getItem('savedFavorites') || '[]');
-            let currentTag = '';
+            let allArticles = [];
+            let favorites = JSON.parse(localStorage.getItem('savedFavorites_v4') || '[]');
+            let showOnlyFavorites = false;
             let isSyncing = false;
             const feedStatus = {}; // { feedUrl: 'ok' | 'loading' | 'error' }
 
-            // Chargement initial des flux sauvegardés
             function loadFeeds() {
                 try {
-                    const saved = localStorage.getItem('rssFeeds_v2');
+                    const saved = localStorage.getItem('rssFeeds_v5');
                     if (saved) {
                         const parsed = JSON.parse(saved);
                         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
                     }
                 } catch (e) {
-                    console.error("Erreur lecture storage:", e);
+                    console.error("Erreur storage:", e);
                 }
                 return defaultFeeds;
             }
 
             function saveFeeds() {
-                localStorage.setItem('rssFeeds_v2', JSON.stringify(rssFeeds));
+                localStorage.setItem('rssFeeds_v5', JSON.stringify(rssFeeds));
             }
 
             function saveFavorites() {
-                localStorage.setItem('savedFavorites', JSON.stringify(favorites));
+                localStorage.setItem('savedFavorites_v4', JSON.stringify(favorites));
                 favCountEl.textContent = favorites.length;
             }
 
-            // Notification toast
             function showToast(message, icon = '✓') {
                 toastMsg.textContent = message;
                 document.getElementById('toast-icon').textContent = icon;
                 toast.classList.remove('translate-y-16', 'opacity-0');
                 setTimeout(() => {
                     toast.classList.add('translate-y-16', 'opacity-0');
-                }, 2800);
+                }, 2600);
             }
 
-            // Nettoyage sécurisé du texte HTML
+            // Nettoyage HTML pour les descriptions
             function cleanHtml(rawHtml) {
                 if (!rawHtml) return '';
                 const doc = new DOMParser().parseFromString(rawHtml, 'text/html');
-                const text = doc.body.textContent || "";
+                const text = doc.body.textContent || '';
                 return text.replace(/\s+/g, ' ').trim();
             }
 
-            // Formatage de date relative humaine
             function formatRelativeTime(date) {
                 if (!date || isNaN(date.getTime())) return "Récemment";
                 const diffMs = Date.now() - date.getTime();
@@ -378,36 +334,185 @@
                 return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
             }
 
-            // Rendu de la liste des flux dans la barre latérale
+            // Extraction robuste du VRAI lien d'article (jamais de catégorie, jamais de 404)
+            function extractRealArticleLink(node) {
+                // 1. Essayer les balises <link>
+                const links = Array.from(node.querySelectorAll('link'));
+                for (const l of links) {
+                    const href = l.getAttribute('href');
+                    const rel = l.getAttribute('rel');
+                    if (href && (!rel || rel === 'alternate') && href.startsWith('http')) {
+                        return href.trim();
+                    }
+                    if (l.textContent && l.textContent.trim().startsWith('http')) {
+                        return l.textContent.trim();
+                    }
+                }
+
+                // 2. Essayer <guid>
+                const guid = node.querySelector('guid');
+                if (guid && guid.textContent && guid.textContent.trim().startsWith('http')) {
+                    return guid.textContent.trim();
+                }
+
+                // 3. Essayer <id> (Atom)
+                const idEl = node.querySelector('id');
+                if (idEl && idEl.textContent && idEl.textContent.trim().startsWith('http')) {
+                    return idEl.textContent.trim();
+                }
+
+                return null;
+            }
+
+            // Parser XML universel (RSS 2.0 et Atom)
+            function parseFeedXml(xmlString, feedName) {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+
+                if (xmlDoc.querySelector('parsererror')) {
+                    throw new Error('Erreur de parsing XML');
+                }
+
+                const items = xmlDoc.querySelectorAll('item, entry');
+                const results = [];
+
+                items.forEach(node => {
+                    const titleEl = node.querySelector('title');
+                    const title = titleEl ? titleEl.textContent.trim() : '';
+
+                    const link = extractRealArticleLink(node);
+                    if (!title || !link) return;
+
+                    // Description
+                    const descEl = node.querySelector('description, summary, content');
+                    let description = descEl ? cleanHtml(descEl.textContent) : '';
+                    if (description.length > 220) {
+                        description = description.substring(0, 220) + '…';
+                    }
+
+                    // Date
+                    const dateEl = node.querySelector('pubDate, published, updated, date');
+                    let pubDate = new Date();
+                    if (dateEl && dateEl.textContent) {
+                        const parsed = new Date(dateEl.textContent);
+                        if (!isNaN(parsed.getTime())) {
+                            pubDate = parsed;
+                        }
+                    }
+
+                    results.push({
+                        title,
+                        link,
+                        description,
+                        pubDate,
+                        feedName
+                    });
+                });
+
+                return results;
+            }
+
+            // Récupération multi-passerelles avec basculement automatique
+            async function fetchFeedItems(feed) {
+                const proxies = [
+                    // Passerelle 1 : AllOrigins Raw
+                    async () => {
+                        const controller = new AbortController();
+                        const t = setTimeout(() => controller.abort(), 6500);
+                        const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(feed.url)}`, { signal: controller.signal });
+                        clearTimeout(t);
+                        if (!res.ok) throw new Error('Proxy 1 failed');
+                        const text = await res.text();
+                        if (text && text.includes('<')) return parseFeedXml(text, feed.name);
+                        throw new Error('Empty proxy 1');
+                    },
+                    // Passerelle 2 : CodeTabs
+                    async () => {
+                        const controller = new AbortController();
+                        const t = setTimeout(() => controller.abort(), 6500);
+                        const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(feed.url)}`, { signal: controller.signal });
+                        clearTimeout(t);
+                        if (!res.ok) throw new Error('Proxy 2 failed');
+                        const text = await res.text();
+                        if (text && text.includes('<')) return parseFeedXml(text, feed.name);
+                        throw new Error('Empty proxy 2');
+                    },
+                    // Passerelle 3 : AllOrigins JSON
+                    async () => {
+                        const controller = new AbortController();
+                        const t = setTimeout(() => controller.abort(), 6500);
+                        const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`, { signal: controller.signal });
+                        clearTimeout(t);
+                        if (!res.ok) throw new Error('Proxy 3 failed');
+                        const data = await res.json();
+                        if (data && data.contents && data.contents.includes('<')) {
+                            return parseFeedXml(data.contents, feed.name);
+                        }
+                        throw new Error('Empty proxy 3 contents');
+                    },
+                    // Passerelle 4 : RSS2JSON (Secours)
+                    async () => {
+                        const controller = new AbortController();
+                        const t = setTimeout(() => controller.abort(), 6500);
+                        const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`, { signal: controller.signal });
+                        clearTimeout(t);
+                        if (!res.ok) throw new Error('Proxy 4 failed');
+                        const data = await res.json();
+                        if (data.status === 'ok' && Array.isArray(data.items)) {
+                            return data.items.map(it => ({
+                                title: it.title || 'Article sans titre',
+                                link: it.link || it.guid,
+                                description: cleanHtml(it.description).substring(0, 220) + '…',
+                                pubDate: it.pubDate ? new Date(it.pubDate.replace(/-/g, '/')) : new Date(),
+                                feedName: feed.name
+                            })).filter(it => it.link && it.link.startsWith('http'));
+                        }
+                        throw new Error('RSS2JSON status not ok');
+                    }
+                ];
+
+                let lastErr = null;
+                for (const attempt of proxies) {
+                    try {
+                        const items = await attempt();
+                        if (items && items.length > 0) return items;
+                    } catch (e) {
+                        lastErr = e;
+                    }
+                }
+                throw lastErr || new Error('Impossible de charger le flux');
+            }
+
+            // Affichage de la liste des flux dans la barre latérale
             function renderFeedsList() {
                 feedsList.innerHTML = '';
                 feedsCountEl.textContent = rssFeeds.length;
 
-                rssFeeds.forEach((feed) => {
+                rssFeeds.forEach(feed => {
                     const status = feedStatus[feed.url] || 'idle';
                     let statusColor = 'bg-slate-300';
                     let statusTitle = 'En attente';
 
                     if (status === 'loading') {
                         statusColor = 'bg-amber-400 animate-ping';
-                        statusTitle = 'Chargement en cours';
+                        statusTitle = 'Chargement en direct...';
                     } else if (status === 'ok') {
                         statusColor = 'bg-emerald-500';
-                        statusTitle = 'Flux actif et synchronisé';
+                        statusTitle = 'Actif et synchronisé';
                     } else if (status === 'error') {
                         statusColor = 'bg-rose-500';
-                        statusTitle = 'Erreur d\'accès au flux';
+                        statusTitle = 'Erreur d\'accès';
                     }
 
                     const li = document.createElement('li');
                     li.className = 'group flex items-center justify-between p-2 rounded-xl hover:bg-slate-100 transition-colors border border-transparent hover:border-slate-200';
                     li.innerHTML = `
-                        <div class="flex items-center space-x-2.5 truncate flex-1 min-w-0 pr-2">
+                        <div class="flex items-center space-x-2 truncate flex-1 min-w-0 pr-2">
                             <span class="w-2 h-2 rounded-full ${statusColor} flex-shrink-0" title="${statusTitle}"></span>
-                            <span class="feed-title truncate font-medium text-slate-700 cursor-pointer hover:text-indigo-600" title="Cliquer pour renommer">${feed.name}</span>
+                            <span class="feed-name truncate font-medium text-slate-700 cursor-pointer hover:text-indigo-600" title="Cliquer pour renommer">${feed.name}</span>
                         </div>
                         <div class="flex items-center space-x-1 opacity-80 group-hover:opacity-100">
-                            <button class="edit-feed-btn p-1 text-slate-400 hover:text-indigo-600 rounded" title="Renommer">
+                            <button class="rename-feed-btn p-1 text-slate-400 hover:text-indigo-600 rounded" title="Renommer">
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                 </svg>
@@ -420,40 +525,40 @@
                         </div>
                     `;
 
-                    // Gestion du renommage en ligne
-                    const titleSpan = li.querySelector('.feed-title');
-                    const editBtn = li.querySelector('.edit-feed-btn');
-                    const startEdit = () => {
+                    // Renommage direct
+                    const nameSpan = li.querySelector('.feed-name');
+                    const renameBtn = li.querySelector('.rename-feed-btn');
+                    const triggerRename = () => {
                         const input = document.createElement('input');
                         input.type = 'text';
                         input.value = feed.name;
-                        input.className = 'w-full text-xs font-medium px-2 py-1 bg-white border border-indigo-400 rounded focus:outline-none';
-                        titleSpan.replaceWith(input);
+                        input.className = 'w-full text-xs font-semibold px-2 py-1 bg-white border border-indigo-400 rounded focus:outline-none';
+                        nameSpan.replaceWith(input);
                         input.focus();
                         input.select();
 
-                        const finish = () => {
+                        const save = () => {
                             const newName = input.value.trim();
                             if (newName && newName !== feed.name) {
                                 feed.name = newName;
                                 saveFeeds();
-                                showToast(`Flux renommé : ${newName}`);
+                                showToast(`Flux renommé en : ${newName}`);
                             }
                             renderFeedsList();
                             renderArticles();
                         };
 
-                        input.addEventListener('blur', finish);
+                        input.addEventListener('blur', save);
                         input.addEventListener('keydown', (e) => {
-                            if (e.key === 'Enter') finish();
+                            if (e.key === 'Enter') save();
                             if (e.key === 'Escape') renderFeedsList();
                         });
                     };
 
-                    titleSpan.addEventListener('click', startEdit);
-                    editBtn.addEventListener('click', startEdit);
+                    nameSpan.addEventListener('click', triggerRename);
+                    renameBtn.addEventListener('click', triggerRename);
 
-                    // Gestion de la suppression
+                    // Suppression
                     li.querySelector('.delete-feed-btn').addEventListener('click', () => {
                         rssFeeds = rssFeeds.filter(f => f.url !== feed.url);
                         saveFeeds();
@@ -467,10 +572,10 @@
                 });
             }
 
-            // Affichage des articles
+            // Rendu de la liste d'articles
             function renderArticles() {
                 const query = filterInput.value.toLowerCase().trim();
-                
+
                 let filtered = allArticles.filter(article => {
                     const matchQuery = !query || 
                         article.title.toLowerCase().includes(query) ||
@@ -478,22 +583,12 @@
                         article.feedName.toLowerCase().includes(query);
 
                     const isFav = favorites.includes(article.link);
+                    const matchFav = !showOnlyFavorites || isFav;
 
-                    let matchTag = true;
-                    if (currentTag === 'favoris') {
-                        matchTag = isFav;
-                    } else if (currentTag === 'IA') {
-                        matchTag = (article.category === 'IA' || article.title.toLowerCase().includes('ia') || article.title.toLowerCase().includes('intelligence') || article.description.toLowerCase().includes('ia'));
-                    } else if (currentTag === 'NoCode') {
-                        matchTag = (article.category === 'NoCode' || article.title.toLowerCase().includes('nocode') || article.title.toLowerCase().includes('no-code') || article.description.toLowerCase().includes('nocode') || article.description.toLowerCase().includes('automatisation'));
-                    } else if (currentTag === 'Outils') {
-                        matchTag = (article.title.toLowerCase().includes('outil') || article.title.toLowerCase().includes('app') || article.title.toLowerCase().includes('chatgpt') || article.title.toLowerCase().includes('make'));
-                    }
-
-                    return matchQuery && matchTag;
+                    return matchQuery && matchFav;
                 });
 
-                // Tri chronologique
+                // Tri chronologique rigoureux (du plus récent au plus ancien)
                 filtered.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
                 articlesBadge.textContent = filtered.length;
@@ -506,16 +601,13 @@
                                 🔍
                             </div>
                             <h3 class="font-bold text-slate-800 text-base mb-1">Aucun article trouvé</h3>
-                            <p class="text-xs text-slate-500 mb-4">Ajustez vos mots-clés ou réinitialisez les filtres pour afficher l'ensemble de votre veille.</p>
-                            <button id="reset-filter-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">
-                                Réinitialiser les filtres
-                            </button>
+                            <p class="text-xs text-slate-500 mb-4">${showOnlyFavorites ? 'Aucun article favori enregistré.' : 'Ajustez vos filtres de recherche ou lancez une synchronisation.'}</p>
+                            ${query ? `<button id="reset-search-btn" class="text-xs font-semibold px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors">Effacer la recherche</button>` : ''}
                         </div>
                     `;
-                    document.getElementById('reset-filter-btn')?.addEventListener('click', () => {
+                    document.getElementById('reset-search-btn')?.addEventListener('click', () => {
                         filterInput.value = '';
-                        currentTag = '';
-                        updateTagUI();
+                        clearSearchBtn.classList.add('hidden');
                         renderArticles();
                     });
                     return;
@@ -525,7 +617,7 @@
                 filtered.forEach(article => {
                     const isFav = favorites.includes(article.link);
                     const card = document.createElement('article');
-                    card.className = 'bg-white rounded-2xl border border-slate-200/80 hover:border-indigo-200 p-4 sm:p-5 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between';
+                    card.className = 'bg-white rounded-2xl border border-slate-200/80 hover:border-indigo-300 p-4 sm:p-5 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between';
 
                     card.innerHTML = `
                         <div>
@@ -546,21 +638,21 @@
                                 <a href="${article.link}" target="_blank" rel="noopener noreferrer">${article.title}</a>
                             </h3>
                             <p class="text-xs sm:text-sm text-slate-600 line-clamp-2 sm:line-clamp-3 mb-4 leading-relaxed font-normal">
-                                ${article.description || 'Cliquez pour lire l\'article complet sur le site d\'origine.'}
+                                ${article.description || 'Cliquez pour ouvrir l\'article complet directement sur le média.'}
                             </p>
                         </div>
                         <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                            <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1 group">
-                                <span>Lire l'article</span>
-                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1.5 group bg-indigo-50/70 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition-colors">
+                                <span>Ouvrir l'article</span>
+                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                 </svg>
                             </a>
-                            <button class="share-btn text-slate-400 hover:text-slate-700 flex items-center space-x-1 p-1 rounded hover:bg-slate-50 transition-colors" title="Copier le lien">
+                            <button class="share-btn text-slate-400 hover:text-slate-700 flex items-center space-x-1 p-1.5 rounded hover:bg-slate-100 transition-colors" title="Copier le lien direct">
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                 </svg>
-                                <span class="hidden sm:inline">Partager</span>
+                                <span class="hidden sm:inline">Copier le lien</span>
                             </button>
                         </div>
                     `;
@@ -570,16 +662,16 @@
                         const idx = favorites.indexOf(article.link);
                         if (idx > -1) {
                             favorites.splice(idx, 1);
-                            showToast("Retiré des favoris");
+                            showToast('Retiré des favoris');
                         } else {
                             favorites.push(article.link);
-                            showToast("Ajouté aux favoris ⭐");
+                            showToast('Ajouté aux favoris ⭐');
                         }
                         saveFavorites();
                         renderArticles();
                     });
 
-                    // Partage sécurisé (compatible iframe)
+                    // Copie lien
                     card.querySelector('.share-btn').addEventListener('click', () => {
                         copyLinkSafely(article.link);
                     });
@@ -588,7 +680,6 @@
                 });
             }
 
-            // Copie dans le presse-papier sans dépendance fragile
             function copyLinkSafely(url) {
                 const tempInput = document.createElement('textarea');
                 tempInput.value = url;
@@ -598,124 +689,18 @@
                 tempInput.select();
                 try {
                     document.execCommand('copy');
-                    showToast("Lien copié dans le presse-papiers !");
+                    showToast('Lien direct de l\'article copié !');
                 } catch (e) {
-                    showToast("Impossible de copier automatiquement");
+                    showToast('Impossible de copier');
                 }
                 document.body.removeChild(tempInput);
             }
 
-            // Système de récupération multi-proxies avec timeout
-            async function fetchRssContent(feedUrl) {
-                const proxyEndpoints = [
-                    // Proxy 1 : Allorigins JSON (très tolérant au formatage et encodages)
-                    async (url) => {
-                        const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6000);
-                        const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`, { signal: controller.signal });
-                        clearTimeout(timer);
-                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                        const data = await res.json();
-                        if (data && data.contents && data.contents.includes('<')) return data.contents;
-                        throw new Error('Contenu vide');
-                    },
-                    // Proxy 2 : CodeTabs (simple et direct)
-                    async (url) => {
-                        const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6000);
-                        const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`, { signal: controller.signal });
-                        clearTimeout(timer);
-                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                        const text = await res.text();
-                        if (text && text.includes('<')) return text;
-                        throw new Error('Contenu non XML');
-                    },
-                    // Proxy 3 : Cors.dev
-                    async (url) => {
-                        const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6000);
-                        const res = await fetch(`https://proxy.cors.dev/${url}`, { signal: controller.signal });
-                        clearTimeout(timer);
-                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                        const text = await res.text();
-                        if (text && text.includes('<')) return text;
-                        throw new Error('Erreur proxy 3');
-                    }
-                ];
-
-                let lastErr = null;
-                for (const fetcher of proxyEndpoints) {
-                    try {
-                        const xmlText = await fetcher(feedUrl);
-                        if (xmlText && xmlText.length > 50) return xmlText;
-                    } catch (e) {
-                        lastErr = e;
-                    }
-                }
-                throw lastErr || new Error("Passerelles inaccessibles");
-            }
-
-            // Analyseur XML robuste (supporte RSS 2.0, Atom, RDF)
-            function parseRssString(xmlString, feed) {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(xmlString, "application/xml");
-
-                if (xmlDoc.querySelector("parsererror")) {
-                    throw new Error("Format XML invalide");
-                }
-
-                const items = xmlDoc.querySelectorAll("item, entry");
-                const articles = [];
-
-                items.forEach(node => {
-                    const titleNode = node.querySelector("title");
-                    const title = titleNode ? cleanHtml(titleNode.textContent) : "Article sans titre";
-
-                    // Détection du lien (balise ou attribut href pour Atom)
-                    let link = "#";
-                    const linkNode = node.querySelector("link");
-                    if (linkNode) {
-                        link = linkNode.textContent.trim() || linkNode.getAttribute("href") || "#";
-                    }
-
-                    // Description / Extrait
-                    const descNode = node.querySelector("description, summary, content");
-                    let description = descNode ? cleanHtml(descNode.textContent) : "";
-                    if (description.length > 250) {
-                        description = description.substring(0, 250) + "…";
-                    }
-
-                    // Date de publication
-                    const dateNode = node.querySelector("pubDate, published, updated, date");
-                    let pubDate = new Date();
-                    if (dateNode && dateNode.textContent) {
-                        const parsedDate = new Date(dateNode.textContent);
-                        if (!isNaN(parsedDate.getTime())) {
-                            pubDate = parsedDate;
-                        }
-                    }
-
-                    if (title && link !== "#") {
-                        articles.push({
-                            title,
-                            link,
-                            description,
-                            pubDate,
-                            feedName: feed.name,
-                            category: feed.category || (title.toLowerCase().includes('nocode') ? 'NoCode' : 'IA')
-                        });
-                    }
-                });
-
-                return articles;
-            }
-
-            // Synchronisation progressive (met à jour la vue flux par flux)
+            // Synchronisation progressive de tous les flux en direct
             async function syncAllFeeds() {
                 if (isSyncing) return;
                 isSyncing = true;
 
-                // UI loading
                 syncStatusBanner.classList.remove('hidden');
                 syncSpinIcon.classList.add('animate-spin');
                 document.getElementById('mobile-refresh-icon').classList.add('animate-spin');
@@ -724,45 +709,42 @@
                 lastUpdatedText.textContent = 'Synchronisation...';
 
                 let completed = 0;
-                let newArticlesFound = 0;
+                let newCount = 0;
+                const existingLinks = new Set(allArticles.map(a => a.link));
 
-                for (const feed of rssFeeds) {
+                // Interrogation concurrente par lots pour une vitesse maximale
+                const fetchPromises = rssFeeds.map(async (feed) => {
                     feedStatus[feed.url] = 'loading';
                     renderFeedsList();
-                    syncProgress.textContent = `${completed + 1} / ${rssFeeds.length}`;
 
                     try {
-                        const xmlText = await fetchRssContent(feed.url);
-                        const items = parseRssString(xmlText, feed);
-
-                        if (items.length > 0) {
+                        const items = await fetchFeedItems(feed);
+                        if (items && items.length > 0) {
                             feedStatus[feed.url] = 'ok';
-                            
-                            // Fusion sans doublons par lien
-                            const existingLinks = new Set(allArticles.map(a => a.link));
-                            items.forEach(newItem => {
-                                if (!existingLinks.has(newItem.link)) {
-                                    allArticles.push(newItem);
-                                    existingLinks.add(newItem.link);
-                                    newArticlesFound++;
+                            items.forEach(it => {
+                                if (!existingLinks.has(it.link)) {
+                                    allArticles.push(it);
+                                    existingLinks.add(it.link);
+                                    newCount++;
                                 }
                             });
-                            
-                            // Affichage progressif
+                            // Mise à jour immédiate dès qu'un flux répond
                             renderArticles();
                         } else {
                             feedStatus[feed.url] = 'error';
                         }
                     } catch (e) {
-                        console.warn(`Échec de récupération pour ${feed.name}:`, e.message);
+                        console.warn(`Erreur flux ${feed.name}:`, e.message);
                         feedStatus[feed.url] = 'error';
                     }
 
                     completed++;
+                    syncProgress.textContent = `${completed} / ${rssFeeds.length} flux`;
                     renderFeedsList();
-                }
+                });
 
-                // Fin de synchro
+                await Promise.all(fetchPromises);
+
                 isSyncing = false;
                 syncSpinIcon.classList.remove('animate-spin');
                 document.getElementById('mobile-refresh-icon').classList.remove('animate-spin');
@@ -771,47 +753,33 @@
                 syncIndicator.className = 'w-2 h-2 rounded-full bg-emerald-500';
 
                 const now = new Date();
-                lastUpdatedText.textContent = `Actualisé à ${now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}`;
+                lastUpdatedText.textContent = `À jour (${now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })})`;
 
-                showToast(newArticlesFound > 0 ? `${newArticlesFound} nouveaux articles récupérés !` : "Veille à jour");
+                showToast(allArticles.length > 0 ? `${allArticles.length} articles réels en ligne !` : 'Veille synchronisée');
             }
 
-            // Gestion de l'ajout de flux personnalisé
+            // Ajout de flux
             function handleAddFeed() {
                 const url = rssUrlInput.value.trim();
-                if (!url) {
-                    showToast("Veuillez saisir une URL valide", "⚠️");
-                    return;
-                }
-
+                if (!url) return showToast('Veuillez entrer une URL valide', '⚠️');
                 try {
                     new URL(url);
                 } catch (_) {
-                    showToast("L'adresse URL semble incorrecte", "⚠️");
-                    return;
+                    return showToast('L\'adresse URL est invalide', '⚠️');
                 }
 
                 if (rssFeeds.some(f => f.url.toLowerCase() === url.toLowerCase())) {
-                    showToast("Ce flux est déjà enregistré", "ℹ️");
-                    return;
+                    return showToast('Ce flux est déjà présent', 'ℹ️');
                 }
 
-                // Déduction du nom
-                let hostName = 'Flux';
+                let hostName = 'Nouveau Flux';
                 try {
-                    const parsedUrl = new URL(url);
-                    hostName = parsedUrl.hostname.replace('www.', '').split('.')[0];
+                    const u = new URL(url);
+                    hostName = u.hostname.replace('www.', '').split('.')[0];
                     hostName = hostName.charAt(0).toUpperCase() + hostName.slice(1);
                 } catch (_) {}
 
-                const newFeed = {
-                    id: Date.now().toString(),
-                    name: hostName,
-                    url: url,
-                    category: 'IA'
-                };
-
-                rssFeeds.push(newFeed);
+                rssFeeds.push({ name: hostName, url: url });
                 saveFeeds();
                 rssUrlInput.value = '';
                 renderFeedsList();
@@ -819,21 +787,7 @@
                 syncAllFeeds();
             }
 
-            // Bascule UI des tags
-            function updateTagUI() {
-                document.querySelectorAll('.tag-btn').forEach(btn => {
-                    const tag = btn.dataset.tag;
-                    if (tag === currentTag) {
-                        btn.className = 'tag-btn text-xs px-3 py-1.5 rounded-lg font-semibold bg-indigo-600 text-white shadow-sm transition-colors';
-                    } else if (tag === 'favoris') {
-                        btn.className = 'tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors';
-                    } else {
-                        btn.className = 'tag-btn text-xs px-3 py-1.5 rounded-lg font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors';
-                    }
-                });
-            }
-
-            // Gestion du menu burger mobile
+            // Gestion tiroir mobile
             function toggleSidebar(forceClose = false) {
                 const isOpen = !sidebar.classList.contains('-translate-x-full');
                 if (forceClose || isOpen) {
@@ -847,7 +801,6 @@
                 }
             }
 
-            // Écouteurs d'événements UI
             burgerBtn.addEventListener('click', () => toggleSidebar());
             closeSidebarBtn.addEventListener('click', () => toggleSidebar(true));
             overlay.addEventListener('click', () => toggleSidebar(true));
@@ -857,7 +810,7 @@
                 if (e.key === 'Enter') handleAddFeed();
             });
 
-            // Filtre temps réel
+            // Filtre de recherche
             filterInput.addEventListener('input', () => {
                 clearSearchBtn.classList.toggle('hidden', !filterInput.value);
                 renderArticles();
@@ -870,39 +823,42 @@
                 filterInput.focus();
             });
 
-            // Boutons de réinitialisation
+            // Vues Tous / Favoris
+            viewAllBtn.addEventListener('click', () => {
+                showOnlyFavorites = false;
+                viewAllBtn.className = 'flex-1 text-xs px-3 py-2 rounded-xl font-semibold bg-indigo-600 text-white shadow-sm transition-colors';
+                viewFavBtn.className = 'text-xs px-3 py-2 rounded-xl font-medium bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors flex items-center space-x-1';
+                renderArticles();
+            });
+
+            viewFavBtn.addEventListener('click', () => {
+                showOnlyFavorites = true;
+                viewFavBtn.className = 'text-xs px-3 py-2 rounded-xl font-semibold bg-amber-600 text-white shadow-sm transition-colors flex items-center space-x-1';
+                viewAllBtn.className = 'flex-1 text-xs px-3 py-2 rounded-xl font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors';
+                renderArticles();
+            });
+
+            // Réinitialisation des 15 flux
             resetFeedsBtn.addEventListener('click', () => {
                 rssFeeds = [...defaultFeeds];
                 saveFeeds();
                 renderFeedsList();
-                showToast("15 flux réinitialisés par défaut !");
+                showToast('15 flux d\'origine réinitialisés !');
                 syncAllFeeds();
             });
 
-            // Boutons de rafraîchissement
             syncAllBtn.addEventListener('click', syncAllFeeds);
             mobileRefreshBtn.addEventListener('click', syncAllFeeds);
             desktopRefreshBtn.addEventListener('click', syncAllFeeds);
 
-            // Tags thématiques
-            document.querySelectorAll('.tag-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    currentTag = btn.dataset.tag;
-                    updateTagUI();
-                    renderArticles();
-                });
-            });
-
             // Initialisation
             favCountEl.textContent = favorites.length;
             renderFeedsList();
-            renderArticles();
-            updateTagUI();
 
-            // Lancement de la synchronisation automatique
+            // Lancement immédiat de la synchronisation en direct
             syncAllFeeds();
 
-            // Rafraîchissement automatique toutes les 15 minutes
+            // Rechargement automatique toutes les 15 minutes
             setInterval(syncAllFeeds, 15 * 60 * 1000);
         });
     </script>
