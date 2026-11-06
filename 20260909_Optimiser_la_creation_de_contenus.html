@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGE - Optimiser la Création de Contenus avec l'IA</title>
+    <!-- Styles et Polices Professionnels -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bge-blue': '#004a99',
+                        'bge-orange': '#f58220',
+                        'bge-green': '#8cc63f',
+                        'bge-dark': '#0f172a',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        lato: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slide-aspect-ratio {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 100%;
+            max-height: calc(100vh - 80px); /* Ajusté pour coller parfaitement au menu */
+            height: auto;
+        }
+        /* Masquer la scrollbar de la console mais garder le défilement */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Ajustement global des polices d'écriture pour éviter les débordements */
+        .slide-body-content p,
+        .slide-body-content li,
+        .slide-body-content td,
+        .slide-body-content th,
+        .slide-body-content span:not(#logo-text-fallback) {
+            font-size: 1.05rem !important;
+            line-height: 1.5 !important;
+        }
+        @media (min-width: 768px) {
+            .slide-body-content p,
+            .slide-body-content li,
+            .slide-body-content td,
+            .slide-body-content th,
+            .slide-body-content span:not(#logo-text-fallback) {
+                font-size: 1.15rem !important; /* Polices compactes pour éviter les overflows en projection */
+            }
+        }
+        /* Ajuster les micro-textes de manière proportionnelle */
+        .slide-body-content .text-\[10px\],
+        .slide-body-content .text-\[11px\],
+        .slide-body-content .text-xs {
+            font-size: 0.95rem !important;
+        }
+        @media (min-width: 768px) {
+            .slide-body-content .text-\[10px\],
+            .slide-body-content .text-\[11px\],
+            .slide-body-content .text-xs {
+                font-size: 1.05rem !important;
+            }
+        }
+        /* Ajustement des en-têtes et sous-titres de slide */
+        .slide-body-content h4 {
+            font-size: 1.25rem !important;
+        }
+        @media (min-width: 768px) {
+            .slide-body-content h4 {
+                font-size: 1.35rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-lato min-h-screen flex flex-col overflow-hidden">
+
+    <!-- BARRE DE CONTRÔLE SUPÉRIEURE -->
+    <header id="main-header" class="bg-slate-950 border-b border-slate-800 h-16 px-4 md:px-6 flex items-center justify-between z-20 flex-shrink-0">
+        <div class="flex items-center gap-3">
+            <span class="bg-bge-orange text-white text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Formation BGE</span>
+            <h1 class="font-poppins font-bold text-sm md:text-base hidden sm:inline-block tracking-tight text-white">IA : Optimiser la Création de Contenus</h1>
+        </div>
+        
+        <div class="flex items-center gap-2 md:gap-3">
+            <!-- Navigation des diapositives -->
+            <button onclick="navigateSlide(-1)" class="bg-slate-800 hover:bg-slate-700 text-white p-2 rounded-lg transition-colors" title="Slide Précédente">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <span id="global-slide-counter" class="text-xs md:text-sm font-semibold text-slate-300 min-w-[70px] text-center bg-slate-900 px-3 py-1.5 rounded-md">Slide 1 / 33</span>
+            <button onclick="navigateSlide(1)" class="bg-slate-800 hover:bg-slate-700 text-white p-2 rounded-lg transition-colors" title="Slide Suivante">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Mode Double Écran / Présentateur -->
+            <button onclick="openPresenterWindow()" class="bg-bge-blue hover:bg-blue-700 text-white p-2.5 rounded-lg flex items-center justify-center transition-all shadow-md" title="Ouvrir la Console Présentateur (2e Écran)">
+                <i class="fa-solid fa-desktop"></i>
+            </button>
+
+            <button onclick="toggleFullscreen()" class="bg-slate-800 hover:bg-slate-700 text-white text-xs md:text-sm font-semibold p-2.5 rounded-lg flex items-center justify-center transition-colors" title="Plein Écran">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL FLEXIBLE -->
+    <main class="flex-grow flex overflow-hidden relative">
+
+        <!-- ZONE DIAPORAMA (Écran gauche, projeté) -->
+        <div id="slide-viewer-pane" class="flex-grow flex items-start justify-center p-3 md:p-4 pt-1 bg-slate-900 transition-all duration-300 w-full">
+            <div class="slide-aspect-ratio bg-white text-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col relative border border-slate-700/30">
+                
+                <!-- En-tête de Slide épuré -->
+                <div class="h-14 border-b border-slate-100 px-6 md:px-8 flex items-center justify-between bg-slate-50/50 flex-shrink-0 z-10">
+                    <div class="flex items-center gap-3">
+                        <span id="slide-category-badge" class="bg-bge-blue text-white text-[10px] md:text-xs font-black px-3 py-1.5 rounded-md uppercase tracking-wider">SÉQUENCE INTRO</span>
+                        <span id="slide-sub-badge" class="text-slate-500 text-[10px] md:text-xs font-bold bg-slate-200/50 px-2.5 py-1 rounded-md">Warm-Up</span>
+                    </div>
+                    
+                    <!-- Logo BGE Officiel avec Fallback Sécurisé -->
+                    <div class="flex items-center">
+                        <img id="bge-main-logo" class="h-8 md:h-10 w-auto object-contain" src="https://www.bge-paysdelaloire.com/wp-content/uploads/2022/03/logo-BGE-pays-de-la-loire.jpg.webp" alt="Logo BGE Pays de la Loire" onerror="handleLogoError()">
+                        <span id="logo-text-fallback" class="hidden text-bge-blue font-poppins font-black text-xs md:text-sm tracking-widest border border-bge-blue/30 px-2 py-1 rounded">BGE PAYS DE LA LOIRE</span>
+                    </div>
+                </div>
+
+                <!-- Contenu central de la Slide -->
+                <div id="slide-main-content" class="flex-grow px-8 md:px-12 py-4 md:py-6 flex flex-col justify-center overflow-hidden">
+                    <!-- Généré dynamiquement en JS -->
+                </div>
+
+                <!-- Pied de Slide fixe -->
+                <div class="h-10 border-t border-slate-100 px-8 flex items-center justify-between text-[10px] md:text-xs text-slate-400 bg-slate-50/20 flex-shrink-0 z-10">
+                    <span class="font-bold text-slate-500 uppercase tracking-wider">BGE PAYS DE LA LOIRE • SPRINT CONTENU 360°</span>
+                    <span id="slide-footer-right" class="font-semibold text-bge-orange">Slide 1 / 33</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESPACE FORMATEUR (Écran droit, visible uniquement sur l'ordinateur du formateur) -->
+        <div id="presenter-sidebar" class="w-[380px] md:w-[460px] bg-slate-950 border-l border-slate-800 flex flex-col flex-shrink-0 z-10 overflow-hidden transition-all duration-300">
+            <!-- Titre de l'espace formateur -->
+            <div class="p-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between flex-shrink-0">
+                <div class="flex items-center gap-2 text-bge-orange">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    <h3 class="font-poppins font-bold text-sm uppercase tracking-wider text-slate-100">Console Formateur</h3>
+                </div>
+                <button onclick="togglePresenterSidebar()" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-chevron-right"></i> Masquer
+                </button>
+            </div>
+
+            <!-- Contenu défilant de la console -->
+            <div class="flex-grow overflow-y-auto p-4 md:p-5 space-y-5 no-scrollbar">
+                
+                <!-- NAVIGATION DIAPORAMA DE LA CONSOLE -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-inner">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3 block">Contrôle de Présentation</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="navigateSlide(-1)" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs md:text-sm font-bold py-3 px-3 rounded-lg flex items-center justify-center gap-2 border border-slate-700/60 transition-all duration-200 active:scale-95" title="Slide Précédente">
+                            <i class="fa-solid fa-chevron-left"></i> Précédent
+                        </button>
+                        <button onclick="navigateSlide(1)" class="bg-bge-blue hover:bg-blue-700 text-white text-xs md:text-sm font-bold py-3 px-3 rounded-lg flex items-center justify-center gap-2 border border-blue-600 transition-all duration-200 active:scale-95" title="Slide Suivante">
+                            Suivant <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Minuteur d'exercice -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-inner">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Minuteur Atelier</span>
+                        <span id="timer-display" class="font-mono text-xl md:text-2xl font-black text-bge-green">30:00</span>
+                    </div>
+                    <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden mb-4">
+                        <div id="timer-progress" class="h-full bg-bge-green rounded-full transition-all duration-1000" style="width: 100%;"></div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1.5">
+                        <button onclick="setTimerDuration(300)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-2 rounded-lg transition-all text-slate-200">5 Min</button>
+                        <button onclick="setTimerDuration(900)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-2 rounded-lg transition-all text-slate-200">15 Min</button>
+                        <button onclick="setTimerDuration(1800)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-2 rounded-lg transition-all text-slate-200">30 Min</button>
+                        <button id="timer-btn" onclick="toggleTimer()" class="bg-bge-orange hover:bg-orange-600 text-[10px] md:text-xs font-bold py-2 rounded-lg text-white shadow-md transition-all">Lancer</button>
+                    </div>
+                </div>
+
+                <!-- Notes de présentation et Script Oral -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 flex flex-col min-h-[220px]">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3 block"><i class="fa-solid fa-microphone-lines text-bge-orange mr-1.5"></i>Script Oral de l'Animateur</span>
+                    <div id="presenter-notes" class="text-xs md:text-sm text-slate-300 leading-relaxed overflow-y-auto max-h-[240px] pr-2 font-lato font-semibold">
+                        <!-- Rempli dynamiquement en JS -->
+                    </div>
+                </div>
+
+                <!-- Grille sélectrice des 33 slides -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3 block">Sélecteur Rapide (1 à 33)</span>
+                    <div id="slides-grid-container" class="grid grid-cols-8 gap-1.5">
+                        <!-- Rempli en JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BOUTON FLOTTANT POUR RÉAFFICHER LA SIDEBAR SI MASQUÉE -->
+    <button id="show-sidebar-btn" onclick="togglePresenterSidebar()" class="hidden fixed bottom-6 right-6 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-bge-orange w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transition-all z-30">
+        <i class="fa-solid fa-graduation-cap text-lg"></i>
+    </button>
+
+    <script>
+        const slidesDatabase = [
+            {
+                id: 1,
+                category: "INTRODUCTION",
+                subBadge: "Ouverture",
+                title: "Optimiser la Création de Contenus avec l'IA",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full">
+                        <p class="text-bge-orange font-bold uppercase tracking-widest text-base md:text-xl mb-2">Masterclass BGE Pays de la Loire</p>
+                        <h2 class="font-poppins font-black text-3xl md:text-4xl text-bge-blue leading-tight mb-3">Votre Content Factory en 3h30</h2>
+                        <p class="text-slate-600 max-w-3xl text-sm md:text-base mb-6">
+                            Apprenez à dupliquer et recycler une seule idée sur tous vos canaux de communication sans perdre votre voix, votre temps, ni votre authenticité d'entrepreneur.
+                        </p>
+                        <div class="h-1 w-32 bg-bge-orange rounded-full"></div>
+                    </div>
+                `,
+                script: "Bonjour à tous et bienvenue à cette session BGE. Si vous êtes réunis ce matin, c'est que vous avez compris une règle essentielle : en 2026, un entrepreneur invisible sur le web est un entrepreneur invisible tout court.\n\nMais votre priorité doit rester votre activité, pas de passer vos nuits sur des logiciels de montage ou à bloquer devant une page blanche. La promesse de cette matinée : nous n'allons pas faire de vous des informaticiens ou des ingénieurs. Nous allons monter ensemble votre usine de production de contenu personnalisée pour diviser votre temps de création par 10 tout en restant 100 % authentique."
+            },
+            {
+                id: 2,
+                category: "INTRODUCTION",
+                subBadge: "Agenda",
+                title: "Le Sprint Contenu 360° : Programme",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-stretch">
+                        <div class="bg-slate-50 border-t-4 border-bge-blue p-5 rounded-xl flex flex-col justify-between">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-3">Matinée : Les Fondations</h4>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start gap-2 text-xs md:text-sm"><i class="fa-solid fa-angle-right text-bge-orange mt-1"></i><span><strong>Warm-Up :</strong> Tour de table & Écosystème (30 min)</span></li>
+                                <li class="flex items-start gap-2 text-xs md:text-sm"><i class="fa-solid fa-angle-right text-bge-orange mt-1"></i><span><strong>Atelier 1 :</strong> Votre ADN avec Pomelli & Mistral (50 min)</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 border-t-4 border-bge-orange p-5 rounded-xl flex flex-col justify-between">
+                            <h4 class="font-poppins font-bold text-bge-orange mb-3">Matinée : La Production</h4>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start gap-2 text-xs md:text-sm"><i class="fa-solid fa-angle-right text-bge-blue mt-1"></i><span><strong>Atelier 2 :</strong> Recyclage avec NotebookLM (50 min)</span></li>
+                                <li class="flex items-start gap-2 text-xs md:text-sm"><i class="fa-solid fa-angle-right text-bge-blue mt-1"></i><span><strong>Atelier 3 :</strong> Studio Vidéo, Voix & Canva (50 min)</span></li>
+                                <li class="flex items-start gap-2 text-xs md:text-sm"><i class="fa-solid fa-angle-right text-bge-blue mt-1"></i><span><strong>Clôture :</strong> Routine 1h15 & Cadre IA Act (30 min)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                script: "Regardons ensemble notre feuille de route de ce matin. Nous sommes sur un format sprint de 3h30. Pas de grande théorie académique, nous allons alterner de courtes démos de 10 minutes avec de la pratique intensive de 30 minutes sur vos propres PC. Nous allons poser votre ADN, puis apprendre à recycler un seul document en 5 formats, puis enfin générer des voix off et des présentateurs vidéo en créant des sous-titres automatiques sur Canva."
+            },
+            {
+                id: 3,
+                category: "INTRODUCTION",
+                subBadge: "Interactivité",
+                title: "Tour de Table : Brisons la Glace",
+                content: `
+                    <div class="flex flex-col justify-center h-full max-w-4xl mx-auto">
+                        <p class="text-slate-600 font-bold mb-4">Prenez 30 secondes pour vous présenter à travers 3 questions clés :</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-blue text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-sm">1</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-bge-blue text-xs md:text-sm">Votre Activité & Cibles</h4>
+                                    <p class="text-slate-500 text-xs md:text-sm">Quel est votre métier de chef d'entreprise et qui sont vos clients prioritaires ?</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-orange text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">2</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-bge-orange text-xs md:text-sm">Votre Canal Principal</h4>
+                                    <p class="text-slate-500 text-xs md:text-sm">Où devez-vous absolument être visible ? (LinkedIn, Instagram, Site web, Newsletter...)</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-green text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">3</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-bge-green text-xs md:text-sm">Votre Frustration Majeure</h4>
+                                    <p class="text-slate-500 text-xs md:text-sm">Qu'est-ce qui vous bloque ? (Manque de temps, page blanche, technique complexe, peur du style robotique ?)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                `,
+                script: "Pour adapter mes démonstrations à vos entreprises, faisons un rapide tour de table. Dites-moi qui vous êtes, sur quel réseau vous devez impérativement publier pour trouver des clients, et quel est le point de blocage qui vous agace le plus au quotidien dans votre communication. C'est ce point précis qu'on va liquider aujourd'hui."
+            },
+            {
+                id: 4,
+                category: "INTRODUCTION",
+                subBadge: "Panorama 2026",
+                title: "Écosystème des IA de Création",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-stretch">
+                        <div class="bg-slate-50 p-5 rounded-xl flex flex-col justify-between border-t-4 border-bge-blue">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-3">La Force Textuelle & Audio</h4>
+                            <p class="text-slate-500 text-[10px] md:text-xs mb-3">Poser l'esprit, orchestrer les formats :</p>
+                            <ul class="space-y-2 text-slate-600 text-xs md:text-sm">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>Pomelli (Google Labs) :</strong> Organisation, Zero-Prompt ADN</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>Mistral.ai (Le Chat) :</strong> Copilote souverain de rédaction</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>NotebookLM :</strong> Recyclage de PDF en audio</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl flex flex-col justify-between border-t-4 border-bge-orange">
+                            <h4 class="font-poppins font-bold text-bge-orange mb-3">La Force Visuelle & Multimédia</h4>
+                            <p class="text-slate-500 text-[10px] md:text-xs mb-3">Donner du relief, marquer les rétines :</p>
+                            <ul class="space-y-2 text-slate-600 text-xs md:text-sm">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>Google Flow :</strong> Montage vidéo et scènes cinématiques</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>ElevenLabs :</strong> Le standard mondial de la voix off</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>HeyGen :</strong> Création de présentateurs virtuels / Avatars</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                script: "Pour réussir à industrialiser notre production, nous devons faire le tri. Le marché est saturé d'outils gadgets qui changent toutes les semaines. Pour cette session, nous avons retenu uniquement les leaders du marché en 2026. Notez que ce ne sont pas des outils séparés : ils fonctionnent comme une véritable chaîne de montage."
+            },
+            {
+                id: 5,
+                category: "INTRODUCTION",
+                subBadge: "Flux d'Outils",
+                title: "La Content Factory : Articulation du Jour",
+                content: `
+                    <div class="flex flex-col justify-center h-full items-center">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-4xl text-center">
+                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <div class="w-10 h-10 bg-bge-blue/10 text-bge-blue rounded-full flex items-center justify-center mx-auto mb-2 text-base md:text-lg"><i class="fa-solid fa-pen-nib"></i></div>
+                                <h4 class="font-poppins font-bold text-slate-800 text-[11px] md:text-xs">1. Écriture & Style</h4>
+                                <p class="text-slate-500 text-[9px] md:text-[10px] mt-1">Pomelli / Mistral</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <div class="w-10 h-10 bg-bge-orange/10 text-bge-orange rounded-full flex items-center justify-center mx-auto mb-2 text-base md:text-lg"><i class="fa-solid fa-arrows-spin"></i></div>
+                                <h4 class="font-poppins font-bold text-slate-800 text-[11px] md:text-xs">2. Recyclage</h4>
+                                <p class="text-slate-500 text-[9px] md:text-[10px] mt-1">NotebookLM</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <div class="w-10 h-10 bg-bge-green/10 text-bge-green rounded-full flex items-center justify-center mx-auto mb-2 text-base md:text-lg"><i class="fa-solid fa-volume-high"></i></div>
+                                <h4 class="font-poppins font-bold text-slate-800 text-[11px] md:text-xs">3. Voix Off & Sons</h4>
+                                <p class="text-slate-500 text-[9px] md:text-[10px] mt-1">ElevenLabs</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <div class="w-10 h-10 bg-slate-100 text-slate-800 rounded-full flex items-center justify-center mx-auto mb-2 text-base md:text-lg"><i class="fa-solid fa-film"></i></div>
+                                <h4 class="font-poppins font-bold text-slate-800 text-[11px] md:text-xs">4. Vidéo & Avatar</h4>
+                                <p class="text-slate-500 text-[9px] md:text-[10px] mt-1">Flow, HeyGen, Canva</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-500 mt-6 text-[11px] md:text-xs italic"><i class="fa-solid fa-circle-info text-bge-blue mr-1.5"></i>L'idée de base entre au point 1, le produit prêt à publier sort au point 4.</p>
+                    </div>
+                `,
+                script: "Voici comment nous allons structurer notre matinée. Vos idées brutes de dirigeants entrent au point 1 dans Pomelli ou Mistral. Le matériel validé est ensuite décliné en post et podcast audio au point 2 avec NotebookLM. On sonorise l'ensemble au point 3, puis on donne vie au format final dans Canva et HeyGen au point 4. C'est l'industrialisation sans la perte d'authenticité."
+            },
+            {
+                id: 6,
+                category: "INTRODUCTION",
+                subBadge: "Budget Outils",
+                title: "Le Crash-Test du Gratuit : Quotas & Limites 2026",
+                content: `
+                    <div class="w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                        <!-- En-tête du tableau en Grid Tailwind -->
+                        <div class="grid grid-cols-12 bg-slate-100 p-2 font-poppins font-bold text-slate-700 border-b border-slate-200 text-xs md:text-sm">
+                            <div class="col-span-3">Outil IA</div>
+                            <div class="col-span-3">Quota Gratuit</div>
+                            <div class="col-span-3">Contrainte Majeure</div>
+                            <div class="col-span-3">Usage en Routine Perso</div>
+                        </div>
+                        
+                        <!-- Lignes du tableau -->
+                        <div class="divide-y divide-slate-100 text-slate-600 font-medium text-xs md:text-sm">
+                            <!-- ElevenLabs -->
+                            <div class="grid grid-cols-12 p-2.5 items-center hover:bg-slate-50/50">
+                                <div class="col-span-3 font-bold text-bge-blue"><i class="fa-solid fa-volume-high mr-1.5"></i>ElevenLabs</div>
+                                <div class="col-span-3">10k car. / mois<br><span class="text-[10px] text-slate-400 font-normal">(~10 min d'audio)</span></div>
+                                <div class="col-span-3 text-red-600">Pas d'usage commercial</div>
+                                <div class="col-span-3 text-emerald-600 font-bold"><i class="fa-solid fa-circle-check mr-1.5"></i>Ok (2-3 newsletters/mois)</div>
+                            </div>
+                            <!-- HeyGen -->
+                            <div class="grid grid-cols-12 p-2.5 items-center hover:bg-slate-50/50">
+                                <div class="col-span-3 font-bold text-bge-orange"><i class="fa-solid fa-user-tie mr-1.5"></i>HeyGen</div>
+                                <div class="col-span-3">1 crédit unique<br><span class="text-[10px] text-slate-400 font-normal">(Offre d'essai d'1 min)</span></div>
+                                <div class="col-span-3 text-red-600">Gros logo à l'écran</div>
+                                <div class="col-span-3 text-[#f58220] font-bold"><i class="fa-solid fa-circle-exclamation mr-1.5"></i>Transition Canva/CapCut</div>
+                            </div>
+                            <!-- Google Flow -->
+                            <div class="grid grid-cols-12 p-2.5 items-center hover:bg-slate-50/50">
+                                <div class="col-span-3 font-bold text-slate-800"><i class="fa-solid :fa-film mr-1.5"></i>Google Flow</div>
+                                <div class="col-span-3">30 à 50 req. / jour<br><span class="text-[10px] text-slate-400 font-normal">Renouvelé quotidien</span></div>
+                                <div class="col-span-3 text-red-600">Attente si surcharge</div>
+                                <div class="col-span-3 text-emerald-600 font-bold"><i class="fa-solid fa-circle-check mr-1.5"></i>Idéal (2-3 clips / semaine)</div>
+                            </div>
+                            <!-- Mistral.ai -->
+                            <div class="grid grid-cols-12 p-2.5 items-center hover:bg-slate-50/50">
+                                <div class="col-span-3 font-bold text-bge-green"><i class="fa-solid fa-brain mr-1.5"></i>Mistral.ai</div>
+                                <div class="col-span-3">Accès Web gratuit<br><span class="text-[10px] text-slate-400 font-normal">Modèles avancés</span></div>
+                                <div class="col-span-3 text-red-600">Heures d'affluence</div>
+                                <div class="col-span-3 text-emerald-600 font-bold"><i class="fa-solid fa-circle-check mr-1.5"></i>Pilier principal gratuit</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Alerte pédagogique en bas de slide -->
+                    <div class="mt-3 p-2 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-xs font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-bge-orange text-sm shrink-0"></i>
+                        <div><strong>Conseil BGE :</strong> Pour esquiver tout blocage de vieux quotas, faites créer des accès neufs aux stagiaires le matin même.</div>
+                    </div>
+                `,
+                script: "Jetons un coup d'œil très pragmatique au modèle économique de notre chaîne de montage. Face à un public de créateurs d'entreprises, la question du coût est décisive. ElevenLabs offre 10 000 caractères par mois, ce qui couvre largement notre usage en routine. Pour HeyGen, attention : le crédit d'une minute est unique et ne se renouvelle pas, il ne faut donc lancer l'exportation de l'avatar que pour valider l'usage, puis privilégier Canva ou CapCut. Google Flow et Mistral offrent une excellente marge de manœuvre gratuite au quotidien. Mon conseil de terrain : faites-leur créer les comptes au début de la session pour esquiver les mauvaises surprises."
+            },
+            {
+                id: 7,
+                category: "ATELIER 1",
+                subBadge: "Lancement",
+                title: "Atelier 1 : ADN de Marque & Zero-Prompt (50 min)",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full">
+                        <span class="bg-bge-blue/10 text-bge-blue text-[11px] md:text-xs font-bold px-3 py-1.5 rounded-md uppercase tracking-wider mb-2">Atelier Pratique</span>
+                        <h2 class="font-poppins font-black text-2xl md:text-3xl text-slate-800 mb-3">Capturer votre voix d'entrepreneur</h2>
+                        <p class="text-slate-500 max-w-2xl text-xs md:text-sm mb-4">Comment faire comprendre votre ADN, votre ton et votre univers de marque à l'IA pour qu'elle écrive comme vous sans effort ?</p>
+                        <div class="grid grid-cols-3 gap-3 w-full max-w-xl text-center text-xs md:text-sm">
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-blue">Démo</span><span class="text-[10px] text-slate-400">10 Min</span></div>
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-orange">Pratique</span><span class="text-[10px] text-slate-400">30 Min</span></div>
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-green">Débrief</span><span class="text-[10px] text-slate-400">10 Min</span></div>
+                        </div>
+                    </div>
+                `,
+                script: "Nous lançons notre premier atelier pratique de 50 minutes. L'objectif est de neutraliser le style robotique. Si vos posts ressemblent à du Wikipédia poli rempli de clichés comme 'Incontournable' ou 'À l'ère du numérique', vous perdez la confiance de vos clients. Nous allons voir comment cloner votre véritable empreinte."
+            },
+            {
+                id: 8,
+                category: "ATELIER 1",
+                subBadge: "Analyse",
+                title: "Le Piège du Style Robotique",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div>
+                            <p class="text-slate-600 mb-3">Les expressions que l'IA utilise par défaut et qui trahissent immédiatement votre contenu :</p>
+                            <ul class="space-y-2 text-slate-600 text-xs md:text-sm">
+                                <li class="flex items-start gap-2 text-red-600"><i class="fa-solid fa-ban mt-1"></i><span>« Incontournable », « Révolutionnaire »</span></li>
+                                <li class="flex items-start gap-2 text-red-600"><i class="fa-solid fa-ban mt-1"></i><span>« De prime abord », « Catalyseur »</span></li>
+                                <li class="flex items-start gap-2 text-red-600"><i class="fa-solid fa-ban mt-1"></i><span>« À l'ère du numérique... »</span></li>
+                            </ul>
+                            <p class="text-slate-500 mt-3 italic text-xs">Le public de 2026 rejette le contenu lisse. Ils veulent de l'authentique.</p>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">La Signature BGE</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">Votre style unique doit être basé sur :</p>
+                            <ul class="space-y-1.5 mt-2 text-slate-500 text-xs md:text-sm">
+                                <li>• Vos anecdotes concrètes du quotidien</li>
+                                <li>• Votre jargon d'artisan / commerçant</li>
+                                <li>• Le rythme de vos vraies phrases orales</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                script: "Regardez cette liste rouge à l'écran. Ces expressions sont le poison de votre visibilité. Quand un internaute lit 'À l'ère de l'innovation', son cerveau s'arrête de lire. Vos futurs clients achètent votre personnalité, votre accent local, vos anecdotes. Voyons comment configurer cela dans l'IA."
+            },
+            {
+                id: 9,
+                category: "ATELIER 1",
+                subBadge: "Outils",
+                title: "La Révolution 'Zero-Prompt' de Pomelli",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">Pomelli (Google Labs)</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">L'aspiration automatique de votre marque :</p>
+                            <ul class="space-y-2 mt-2 text-slate-500 text-xs md:text-sm">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>Entrez l'URL de votre site :</strong> Scan instantané</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>Extraction :</strong> Palette de couleurs & polices</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bge-green"></i><span><strong>Ton de Voix :</strong> Capté en arrière-plan sans prompt</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 mb-3">L'IA de Pomelli n'a pas besoin que vous lui appreniez à écrire de manière théorique. Elle analyse ce que vous avez déjà construit en ligne et s'y adapte.</p>
+                            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs">
+                                <strong>Important :</strong> Idéal pour les entreprises qui ont déjà un site web existant.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "C'est l'un des plus grands sauts technologiques de 2026. Pomelli de Google Labs propose une méthode dite 'Zero-Prompt'. Vous lui donnez l'adresse de votre site web, il va l'analyser pour en déduire votre identité graphique et votre ton éditorial de marque. Plus besoin de lui rédiger des fiches de style de 50 lignes."
+            },
+            {
+                id: 10,
+                category: "ATELIER 1",
+                subBadge: "Souveraineté",
+                title: "Alternative Souveraine : Mistral.ai",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div>
+                            <p class="text-slate-600 mb-3">Pourquoi et comment utiliser le français Mistral (Le Chat) ?</p>
+                            <ul class="space-y-2 text-slate-500 text-xs md:text-sm">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-shield text-bge-blue mt-1"></i><span><strong>100% Conforme RGPD :</strong> Vos secrets d'entreprise ne sortent pas d'Europe.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-folder text-bge-blue mt-1"></i><span><strong>Espaces Privés :</strong> Organisez vos bases de connaissances par marque.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-pen-fancy text-bge-blue mt-1"></i><span><strong>L'art du Prompt Signature :</strong> Nécessite une fiche explicative brute.</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-orange mb-2">Quand choisir Mistral ?</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">Vous partez de zéro, n'avez pas de site web ou gérez des secrets commerciaux réglementés (médical, juridique, bâtiment public).</p>
+                        </div>
+                    </div>
+                `,
+                script: "Pour les stagiaires qui ne souhaitent pas stocker leurs données chez Google, nous présentons Mistral.ai. C'est le champion français, souverain et hyper-sécurisé. Sur Mistral, à la différence de Pomelli, nous allons utiliser un 'Prompt Signature' pour lui forcer à mimer notre façon d'écrire."
+            },
+            {
+                id: 11,
+                category: "ATELIER 1",
+                subBadge: "Pratique",
+                title: "Pratique : Configurez votre ADN (30 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full max-w-4xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-3">La Méthode Pomelli</h4>
+                                <ol class="space-y-2 text-slate-600 text-xs md:text-sm">
+                                    <li>1. Connectez-vous sur **Pomelli**</li>
+                                    <li>2. Créez votre Projet de Marque</li>
+                                    <li>3. Entrez l'URL de votre site web</li>
+                                    <li>4. Laissez l'IA extraire vos directives de style</li>
+                                </ol>
+                            </div>
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange mb-3">La Méthode Mistral</h4>
+                                <ol class="space-y-2 text-slate-600 text-xs md:text-sm">
+                                    <li>1. Ouvrez un espace de chat **Mistral.ai**</li>
+                                    <li>2. Copiez un de vos vrais e-mails chaleureux</li>
+                                    <li>3. Donnez-lui le Prompt : <em>« Analyse mon style de rédacteur dans ce texte pour le réutiliser. »</em></li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-slate-100 rounded-xl text-center text-xs text-slate-500 font-bold">
+                            Chronomètre de 30 minutes activé dans votre console formateur !
+                        </div>
+                    </div>
+                `,
+                script: "C'est à vous pour 30 minutes de pratique. Deux cas de figure. Si vous avez un site web existant, allez sur Pomelli, entrez votre URL et observez l'extraction automatique. Si vous partez de zéro, connectez-vous sur Mistral.ai, importez un de vos e-mails réels et demandez-lui d'analyser votre ton. Je passe parmi vous."
+            },
+            {
+                id: 12,
+                category: "ATELIER 1",
+                subBadge: "Pratique",
+                title: "Pratique : Votre Flyer Graphique via l'IA (30 min)",
+                content: `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full items-stretch">
+                        <!-- Left: Prompt Generator (Col span 7) -->
+                        <div class="lg:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-bge-orange uppercase tracking-wider block mb-1">MÉTHODE MULTI-IA • LE PROMPT CRÉATEUR DE FLYER</span>
+                                <p class="text-slate-500 text-[10px] md:text-xs mb-2">Copiez et collez ce prompt à la suite de votre Brandbook dans l'IA générative de votre choix (ChatGPT, Gemini, Claude...) :</p>
+                                <div class="bg-slate-900 text-emerald-400 p-3 rounded-lg font-mono text-[10px] md:text-xs leading-relaxed max-h-[190px] overflow-y-auto shadow-inner border border-slate-800">
+                                    "Agis en tant que Directeur Artistique et Concepteur-Rédacteur Senior. À partir de mon Brandbook ci-dessus, conçois et génère visuellement le flyer A5 complet pour mon activité.
+                                    1. CONTENU VISUEL : Intègre un titre d'accroche percutant, 3 bénéfices clés (méthode CBSP : Caractéristique, Bénéfice, Solution, Preuve) sous forme de puces claires et mes coordonnées de contact.
+                                    2. STYLE & COULEURS : Respecte rigoureusement ma charte graphique (applique les codes couleurs #Hex et utilise un duo de polices complémentaires : une serif pour le titre, une sans-serif lisible pour le texte).
+                                    3. RENDU FINAL : Génère directement le rendu visuel complet (image de haute qualité ou maquette structurée) de ce flyer, prêt à être imprimé ou partagé."
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right: Practice Task (Col span 5) -->
+                        <div class="lg:col-span-5 bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-xs md:text-sm">Votre Mission Pratique</h4>
+                                <ol class="space-y-2 text-slate-600 text-xs md:text-sm">
+                                    <li class="flex gap-2"><strong>1.</strong> <span>Ouvrez l'IA de votre choix (ChatGPT, Claude, Gemini, etc.) contenant déjà votre Brandbook.</span></li>
+                                    <li class="flex gap-2"><strong>2.</strong> <span>Copiez-collez le prompt ci-contre pour déléguer la création graphique intégrale de votre flyer A5.</span></li>
+                                    <li class="flex gap-2"><strong>3.</strong> <span>Ajustez l'agencement, l'ambiance ou les textes directement par la discussion jusqu'à obtenir le rendu parfait.</span></li>
+                                </ol>
+                            </div>
+                            <div class="mt-2 p-2 bg-bge-blue/10 text-bge-blue text-[10px] md:text-xs rounded font-bold text-center">
+                                Objectif : Obtenir un support de communication visuel prêt à l'emploi, entièrement généré et mis en page par l'IA !
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "C'est le moment fort de cette première partie. Les stagiaires n'ont plus à ouvrir Canva pour faire de la mise en page manuelle : ils délèguent entièrement le travail graphique à l'IA générative de leur choix (DALL-E dans ChatGPT, Imagen dans Gemini, etc.). L'IA doit s'occuper de tout : placer les textes du Brandbook, respecter les codes couleurs hexadécimaux et générer une véritable maquette visuelle finalisée de leur flyer A5. Notre rôle en tant qu'animateur est de les aider à affiner leur prompt s'ils souhaitent corriger un détail visuel directement par la discussion avec l'IA."
+            },
+            {
+                id: 13,
+                category: "ATELIER 1",
+                subBadge: "Validation",
+                title: "Débriefing de votre ADN",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-green mb-2">Comment évaluer son jumeau ?</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">Faites le test ultime :</p>
+                            <ul class="space-y-1.5 mt-2 text-slate-500 text-xs md:text-sm">
+                                <li>• Est-ce qu'on entend votre voix en le lisant ?</li>
+                                <li>• L'IA a-t-elle éliminé les grands clichés ?</li>
+                                <li>• Le texte est-il calibré pour vos clients ?</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm">Ne cherchez pas à obtenir un texte parfait dès le départ. Cherchez une base propre à laquelle il ne manque que 10 % de réécriture de votre part pour être parfait.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Faisons un débriefing de cette première mise en pratique. Qui a obtenu un résultat bluffant ? Qui a dû ajuster son texte de départ car il était trop formel ? C'est la clé : plus votre texte d'entrée est spontané, plus l'analyse finale sera docile à votre personnalité."
+            },
+            {
+                id: 14,
+                category: "ATELIER 2",
+                subBadge: "Lancement",
+                title: "Atelier 2 : Le Recyclage Intelligent (50 min)",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full">
+                        <span class="bg-bge-orange/10 text-bge-orange text-[11px] md:text-xs font-bold px-3 py-1.5 rounded-md uppercase tracking-wider mb-2">Atelier Pratique</span>
+                        <h2 class="font-poppins font-black text-2xl md:text-3xl text-slate-800 mb-3">La Cascade de Contenu</h2>
+                        <p class="text-slate-500 max-w-2xl text-xs md:text-sm mb-4">Comment transformer 1 seul document professionnel brut (devis anonymisé, plaquette, catalogue) en 5 publications de haute qualité en moins de 10 minutes ?</p>
+                        <div class="grid grid-cols-3 gap-3 w-full max-w-xl text-center text-xs md:text-sm">
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-blue">Démo</span><span class="text-[10px] text-slate-400">10 Min</span></div>
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-orange">Pratique</span><span class="text-[10px] text-slate-400">30 Min</span></div>
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-green">Débrief</span><span class="text-[10px] text-slate-400">10 Min</span></div>
+                        </div>
+                    </div>
+                `,
+                script: "Nous passons à notre second grand atelier de 50 minutes. Nous allons voir comment démultiplier l'effort de production d'un entrepreneur. L'erreur habituelle est de vouloir réécrire un texte spécifique à chaque fois. La bonne méthode, c'est le recyclage intelligent grâce à NotebookLM de Google."
+            },
+            {
+                id: 15,
+                category: "ATELIER 2",
+                subBadge: "Théorie",
+                title: "La Cascade de Contenu : De l'Écrit à l'Audio",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div>
+                            <p class="text-slate-600 mb-3">Le concept est simple :</p>
+                            <ul class="space-y-3 text-slate-500 text-xs md:text-sm">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-file-pdf text-bge-orange text-base"></i><span><strong>1. Le Document Source :</strong> Votre PDF technique</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-repeat text-bge-orange text-base"></i><span><strong>2. La Cascade :</strong> Déclinaison en 3 posts textuels</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-microphone text-bge-orange text-base"></i><span><strong>3. Le Format Audio :</strong> Le Format Radio à 2 voix</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">Pourquoi NotebookLM ?</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed">Cette IA de Google Labs est étanche. Elle ne s'entraîne pas sur vos documents et ne va pas chercher de réponses sur le web mondial. Aucun risque d'invention ou d'hallucination d'informations.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Voici comment aborder ce concept fondamental de la Cascade de Contenu auprès de vos stagiaires. Un entrepreneur fait souvent l'erreur d'essayer d'écrire ses publications à partir de zéro chaque semaine. C'est le plus court chemin vers le syndrome de la page blanche. Nous allons lui proposer une méthode révolutionnaire et ultra-simple : La Cascade.\n\nPrenez un document de travail existant : une plaquette commerciale, une fiche technique, un devis anonymisé détaillé. C'est votre Source d'Eau pure au sommet de la montagne.\n\nEn la glissant dans NotebookLM, nous allons la faire s'écouler (la cascade !) pour générer 3 types de posts complémentaires :\n\n- Post 1 : L'Éducatif. On extrait un conseil concret ou un chiffre du document pour prouver son expertise et rassurer.\n- Post 2 : Le Problème. On cible un piège ou une erreur classique citée dans le document pour interpeller l'audience.\n- Post 3 : La Solution. On présente la solution de manière imagée et concrète pour déclencher le rendez-vous.\n\nDe cette façon, un seul document lourd produit sans effort 15 jours de contenu fluide et varié. C'est l'essence même de l'usine à contenu."
+            },
+            {
+                id: 16,
+                category: "ATELIER 2",
+                subBadge: "Innovation",
+                title: "L'Audio Overview : L'Effet Wow !",
+                content: `
+                    <div class="flex flex-col justify-center h-full max-w-4xl mx-auto items-center">
+                        <div class="w-16 h-16 bg-bge-orange/10 text-bge-orange rounded-full flex items-center justify-center mb-4 text-xl md:text-2xl"><i class="fa-solid fa-volume-high"></i></div>
+                        <h4 class="font-poppins font-bold text-slate-800 text-center mb-2">Vos documents deviennent un Show Radio</h4>
+                        <p class="text-slate-500 text-center max-w-2xl text-xs md:text-sm">
+                            En un seul clic, NotebookLM génère une conversation dynamique en français entre deux journalistes virtuels (un homme et une femme) qui débattent et valorisent vos offres avec un réalisme indiscernable d'une véritable émission de radio.
+                        </p>
+                    </div>
+                `,
+                script: "Je vais vous faire une démonstration en direct. J'importe ici une plaquette PDF sur les pompes à chaleur d'un artisan local. Regardez : je clique sur 'Generate Audio Overview'. L'IA va créer en deux minutes un podcast audio où deux animateurs expliquent et débattent du document avec des intonations bluffantes."
+            },
+            {
+                id: 17,
+                category: "ATELIER 2",
+                subBadge: "Indépendance",
+                title: "L'Alternative : Lex.page",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">Lex.page : Le Rédacteur Épuré</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">Pour ceux qui recherchent un outil indépendant et puissant :</p>
+                            <ul class="space-y-1.5 mt-2 text-slate-500 text-xs md:text-sm">
+                                <li>• Interface de mise au point épurée sans distraction</li>
+                                <li>• Copilote d'écriture qui s'adapte à votre vitesse d'écriture</li>
+                                <li>• Outil performant pour générer des newsletters structurées</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Lex.page is l'outil parfait si vous rédigez principalement du texte de fond (articles de blog, newsletters complexes, dossiers de presse) et souhaitez être assisté de manière subtile sans changer votre flux.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Pour ceux qui rejettent l'écosystème Google, je vous présente Lex.page. C'est un outil indépendant d'une pureté exceptionnelle pour écrire de longs articles ou concevoir vos newsletters en co-écriture, sans distraction graphique parasite."
+            },
+            {
+                id: 18,
+                category: "ATELIER 2",
+                subBadge: "Pratique",
+                title: "Pratique : Lancer votre Cascade (30 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full max-w-4xl mx-auto">
+                        <ol class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-orange text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-[10px]">1</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm">Importez votre Fichier</h4>
+                                    <p class="text-slate-500 text-xs">Ouvrez NotebookLM et chargez un document (Plaquette commerciale, PDF technique, etc.).</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-orange text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-[10px]">2</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm">Générez l'Audio</h4>
+                                    <p class="text-slate-500 text-xs">Lancez l'Audio Overview. Prenez vos écouteurs pour valider la qualité du ton.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-orange text-white w-6 h-6 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-[10px]">3</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm">Déclinez les Formats</h4>
+                                    <p class="text-slate-500 text-xs">Utilisez le prompt d'extraction dans l'assistant pour générer 3 variations de publications.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                `,
+                script: "C'est à vous pour 30 minutes. Prenez une plaquette de prix, un descriptif de votre activité ou votre dossier d'installation, et importez-le dans NotebookLM. Lancez la génération audio et commencez à décliner en posts grâce à l'assistant. Le chronomètre est lancé."
+            },
+            {
+                id: 19,
+                category: "ATELIER 2",
+                subBadge: "Validation",
+                title: "Débriefing: Les Déclinaisons",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-green mb-2">La check-list du recyclage</h4>
+                            <ul class="space-y-1.5 text-slate-500 text-xs md:text-sm">
+                                <li>• Est-ce que les posts générés sont fidèles au PDF ?</li>
+                                <li>• Avez-vous mémorisé les fiches de style ?</li>
+                                <li>• L'audio a-t-il bien capté la valeur de votre offre ?</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm">En un seul atelier, vous avez obtenu de la matière pour communiquer pendant 2 semaines sans avoir eu à rédiger une seule ligne à partir de rien. C'est cela, l'industrialisation.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Alors, qu'avez-vous pensé de la voix des présentateurs ? C'est sidérant de réalisme. Vous pouvez télécharger ce fichier audio pour le mettre en avant sur votre site web ou l'envoyer à vos prospects. Vos posts textuels sont maintenant prêts, passons à l'image."
+            },
+            {
+                id: 20,
+                category: "ATELIER 3",
+                subBadge: "Lancement",
+                title: "Atelier 3 : Studio Vidéo, Voix & Canva (50 min)",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full">
+                        <span class="bg-bge-green/10 text-bge-green text-[11px] md:text-xs font-bold px-3 py-1.5 rounded-md uppercase tracking-wider mb-2">Atelier Pratique</span>
+                        <h2 class="font-poppins font-black text-2xl md:text-3xl text-slate-800 mb-3">Le Studio de poche multimédia</h2>
+                        <p class="text-slate-500 max-w-2xl text-xs md:text-sm mb-4">Comment concevoir un mini-spot publicitaire vidéo percutant de 10 secondes sans caméra, sans micro professionnel et en ajoutant des sous-titres animés automatisés ?</p>
+                        <div class="grid grid-cols-3 gap-3 w-full max-w-xl text-center text-xs md:text-sm">
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-blue">Démo</span><span class="text-[10px] text-slate-400">10 Min</span></div>
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-orange">Pratique</span><span class="text-[10px] text-slate-400">30 Min</span></div>
+                            <div class="p-2.5 bg-slate-50 border border-slate-100 rounded-lg"><span class="block font-bold text-bge-green">Débrief</span><span class="text-[10px] text-slate-400">10 Min</span></div>
+                        </div>
+                    </div>
+                `,
+                script: "Nous lançons notre dernier grand atelier pratique de 50 minutes. Nous allons donner vie et mouvement aux contenus que nous avons validés lors de l'Atelier 2. Nous allons combiner la force de la voix d'ElevenLabs, l'image de Google Flow et l'assemblage dans Canva."
+            },
+            {
+                id: 21,
+                category: "ATELIER 3",
+                subBadge: "Théorie",
+                title: "Pourquoi la Vidéo Courte en 2026 ?",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">Mémorisation & Impact</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">La vidéo courte (Shorts, Reels) est le format d'acquisition le plus puissant de l'année :</p>
+                            <ul class="space-y-1.5 mt-2 text-slate-500 text-xs md:text-sm">
+                                <li>• +300 % de mémorisation par rapport au texte</li>
+                                <li>• Format idéal pour raconter une histoire courte</li>
+                                <li>• Facilité de partage et de recommandation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Pourtant, beaucoup de dirigeants bloquent par peur de se filmer ou de parler au micro. C'est exactement ce verrou technique que nous allons faire sauter aujourd'hui grâce aux outils d'Intelligence Artificielle.</p>
+                        </div>
+                    </div>
+                `,
+                script: "La vidéo courte est le format roi pour capter l'attention. Mais beaucoup s'interdisent d'en faire parce qu'ils n'atypent pas leur image, leur voix ou n'ont pas de caméra. Nous allons éliminer toutes ces barrières matérielles d'un coup de cuillère à pot."
+            },
+            {
+                id: 22,
+                category: "ATELIER 3",
+                subBadge: "Génération",
+                title: "Google Flow : Le Moteur Veo",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div>
+                            <p class="text-slate-600 mb-3">Générez des scènes d'une qualité cinématique en 5 secondes par simple description :</p>
+                            <ul class="space-y-2 text-slate-500 text-xs md:text-sm">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-film text-bge-orange mt-1"></i><span><strong>Réalisme bluffant :</strong> Respect de la physique et des reflets</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-lightbulb text-bge-orange mt-1"></i><span><strong>Idées d'illustration :</strong> 'Un artisan travaillant le bois'</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-wand-magic-sparkles text-bge-orange mt-1"></i><span><strong>Rapidité :</strong> Fini le coût d'un tournage de fond</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 text-center">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">Google Flow</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">Créer des clips d'ambiance d'une qualité professionnelle en quelques secondes pour habiller vos idées éditoriales.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Pour illustrer nos vidéos, nous allons utiliser Google Flow. Ce moteur de génération d'images animées crée des scènes réalistes de 5 secondes à partir de simples mots clés. Par exemple : 'Un menuisier assemblant une table, lumière douce de fin de journée'. C'est de l'habillage immédiat."
+            },
+            {
+                id: 23,
+                category: "ATELIER 3",
+                subBadge: "Veille Créative",
+                title: "Google Labs : Expérimentations Sonores & Visuelles",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-stretch">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-bge-blue mb-2">
+                                    <i class="fa-solid fa-chalkboard text-xl"></i>
+                                    <h4 class="font-poppins font-bold text-slate-800">MixBoard (Idéation)</h4>
+                                </div>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                                    Un tableau de conception visuelle assisté par IA. Idéal pour mélanger vos idées textuelles, vos croquis de marque et vos inspirations afin d'élaborer un moodboard harmonieux en quelques secondes, facilitant votre orientation graphique de départ.
+                                </p>
+                            </div>
+                            <span class="text-[10px] text-slate-400 font-bold mt-3 block uppercase tracking-wide"><i class="fa-solid fa-eye mr-1"></i>Aperçu de Veille</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-bge-orange mb-2">
+                                    <i class="fa-solid fa-music text-xl"></i>
+                                    <h4 class="font-poppins font-bold text-slate-800">Flow Music / MusicFX</h4>
+                                </div>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                                    Générez des pistes et boucles de musiques d'ambiance 100% uniques et libres de droits par simple prompt de description (ex: "un beat lo-fi acoustique et chaleureux"). Plus aucun risque de voir vos vidéos bloquées pour droits d'auteur sur Instagram ou LinkedIn.
+                                </p>
+                            </div>
+                            <span class="text-[10px] text-slate-400 font-bold mt-3 block uppercase tracking-wide"><i class="fa-solid fa-eye mr-1"></i>Aperçu de Veille</span>
+                        </div>
+                    </div>
+                `,
+                script: "Pendant que vos vidéos de l'Atelier 3 finissent de charger, laissez-moi vous présenter deux pépites de veille technologique issues de Google Labs. Ces outils ne feront pas l'objet d'ateliers aujourd'hui, mais vous devez absolument les garder sous le coude.\n\nLe premier, Mixboard, est un outil d'idéation graphique magique. Il vous évite le blocage du designer en vous générant un Moodboard de marque complet à partir de vos mots-clés d'ADN.\n\nLe second, Flow Music (propulsé par DeepMind), règle un casse-tête de solopreneur : les musiques de fond. Au lieu de payer un abonnement de droits ou de risquer d'avoir votre vidéo muette sur LinkedIn à cause des copyrights, vous décrivez l'ambiance recherchée et l'IA vous génère un fond musical unique et légal en 5 secondes."
+            },
+            {
+                id: 24,
+                category: "ATELIER 3",
+                subBadge: "Audio",
+                title: "ElevenLabs : La Voix de votre Marque",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">ElevenLabs : Voix off Pro</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">La synthèse vocale la plus réaliste au monde :</p>
+                            <ul class="space-y-1.5 mt-2 text-slate-500 text-xs md:text-sm">
+                                <li>• Intonations, rythmes et hésitations naturelles en français</li>
+                                <li>• Possibilité de cloner sa propre voix en 2 minutes</li>
+                                <li>• Fini les voix métalliques désagréables des vieux serveurs</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Avec ElevenLabs, vous écrivez votre script commercial, vous sélectionnez la voix la plus adaptée à votre cible, et vous obtenez un fichier audio d'un niveau radiophonique prêt à être assemblé.</p>
+                        </div>
+                    </div>
+                `,
+                script: "ElevenLabs est le leader incontesté de la voix off. Fini les voix de robots ridicules des GPS d'autrefois. Vous obtenez un grain de voix, des respirations et un ton chaleureux indiscernable d'un comédien professionnel. Vous pouvez aussi cloner votre propre voix si vous le souhaitez."
+            },
+            {
+                id: 25,
+                category: "ATELIER 3",
+                subBadge: "Humain",
+                title: "HeyGen : Vos Avatars Virtuels",
+                content: `
+                    <div class="flex flex-col justify-center h-full max-w-4xl mx-auto items-center text-center">
+                        <div class="w-16 h-16 bg-bge-green/10 text-bge-green rounded-full flex items-center justify-center mb-4 text-xl md:text-2xl"><i class="fa-solid fa-user-tie"></i></div>
+                        <h4 class="font-poppins font-bold text-slate-800 mb-2">Incarner sans se filmer</h4>
+                        <p class="text-slate-500 max-w-2xl text-xs md:text-sm">
+                            HeyGen vous permet de créer un présentateur virtuel d'un réalisme frappant en costume ou en tenue professionnelle. L'avatar va parler de manière fluide en bougeant les lèvres de façon perfectly synchronisée avec la voix générée sur ElevenLabs.
+                        </p>
+                    </div>
+                `,
+                script: "HeyGen permet d'ajouter un présentateur humain. Si vous vendez des services ou de l'immobilier, vous pouvez créer un double virtuel qui va s'adresser à vos prospects. Le mouvement des lèvres se synchronise automatiquement sur le fichier audio. C'est l'incarnation sans les contraintes de tournage."
+            },
+            {
+                id: 26,
+                category: "ATELIER 3",
+                subBadge: "Assemblage",
+                title: "Canva : L'Outil Tout-en-Un",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">Pourquoi Canva ?</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">Nous abandonnons CapCut pour utiliser Canva, plus stable et accessible :</p>
+                            <ul class="space-y-1.5 mt-2 text-slate-500 text-xs md:text-sm">
+                                <li>• Importation facile de vos vidéos Flow et audios</li>
+                                <li>• <strong>Sous-titres automatiques gratuits</strong> en 1 clic</li>
+                                <li>• Interface intuitive par simple glisser-déposer</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Canva permet d'assembler la voix et les clips de fond de manière fluide. Son outil de sous-titrage automatique gratuit décrypte l'audio et génère des textes dynamiques indispensables car 80 % des vidéos sur réseaux sont lues sans le son.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Pour l'assemblage final, nous choisissons Canva plutôt que CapCut qui peut planter. Sur Canva, vous importez votre son ElevenLabs et votre vidéo Flow, puis vous cliquez sur 'Sous-titres automatiques'. C'est gratuit, stable, ultra simple et indispensable pour capter l'attention de l'internaute qui n'active pas le son."
+            },
+            {
+                id: 27,
+                category: "ATELIER 3",
+                subBadge: "Pratique",
+                title: "Pratique : Créez votre Spot (30 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full max-w-4xl mx-auto">
+                        <ol class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-green text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">1</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm">Générez l'Audio (ElevenLabs)</h4>
+                                    <p class="text-slate-500 text-xs">Collez le script court issu de l'Atelier 2 et téléchargez le fichier audio.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-green text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">2</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm">Générez l'Image (Google Flow / HeyGen)</h4>
+                                    <p class="text-slate-500 text-xs">Créez votre clip d'ambiance ou configurez votre présentateur virtuel.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-bge-green text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-xs">3</div>
+                                <div>
+                                    <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm">Assemblez & Sous-titrez (Canva)</h4>
+                                    <p class="text-slate-500 text-xs">Glissez les éléments dans Canva, lancez le sous-titrage automatique et exportez.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                `,
+                script: "C'est à vous pour 30 minutes. Prenez votre script court de post LinkedIn de l'Atelier 2. Allez sur ElevenLabs pour générer la voix off. Allez sur Flow ou HeyGen pour la partie visuelle, puis assemblez et génerez les sous-titres automatiques sur Canva. C'est votre premier spot publicitaire."
+            },
+            {
+                id: 28,
+                category: "ATELIER 3",
+                subBadge: "Validation",
+                title: "Débriefing de vos Créations",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-green mb-2">Le Crash-Test Visuel</h4>
+                            <ul class="space-y-1.5 text-slate-500 text-xs md:text-sm">
+                                <li>• Les sous-titres sont-ils lisibles ?</li>
+                                <li>• Le rythme de la voix est-il dynamique ?</li>
+                                <li>• Le rendu final valorise-t-il votre savoir-faire ?</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm">En un seul atelier, vous avez obtenu de la matière pour communiquer pendant 2 semaines sans avoir eu à rédiger une seule ligne à partir de rien. C'est cela, l'industrialisation.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Alors, qu'avez-vous pensé de la voix des présentateurs ? C'est sidérant de réalisme. Vous pouvez télécharger ce fichier audio pour le mettre en avant sur votre site web ou l'envoyer à vos prospects. Vos posts textuels sont maintenant prêts, passons à l'image."
+            },
+            {
+                id: 29,
+                category: "PARTIE 4",
+                subBadge: "Lancement",
+                title: "Partie 4 : Routine & Cadre Légal (30 min)",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full">
+                        <span class="bg-bge-blue/10 text-bge-blue text-[11px] md:text-xs font-bold px-3 py-1.5 rounded-md uppercase tracking-wider mb-2">Routine de Fin</span>
+                        <h2 class="font-poppins font-black text-2xl md:text-3xl text-slate-800 mb-3">Industrialiser sa Visibilité</h2>
+                        <p class="text-slate-500 max-w-2xl text-xs md:text-sm mb-4">Comment intégrer ces outils dans votre agenda de dirigeant pour que cela devienne une routine rapide plutôt qu'une corvée hebdomadaire lourde ?</p>
+                        <div class="h-1 w-32 bg-bge-orange rounded-full"></div>
+                    </div>
+                `,
+                script: "Nous arrivons au terme de notre parcours d'apprentissage. Pour que cette formation soit rentable pour vous, nous devons voir comment l'intégrer durablement dans votre quotidien. Pas question d'attendre d'avoir 'le temps'. Nous allons mettre en place une routine de 1h15 par semaine."
+            },
+            {
+                id: 30,
+                category: "PARTIE 4",
+                subBadge: "Time-Boxing",
+                title: "La Routine : 1h15 par semaine",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2">La Méthode Pomodoro</h4>
+                            <p class="text-slate-600 text-xs md:text-sm">Sanctuarisez un créneau fixe chaque lundi matin dans votre agenda :</p>
+                            <ul class="space-y-1.5 mt-2 text-slate-500 text-xs md:text-sm">
+                                <li>• Téléphone coupé, boîte e-mail fermée</li>
+                                <li>• Zéro distraction extérieure</li>
+                                <li>• Sprints chronométrés successifs</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Le plus grand risque pour un entrepreneur est de se laisser déborder par l'opérationnel. En sanctuarisant ce créneau, vous assurez la visibilité et donc le futur chiffre d'affaires de votre TPE.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Le Time-boxing est le secret de l'efficacité. Bloquez ce créneau dans votre agenda. Si vous attendez le vendredi soir après vos chantiers ou vos rendez-vous clients, vous ne le ferez jamais. Le lundi matin est le moment idéal pour planifier l'ensemble."
+            },
+            {
+                id: 31,
+                category: "PARTIE 4",
+                subBadge: "Routine",
+                title: "Découpage Précis des Sprints",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 h-full items-stretch">
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                            <h4 class="font-poppins font-bold text-bge-blue text-xs md:text-sm">Bloc 1 (25 min) : ADN de Marque</h4>
+                            <p class="text-slate-500 text-[10px] md:text-xs">Pomelli / Mistral</p>
+                            <p class="text-slate-600 text-xs mt-1">Validation de l'idée phare et rédaction du texte de base en simulant fidèlement votre voix d'entrepreneur.</p>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                            <h4 class="font-poppins font-bold text-bge-orange text-xs md:text-sm">Bloc 2 (25 min) : La Cascade</h4>
+                            <p class="text-slate-500 text-[10px] md:text-xs">NotebookLM</p>
+                            <p class="text-slate-600 text-xs mt-1">Déclinaison immédiate en post court et en émission de podcast audio de valorisation.</p>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                            <h4 class="font-poppins font-bold text-bge-green text-xs md:text-sm">Bloc 3 (25 min) : Canva</h4>
+                            <p class="text-slate-500 text-[10px] md:text-xs">Flow, Canva, HeyGen</p>
+                            <p class="text-slate-600 text-xs mt-1">Génération des visuels, montage des sous-titres et planification hebdomadaire.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Voici comment découper vos 1h15. Trois blocs de 25 minutes consécutifs. Au bout de ces 75 minutes de concentration absolue, votre communication pour toute la semaine est programmée sur vos outils de publication et s'envoie toute seule pendant que vous êtes sur le terrain."
+            },
+            {
+                id: 32,
+                category: "PARTIE 4",
+                subBadge: "Légal",
+                title: "Le Bouclier Légal : IA Act 2026",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
+                        <div>
+                            <p class="text-slate-600 mb-3">Les 3 règles d'or de la réglementation européenne pour votre TPE :</p>
+                            <ul class="space-y-2 text-slate-500 text-xs md:text-sm">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-circle-exclamation text-bge-orange mt-1"></i><span><strong>Transparence :</strong> Obligation d'indiquer de manière claire 'Image générée par IA' sur vos visuels synthétiques.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-lock text-bge-orange mt-1"></i><span><strong>RGPD & Données :</strong> Ne glissez jamais de données clients confidentielles dans les IA grand public.</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-1">Le Filtre Humain</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed">L'IA propose, le dirigeant dispose. Ne publiez jamais un texte généré sans l'avoir relu et validé de vos propres yeux pour éliminer les erreurs ou les tics de langage robotiques.</p>
+                        </div>
+                    </div>
+                `,
+                script: "On termine par un point légal capital : le respect de la réglementation européenne IA Act. Vous devez impérativement indiquer la mention 'Généré par IA' sur vos visuels ou voix synthétiques réalistes. De plus, restez protégés : ne transmettez jamais de données confidentielles de vos clients et gardez toujours le contrôle sur vos relectures humaines. L'IA propose, le dirigeant dispose."
+            },
+            {
+                id: 33,
+                category: "PARTIE 4",
+                subBadge: "Clôture",
+                title: "Questions, Échanges & Communauté BGE",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-full items-stretch">
+                        <!-- Gauche : Contact et Remerciements -->
+                        <div class="flex flex-col justify-between space-y-4">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue text-sm md:text-base mb-1">Activez votre Content Factory !</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                                    Démarrez votre routine dès lundi matin.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 shadow-inner">
+                                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Contact Direct Formateur</p>
+                                <p class="text-bge-orange font-mono font-bold text-xs md:text-sm">christophe.guillon@bge-paysdelaloire.com</p>
+                                <div class="h-[1px] bg-slate-200 my-1"></div>
+                                <a href="https://www.bge-paysdelaloire.com" target="_blank" class="text-bge-blue font-poppins font-bold text-xs md:text-sm hover:underline block"><i class="fa-solid fa-globe mr-1.5"></i>bge-paysdelaloire.com</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Droite : Réseaux Sociaux -->
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm mb-1.5">Rejoignez notre réseau local</h4>
+                                <p class="text-slate-500 text-[10px] md:text-xs mb-3">Suivez nos actualités et partagez vos premiers succès créés avec l'IA.</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-center">
+                                <a href="https://www.linkedin.com/company/bge-pays-de-la-loire" target="_blank" class="p-2.5 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors flex flex-col items-center">
+                                    <i class="fa-brands fa-linkedin text-bge-blue text-xl mb-1"></i>
+                                    <span class="font-bold text-slate-700 text-[10px] md:text-xs">LinkedIn</span>
+                                </a>
+                                <a href="https://www.facebook.com/bgepaysdelaloire" target="_blank" class="p-2.5 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors flex flex-col items-center">
+                                    <i class="fa-brands fa-facebook text-blue-600 text-xl mb-1"></i>
+                                    <span class="font-bold text-slate-700 text-[10px] md:text-xs">Facebook</span>
+                                </a>
+                                <a href="https://www.instagram.com/bge_paysdelaloire" target="_blank" class="p-2.5 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors flex flex-col items-center">
+                                    <i class="fa-brands fa-instagram text-pink-600 text-xl mb-1"></i>
+                                    <span class="font-bold text-slate-700 text-[10px] md:text-xs">Instagram</span>
+                                </a>
+                                <a href="https://www.youtube.com/@bgepaysdelaloire" target="_blank" class="p-2.5 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors flex flex-col items-center">
+                                    <i class="fa-brands fa-youtube text-red-600 text-xl mb-1"></i>
+                                    <span class="font-bold text-slate-700 text-[10px] md:text-xs">YouTube</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Merci à tous pour votre énergie et votre implication ce matin ! Nous arrivons au terme de cette session BGE. J'ai condensé nos dernières slides pour vous offrir cette vue d'ensemble récapitulative. Vous avez mes coordonnées directes à gauche pour vos futures questions sur la mise en place de votre routine du lundi. Et à droite, n'hésitez pas à rejoindre nos différents réseaux d'entrepreneurs régionaux pour rester connectés à notre actualité. N'oubliez pas de compléter vos fiches d'évaluation avant de quitter la salle. À vos claviers dès lundi pour votre premier sprint de communication !"
+            }
+        ];
+
+        // VARIABLES D'ÉTAT GLOBALES
+        let currentSlideIndex = 0;
+        let timerInterval = null;
+        let timerSecondsRemaining = 1800; // Par défaut 30 minutes
+        let timerIsRunning = false;
+        let consoleIsVisible = true; // Pour basculer entre mode présentateur et diaporama seul
+
+        window.onload = function () {
+            // Lecture de la slide d'origine si présente dans l'URL ou localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            const role = urlParams.get('role');
+            
+            // Si c'est l'affichage présentateur, on configure l'interface présentateur
+            if (role === 'presenter' || window.name === 'bge_presenter_view') {
+                document.getElementById('main-header').style.display = 'none';
+                document.getElementById('slide-viewer-pane').style.display = 'none';
+                document.getElementById('presenter-sidebar').classList.remove('w-[380px]', 'md:w-[460px]');
+                document.getElementById('presenter-sidebar').classList.add('w-full', 'h-full');
+            }
+
+            buildSlidesGridSelector();
+            
+            // Écoute de la synchronisation instantanée via le stockage partagé
+            window.addEventListener('storage', handleStorageEvent);
+            
+            // Récupérer la slide de départ
+            const savedSlide = localStorage.getItem('bge_current_slide');
+            if (savedSlide !== null) {
+                currentSlideIndex = parseInt(savedSlide, 10);
+            }
+            
+            renderSlide(currentSlideIndex);
+            initNavigation();
+            setTimerDuration(1800); // 30 min par défaut
+        };
+
+        // Gérer la synchronisation entre les deux fenêtres
+        function handleStorageEvent(event) {
+            if (event.key === 'bge_current_slide' && event.newValue !== null) {
+                const newIndex = parseInt(event.newValue, 10);
+                if (newIndex !== currentSlideIndex) {
+                    renderSlide(newIndex);
+                }
+            }
+            if (event.key === 'bge_timer_seconds' && event.newValue !== null) {
+                timerSecondsRemaining = parseInt(event.newValue, 10);
+                updateTimerDisplay();
+            }
+            if (event.key === 'bge_timer_running' && event.newValue !== null) {
+                const running = event.newValue === 'true';
+                if (running !== timerIsRunning) {
+                    if (running) {
+                        startTimerInterval();
+                    } else {
+                        stopTimerInterval();
+                    }
+                }
+            }
+        }
+
+        // Construction du rendu de la slide sélectionnée
+        function renderSlide(index) {
+            if (index < 0 || index >= slidesDatabase.length) return;
+            currentSlideIndex = index;
+
+            const slide = slidesDatabase[index];
+
+            // Mise à jour de l'en-tête de slide
+            document.getElementById("slide-category-badge").innerText = slide.category;
+            document.getElementById("slide-sub-badge").innerText = slide.subBadge;
+
+            // Mise à jour du contenu principal avec un wrapper flexible empêchant le défilement
+            const mainContentContainer = document.getElementById("slide-main-content");
+            mainContentContainer.innerHTML = `
+                <h3 class="font-poppins font-black text-xl md:text-2xl text-bge-blue mb-3 tracking-tight leading-snug border-l-4 border-bge-orange pl-3 flex-shrink-0">
+                    ${slide.title}
+                </h3>
+                <div class="slide-body-content text-slate-700 leading-relaxed text-xs md:text-sm font-lato overflow-hidden">
+                    ${slide.content}
+                </div>
+            `;
+
+            // Mise à jour du pied de page
+            document.getElementById("slide-footer-right").innerText = `Séquence ${slide.category} • Slide ${slide.id} / 33`;
+
+            // Compteur global de l'en-tête de l'application
+            document.getElementById("global-slide-counter").innerText = `Slide ${slide.id} / 33`;
+
+            // Mise à jour des notes d'animation du formateur
+            const presenterNotes = document.getElementById("presenter-notes");
+            presenterNotes.innerHTML = slide.script.replace(/\n/g, "<br>");
+            // Auto scroll vers le haut des notes
+            presenterNotes.scrollTop = 0;
+
+            // Mettre en valeur le bouton de slide dans la grille
+            updateGridActiveIndicator(index);
+
+            // Synchroniser la slide sur localStorage
+            localStorage.setItem('bge_current_slide', index.toString());
+        }
+
+        // Changement de slide de manière sécurisée
+        function navigateSlide(direction) {
+            const targetIndex = currentSlideIndex + direction;
+            if (targetIndex >= 0 && targetIndex < slidesDatabase.length) {
+                renderSlide(targetIndex);
+            }
+        }
+
+        // Raccourcis claviers pour naviguer
+        function initNavigation() {
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
+                    e.preventDefault();
+                    navigateSlide(1);
+                } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+                    e.preventDefault();
+                    navigateSlide(-1);
+                }
+            });
+        }
+
+        // Construction dynamique de la grille de boutons pour les 33 slides
+        function buildSlidesGridSelector() {
+            const container = document.getElementById("slides-grid-container");
+            container.innerHTML = ""; // Vider avant reconstruction
+
+            for (let i = 0; i < slidesDatabase.length; i++) {
+                const btn = document.createElement("button");
+                btn.id = `grid-btn-${i}`;
+                btn.innerText = i + 1;
+                btn.className = "bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold py-1 rounded transition-all duration-200 text-center";
+                btn.onclick = function () {
+                    renderSlide(i);
+                };
+                container.appendChild(btn);
+            }
+        }
+
+        // Mettre en évidence la slide courante sur la grille
+        function updateGridActiveIndicator(activeIndex) {
+            for (let i = 0; i < slidesDatabase.length; i++) {
+                const btn = document.getElementById(`grid-btn-${i}`);
+                if (btn) {
+                    if (i === activeIndex) {
+                        btn.className = "bg-bge-orange text-white text-xs font-black py-1.5 rounded shadow-lg scale-105 border border-white/20 text-center";
+                    } else {
+                        btn.className = "bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold py-1.5 rounded transition-all duration-200 text-center";
+                    }
+                }
+            }
+        }
+
+        // GESTION DU MINUTEUR ET COMPTE À REBOURS
+        function setTimerDuration(seconds) {
+            stopTimerInterval();
+            timerSecondsRemaining = seconds;
+            updateTimerDisplay();
+            localStorage.setItem('bge_timer_seconds', seconds.toString());
+        }
+
+        function toggleTimer() {
+            if (timerIsRunning) {
+                stopTimerInterval();
+            } else {
+                startTimerInterval();
+            }
+        }
+
+        function startTimerInterval() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerIsRunning = true;
+            document.getElementById("timer-btn").innerText = "Pause";
+            document.getElementById("timer-btn").className = "bg-red-600 hover:bg-red-700 text-[10px] md:text-xs font-bold py-2 rounded-lg text-white shadow-md transition-all";
+            
+            localStorage.setItem('bge_timer_running', 'true');
+
+            timerInterval = setInterval(function () {
+                if (timerSecondsRemaining > 0) {
+                    timerSecondsRemaining--;
+                    updateTimerDisplay();
+                    localStorage.setItem('bge_timer_seconds', timerSecondsRemaining.toString());
+                } else {
+                    stopTimerInterval();
+                    // Alerte douce pour la fin de l'atelier
+                    document.getElementById("timer-display").innerText = "FINI !";
+                }
+            }, 1000);
+        }
+
+        function stopTimerInterval() {
+            timerIsRunning = false;
+            if (timerInterval) clearInterval(timerInterval);
+            document.getElementById("timer-btn").innerText = "Lancer";
+            document.getElementById("timer-btn").className = "bg-bge-orange hover:bg-orange-600 text-[10px] md:text-xs font-bold py-2 rounded-lg text-white shadow-md transition-all";
+            localStorage.setItem('bge_timer_running', 'false');
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timerSecondsRemaining / 60);
+            const secs = timerSecondsRemaining % 60;
+            const displayStr = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            document.getElementById("timer-display").innerText = displayStr;
+
+            // Calcul de la barre de progression (base 30 minutes / 1800s par défaut)
+            const progressPercent = (timerSecondsRemaining / 1800) * 100;
+            document.getElementById("timer-progress").style.width = `${Math.min(progressPercent, 100)}%`;
+        }
+
+        // GESTION DU MODE PRÉSENTATEUR INDÉPENDANT (DOUBLE ÉCRAN)
+        function openPresenterWindow() {
+            // Ouvre l'application dans une nouvelle fenêtre indépendante en lui passant le rôle présentateur
+            const path = window.location.pathname + '?role=presenter';
+            window.open(path, 'bge_presenter_view', 'width=1200,height=800,toolbar=no,menubar=no,scrollbars=no,resizable=yes');
+        }
+
+        // MASQUER / AFFICHER LA SIDEBAR DE NOTES SUR L'ÉCRAN PRINCIPAL
+        function togglePresenterSidebar() {
+            const sidebar = document.getElementById("presenter-sidebar");
+            const showBtn = document.getElementById("show-sidebar-btn");
+
+            if (consoleIsVisible) {
+                sidebar.classList.add('w-0', 'border-l-0', 'opacity-0');
+                sidebar.classList.remove('w-[380px]', 'md:w-[460px]');
+                showBtn.classList.remove('hidden');
+                consoleIsVisible = false;
+            } else {
+                sidebar.classList.remove('w-0', 'border-l-0', 'opacity-0');
+                sidebar.classList.add('w-[380px]', 'md:w-[460px]');
+                showBtn.classList.add('hidden');
+                consoleIsVisible = true;
+            }
+        }
+
+        // MODE PLEIN ÉCRAN
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Erreur de passage en plein écran: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGE Pays de la Loire — Booster sa Performance Commerciale avec l'IA</title>
+    <!-- Polices et Styles BGE Officiels (BrandBook Pomelli) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Lato:wght@300;400;700;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bge-blue': '#004A99',      /* Deep Cobalt BGE */
+                        'bge-orange': '#F28C00',    /* Saffron Orange BGE */
+                        'bge-capri': '#009FE3',     /* Capri Blue BGE */
+                        'bge-green': '#8cc63f',     /* BGE Green */
+                        'bge-dark': '#0b132b',      /* Deep Obsidian Blue */
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        lato: ['Lato', 'sans-serif'],
+                        code: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slide-aspect-ratio {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 100%;
+            max-height: calc(100vh - 80px);
+            height: auto;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Typographies Générales pour Projection HD */
+        .slide-body-content p,
+        .slide-body-content li,
+        .slide-body-content td,
+        .slide-body-content th {
+            font-size: 1.02rem !important;
+            line-height: 1.55 !important;
+        }
+        @media (min-width: 768px) {
+            .slide-body-content p,
+            .slide-body-content li,
+            .slide-body-content td,
+            .slide-body-content th {
+                font-size: 1.12rem !important;
+            }
+        }
+        .slide-body-content h4 { font-size: 1.28rem !important; }
+
+        /* Style Haute Lisibilité ZÉRO OVERFLOW pour Projection */
+        .prompt-code-block {
+            background-color: #0b132b;
+            border: 2px solid #1e293b;
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+        }
+        .prompt-text-projected {
+            font-family: 'Fira Code', 'Courier New', monospace !important;
+            font-size: 0.82rem;
+            line-height: 1.45;
+            font-weight: 500;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        @media (min-width: 768px) {
+            .prompt-text-projected {
+                font-size: 0.88rem;
+                line-height: 1.5;
+            }
+        }
+        @media (min-width: 1280px) {
+            .prompt-text-projected {
+                font-size: 0.92rem;
+                line-height: 1.52;
+            }
+        }
+
+        .toast-notification {
+            animation: fadeInOut 2.5s ease-in-out forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, 20px); }
+            15% { opacity: 1; transform: translate(-50%, 0); }
+            85% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -20px); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-lato min-h-screen flex flex-col overflow-hidden selection:bg-bge-orange selection:text-white">
+
+    <!-- BARRE DE CONTRÔLE SUPÉRIEURE -->
+    <header id="main-header" class="bg-slate-950 border-b border-slate-800 h-16 px-4 md:px-6 flex items-center justify-between z-20 flex-shrink-0">
+        <div class="flex items-center gap-3">
+            <span class="bg-bge-orange text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">BGE PAYS DE LA LOIRE</span>
+            <h1 class="font-poppins font-bold text-sm md:text-base hidden sm:inline-block tracking-tight text-white">Booster sa Performance Commerciale avec l'IA</h1>
+        </div>
+        
+        <div class="flex items-center gap-2 md:gap-3">
+            <button onclick="navigateSlide(-1)" class="bg-slate-800 hover:bg-slate-700 text-white p-2 rounded-lg transition-colors" title="Slide Précédente">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <span id="global-slide-counter" class="text-xs md:text-sm font-bold text-slate-300 min-w-[90px] text-center bg-slate-900 px-3 py-1.5 rounded-md border border-slate-800">Slide 1 / 32</span>
+            <button onclick="navigateSlide(1)" class="bg-slate-800 hover:bg-slate-700 text-white p-2 rounded-lg transition-colors" title="Slide Suivante">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Mode Double Écran -->
+            <button onclick="openPresenterWindow()" class="bg-bge-blue hover:bg-blue-700 text-white p-2.5 rounded-lg flex items-center justify-center transition-all shadow-md" title="Console Présentateur (2e Écran Synchronisé)">
+                <i class="fa-solid fa-desktop"></i>
+            </button>
+
+            <button onclick="toggleFullscreen()" class="bg-slate-800 hover:bg-slate-700 text-white text-xs md:text-sm font-semibold p-2.5 rounded-lg flex items-center justify-center transition-colors" title="Mode Plein Écran">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <main class="flex-grow flex overflow-hidden relative">
+
+        <!-- ZONE DIAPORAMA PROJETÉ -->
+        <div id="slide-viewer-pane" class="flex-grow flex items-center justify-center p-3 md:p-5 bg-slate-900 transition-all duration-300 w-full h-full">
+            <div class="slide-aspect-ratio bg-white text-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col relative border border-slate-700/30">
+                
+                <!-- En-tête de Slide avec Logo Officiel BGE -->
+                <div class="h-14 border-b border-slate-100 px-6 md:px-8 flex items-center justify-between bg-slate-50/70 flex-shrink-0 z-10">
+                    <div class="flex items-center gap-3">
+                        <span id="slide-category-badge" class="bg-bge-blue text-white text-[10px] md:text-xs font-black px-3 py-1.5 rounded-md uppercase tracking-wider">INTRO</span>
+                        <span id="slide-sub-badge" class="text-slate-600 text-[10px] md:text-xs font-bold bg-slate-200/70 px-2.5 py-1 rounded-md">Mindset</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <span class="text-[11px] font-bold text-slate-500 hidden md:inline-block">Christophe GUILLON • BGE Pays de la Loire</span>
+                        <span class="text-slate-300 hidden md:inline-block">|</span>
+                        <img src="https://www.bge-paysdelaloire.com/wp-content/uploads/2022/03/logo-BGE-pays-de-la-loire.jpg.webp" alt="Logo BGE Pays de la Loire" class="h-8 md:h-9 w-auto object-contain">
+                    </div>
+                </div>
+
+                <!-- Contenu central de la Slide -->
+                <div id="slide-main-content" class="flex-grow px-6 md:px-12 py-4 flex flex-col justify-center items-center overflow-hidden w-full">
+                    <!-- Généré dynamiquement en JS -->
+                </div>
+
+                <!-- Pied de Slide -->
+                <div class="h-10 border-t border-slate-100 px-8 flex items-center justify-between text-[10px] md:text-xs text-slate-400 bg-slate-50/30 flex-shrink-0 z-10">
+                    <span class="font-bold text-slate-500 uppercase tracking-wider">BGE PAYS DE LA LOIRE • BOOSTER SA PERFORMANCE COMMERCIALE (3H30)</span>
+                    <span id="slide-footer-right" class="font-semibold text-bge-orange">Slide 1 / 32</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSOLE FORMATEUR / PRÉSENTATEUR SIDEBAR -->
+        <div id="presenter-sidebar" class="w-[380px] md:w-[460px] bg-slate-950 border-l border-slate-800 flex flex-col flex-shrink-0 z-10 overflow-hidden transition-all duration-300">
+            <div class="p-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between flex-shrink-0">
+                <div class="flex items-center gap-2 text-bge-orange">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    <h3 class="font-poppins font-bold text-sm uppercase tracking-wider text-slate-100">Console Animateur BGE</h3>
+                </div>
+                <button onclick="togglePresenterSidebar()" class="text-slate-400 hover:text-white transition-colors text-xs font-bold bg-slate-800 px-2.5 py-1 rounded">
+                    <i class="fa-solid fa-chevron-right mr-1"></i> Masquer
+                </button>
+            </div>
+
+            <div class="flex-grow overflow-y-auto p-4 md:p-5 space-y-5 no-scrollbar">
+                
+                <!-- Navigation -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-inner">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3 block"><i class="fa-solid fa-compass mr-1.5 text-bge-capri"></i>Navigation Diaporama</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="navigateSlide(-1)" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs md:text-sm font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 border border-slate-700/60 transition-all">
+                            <i class="fa-solid fa-chevron-left"></i> Précédent
+                        </button>
+                        <button onclick="navigateSlide(1)" class="bg-bge-blue hover:bg-blue-700 text-white text-xs md:text-sm font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 border border-blue-600 transition-all">
+                            Suivant <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Minuteur d'exercice -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-inner">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wide"><i class="fa-solid fa-stopwatch text-bge-green mr-1.5"></i>Minuteur Atelier Pratique</span>
+                        <span id="timer-display" class="font-mono text-xl md:text-2xl font-black text-bge-green">15:00</span>
+                    </div>
+                    <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden mb-3.5">
+                        <div id="timer-progress" class="h-full bg-bge-green rounded-full transition-all duration-1000" style="width: 100%;"></div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1.5">
+                        <button onclick="setTimerDuration(300)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-slate-200">5 Min</button>
+                        <button onclick="setTimerDuration(720)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-slate-200">12 Min</button>
+                        <button onclick="setTimerDuration(900)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-slate-200">15 Min</button>
+                        <button id="timer-btn" onclick="toggleTimer()" class="bg-bge-orange hover:bg-orange-600 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-white shadow-md">Lancer</button>
+                    </div>
+                </div>
+
+                <!-- Script oral formateur -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 flex flex-col min-h-[220px]">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2.5 block"><i class="fa-solid fa-microphone-lines text-bge-orange mr-1.5"></i>Conducteur / Script de l'Animateur</span>
+                    <div id="presenter-notes" class="text-xs md:text-sm text-slate-300 leading-relaxed overflow-y-auto max-h-[260px] pr-2 font-lato font-semibold space-y-2">
+                        <!-- Rempli dynamiquement -->
+                    </div>
+                </div>
+
+                <!-- Grille des slides -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3 block"><i class="fa-solid fa-th mr-1.5 text-bge-orange"></i>Sélecteur Rapide</span>
+                    <div id="slides-grid-container" class="grid grid-cols-6 md:grid-cols-8 gap-1.5">
+                        <!-- Rempli en JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button id="show-sidebar-btn" onclick="togglePresenterSidebar()" class="hidden fixed bottom-6 right-6 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-bge-orange w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transition-all z-30" title="Ouvrir la Console Formateur">
+        <i class="fa-solid fa-graduation-cap text-lg"></i>
+    </button>
+
+    <!-- BASE DE DONNÉES SLIDES JS (32 SLIDES) -->
+    <script>
+        const slidesDatabase = [
+            {
+                id: 1,
+                category: "INTRO",
+                subBadge: "Mindset BGE",
+                title: "Booster sa Performance Commerciale avec l'IA",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full my-auto max-w-3xl mx-auto space-y-4">
+                        <p class="text-bge-orange font-bold uppercase tracking-widest text-xs md:text-sm">BGE Pays de la Loire • Appui aux Entrepreneurs</p>
+                        <h2 class="font-poppins font-black text-3xl md:text-4xl text-bge-blue leading-tight">L'IA est votre copilote commercial. Vous êtes l'expert.</h2>
+                        <p class="text-slate-600 text-sm md:text-base">Formation-Action de 3h30 pour les créateurs, solo-preneurs, dirigeants et commerciaux B2B & B2C.</p>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl shadow-sm">
+                            <p class="text-bge-blue font-poppins font-bold text-base md:text-lg">Christophe GUILLON • Conseiller, Formateur & Référent IA BGE Pays de la Loire</p>
+                        </div>
+                    </div>
+                `,
+                script: "Bonjour à toutes et à tous. Bienvenue dans cette session BGE Pays de la Loire dédiée à la performance commerciale augmentée par l'IA[cite: 3, 4]. L'objectif n'est pas de faire de vous des spécialistes de la création visuelle ou du prompting, mais de vous équiper avec les meilleures IA métier B2B et B2C pour trouver des prospects avec Pharow.com[cite: 5], orchestrer vos séquences avec Lemlist.com[cite: 5, 6], préparer vos RDV, automatiser vos comptes-rendus[cite: 5, 8] et signer plus de ventes[cite: 3, 5]."
+            },
+            {
+                id: 2,
+                category: "INTRO",
+                subBadge: "Programme",
+                title: "Le Programme Global de la Session (3h30)",
+                content: `
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 h-full my-auto items-stretch text-xs md:text-sm w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-t-4 border-bge-orange flex flex-col justify-between">
+                            <div><span class="text-bge-orange font-black block mb-1">Intro & Security (25 min)</span><p class="text-slate-600">Posture active, "Busy is not Business" & sécurité Shadow AI.</p></div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-t-4 border-bge-blue flex flex-col justify-between">
+                            <div><span class="text-bge-blue font-black block mb-1">Module 1 : Sourcing IA & BDD (40 min)</span><p class="text-slate-600">Master Prompt Ultime, BDD 29 Colonnes, Dossier 360° Gratuit & Lead Scoring.</p></div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-t-4 border-bge-blue flex flex-col justify-between">
+                            <div><span class="text-bge-blue font-black block mb-1">Module 2 : Sourcing Pharow & Lemlist (45 min)</span><p class="text-slate-600">Sourcing Pharow.com, séquences Lemlist.com, DeepL Write & Social Selling.</p></div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-t-4 border-bge-blue flex flex-col justify-between">
+                            <div><span class="text-bge-blue font-black block mb-1">Module 3 : Argumentation & Closing (50 min)</span><p class="text-slate-600">Bénéfice Flip, simulation A.R.A., levée d'objections & pitch 7s.</p></div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-t-4 border-bge-blue flex flex-col justify-between">
+                            <div><span class="text-bge-blue font-black block mb-1">Module 4 : Assistants RDV & Suivi Client (35 min)</span><p class="text-slate-600">Noota, tl;dv, Geremy.ai, relances express & suivi 24/7 sans code.</p></div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-t-4 border-bge-green flex flex-col justify-between">
+                            <div><span class="text-bge-green font-black block mb-1">Module 5 : Action & RSE (15 min)</span><p class="text-slate-600">Conformité RGPD, AI Act, Green IT & feuille de route.</p></div>
+                        </div>
+                    </div>
+                `,
+                script: "Voici la feuille de route de nos 3h30 ensemble[cite: 3, 5]. Chaque module est centré sur la découverte d'outils IA dédiés à la prospection et à la vente, une démonstration en direct et un atelier pratique sur votre propre activité[cite: 5, 10]."
+            },
+            {
+                id: 3,
+                category: "INTRO",
+                subBadge: "Posture",
+                title: "Le Commercial Augmenté : « Busy is not Business »",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">🤖 Ce que l'IA prend en charge</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3 leading-relaxed">Les tâches répétitives à faible valeur ajoutée :</p>
+                                <ul class="text-xs md:text-sm text-slate-600 space-y-1.5">
+                                    <li>• Sourcing B2B Pharow.com & constitution de BDD prospects CSV.</li>
+                                    <li>• Recherche d'informations & synthèses de documents.</li>
+                                    <li>• Saisie des comptes-rendus et mise à jour CRM.</li>
+                                </ul>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold border-t pt-2 block mt-2">Gains de temps massifs (jusqu'à 40 % du temps)</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-orange shadow-sm">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange mb-2 text-base md:text-lg">🤝 Ce que l'Humain préserve</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3 leading-relaxed">Les piliers irremplaçables de la vente :</p>
+                                <ul class="text-xs md:text-sm text-slate-600 space-y-1.5">
+                                    <li>• L'empathie, l'écoute active et la compréhension fine.</li>
+                                    <li>• L'intelligence émotionnelle durant les négociations.</li>
+                                    <li>• La création de confiance et de liens durables.</li>
+                                </ul>
+                            </div>
+                            <span class="text-xs text-bge-orange font-bold border-t pt-2 block mt-2">L'IA libère le vendeur, elle ne le remplace pas.</span>
+                        </div>
+                    </div>
+                `,
+                script: "Comme le rappellent les leaders commerciaux du Club Action Co / Mercuri : 'Busy is not Business !'[cite: 8] Être débordé par de l'administratif ne veut pas dire faire du commerce[cite: 8]. L'IA élimine la fiction du travail répétitif pour vous redonner du temps face au client[cite: 5, 8]."
+            },
+            {
+                id: 4,
+                category: "INTRO",
+                subBadge: "Typologies",
+                title: "Les 3 Typologies d'IA pour le Commerce (B2B & B2C)",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-full my-auto items-stretch text-xs md:text-sm w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-blue flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-bge-blue text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Création & Offres</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-sm md:text-base mt-2 mb-2">1. IA Générative</h4>
+                                <p class="text-slate-600 leading-relaxed text-xs">Rédiger des e-mails, concevoir des propositions, générer des fiches et créer des visuels.</p>
+                            </div>
+                            <span class="text-[10px] text-slate-400 font-bold uppercase mt-2">ChatGPT, DeepL Write, Gamma</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-orange flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-bge-orange text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Analyse & Sourcing</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-sm md:text-base mt-2 mb-2">2. IA Prédictive & Mégabases</h4>
+                                <p class="text-slate-600 leading-relaxed text-xs">Sourcing de décideurs sur Pharow.com, scoring des prospects, analyse des comportements B2B/B2C.</p>
+                            </div>
+                            <span class="text-[10px] text-slate-400 font-bold uppercase mt-2">Pharow.com, Perplexity, Salesforce</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-green flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-bge-green text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Interaction & Séquences</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-sm md:text-base mt-2 mb-2">3. IA Conversationnelle & Automation</h4>
+                                <p class="text-slate-600 leading-relaxed text-xs">Orchestrer Lemlist, répondre aux FAQ clients, automatiser les comptes-rendus et simuler des RDV.</p>
+                            </div>
+                            <span class="text-[10px] text-slate-400 font-bold uppercase mt-2">Lemlist, ChatPDF, Noota, tl;dv, Geremy.ai</span>
+                        </div>
+                    </div>
+                `,
+                script: "Sachez différencier ces 3 types d'IA : l'IA générative crée vos contenus et vos offres[cite: 5, 6], l'IA prédictive et les plateformes comme Pharow.com trouvent les bons décideurs[cite: 5], et l'IA conversationnelle ou Lemlist orchestre vos échanges et relances[cite: 5, 6]."
+            },
+            {
+                id: 5,
+                category: "INTRO",
+                subBadge: "Sécurité",
+                title: "Sécurité & Confidentialité : Le Danger du « Shadow AI »",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-red-50 p-5 rounded-2xl border border-red-200 border-t-4 border-red-600 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded uppercase">30 % CHIFFRE CHOC</span>
+                                    <span class="text-xs font-bold text-red-500">Étude KPMG</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-red-950 text-base md:text-lg mb-2">Le Risque du Shadow AI</h4>
+                                <p class="text-slate-700 text-xs md:text-sm leading-relaxed mb-2">30 % des utilisateurs admettent utiliser des outils IA gratuits en y collant des données confidentielles ou nominatives.</p>
+                                <p class="text-red-700 text-xs font-bold">Conséquence : Fuite de secrets d'affaires et violation du RGPD.</p>
+                            </div>
+                            <span class="text-xs text-red-700 font-bold border-t pt-2 block">Interdiction des données brutes</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-blue shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-bge-blue text-white text-xs font-bold px-2.5 py-1 rounded uppercase">🔒 BGE RÉGLES D'OR</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-base md:text-lg mb-2">Protéger son Capital Client</h4>
+                                <ul class="text-slate-600 text-xs md:text-sm space-y-2">
+                                    <li>• <strong>Anonymiser :</strong> Remplacer les noms et chiffres réels dans les prompts.</li>
+                                    <li>• <strong>Paramétrer :</strong> Désactiver l'entraînement du modèle sur vos données.</li>
+                                    <li>• <strong>Souveraineté :</strong> Privilégier des solutions sécurisées comme Mistral AI.</li>
+                                </ul>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold border-t border-slate-200 pt-2 block">Usage Responsable & Conforme</span>
+                        </div>
+                    </div>
+                `,
+                script: "Attention au 'Shadow AI' ! Ne copiez-collez jamais de données clients réelles, de fichiers tarifaires confidentiels ou d'informations nominatives dans les IA publiques gratuites[cite: 3, 5]. Anonymisez vos données systématiquement ![cite: 3, 5]"
+            },
+            {
+                id: 6,
+                category: "INTRO",
+                subBadge: "Jeu Interactif",
+                title: "Atelier Ludique : Chasse aux Données Confidentielles",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-4xl mx-auto w-full text-xs">
+                        <div class="flex items-center justify-between bg-slate-100 p-2 rounded-xl border border-slate-200 mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-bge-orange text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">🎮 JEU INTERACTIF EN DIRECT</span>
+                                <span class="font-bold text-slate-800 text-xs">Proposez un terme : l'animateur clique dessus !</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono font-bold text-xs">
+                                <span class="text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">✅ Données nominatives masquées : <span id="anon-correct-count">0</span> / <span id="anon-total-target-count">21</span></span>
+                                <span class="text-red-700 bg-red-100 px-2 py-0.5 rounded border border-red-300">❌ Erreurs : <span id="anon-wrong-count">0</span></span>
+                                <button onclick="resetAnonymExercise()" class="bg-slate-800 hover:bg-slate-700 text-white px-2 py-1 rounded text-[10px] transition-colors"><i class="fa-solid fa-rotate-right mr-1"></i>Reset</button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-stretch">
+                            <!-- Left 2 Cols: E-mail received from Client Prospect -->
+                            <div class="md:col-span-2 bg-white rounded-xl border border-slate-300 shadow-sm overflow-hidden flex flex-col justify-between">
+                                <div class="bg-slate-100 px-3 py-2 border-b border-slate-200 text-[11px] space-y-1">
+                                    <div class="flex justify-between text-slate-500">
+                                        <span><strong>De (Cliente Prospect) :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">Mme Sophie MARTINEZ</span> &lt;<span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">s.martinez@jardingourmand-nantes.fr</span>&gt;</span>
+                                        <span>18 août 2026</span>
+                                    </div>
+                                    <div class="text-slate-700"><strong>À (Vous / L'Entrepreneur) :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">c.guillon@menuiserie-artisanale49.fr</span></div>
+                                    <div class="text-slate-900 font-bold"><strong>Objet :</strong> Demande de <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">devis</span> - Rénovation <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">terrasse</span> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">Le Jardin Gourmand</span></div>
+                                </div>
+
+                                <div class="p-3 text-slate-800 text-[11px] leading-relaxed space-y-2">
+                                    <p>Bonjour,</p>
+                                    <p>Suite à notre <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">échange téléphonique</span> d'hier, je vous confirme notre projet d'aménagement pour le restaurant <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">Le Jardin Gourmand</span> situé au <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">14 rue de la Paix à Nantes</span>. Voici mon SIRET pour faire le devis : <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">812 345 678 00012</span>.</p>
+                                    <p>Nous souhaitons rénover notre <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">terrasse</span> extérieure avant le <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">15 mai 2026</span>. Notre <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">budget maximal</span> est de <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">12 500 € HT</span>.</p>
+                                    <p><span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">M. Jean DUPONT</span>, notre <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">comptable</span> (<span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">j.dupont@cabinet-fiducial.fr</span>), validera le règlement d'un <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">acompte</span> de <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">30 %</span> (soit <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="false" onclick="clickAnonym(this)">3 750 €</span>).</p>
+                                    <p>Cordialement,<br>
+                                    <strong><span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">Sophie MARTINEZ</span></strong> — Directrice<br>
+                                    <span class="text-slate-500">Tél : <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded transition-colors" data-correct="true" onclick="clickAnonym(this)">02 40 12 34 56</span></span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Right 1 Col: Attachment 2-Page Detailed Cahier des Charges PDF UI -->
+                            <div class="bg-amber-50 rounded-xl border border-amber-300 p-2.5 shadow-sm flex flex-col justify-between text-[11px] h-full">
+                                <div class="space-y-2 flex-grow flex flex-col justify-between">
+                                    <div class="flex items-center justify-between font-bold text-amber-900 border-b border-amber-200 pb-1.5">
+                                        <span><i class="fa-solid fa-file-pdf text-bge-orange mr-1"></i> Cahier_des_charges_2026.pdf</span>
+                                        <span class="text-[9px] bg-amber-200 text-amber-900 px-1.5 py-0.5 rounded font-bold">2 Pages</span>
+                                    </div>
+                                    
+                                    <!-- PAGE 1 PREVIEW -->
+                                    <div class="bg-white p-2.5 rounded-lg border border-amber-200 space-y-1.5 font-mono text-[10px] shadow-sm flex-1 flex flex-col justify-center">
+                                        <div class="font-bold text-bge-blue text-center border-b pb-1"><span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="false" onclick="clickAnonym(this)">PAGE 1 / 2 — FICHE PROJET</span></div>
+                                        <div><strong>Société :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">Le Jardin Gourmand SARL</span></div>
+                                        <div><strong>Adresse :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">14 rue de la Paix, 44000 Nantes</span></div>
+                                        <div><strong>Dirigeante :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">Mme Sophie MARTINEZ</span> (<span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">06 11 22 33 44</span>)</div>
+                                        <div><strong>Architecte :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">M. Marc DUBOIS</span> (<span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">Atelier Design Nantes</span>)</div>
+                                    </div>
+
+                                    <!-- PAGE 2 PREVIEW -->
+                                    <div class="bg-white p-2.5 rounded-lg border border-amber-200 space-y-1.5 font-mono text-[10px] shadow-sm flex-1 flex flex-col justify-center">
+                                        <div class="font-bold text-bge-orange text-center border-b pb-1"><span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="false" onclick="clickAnonym(this)">PAGE 2 / 2 — CLAUSES CONFIDENTIELLES</span></div>
+                                        <div><strong>Fournisseur Imposé :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">Bois-Nantes SAS</span></div>
+                                        <div><strong>Code NDA Chantier :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">#NDA-JARDIN-2026-X</span></div>
+                                        <div><strong>IBAN Client :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">FR76 3000 4000 1234 5678 9012 345</span></div>
+                                        <div><strong>Banque :</strong> <span class="anonym-target cursor-pointer hover:bg-amber-200 px-0.5 rounded" data-correct="true" onclick="clickAnonym(this)">Crédit Agricole Atlantique Anjou</span></div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-amber-200 text-[10px] text-amber-900 mt-2 font-bold">
+                                    💡 <strong>Règle BGE :</strong> Les coordonnées de l'entrepreneur, du prospect et du projet sont des données nominatives à caviarder.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "C'est parti pour le jeu d'anonymisation en direct ! Vous êtes l'entrepreneur et vous recevez ce mail d'une cliente prospect, avec son Cahier des Charges de 2 pages en pièce jointe[cite: 3]. Vous voulez demander à ChatGPT de vous rédiger la proposition commerciale parfaite[cite: 3]. Proposez-moi les mots ou chiffres à masquer avant d'envoyer le texte à l'IA. Je clique sur vos propositions : Vert si c'est une vraie donnée confidentielle, Rouge si c'est un mot générique ou un chiffre utile à l'IA qu'il ne faut pas masquer ![cite: 3]"
+            },
+            {
+                id: 7,
+                category: "MODULE 1",
+                subBadge: "Transition",
+                title: "MODULE 1 : Sourcing IA, BDD Prospects & Intelligence Commerciale",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full my-auto max-w-3xl mx-auto space-y-4">
+                        <div class="w-16 h-16 bg-bge-blue/10 text-bge-blue rounded-full flex items-center justify-center text-2xl font-bold mb-2">
+                            01
+                        </div>
+                        <h2 class="font-poppins font-black text-3xl md:text-4xl text-bge-blue">Sourcing IA, BDD prospects qualifiées & Enquête 360°</h2>
+                        <p class="text-slate-600 text-sm md:text-base">Mettre les IA de recherche web en direct au service de la création de fichiers prospects qualifiés (Google Maps, Annuaires) et de l'enquête 360°.</p>
+                        <span class="bg-bge-orange text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">Durée : 40 min</span>
+                    </div>
+                `,
+                script: "Entrons dans le Module 1 ! Nous allons voir comment générer avec les meilleures IA de recherche web des fichiers de prospects qualifiés (Annuaires, Google Maps)[cite: 5], et mener une enquête prospect 360° gratuite[cite: 5, 10]."
+            },
+            {
+                id: 8,
+                category: "MODULE 1",
+                subBadge: "Master Prompt BDD",
+                title: "Master Prompt Ultime : Sourcing, Cibles & BDD Qualifiée (29 Colonnes)",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 h-full my-auto items-stretch w-full max-w-5xl mx-auto text-xs">
+                        <!-- Gauche : Méthode & Animation Formateur (Effet Whaou) -->
+                        <div class="bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm overflow-hidden">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-bge-blue text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase"><i class="fa-solid fa-wand-magic-sparkles mr-1.5"></i>Prompt Ultime BDD & Cibles</span>
+                                    <span class="text-xs font-bold text-slate-500">Effet Whaou</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-slate-900 text-xs md:text-sm mb-2">3-en-1 : Sourcing + Chaîne de Décision + Qualification (29 Colonnes)</h4>
+                                <ul class="text-slate-700 text-[10.5px] md:text-[11px] space-y-2 mb-3">
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-blue">• 1. Cartographie des Cibles :</strong> L'IA identifie les rôles décisionnels clés (Décideur DG, Payeur DAF, Utilisateur terrain) et leurs enjeux respectifs.
+                                    </li>
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-orange">• 2. Deep Research Web Live :</strong> Exploration en direct de Google Maps, des annuaires, de Pappers.fr et des réseaux sociaux.
+                                    </li>
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-green">• 3. Fichier BDD CSV Prêt à l'Emploi :</strong> Génération d'un tableau structuré à 29 colonnes de critères métiers directement exportable sur Excel.
+                                    </li>
+                                </ul>
+                            </div>
+                            <span class="text-[9.5px] text-bge-blue font-bold border-t pt-1.5 block">Un seul prompt structuré pour alimenter toute votre prospection commerciale</span>
+                        </div>
+
+                        <!-- Droite : Master Prompt XML Sourcing & Cibles 29 Colonnes -->
+                        <div class="prompt-code-block p-3.5 rounded-2xl flex flex-col justify-between border-2 border-slate-700 relative shadow-2xl overflow-hidden">
+                            <div class="flex flex-col h-full justify-between">
+                                <div class="flex justify-between items-center mb-2 pb-1.5 border-b border-slate-800 flex-shrink-0">
+                                    <span class="text-[10.5px] md:text-xs font-mono font-bold text-bge-orange uppercase"><i class="fa-solid fa-code mr-1.5"></i>MASTER PROMPT XML : SOURCING & BDD 29 COLONNES</span>
+                                    <button onclick="copyText('prompt-sourcing-ultime')" class="bg-bge-orange hover:bg-orange-600 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all"><i class="fa-solid fa-copy mr-1"></i>Copier</button>
+                                </div>
+                                <div id="prompt-sourcing-ultime" class="prompt-text-projected text-slate-100 text-[8px] sm:text-[8.5px] md:text-[9px] xl:text-[9.5px] leading-relaxed font-mono flex-grow overflow-y-auto pr-1">
+<span class="text-amber-400 font-bold">&lt;IDENTITE&gt;</span>
+Entreprise de fabrication et pose de terrasses en bois sur-mesure basée à Saumur, j'interviens dans le Maine-et-Loire (49).
+<span class="text-amber-400 font-bold">&lt;/IDENTITE&gt;</span>
+
+<span class="text-sky-400 font-bold">&lt;CONTEXTE&gt;</span>
+Prospection B2B auprès des CHR (Restaurants / Hôtels avec terrasse). Je souhaite identifier la chaîne de décision complète (Décideur DG, Payeur, Utilisateur) et qualifier mes cibles.
+<span class="text-sky-400 font-bold">&lt;/CONTEXTE&gt;</span>
+
+<span class="text-emerald-400 font-bold">&lt;SOURCES_A_EXPLORER&gt;</span>
+Google Maps, annuaires professionnels, Pappers.fr, sites web et réseaux sociaux.
+<span class="text-emerald-400 font-bold">&lt;/SOURCES_A_EXPLORER&gt;</span>
+
+<span class="text-purple-300 font-bold">&lt;TÂCHE&gt;</span>
+1) Analyse les prospects cibles et cartographie les rôles clés.
+2) Extrais leurs coordonnées réelles et évalue leurs besoins / freins apparents.
+3) Génère une BDD prospects qualifiée complète.
+<span class="text-purple-300 font-bold">&lt;/TÂCHE&gt;</span>
+
+<span class="text-pink-300 font-bold">&lt;FORMAT&gt;</span>
+Tableau CSV/Excel structuré à 29 colonnes : Priorité;Restaurant;Ville;Code postal;Adresse;Téléphone;Site web;URL Google Maps;Réseaux sociaux;Type de terrasse;État apparent;Besoin supposé;Surface estimée;Couverture;Saison;Positionnement;Budget estimé;Nom du décideur;Fonction;Rôle (Décideur/Payeur/Utilisateur);Enjeu prioritaire;Email pro;Score /100;Source;Statut;Dernier contact;Date relance;Résultat;Notes.
+<span class="text-pink-300 font-bold">&lt;/FORMAT&gt;</span></div>
+                                <span class="text-[8.5px] text-emerald-400 font-bold mt-2 pt-1.5 border-t border-slate-800/80 block flex-shrink-0">Master Prompt XML BGE — Sourcing + Chaîne de Décision + BDD 29 Colonnes</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Observer ce Master Prompt Ultime sur le Slide 8 : nous avons regroupé en une seule commande extrêmement précise la cartographie des décideurs B2B (DG, DAF, Utilisateur), la recherche web en direct et l'extraction de la BDD complète à 29 colonnes[cite: 5, 10]. Formateur : prenez le temps d'expliquer chaque balise XML aux stagiaires, puis lancez l'exécution en direct sur Perplexity / ChatGPT Search pour produire l'effet Whaou ![cite: 5, 10]"
+            },
+            {
+                id: 9,
+                category: "MODULE 1",
+                subBadge: "Exercice M1",
+                title: "Exercice Stagiaire : Générer sa Base Prospects avec les 5 Balises (12 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200 shadow-sm space-y-3">
+                            <span class="bg-bge-orange text-white text-xs font-bold px-2.5 py-1 rounded uppercase">✍️ À VOUS DE JOUER ! (12 MIN)</span>
+                            <h4 class="font-poppins font-bold text-slate-900 text-base">Générer Votre Premier Fichier Prospects Qualifié avec l'IA</h4>
+                            <ol class="text-slate-700 text-xs md:text-sm space-y-2">
+                                <li>1. Renseignez votre balise <strong>&lt;IDENTITE&gt;</strong> (votre entreprise, votre offre B2B/B2C, votre zone).</li>
+                                <li>2. Définissez votre balise <strong>&lt;CONTEXTE&gt;</strong> (votre cible exacte, ex. commerces avec terrasse, PME locales).</li>
+                                <li>3. Listez vos <strong>&lt;SOURCES_A_EXPLORER&gt;</strong> (Google Maps, annuaires, réseaux sociaux, Pappers).</li>
+                                <li>4. Adaptez la <strong>&lt;TÂCHE&gt;</strong> (niveau de qualification) et les colonnes du <strong>&lt;FORMAT&gt;</strong> (votre grille CSV).</li>
+                                <li>5. Exécutez le prompt complet sur <strong>Perplexity Gratuit</strong> ou <strong>ChatGPT Search</strong> et exportez votre tableau CSV.</li>
+                            </ol>
+                            <p class="text-amber-900 text-xs font-bold border-t border-amber-200 pt-2">Livrable : 1 Tableau qualifié de 15 prospects prêts à être contactés.</p>
+                        </div>
+                    </div>
+                `,
+                script: "À vous de jouer ! 12 minutes pour renseigner vos 5 balises (Identité, Contexte, Sources à explorer, Tâche et Format) et générer votre première base de prospects qualifiés[cite: 5, 10]."
+            },
+            {
+                id: 10,
+                category: "MODULE 1",
+                subBadge: "IA 100% Gratuite",
+                title: "Dossier Prospect 360° : L'Enquête Commerciale avec l'IA Gratuite",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full my-auto items-stretch w-full max-w-4xl mx-auto text-xs">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-sm md:text-base">📌 Méthode : Investigation Commerciale Web Live</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed mb-2">Combinez la recherche web en temps réel des IA gratuites (Perplexity, ChatGPT Search, Gemini) pour constituer un dossier prospect exhaustif :</p>
+                                <ul class="text-slate-700 text-[11px] space-y-1.5 mb-2">
+                                    <li>• <strong>Legal & Dirigeants (Pappers / Societe.com) :</strong> Noms, prénoms, mandataires, SIREN et forme juridique.</li>
+                                    <li>• <strong>Santé & Effectifs :</strong> Chiffre d'affaires, bilan, nombre de salariés et recrutements ouverts.</li>
+                                    <li>• <strong>E-Réputation & Clients :</strong> Analyse des avis Google/Trustpilot, réseaux sociaux et insatisfactions récurrentes.</li>
+                                    <li>• <strong>Stratégie Sales :</strong> Leviers d'achat, mots-clés déclencheurs et script d'approche brise-glace.</li>
+                                </ul>
+                            </div>
+                            <span class="text-[10px] text-bge-blue font-bold border-t pt-1.5 block">Dossier prospect complet sans coût d'abonnement</span>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-orange shadow-sm">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange mb-2 text-sm md:text-base">💻 Prompt Structuré : Dossier Type 360° Prospect</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed mb-2">Voici le modèle de prompt à coller dans Perplexity (Gratuit), ChatGPT Search ou Gemini :</p>
+                                <div class="prompt-code-block p-2.5 rounded-xl text-sky-300 font-mono text-[8.5px] space-y-1 overflow-x-auto">
+                                    <div><span class="text-amber-400 font-bold">&lt;IDENTITE&gt;</span> [Mon entreprise / Mon offre B2B en Pays de la Loire] <span class="text-amber-400 font-bold">&lt;/IDENTITE&gt;</span></div>
+                                    <div><span class="text-sky-400 font-bold">&lt;CONTEXTE&gt;</span> Recherche d'intelligence commerciale sur le prospect B2B : [Nom / URL du Prospect]. <span class="text-sky-400 font-bold">&lt;/CONTEXTE&gt;</span></div>
+                                    <div><span class="text-emerald-400 font-bold">&lt;SOURCES_A_EXPLORER&gt;</span> Pappers.fr, Societe.com, LinkedIn, Google Reviews, Trustpilot, Réseaux sociaux et site officiel. <span class="text-emerald-400 font-bold">&lt;/SOURCES_A_EXPLORER&gt;</span></div>
+                                    <div><span class="text-purple-300 font-bold">&lt;TÂCHE&gt;</span> Génère la Fiche d'Intelligence Commerciale 360° :
+1) IDENTITÉ & DIRIGEANTS (Pappers) : Noms/prénoms des gérants, SIREN, statut.
+2) SANTÉ FINANCIÈRE & EFFECTIFS : CA, bilan, nombre de salariés, recrutements.
+3) ÉQUIPE & LINKEDIN : Profils des collaborateurs sur LinkedIn, rôles clés.
+4) CLIENTS & AVIS : Notes Google, points forts et insatisfactions récurrentes.
+5) STRATÉGIE SALES : Leviers d'achat, mots-clés déclencheurs et phrase d'accroche brise-glace. <span class="text-purple-300 font-bold">&lt;/TÂCHE&gt;</span></div>
+                                    <div><span class="text-pink-300 font-bold">&lt;FORMAT&gt;</span> Fiche type structurée imprimable / exportable en PDF <span class="text-pink-300 font-bold">&lt;/FORMAT&gt;</span></div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-bge-orange font-bold border-t pt-1.5 block">Investigation complète 100% accessible</span>
+                        </div>
+                    </div>
+                `,
+                script: "Pour vos formations, aucun abonnement payant n'est nécessaire[cite: 5]. Avec ce prompt, les stagiaires utilisent Perplexity gratuit ou ChatGPT Search pour scanner Pappers, LinkedIn et les avis Google[cite: 5, 10]. Tout est 100% gratuit et directement exportable ![cite: 5, 10]"
+            },
+            {
+                id: 11,
+                category: "MODULE 1",
+                subBadge: "Démo Enquête 360°",
+                title: "Démo Formateur : Exemple Concret d'Enquête 360° (La Cour Angers)",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-3">
+                            <span class="bg-bge-blue text-white text-xs font-bold px-2 py-0.5 rounded uppercase">🖥️ DÉMO FORMATEUR EN DIRECT (100% GRATUIT)</span>
+                            <h4 class="font-poppins font-bold text-slate-800 text-sm md:text-base mt-2">Cas Concret : Enquête Intelligence Commerciale sur « La Cour Angers »</h4>
+                            <p class="text-slate-600 text-xs mt-1">Exemple de prompt prêt à être exécuté devant les stagiaires sur Perplexity Gratuit ou ChatGPT Search.</p>
+                        </div>
+                        <div class="prompt-code-block p-4 rounded-2xl w-full border-2 border-slate-700 shadow-2xl relative">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+                                <span class="text-xs font-mono text-bge-orange font-bold uppercase"><i class="fa-solid fa-code mr-2"></i>Prompt Enquête 360° B2B Concret (Gratuit)</span>
+                                <button onclick="copyText('prompt-demo-osint')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3 py-1 rounded-lg border border-slate-600">Copier</button>
+                            </div>
+                            <div id="prompt-demo-osint" class="prompt-text-projected text-slate-100">
+<span class="text-amber-400 font-bold">&lt;IDENTITE&gt;</span> Entreprise de fabrication et pose de terrasses en bois basée à Saumur, j'interviens dans le Maine-et-Loire <span class="text-amber-400 font-bold">&lt;/IDENTITE&gt;</span>
+<span class="text-sky-400 font-bold">&lt;CONTEXTE&gt;</span> Recherche d'intelligence commerciale sur le prospect B2B : sur https://www.lacour-angers.com/ <span class="text-sky-400 font-bold">&lt;/CONTEXTE&gt;</span>
+<span class="text-emerald-400 font-bold">&lt;SOURCES_A_EXPLORER&gt;</span> Pappers.fr, Societe.com, LinkedIn (entreprise et collaborateurs), Google Reviews, Trustpilot, Réseaux sociaux (FB, Insta) et site officiel. <span class="text-emerald-400 font-bold">&lt;/SOURCES_A_EXPLORER&gt;</span>
+<span class="text-purple-300 font-bold">&lt;TÂCHE&gt;</span> Génère la Fiche Type d'Intelligence Commerciale 360° : 1) IDENTITÉ & DIRIGEANTS (Pappers/Societe.com) : Noms/prénoms des gérants/actionnaires, SIREN, date de création, statut. 2) SANTÉ FINANCIÈRE & EFFECTIFS : Dernier CA connu, évolution, résultat net, nombre de salariés, offres d'emploi ouvertes. 3) ÉQUIPE & LINKEDIN : Profils des personnes rattachées à l'entreprise sur LinkedIn, rôles clés et actualités des dirigeants. 4) CLIENTS & AVIS : Note moyenne Google/Trustpilot, ce que les clients aiment, ce qu'ils reprochent (trou dans la raquette). 5) STRATÉGIE SALES : Leviers de décision, 3 mots-clés déclencheurs d'achat, freins majeurs et le script d'accroche brise-glace sur-mesure. <span class="text-purple-300 font-bold">&lt;/TÂCHE&gt;</span>
+<span class="text-pink-300 font-bold">&lt;FORMAT&gt;</span> Fiche Type structurée sous forme de Dossier Commercial 360° imprimable <span class="text-pink-300 font-bold">&lt;/FORMAT&gt;</span></div>
+                        </div>
+                    </div>
+                `,
+                script: "Regardez cette démonstration en direct : je copie ce prompt concret ciblant le restaurant La Cour à Angers (lacour-angers.com) pour notre artisan saumurois[cite: 5]. En quelques secondes sur Perplexity gratuit, l'IA interroge Pappers, Societe.com, LinkedIn et les avis Google pour composer le dossier 360° complet ![cite: 5, 10]"
+            },
+            {
+                id: 12,
+                category: "MODULE 1",
+                subBadge: "Lead Scoring",
+                title: "Lead Scoring & Priorisation Prédictive du Pipeline",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">⚡ Prioriser ses Efforts de Prospection</h4>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Utiliser l'IA pour scorer les prospects entrants selon leur niveau de maturité et d'appétence, afin de se concentrer sur les opportunités chaudes.</p>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-orange mb-2 text-base md:text-lg">📈 CRM Intelligents & Data</h4>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">L'intégration de l'IA prédictive dans des CRM comme Salesforce Einstein ou Hubspot permet d'anticiper les comportements d'achat.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Ne perdez plus de temps sur des pistes froides. L'IA analyse les signaux d'intérêt pour attribuer un score de priorité à chaque opportunité[cite: 5, 9]."
+            },
+            {
+                id: 13,
+                category: "MODULE 2",
+                subBadge: "Transition",
+                title: "MODULE 2 : Sourcing Pharow, Plan de Prospection & Séquençage Lemlist",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full my-auto max-w-3xl mx-auto space-y-4">
+                        <div class="w-16 h-16 bg-bge-orange/10 text-bge-orange rounded-full flex items-center justify-center text-2xl font-bold mb-2">
+                            02
+                        </div>
+                        <h2 class="font-poppins font-black text-3xl md:text-4xl text-slate-800">Du Sourcing B2B Pharow au Plan Multicanal Lemlist</h2>
+                        <p class="text-slate-600 text-sm md:text-base">Sourcing ciblé sur Pharow.com, exportation CSV, création du plan de prospection multicanal sur Lemlist.com et optimisation avec DeepL Write.</p>
+                        <span class="bg-bge-blue text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">Durée : 45 min</span>
+                    </div>
+                `,
+                script: "Entrons dans le Module 2 ! Nous allons voir comment combiner Pharow.com pour le sourcing B2B[cite: 5], exporter votre fichier CSV[cite: 5], puis orchestrer votre plan de prospection multicanal sur Lemlist.com[cite: 5, 7]."
+            },
+            {
+                id: 14,
+                category: "MODULE 2",
+                subBadge: "Pharow.com Sourcing",
+                title: "Recherche & Filtrage Multicritères B2B sur Pharow.com",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-5xl mx-auto w-full text-xs">
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between h-full">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="bg-bge-blue text-white text-xs md:text-sm font-bold px-3 py-1 rounded uppercase"><i class="fa-solid fa-filter mr-1.5"></i>Recherche & Filtrage Multicritères B2B sur Pharow.com</span>
+                                <span class="text-xs md:text-sm font-bold text-slate-600">Recherche Réelle : Restauration Maine-et-Loire (49)</span>
+                            </div>
+                            <div class="flex-grow flex items-center justify-center my-0.5">
+                                <img src="https://olympiquesaumur.fr/christophe/screen_pharow1.png" alt="Recherche et Filtrage Multicritères B2B Pharow.com" class="rounded-xl border border-slate-300 shadow-lg w-full h-[280px] md:h-[340px] xl:h-[380px] object-cover object-top">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-800 text-xs md:text-sm font-semibold bg-white p-2.5 rounded-xl border border-slate-200 mt-1.5">
+                                <div>• <strong>Filtres Appliqués :</strong> Activité (Restauration traditionnelle / Bars), Zone (Maine-et-Loire - 49), Postes (Direction Générale / Gérants).</div>
+                                <div>• <strong>Résultats Qualifiés :</strong> 86 prospects identifiés avec statut d'entreprise (En croissance) et fiches complètes (ex. M. Olivier Bouillard, M. Julien Aubert, M. Benjamin Glemin).</div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Regardez la démonstration sur Pharow.com en pleine largeur ! Sur cette slide 16, nous présentons la recherche et le filtrage multicritères B2B : nous avons filtré les gérants du secteur de la restauration dans le Maine-et-Loire (49) et l'outil ressort immédiatement 86 prospects qualifiés !"
+            },
+            {
+                id: 15,
+                category: "MODULE 2",
+                subBadge: "Pharow.com Organigramme",
+                title: "Cartographie de l'Organigramme sur Pharow.com",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-5xl mx-auto w-full text-xs">
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between h-full">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="bg-bge-orange text-white text-xs md:text-sm font-bold px-3 py-1 rounded uppercase"><i class="fa-solid fa-sitemap mr-1.5"></i>Cartographie de l'Organigramme sur Pharow.com</span>
+                                <span class="text-xs md:text-sm font-bold text-slate-600">Fiche Entreprise : La Réserve (Sainte-Gemmes-sur-Loire)</span>
+                            </div>
+                            <div class="flex-grow flex items-center justify-center my-0.5">
+                                <img src="https://olympiquesaumur.fr/christophe/screen_pharow2.png" alt="Cartographie de l'Organigramme Pharow.com" class="rounded-xl border border-slate-300 shadow-lg w-full h-[280px] md:h-[340px] xl:h-[380px] object-cover object-top">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-800 text-xs md:text-sm font-semibold bg-white p-2.5 rounded-xl border border-slate-200 mt-1.5">
+                                <div>• <strong>Détection des Rôles :</strong> Pharow affiche l'organigramme complet : M. Benjamin Glemin (Gérant), Mme Emilie G. (Resp. Commerciale), Chef de partie & Serveur.</div>
+                                <div>• <strong>Exportation CSV / Lemlist :</strong> Récupération de l'e-mail nominatif vérifié (benjamin@lareserveangers.fr) en 1 clic pour alimenter votre plan de prospection.</div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Sur cette slide 17, nous étudions la cartographie de l'organigramme sur Pharow.com ! En ouvrant la fiche de 'La Réserve', nous voyons toute la structure décisionnelle et l'e-mail professionnel vérifié du gérant, prêt à être exporté en CSV !"
+            },
+            {
+                id: 16,
+                category: "MODULE 2",
+                subBadge: "Lemlist.com Multicanal",
+                title: "Lemlist.com : Fonctionnement Global & Plan de Prospection Multicanal",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full my-auto items-stretch w-full max-w-4xl mx-auto text-xs">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-sm md:text-base">🚀 Fonctionnement Global de Lemlist.com</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed mb-2">Plateforme All-in-One d'outreach commercial et d'automatisation de prospection B2B :</p>
+                                <ul class="text-slate-700 text-[11px] space-y-1.5 mb-2">
+                                    <li>• <strong>1. Import & Nettoyage BDD :</strong> Importation CSV (ex. Pharow), vérification e-mail intégrée (lemverify) pour zéro bounce.</li>
+                                    <li>• <strong>2. Ultra-Personnalisation AI :</strong> Variables dynamiques (prénom, entreprise), images personnalisées et rédaction d'accroches ciblées par IA.</li>
+                                    <li>• <strong>3. Orchestration Multicanale :</strong> Fusion automatisée des canaux (Cold Email + Actions LinkedIn + Tâches Phoning / SMS).</li>
+                                    <li>• <strong>4. Warm-up & Délivrabilité :</strong> Préchauffage automatique de boîte mail pour éviter le dossier Spam.</li>
+                                </ul>
+                            </div>
+                            <div class="pt-2 border-t border-slate-200">
+                                <a href="https://drive.google.com/file/d/1Ahvv2cAVMmiT4yajzqsNQPuOr2Mx3Zp0/view?usp=sharing" target="_blank" class="inline-flex items-center gap-2 bg-bge-orange hover:bg-orange-600 text-white font-bold px-3 py-1.5 rounded-lg text-xs transition-all shadow-md">
+                                    <i class="fa-solid fa-file-pdf"></i> Consulter le Plan de Campagne Prospection (PDF Drive)
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-orange shadow-sm">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange mb-2 text-sm md:text-base">📅 Séquençage Type & Automatisation</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed mb-2">Cadence type d'un scénario de relance intelligent :</p>
+                                <ul class="text-slate-700 text-[11px] space-y-1.5 mb-2">
+                                    <li>• <strong>J+0 (E-mail 1 - Prise de contact) :</strong> Accroche courte ciblée, promesse de valeur et question ouverte sans pression.</li>
+                                    <li>• <strong>J+2 (Action LinkedIn) :</strong> Visite automatique du profil prospect ou demande de connexion personnalisée.</li>
+                                    <li>• <strong>J+5 (E-mail 2 - Preuve sociale) :</strong> Relance e-mail apportant une étude de cas ou un cas client concret.</li>
+                                    <li>• <strong>J+8 (Rappel Phoning) :</strong> Notification automatique de tâche d'appel téléphonique avec script guidé.</li>
+                                </ul>
+                            </div>
+                            <span class="text-[10px] text-bge-orange font-bold border-t pt-1.5 block">Séquençage 100% autonome stoppé dès que le prospect répond</span>
+                        </div>
+                    </div>
+                `,
+                script: "Voici les détails complets du fonctionnement global de Lemlist.com sur cette slide 18 ! Lemlist gère tout le cycle : nettoyage du fichier CSV Pharow, préchauffage de la délivrabilité e-mail, personnalisation dynamique par IA et automatisation de la séquence sur 8 jours. Cliquez sur le bouton orange pour ouvrir directement le document PDF complet du plan de campagne de prospection !"
+            },
+            {
+                id: 17,
+                category: "MODULE 2",
+                subBadge: "Récapitulatif Sales",
+                title: "Récapitulatif : Le Workflow Pharow.com, Lemlist.com & Séquences Multicanales",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3 h-full my-auto items-stretch w-full max-w-4xl mx-auto text-xs">
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 border-t-4 border-bge-blue flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-bge-blue text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase mb-1.5 inline-block">1. Sourcing Pharow</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm mb-1">Filtrage Cible</h4>
+                                <p class="text-slate-600 text-[11px] leading-relaxed">Extraction des gérants/décideurs qualifiés (ex. Restauration 49) et validation des organigrammes d'entreprise.</p>
+                            </div>
+                            <span class="text-[10px] text-bge-blue font-bold border-t pt-1 mt-2">Pappers + LinkedIn</span>
+                        </div>
+
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 border-t-4 border-bge-orange flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-bge-orange text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase mb-1.5 inline-block">2. BDD & Export</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm mb-1">Fichier CSV Enrichi</h4>
+                                <p class="text-slate-600 text-[11px] leading-relaxed">Génération du fichier de prospection nettoyé avec e-mails professionnels vérifiés (zero bounce).</p>
+                            </div>
+                            <span class="text-[10px] text-bge-orange font-bold border-t pt-1 mt-2">Export CSV Un-Click</span>
+                        </div>
+
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 border-t-4 border-bge-capri flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-bge-capri text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase mb-1.5 inline-block">3. Lemlist Outreach</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm mb-1">Cadence Multicanale</h4>
+                                <p class="text-slate-600 text-[11px] leading-relaxed">Injection dans Lemlist.com : E-mail J+0 -> Action LinkedIn J+2 -> Relance J+5 -> Phoning J+8.</p>
+                            </div>
+                            <span class="text-[10px] text-bge-capri font-bold border-t pt-1 mt-2">Scénario 8 Jours</span>
+                        </div>
+
+                        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 border-t-4 border-bge-green flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-bge-green text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase mb-1.5 inline-block">4. Engagement</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-xs md:text-sm mb-1">Prise de Main Humaine</h4>
+                                <p class="text-slate-600 text-[11px] leading-relaxed">Arrêt automatique du robot dès que le prospect répond. Le commercial prend la main pour le closing.</p>
+                            </div>
+                            <span class="text-[10px] text-bge-green font-bold border-t pt-1 mt-2">Conversion RDV</span>
+                        </div>
+                    </div>
+                `,
+                script: "En récapitulatif de ce que nous venons de voir : nous partons du sourcing de décideurs qualifiés sur Pharow.com, nous exportons la base enrichie au format CSV, nous l'importons dans Lemlist.com, et nous activons le plan de prospection multicanal synchronisé. Dès que le prospect répond, l'automate s'arrête et vous prenez la main pour la vente !"
+            },
+            {
+                id: 18,
+                category: "MODULE 2",
+                subBadge: "Exercice M2",
+                title: "Exercice Stagiaire : Bâtir son Plan de Prospection Multicanal (15 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200 shadow-sm space-y-3">
+                            <span class="bg-bge-orange text-white text-xs font-bold px-2.5 py-1 rounded uppercase">✍️ À VOUS DE JOUER ! (15 MIN)</span>
+                            <h4 class="font-poppins font-bold text-slate-900 text-base">Structurer Votre Plan de Prospection Multicanal</h4>
+                            <ol class="text-slate-700 text-xs md:text-sm space-y-2">
+                                <li>1. Choisissez le profil d'un prospect réel B2B ou B2C à contacter cette semaine.</li>
+                                <li>2. Définissez les 3 étapes de votre séquence (J+0 Mail / J+2 Réseau / J+5 Phoning).</li>
+                                <li>3. Rédigez le mail d'accroche et ajustez le style avec <strong>DeepL Write</strong>.</li>
+                            </ol>
+                            <p class="text-amber-900 text-xs font-bold border-t border-amber-200 pt-2">Livrable : 1 Plan de prospection 3 étapes + 1 Mail d'accroche prêt pour Lemlist.</p>
+                        </div>
+                    </div>
+                `,
+                script: "À vous de jouer ! Vous avez 15 minutes pour construire votre plan de prospection 3 étapes, rédiger votre message principal et ajuster son style avec DeepL Write[cite: 5, 7]."
+            },
+            {
+                id: 19,
+                category: "MODULE 3",
+                subBadge: "Transition",
+                title: "MODULE 3 : Argumentation, Négociation & Closing",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full my-auto max-w-3xl mx-auto space-y-4">
+                        <div class="w-16 h-16 bg-bge-green/10 text-bge-green rounded-full flex items-center justify-center text-2xl font-bold mb-2">
+                            03
+                        </div>
+                        <h2 class="font-poppins font-black text-3xl md:text-4xl text-slate-800">Transformer les hésitations en closing</h2>
+                        <p class="text-slate-600 text-sm md:text-base">Méthode du Bénéfice Flip, cadre A.R.A., levée d'objections et crash-test vocal de négociation.</p>
+                        <span class="bg-bge-orange text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">Durée : 50 min</span>
+                    </div>
+                `,
+                script: "Module 3 : La négociation et le traitement des objections. Nous allons voir comment transformer vos arguments en valeur et simuler des échanges de négociation coriaces avec l'IA[cite: 3, 5]."
+            },
+            {
+                id: 20,
+                category: "MODULE 3",
+                subBadge: "Bénéfice Flip",
+                title: "Méthode « Bénéfice Flip » : Démo & Exercice de Conversion Caractéristiques -> Bénéfices",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full my-auto items-stretch w-full max-w-4xl mx-auto text-xs">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-bge-blue text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase">🖥️ DÉMO : TRADUCTION DE VALEUR</span>
+                                    <span class="text-xs font-bold text-slate-500">Formulation "Bénéfice Flip"</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-slate-900 text-sm md:text-base mb-1.5">Transformer le "QUOI" en "CE QUE LE CLIENT RESSENT"</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed mb-2"><strong>Caractéristique :</strong> "Nos terrasses en bois sont traitées autoclaves classe 4."</p>
+                                <div class="bg-emerald-50 border border-emerald-300 p-2.5 rounded-xl text-emerald-900 text-xs font-semibold mb-2">
+                                    💡 <strong>Bénéfice Flip IA :</strong> "Profitez d'une terrasse élégante sans aucun entretien pendant 15 ans, sans craindre le soleil ni l'humidité."
+                                </div>
+                                <p class="text-slate-500 text-[10px]"><strong>Méthode Prompt :</strong> "Voici mes caractéristiques : [liste]. Transforme chacune en bénéfice émotionnel et financier direct pour le client."</p>
+                            </div>
+                            <span class="text-[10px] text-bge-blue font-bold border-t pt-1.5 block mt-1">L'IA traduit la technique en valeur d'usage</span>
+                        </div>
+
+                        <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 flex flex-col justify-between border-l-4 border-bge-orange shadow-sm">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-bge-orange text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase">✍️ EXERCICE STAGIAIRE (8 MIN)</span>
+                                    <span class="text-xs font-bold text-amber-800">À votre tour</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-slate-900 text-sm md:text-base mb-1.5">Convertir Vos 3 Caractéristiques Clés</h4>
+                                <ol class="text-slate-700 text-xs space-y-1.5 mb-2">
+                                    <li>1. Notez 3 caractéristiques brutes de votre produit ou service.</li>
+                                    <li>2. Soumettez-les à ChatGPT / Claude / Mistral avec la consigne : <em>« Traduis ces points techniques en gains de temps, de sérénité ou d'argent pour mon client »</em>.</li>
+                                    <li>3. Conservez les 3 meilleures tournures pour votre argumentaire.</li>
+                                </ol>
+                            </div>
+                            <span class="text-[10px] text-bge-orange font-bold border-t border-amber-200 pt-1.5 block">Livrable : 3 arguments "Bénéfice Client" prêts à l'emploi</span>
+                        </div>
+                    </div>
+                `,
+                script: "Voici la démonstration et l'exercice sur la méthode du Bénéfice Flip sur la slide 22 ! Sur la partie gauche, voyez comment l'IA transforme une norme technique neutre en un argument émotionnel puissant. Sur la partie droite, à votre tour : vous avez 8 minutes pour convertir 3 caractéristiques brutes de votre activité en bénéfices clients percutants !"
+            },
+            {
+                id: 21,
+                category: "MODULE 3",
+                subBadge: "Cadre A.R.A.",
+                title: "Le Ring de Négociation : Le Cadre A.R.A.",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-full my-auto items-stretch text-xs md:text-sm w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-blue shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="text-bge-blue font-black text-lg block mb-1">A — ACTEUR</span>
+                                <p class="text-slate-600 leading-relaxed text-xs">Qui est l'IA ? (ex: Dirigeant B2B pressé, acheteur exigeant).</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-orange shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="text-bge-orange font-black text-lg block mb-1">R — RÈGLE</span>
+                                <p class="text-slate-600 leading-relaxed text-xs">Comment doit-elle se comporter ? (ex: Répondre en 2 phrases maxi, résister).</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-green shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="text-bge-green font-black text-lg block mb-1">A — ATTENTE</span>
+                                <p class="text-slate-600 leading-relaxed text-xs">Quel est le but ? (ex: Obtenir un accord de RDV).</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Le cadre A.R.A. (Acteur, Règle, Attente) vous permet de transformer ChatGPT ou Claude en interlocuteur de négociation très coriace[cite: 3, 5]."
+            },
+            {
+                id: 22,
+                category: "MODULE 3",
+                subBadge: "Démo Négociation",
+                title: "Démo Formateur : Simulation de Négociation & Objection Prix",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-3">
+                            <span class="bg-bge-blue text-white text-xs font-bold px-2.5 py-1 rounded uppercase"><i class="fa-solid fa-comments mr-1.5"></i>Simulation Négociation Temps Réel</span>
+                            <h4 class="font-poppins font-bold text-slate-800 text-sm md:text-base mt-2">Mise en Situation : Traitement de l'Objection Prix par l'IA</h4>
+                            <p class="text-slate-600 text-xs mt-1">Démonstration interactive de négociation face à un acheteur B2B exigeant paramétré selon le cadre A.R.A.</p>
+                        </div>
+                        <div class="prompt-code-block p-4 rounded-2xl w-full border-2 border-slate-700 shadow-2xl relative">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+                                <span class="text-xs font-mono text-bge-orange font-bold uppercase"><i class="fa-solid fa-code mr-2"></i>Prompt A.R.A. Négociation</span>
+                                <button onclick="copyText('prompt-demo-m3')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3 py-1 rounded-lg border border-slate-600">Copier</button>
+                            </div>
+                            <div id="prompt-demo-m3" class="prompt-text-projected text-slate-100">
+<span class="text-amber-400 font-bold">&lt;ACTEUR&gt;</span> Directeur d'Achat B2B exigeant. <span class="text-amber-400 font-bold">&lt;/ACTEUR&gt;</span>
+<span class="text-sky-400 font-bold">&lt;RÈGLE&gt;</span> Tu réponds en 2 phrases et affirmes que mon offre est 30 % trop chère par rapport à la concurrence. <span class="text-sky-400 font-bold">&lt;/RÈGLE&gt;</span>
+<span class="text-emerald-400 font-bold">&lt;ATTENTE&gt;</span> Attends ma réponse, résiste au premier échange puis évalue si mes arguments de valeur t'ont fait douter. <span class="text-emerald-400 font-bold">&lt;/ATTENTE&gt;</span></div>
+                        </div>
+                    </div>
+                `,
+                script: "Regardez la démonstration en direct : je configure l'IA en acheteur B2B exigeant selon le cadre A.R.A. Je lui formule ma proposition de valeur et nous observons la capacité de l'IA à tester mes arguments et ma répartition sur l'objection prix."
+            },
+            {
+                id: 23,
+                category: "MODULE 3",
+                subBadge: "Exercice M3",
+                title: "Exercice Stagiaire : Crash-Test Négociation Vocal / Écrit (15 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200 shadow-sm space-y-3">
+                            <span class="bg-bge-orange text-white text-xs font-bold px-2.5 py-1 rounded uppercase">✍️ À VOUS DE JOUER ! (15 MIN)</span>
+                            <h4 class="font-poppins font-bold text-slate-900 text-base">Faire Plier l'IA sur Votre Pire Objection</h4>
+                            <ol class="text-slate-700 text-xs md:text-sm space-y-2">
+                                <li>1. Choisissez votre objection redoutée (« Trop cher », « Pas le temps », « Déjà équipé »).</li>
+                                <li>2. Lancez le jeu de rôle A.R.A. avec le mode vocal ou écrit de ChatGPT / Claude.</li>
+                                <li>3. Effectuez 3 échanges de négociation et demandez à l'IA un débriefing de votre repartie.</li>
+                            </ol>
+                            <p class="text-amber-900 text-xs font-bold border-t border-amber-200 pt-2">Livrable : 1 Trame de réponse validée pour vos prochains RDV.</p>
+                        </div>
+                    </div>
+                `,
+                script: "À vous de jouer ! Minuteur de 15 minutes. Lancez votre crash-test de négociation sur votre objection principale et obtenez le feedback de l'IA[cite: 3, 5]."
+            },
+            {
+                id: 24,
+                category: "MODULE 3",
+                subBadge: "Pitch & Coach IA",
+                title: "Réécriture & Optimisation du Pitch Commercial : L'IA comme Coach",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full my-auto items-stretch w-full max-w-5xl mx-auto text-xs">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-bge-blue text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase"><i class="fa-solid fa-bullhorn mr-1.5"></i>L'IA Coach de Pitch Commercial</span>
+                                    <span class="text-xs font-bold text-slate-500">Hacker les 7s</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-slate-900 text-sm md:text-base mb-2">Du "JE / NOUS / TECHNIQUE" vers "VOUS / VALEUR / RÉSULTAT"</h4>
+                                <ul class="text-slate-700 text-[11px] space-y-1.5 mb-2">
+                                    <li>• <strong>Règle des 7 Secondes :</strong> Le prospect décide d'écouter ou de couper en 7 secondes. Un pitch centré sur soi ou sa technique fait perdre l'attention.</li>
+                                    <li>• <strong>Audit Sémantique IA :</strong> L'IA analyse le ratio de mots auto-centrés (je, notre entreprise, nos menuisiers) VS mots de valeur client (votre terrasse, votre confort, votre ROI).</li>
+                                    <li>• <strong>Restructuration Valeur :</strong> Réécriture instantanée centrée sur le projet de vie ou le chiffre d'affaires du client.</li>
+                                </ul>
+                            </div>
+                            <span class="text-[10px] text-bge-blue font-bold border-t pt-1.5 block">Exemple Concret : Artisan Fabricant & Poseur de Terrasses en Bois (49)</span>
+                        </div>
+
+                        <div class="prompt-code-block p-3 rounded-2xl flex flex-col justify-between border-2 border-slate-700 relative shadow-2xl">
+                            <div>
+                                <div class="flex justify-between items-center mb-1.5 pb-1 border-b border-slate-800">
+                                    <span class="text-[11px] font-mono font-bold text-bge-orange uppercase"><i class="fa-solid fa-robot mr-1"></i>DÉMO CONCRÈTE : PROMPT AI PITCH COACH</span>
+                                    <button onclick="copyText('prompt-demo-pitch')" class="bg-bge-orange hover:bg-orange-600 text-white px-2 py-0.5 rounded text-[10px] font-bold transition-all"><i class="fa-solid fa-copy mr-1"></i>Copier</button>
+                                </div>
+                                <div id="prompt-demo-pitch" class="prompt-text-projected text-slate-100 text-[8px] md:text-[9.5px] leading-snug">
+<span class="text-amber-400 font-bold">&lt;RÔLE&gt;</span> Coach en Éloquence & Closing Commercial B2B / B2C <span class="text-amber-400 font-bold">&lt;/RÔLE&gt;</span>
+<span class="text-sky-400 font-bold">&lt;PITCH_BRUT_TERRASSE&gt;</span>
+"Bonjour, entreprise artisanale créée en 2012 à Saumur, spécialisée dans la fabrication et pose de terrasses bois sur-mesure (49) en bois autoclave classe 4 et essences certifiées FSC, avec 6 menuisiers qualifiés et devis sous 48h."
+<span class="text-sky-400 font-bold">&lt;/PITCH_BRUT_TERRASSE&gt;</span>
+<span class="text-emerald-400 font-bold">&lt;TÂCHE&gt;</span>
+1) Calcule le ratio de mots JE/NOUS/TECHNIQUE vs VALEUR CLIENT.
+2) Évalue l'impact des 7 premières secondes sur le prospect.
+3) Réécris en 30s chrono axé 100% VALEUR (convivialité, sérénité 15 ans, vie extérieure) + question brise-glace finale. <span class="text-emerald-400 font-bold">&lt;/TÂCHE&gt;</span></div>
+                            </div>
+                            <span class="text-[8.5px] text-emerald-400 font-bold mt-1">Résultat : Pitch percutant rééquilibré et prêt à enregistrer</span>
+                        </div>
+                    </div>
+                `,
+                script: "Sur cette slide 26, nous activons l'IA en mode Coach de Pitch Commercial ! Observez la démonstration : j'injecte le pitch d'une entreprise de fabrication et de pose de terrasses en bois à Saumur. L'IA réalise immédiatement un audit sémantique, compte le ratio de mots auto-centrés, et réécrit un pitch de 30 secondes taillé pour capter le prospect dès les 7 premières secondes !"
+            },
+            {
+                id: 25,
+                category: "MODULE 4",
+                subBadge: "Transition",
+                title: "MODULE 4 : Assistants RDV, Suivi Client & Relances Express",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full my-auto max-w-3xl mx-auto space-y-4">
+                        <div class="w-16 h-16 bg-bge-capri/10 text-bge-capri rounded-full flex items-center justify-center text-2xl font-bold mb-2">
+                            04
+                        </div>
+                        <h2 class="font-poppins font-black text-3xl md:text-4xl text-slate-800">Automatiser pour ne rien laisser refroidir</h2>
+                        <p class="text-slate-600 text-sm md:text-base">Assistants de réunion Noota/tl;dv, relances express et suivi prospect 24/7.</p>
+                        <span class="bg-bge-blue text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">Durée : 35 min</span>
+                    </div>
+                `,
+                script: "Module 4 : L'automatisation du suivi commercial et les assistants de réunion[cite: 5, 8]. Voyons comment enregistrer vos RDV et créer des scénarios automatiques[cite: 5, 8]."
+            },
+            {
+                id: 26,
+                category: "MODULE 4",
+                subBadge: "Comptes-Rendus",
+                title: "Assistants de Réunion & Comptes-Rendus Auto (Noota / tl;dv)",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full my-auto items-stretch text-xs md:text-sm w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-t-4 border-bge-blue flex flex-col justify-between">
+                            <div>
+                                <span class="bg-bge-blue text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Solution FR RGPD</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-sm md:text-base mt-2 mb-1">Noota.io</h4>
+                                <p class="text-slate-600 leading-relaxed text-xs">Transcription et synthèse automatique d'entretiens avec trames sur-mesure pour pré-remplir directement les fiches clients.</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-t-4 border-bge-orange flex flex-col justify-between">
+                            <div>
+                                <span class="bg-bge-orange text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Visio Meet / Zoom</span>
+                                <h4 class="font-poppins font-bold text-slate-800 text-sm md:text-base mt-2 mb-1">tl;dv</h4>
+                                <p class="text-slate-600 leading-relaxed text-xs">Assistant de réunion vidéo gratuit qui enregistre, transcrit et extrait les moments clés et engagements d'un appel commercial.</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Fini la corvée des comptes-rendus ! Des solutions comme Noota ou tl;dv assistent vos réunions en direct et génèrent le bilan d'entretien en 30 secondes[cite: 5, 8]."
+            },
+            {
+                id: 27,
+                category: "MODULE 4",
+                subBadge: "Relances & Suivi",
+                title: "Du Message Prospect au Devis Express : L'IA comme Assistant de Suivi 24/7",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full my-auto items-stretch w-full max-w-5xl mx-auto text-xs">
+                        <!-- Gauche : Méthode Simple Solopreneur -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm overflow-hidden">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-bge-blue text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase"><i class="fa-solid fa-bolt mr-1.5"></i>L'IA au Quotidien en TPE</span>
+                                    <span class="text-xs font-bold text-slate-500">Zéro Technique</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-slate-900 text-sm md:text-base mb-2">Traiter un Prospect en 3 Étapes Simples</h4>
+                                <ul class="text-slate-700 text-[11px] space-y-2 mb-3">
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-blue">• 1. Copier le message brut :</strong> Récupérez l'e-mail, le SMS ou le message du prospect sans vous soucier de la mise en forme.
+                                    </li>
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-orange">• 2. Coller avec votre Prompt Modèle :</strong> Donnez l'instruction à ChatGPT, Claude ou Mistral d'analyser le besoin et de préparer votre réponse.
+                                    </li>
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-green">• 3. Relire & Envoyer :</strong> Validez la proposition en 30 secondes et envoyez le mail. Vous gagnez 20 minutes par demande !
+                                    </li>
+                                </ul>
+                                <div class="bg-amber-50 border border-amber-300 p-2.5 rounded-xl text-amber-900 text-[10.5px] leading-snug">
+                                    💡 <strong>Le réflexe Solopreneur :</strong> Pas besoin d'outils compliqués ! Un simple prompt enregistré dans vos notes smartphone transforme n'importe quelle IA gratuite en secrétaire commercial 24h/7j.
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-bge-blue font-bold border-t pt-1.5 block">Un assistant réactif qui prépare vos devis et relances sans effort</span>
+                        </div>
+
+                        <!-- Droite : Prompt Modèle Prêt à Copier -->
+                        <div class="prompt-code-block p-3.5 rounded-2xl flex flex-col justify-between border-2 border-slate-700 relative shadow-2xl overflow-hidden">
+                            <div>
+                                <div class="flex justify-between items-center mb-1.5 pb-1 border-b border-slate-800">
+                                    <span class="text-[11px] font-mono font-bold text-bge-orange uppercase"><i class="fa-solid fa-copy mr-1"></i>PROMPT MODÈLE : ASSISTANT DEVIS & RELANCE</span>
+                                    <button onclick="copyText('prompt-demo-solopreneur')" class="bg-bge-orange hover:bg-orange-600 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all"><i class="fa-solid fa-copy mr-1"></i>Copier</button>
+                                </div>
+                                <div id="prompt-demo-solopreneur" class="prompt-text-projected text-slate-100 text-[8px] sm:text-[8.5px] md:text-[9px] leading-relaxed font-mono">
+<span class="text-amber-400 font-bold">&lt;RÔLE&gt;</span> Tu es mon Assistant Commercial virtuel. <span class="text-amber-400 font-bold">&lt;/RÔLE&gt;</span>
+<span class="text-sky-400 font-bold">&lt;MESSAGE_PROSPECT&gt;</span>
+[Coller ici le message du prospect, ex: "Bonjour, devis terrasse bois 35m² Saumur budget 10 000 €, travaux souhaités en mai."]
+<span class="text-sky-400 font-bold">&lt;/MESSAGE_PROSPECT&gt;</span>
+<span class="text-emerald-400 font-bold">&lt;TÂCHE&gt;</span>
+1) Fais une fiche résumé express : Client, Lieu, Surface, Budget, Urgence.
+2) Liste 3 questions clés à lui poser pour préciser son besoin.
+3) Rédige un e-mail de réponse chaleureux, professionnel et convaincant pour lui proposer un rendez-vous téléphonique sous 48h. <span class="text-emerald-400 font-bold">&lt;/TÂCHE&gt;</span></div>
+                            </div>
+                            <span class="text-[8.5px] text-emerald-400 font-bold mt-1 block">Résultat : Synthèse client + Mail complet prêt à envoyer en 30 secondes</span>
+                        </div>
+                    </div>
+                `,
+                script: "Sur cette slide 29, découvrons l'assistant commercial au quotidien pour solopreneur ! Pas besoin de logiciels complexes : vous copiez le message brut de votre client, vous appliquez ce modèle de prompt dans ChatGPT ou Claude, et l'IA génère la fiche de synthèse et votre mail de réponse personnalisé en 30 secondes chrono !"
+            },
+            {
+                id: 28,
+                category: "MODULE 4",
+                subBadge: "Suivi Client",
+                title: "Conversion des Notes de RDV en Fiche CRM & Relance Client",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full my-auto items-stretch w-full max-w-5xl mx-auto text-xs">
+                        <!-- Gauche : Méthode & Avantages Solopreneur -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm overflow-hidden">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-bge-blue text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase"><i class="fa-solid fa-file-signature mr-1.5"></i>Suivi Client Immédiat</span>
+                                    <span class="text-xs font-bold text-slate-500">Cas Concret Artisan 49</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-slate-900 text-xs md:text-sm mb-2">Du Carnet de Notes au Suivi Client en 1 Clic</h4>
+                                <ul class="text-slate-700 text-[10.5px] md:text-[11px] space-y-2 mb-3">
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-blue">• Zéro Retard de Relance :</strong> Vos notes gribouillées sur carnet ou dictées sur smartphone après le RDV sont transformées en suivi pro immédiat.
+                                    </li>
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-orange">• Double Livrable Automatique :</strong> Une Fiche Synthèse CRM pour votre dossier + un brouillon de mail de confirmation pour le prospect.
+                                    </li>
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-green">• Gain de Temps Massif :</strong> Économisez 15 à 20 minutes de rédaction administrative après chaque rendez-vous commercial.
+                                    </li>
+                                </ul>
+                            </div>
+                            <span class="text-[9.5px] text-bge-blue font-bold border-t pt-1.5 block">Standard BGE : Des balises XML professionnelles adaptées au secteur métier</span>
+                        </div>
+
+                        <!-- Droite : Prompt Balisé XML Strictement Conforme et 100% Lisible -->
+                        <div class="prompt-code-block p-3.5 rounded-2xl flex flex-col justify-between border-2 border-slate-700 relative shadow-2xl overflow-hidden">
+                            <div class="flex flex-col h-full justify-between">
+                                <div class="flex justify-between items-center mb-2 pb-1.5 border-b border-slate-800 flex-shrink-0">
+                                    <span class="text-[10.5px] md:text-xs font-mono font-bold text-bge-orange uppercase"><i class="fa-solid fa-code mr-1.5"></i>PROMPT XML : CONVERSION NOTES RDV → CRM & RELANCE</span>
+                                    <button onclick="copyText('prompt-demo-m4')" class="bg-bge-orange hover:bg-orange-600 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all"><i class="fa-solid fa-copy mr-1"></i>Copier</button>
+                                </div>
+                                <div id="prompt-demo-m4" class="prompt-text-projected text-slate-100 text-[8.5px] sm:text-[9px] md:text-[9.5px] leading-relaxed font-mono flex-grow overflow-y-auto pr-1">
+<span class="text-amber-400 font-bold">&lt;RÔLE&gt;</span> Assistant Commercial - Entreprise de Fabrication &amp; Pose de Terrasses en Bois à Saumur (49) <span class="text-amber-400 font-bold">&lt;/RÔLE&gt;</span>
+
+<span class="text-sky-400 font-bold">&lt;CONTEXTE&gt;</span>
+Mise au propre et traitement des notes brutes d'un RDV prospect pour mettre à jour le CRM et envoyer le suivi client.
+<span class="text-sky-400 font-bold">&lt;/CONTEXTE&gt;</span>
+
+<span class="text-emerald-400 font-bold">&lt;DONNÉES_BRUTES&gt;</span>
+"RDV M. Dupont - terrasse pin autoclave 40m² Saumur - budget 12k€ - travaux mai 2026 - craint l'entretien - relancer mardi avec devis"
+<span class="text-emerald-400 font-bold">&lt;/DONNÉES_BRUTES&gt;</span>
+
+<span class="text-purple-300 font-bold">&lt;TÂCHE&gt;</span>
+1) Fais une Fiche Synthèse Client : Prospect, Lieu, Besoin, Surface, Budget, Échéance, Frein majeur.
+2) Rédige l'e-mail de relance post-RDV chaleureux, rassurant (entretien) et proposant la prochaine étape.
+<span class="text-purple-300 font-bold">&lt;/TÂCHE&gt;</span>
+
+<span class="text-pink-300 font-bold">&lt;FORMAT&gt;</span>
+- Section 1 : Fiche Synthèse CRM
+- Section 2 : Brouillon Mail Client
+<span class="text-pink-300 font-bold">&lt;/FORMAT&gt;</span></div>
+                                <span class="text-[8.5px] text-emerald-400 font-bold mt-2 pt-1.5 border-t border-slate-800/80 block flex-shrink-0">Prompt XML professionnel — Exemple Terrasses Bois Saumur (49) 100% lisible</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Observerez cette Slide 28 révisée : elle applique strictement les standards de prompting balisé XML de la formation BGE. Le rôle est paramétré sur l'entreprise de fabrication et pose de terrasses en bois à Saumur (49). Vous collez vos notes brutes dans la balise DONNÉES_BRUTES, et l'IA produit immédiatement la fiche synthèse CRM et votre mail de relance client sans aucune fioriture technique !"
+            },
+            {
+                id: 29,
+                category: "MODULE 4",
+                subBadge: "Démo Geremy.ai",
+                title: "Présentation & Démonstration de Geremy.ai : L'Assistant IA Invisible pour vos RDV",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full my-auto items-stretch w-full max-w-5xl mx-auto text-xs">
+                        <!-- Gauche : Présentation de Geremy.ai -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm overflow-hidden">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-bge-blue text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase"><i class="fa-solid fa-microphone-slash mr-1.5"></i>IA Invisible Post-RDV</span>
+                                    <span class="text-xs font-bold text-slate-500">Made in France (Avignon)</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-slate-900 text-xs md:text-sm mb-2">Pourquoi Intégrer Geremy.ai dans vos Ventes ?</h4>
+                                <ul class="text-slate-700 text-[10.5px] md:text-[11px] space-y-2 mb-3">
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-blue">• Écoute & Captation Discrète :</strong> Geremy enregistre l'échange (avec accord du prospect) ou vos commentaires vocaux dictés entre deux rendez-vous.
+                                    </li>
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-orange">• Compte-Rendu Instantané :</strong> Génère en 30 secondes un bilan d'entretien parfait avec les besoins, le budget, le délai et les engagements pris.
+                                    </li>
+                                    <li class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-green">• Zéro Oubli Administratif :</strong> Libère le commercial de la prise de notes pendant le RDV pour se consacrer à 100 % à l'écoute active et au closing.
+                                    </li>
+                                </ul>
+                            </div>
+                            <span class="text-[9.5px] text-bge-blue font-bold border-t pt-1.5 block">Concentrez-vous sur vos clients, Geremy.ai s'occupe des comptes-rendus !</span>
+                        </div>
+
+                        <!-- Droite : Démonstration en Direct Geremy.ai -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-orange shadow-sm overflow-hidden">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="bg-bge-orange text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase"><i class="fa-solid fa-desktop mr-1.5"></i>Démo Formateur en Direct</span>
+                                    <span class="text-xs font-bold text-slate-500">geremy.ai</span>
+                                </div>
+                                <h4 class="font-poppins font-bold text-slate-900 text-xs md:text-sm mb-2">Scénario de Démonstration en Live</h4>
+                                <div class="space-y-2 text-slate-700 text-[10.5px]">
+                                    <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-blue">Étape 1 :</strong> Lancement de l'enregistrement vocal lors d'un entretien réel ou fictif (Artisan Terrasses Bois Saumur).
+                                    </div>
+                                    <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-orange">Étape 2 :</strong> Traitement automatique de la bande audio par l'IA Geremy.ai pour extraire la trame d'entretien.
+                                    </div>
+                                    <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs">
+                                        <strong class="text-bge-green">Étape 3 :</strong> Génération de la synthèse CRM et exportation de l'e-mail de confirmation prêt à envoyer.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-2 border-t border-slate-200 mt-2 flex flex-col gap-1.5">
+                                <a href="https://geremy.ai/" target="_blank" class="inline-flex items-center justify-center gap-2 bg-bge-orange hover:bg-orange-600 text-white font-bold px-3 py-2 rounded-xl text-xs transition-all shadow-md">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Accéder à Geremy.ai (Démo en Direct)
+                                </a>
+                                <span class="text-[9px] text-slate-500 text-center font-semibold">Testez Geremy.ai en direct sur vos échanges oraux</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Voici la démonstration de Geremy.ai sur ce Slide 29 ! Geremy est un outil d'IA français basé à Avignon qui capture l'audio de vos rendez-vous et génère automatiquement votre compte-rendu d'entretien et le mail de relance. Cliquez sur le bouton orange pour lancer la démo en direct sur geremy.ai !"
+            },
+            {
+                id: 30,
+                category: "MODULE 5",
+                subBadge: "Transition",
+                title: "MODULE 5 : Éthique, AI Act & Feuille de Route",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full my-auto max-w-3xl mx-auto space-y-4">
+                        <div class="w-16 h-16 bg-bge-green/10 text-bge-green rounded-full flex items-center justify-center text-2xl font-bold mb-2">
+                            05
+                        </div>
+                        <h2 class="font-poppins font-black text-3xl md:text-4xl text-slate-800">Déployer une IA responsable et durable</h2>
+                        <p class="text-slate-600 text-sm md:text-base">Cadre légal AI Act, sobriété Green IT et plan d'action à 30 jours.</p>
+                        <span class="bg-bge-orange text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">Durée : 15 min</span>
+                    </div>
+                `,
+                script: "Dernier module : Éthique, réglementation et feuille de route[cite: 3, 8]. Assurons-nous que votre usage de l'IA reste conforme et responsable[cite: 3, 8]."
+            },
+            {
+                id: 31,
+                category: "MODULE 5",
+                subBadge: "Réglementation",
+                title: "Cadre Légal & Éthique : RGPD, AI Act & Green IT",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-full my-auto items-stretch text-xs md:text-sm w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <span class="font-bold text-blue-600 block mb-1">⚖️ Droit d'Auteur</span>
+                            <p class="text-slate-600 text-xs">Pas de propriété exclusive sur les contenus générés à 100 % par l'IA.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <span class="font-bold text-amber-600 block mb-1">👤 RGPD & Transparence</span>
+                            <p class="text-slate-600 text-xs">Mention "Généré par IA" obligatoire sur les contenus virtuels.</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-xl border border-red-200">
+                            <span class="font-bold text-red-600 block mb-1">🛑 AI Act & Green IT</span>
+                            <p class="text-slate-700 text-xs">Interdiction stricte de l'analyse des émotions. Mesurer l'empreinte avec Compare:IA (comparia.beta.gouv.fr).</p>
+                        </div>
+                    </div>
+                `,
+                script: "L'AI Act européen fixe des lignes rouges strictes : interdiction d'analyser les émotions des salariés/prospects et obligation de signaler les contenus générés par IA[cite: 3, 8]."
+            },
+            {
+                id: 32,
+                category: "CONCLUSION",
+                subBadge: "Synthèse & Contacts",
+                title: "Synthèse Globale de la Formation & Contacts BGE",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 h-full my-auto items-stretch w-full max-w-5xl mx-auto text-xs">
+                        <!-- Left 7 Cols: Summary of the 5 Modules -->
+                        <div class="md:col-span-7 bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue shadow-sm overflow-hidden">
+                            <div>
+                                <div class="flex items-center justify-between mb-3 border-b border-slate-200 pb-2">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-bge-blue text-white text-[10px] md:text-xs font-black px-2.5 py-1 rounded-md uppercase tracking-wider"><i class="fa-solid fa-graduation-cap mr-1"></i>Synthèse</span>
+                                        <h4 class="font-poppins font-bold text-slate-900 text-xs md:text-sm">Bilan de la Formation (3h30)</h4>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">5 Modules Clés</span>
+                                </div>
+
+                                <div class="space-y-2 text-slate-700">
+                                    <!-- M1 -->
+                                    <div class="flex items-start gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
+                                        <span class="bg-bge-blue/10 text-bge-blue p-1.5 rounded-lg flex-shrink-0 text-xs mt-0.5"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
+                                        <div>
+                                            <div class="font-poppins font-bold text-bge-blue text-[11px] md:text-xs">Module 1 • Sourcing & BDD Qualifiée (29 Colonnes)</div>
+                                            <p class="text-[10px] md:text-[11px] text-slate-600 leading-snug">Master Prompt Ultime, Deep Research (Perplexity / ChatGPT Search), Cartographie des cibles B2B & Enquête prospect 360° gratuite (Pappers, LinkedIn, Avis).</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- M2 -->
+                                    <div class="flex items-start gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
+                                        <span class="bg-bge-orange/10 text-bge-orange p-1.5 rounded-lg flex-shrink-0 text-xs mt-0.5"><i class="fa-solid fa-paper-plane"></i></span>
+                                        <div>
+                                            <div class="font-poppins font-bold text-bge-orange text-[11px] md:text-xs">Module 2 • Sourcing Pharow & Séquences Lemlist</div>
+                                            <p class="text-[10px] md:text-[11px] text-slate-600 leading-snug">Filtrage multicritère B2B, cartographie des organigrammes et cadence multicanale automatisée (Mail, LinkedIn, Phoning).</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- M3 -->
+                                    <div class="flex items-start gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
+                                        <span class="bg-bge-capri/10 text-bge-capri p-1.5 rounded-lg flex-shrink-0 text-xs mt-0.5"><i class="fa-solid fa-comments-dollar"></i></span>
+                                        <div>
+                                            <div class="font-poppins font-bold text-bge-capri text-[11px] md:text-xs">Module 3 • Argumentation, Négociation & Closing</div>
+                                            <p class="text-[10px] md:text-[11px] text-slate-600 leading-snug">Méthode Bénéfice Flip, ring de négociation A.R.A. face aux objections et optimisation du pitch commercial (Règle des 7s).</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- M4 -->
+                                    <div class="flex items-start gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
+                                        <span class="bg-bge-green/10 text-bge-green p-1.5 rounded-lg flex-shrink-0 text-xs mt-0.5"><i class="fa-solid fa-robot"></i></span>
+                                        <div>
+                                            <div class="font-poppins font-bold text-bge-green text-[11px] md:text-xs">Module 4 • Suivi Client, Relances Express & Geremy.ai</div>
+                                            <p class="text-[10px] md:text-[11px] text-slate-600 leading-snug">Assistants réunion (Noota, tl;dv, Geremy.ai) et conversion instantanée de notes gribouillées en fiche CRM + mail de relance client.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- M5 -->
+                                    <div class="flex items-start gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
+                                        <span class="bg-purple-100 text-purple-700 p-1.5 rounded-lg flex-shrink-0 text-xs mt-0.5"><i class="fa-solid fa-scale-balanced"></i></span>
+                                        <div>
+                                            <div class="font-poppins font-bold text-purple-700 text-[11px] md:text-xs">Module 5 • Éthique, RGPD & AI Act</div>
+                                            <p class="text-[10px] md:text-[11px] text-slate-600 leading-snug">Anonymisation des données sensibles, respect des lignes rouges de l'AI Act européen et sobriété numérique Green IT.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-t border-slate-200 pt-2 mt-2 flex items-center justify-between text-[10px] text-slate-500 font-bold">
+                                <span><i class="fa-solid fa-user-check text-bge-blue mr-1"></i>L'IA est votre copilote. Vous êtes l'expert.</span>
+                                <span class="text-bge-orange">Appui BGE Pays de la Loire</span>
+                            </div>
+                        </div>
+
+                        <!-- Right 5 Cols: Contacts BGE Pays de la Loire -->
+                        <div class="md:col-span-5 bg-gradient-to-br from-slate-50 to-amber-50/50 p-4 md:p-5 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-orange shadow-sm text-center">
+                            <div class="space-y-3.5 my-auto">
+                                <div class="w-16 h-16 bg-bge-blue text-white rounded-2xl flex items-center justify-center text-3xl font-bold mx-auto shadow-md transform -rotate-2">
+                                    <i class="fa-solid fa-rocket text-bge-orange"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-poppins font-black text-slate-900 text-sm md:text-base leading-tight">Prêts à booster vos ventes avec l'IA ?</h4>
+                                    <p class="text-[11px] text-slate-500 mt-1">Passez à l'action dès aujourd'hui sur votre activité !</p>
+                                </div>
+
+                                <div class="p-3.5 bg-white border border-slate-200 rounded-xl text-xs space-y-1.5 shadow-sm text-left">
+                                    <p class="font-bold text-bge-blue text-xs md:text-sm"><i class="fa-solid fa-user-tie text-bge-orange mr-2"></i>Christophe GUILLON</p>
+                                    <p class="text-[11px] text-slate-600 font-medium">Conseiller, Formateur & Référent IA</p>
+                                    <div class="border-t border-slate-100 pt-2 mt-2 text-[11px] space-y-1.5">
+                                        <p class="text-slate-700 flex items-center gap-2"><i class="fa-solid fa-building text-bge-blue"></i><strong>BGE Pays de la Loire</strong></p>
+                                        <p class="text-slate-700 flex items-center gap-2"><i class="fa-solid fa-envelope text-bge-capri"></i>contact@bge-paysdelaloire.com</p>
+                                        <p class="text-slate-700 flex items-center gap-2"><i class="fa-solid fa-globe text-bge-green"></i>bge-paysdelaloire.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-bge-orange/10 border border-bge-orange/30 p-2 rounded-xl text-[10px] font-bold text-bge-orange text-center">
+                                Appui aux Entrepreneurs en Pays de la Loire
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Merci pour votre participation active ! Ce dernier slide synthétise l'ensemble des 5 modules parcourus pendant notre session de 3h30. Vous avez désormais toutes les clés pour faire de l'IA votre copilote commercial au quotidien tout en gardant votre rôle d'expert ! À très bientôt chez BGE Pays de la Loire !"
+            }
+        ];
+
+        let currentSlideIndex = 0;
+        let timerInterval = null;
+        let timerSecondsRemaining = 900;
+        let timerIsRunning = false;
+        let consoleIsVisible = true;
+        let correctFoundCount = 0;
+        let wrongFoundCount = 0;
+
+        function renderSlide(index) {
+            if (index < 0 || index >= slidesDatabase.length) return;
+            currentSlideIndex = index;
+            const slide = slidesDatabase[index];
+
+            document.getElementById("slide-category-badge").innerText = slide.category;
+            document.getElementById("slide-sub-badge").innerText = slide.subBadge;
+
+            const mainContentContainer = document.getElementById("slide-main-content");
+            mainContentContainer.innerHTML = `
+                <h3 class="font-poppins font-black text-xl md:text-2xl text-bge-blue mb-4 tracking-tight border-l-4 border-bge-orange pl-3 flex-shrink-0 self-start">
+                    ${slide.title}
+                </h3>
+                <div class="slide-body-content text-slate-700 leading-relaxed text-xs md:text-sm font-lato flex-grow flex flex-col justify-center items-center w-full my-auto overflow-hidden">
+                    ${slide.content}
+                </div>
+            `;
+
+            document.getElementById("slide-footer-right").innerText = `Séquence ${slide.category} • Slide ${slide.id} / ${slidesDatabase.length}`;
+            document.getElementById("global-slide-counter").innerText = `Slide ${slide.id} / ${slidesDatabase.length}`;
+
+            const presenterNotes = document.getElementById("presenter-notes");
+            presenterNotes.innerHTML = slide.script.replace(/\n/g, "<br>");
+            presenterNotes.scrollTop = 0;
+
+            updateGridActiveIndicator(index);
+            localStorage.setItem('bge_current_slide', index.toString());
+
+            if (slide.id === 6) {
+                updateAnonymTotalCount();
+            }
+        }
+
+        function updateAnonymTotalCount() {
+            setTimeout(() => {
+                const totalTargetElem = document.getElementById('anon-total-target-count');
+                if (totalTargetElem) {
+                    const totalSensitives = document.querySelectorAll('.anonym-target[data-correct="true"]').length;
+                    totalTargetElem.innerText = totalSensitives;
+                }
+            }, 50);
+        }
+
+        function navigateSlide(direction) {
+            const targetIndex = currentSlideIndex + direction;
+            if (targetIndex >= 0 && targetIndex < slidesDatabase.length) {
+                renderSlide(targetIndex);
+            }
+        }
+
+        function clickAnonym(el) {
+            if (el.classList.contains('clicked-processed')) return;
+            el.classList.add('clicked-processed');
+
+            const isCorrect = el.getAttribute('data-correct') === 'true';
+            if (isCorrect) {
+                el.classList.remove('hover:bg-amber-200', 'cursor-pointer');
+                el.classList.add('bg-emerald-500', 'text-white', 'font-bold', 'px-1', 'rounded', 'shadow-sm');
+                correctFoundCount++;
+                showToast("✅ Donnée nominative sensible identifiée et anonymisée !");
+            } else {
+                el.classList.remove('hover:bg-amber-200', 'cursor-pointer');
+                el.classList.add('bg-red-500', 'text-white', 'font-bold', 'px-1', 'rounded', 'shadow-sm');
+                wrongFoundCount++;
+                showToast("❌ Chiffre / terme générique : les montants restent visibles pour l'IA !");
+            }
+
+            const cElem = document.getElementById('anon-correct-count');
+            const wElem = document.getElementById('anon-wrong-count');
+            if (cElem) cElem.innerText = correctFoundCount;
+            if (wElem) wElem.innerText = wrongFoundCount;
+        }
+
+        function resetAnonymExercise() {
+            correctFoundCount = 0;
+            wrongFoundCount = 0;
+            const cElem = document.getElementById('anon-correct-count');
+            const wElem = document.getElementById('anon-wrong-count');
+            if (cElem) cElem.innerText = 0;
+            if (wElem) wElem.innerText = 0;
+
+            document.querySelectorAll('.anonym-target').forEach(el => {
+                el.classList.remove('clicked-processed', 'bg-emerald-500', 'bg-red-500', 'text-white', 'font-bold', 'px-1', 'rounded', 'shadow-sm');
+                el.classList.add('hover:bg-amber-200', 'cursor-pointer');
+            });
+            showToast("Exercice d'anonymisation réinitialisé !");
+        }
+
+        function copyText(elementId) {
+            const textToCopy = document.getElementById(elementId)?.innerText;
+            if (textToCopy) {
+                navigator.clipboard.writeText(textToCopy);
+                showToast("Prompt copié dans le presse-papier !");
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement("div");
+            toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 bg-bge-orange text-white text-xs md:text-sm font-bold px-5 py-2.5 rounded-xl shadow-2xl z-50 toast-notification flex items-center gap-2 border border-white/20";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${message}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
+        function initNavigation() {
+            document.addEventListener("keydown", function (e) {
+                const activeTag = document.activeElement ? document.activeElement.tagName : '';
+                if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) {
+                    return;
+                }
+
+                if (e.key === " " || e.code === "Space") {
+                    return;
+                }
+
+                if (e.key === "ArrowRight" || e.key === "PageDown") {
+                    e.preventDefault();
+                    navigateSlide(1);
+                } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+                    e.preventDefault();
+                    navigateSlide(-1);
+                }
+            });
+        }
+
+        function buildSlidesGridSelector() {
+            const container = document.getElementById("slides-grid-container");
+            container.innerHTML = "";
+            for (let i = 0; i < slidesDatabase.length; i++) {
+                const btn = document.createElement("button");
+                btn.id = `grid-btn-${i}`;
+                btn.innerText = i + 1;
+                btn.className = "bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold py-1 rounded transition-all text-center";
+                btn.onclick = function () { renderSlide(i); };
+                container.appendChild(btn);
+            }
+        }
+
+        function updateGridActiveIndicator(activeIndex) {
+            for (let i = 0; i < slidesDatabase.length; i++) {
+                const btn = document.getElementById(`grid-btn-${i}`);
+                if (btn) {
+                    if (i === activeIndex) {
+                        btn.className = "bg-bge-orange text-white text-xs font-black py-1 rounded shadow-lg scale-105 border border-white/20 text-center";
+                    } else {
+                        btn.className = "bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold py-1 rounded transition-all text-center";
+                    }
+                }
+            }
+        }
+
+        function setTimerDuration(seconds) {
+            stopTimerInterval();
+            timerSecondsRemaining = seconds;
+            updateTimerDisplay();
+            localStorage.setItem('bge_timer_seconds', seconds.toString());
+        }
+
+        function toggleTimer() {
+            if (timerIsRunning) stopTimerInterval();
+            else startTimerInterval();
+        }
+
+        function startTimerInterval() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerIsRunning = true;
+            document.getElementById("timer-btn").innerText = "Pause";
+            document.getElementById("timer-btn").className = "bg-red-600 hover:bg-red-700 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-white shadow-md";
+            localStorage.setItem('bge_timer_running', 'true');
+
+            timerInterval = setInterval(function () {
+                if (timerSecondsRemaining > 0) {
+                    timerSecondsRemaining--;
+                    updateTimerDisplay();
+                    localStorage.setItem('bge_timer_seconds', timerSecondsRemaining.toString());
+                } else {
+                    stopTimerInterval();
+                    document.getElementById("timer-display").innerText = "FINI !";
+                }
+            }, 1000);
+        }
+
+        function stopTimerInterval() {
+            timerIsRunning = false;
+            if (timerInterval) clearInterval(timerInterval);
+            document.getElementById("timer-btn").innerText = "Lancer";
+            document.getElementById("timer-btn").className = "bg-bge-orange hover:bg-orange-600 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-white shadow-md";
+            localStorage.setItem('bge_timer_running', 'false');
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timerSecondsRemaining / 60);
+            const secs = timerSecondsRemaining % 60;
+            document.getElementById("timer-display").innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            const progressPercent = (timerSecondsRemaining / 900) * 100;
+            document.getElementById("timer-progress").style.width = `${Math.min(progressPercent, 100)}%`;
+        }
+
+        function openPresenterWindow() {
+            const path = window.location.pathname + '?role=presenter';
+            window.open(path, 'bge_presenter_view', 'width=1200,height=800,toolbar=no,menubar=no,scrollbars=no,resizable=yes');
+        }
+
+        function togglePresenterSidebar() {
+            const sidebar = document.getElementById("presenter-sidebar");
+            const showBtn = document.getElementById("show-sidebar-btn");
+
+            if (consoleIsVisible) {
+                sidebar.classList.add('w-0', 'border-l-0', 'opacity-0');
+                sidebar.classList.remove('w-[380px]', 'md:w-[460px]');
+                showBtn.classList.remove('hidden');
+                consoleIsVisible = false;
+            } else {
+                sidebar.classList.remove('w-0', 'border-l-0', 'opacity-0');
+                sidebar.classList.add('w-[380px]', 'md:w-[460px]');
+                showBtn.classList.add('hidden');
+                consoleIsVisible = true;
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function handleStorageEvent(event) {
+            if (event.key === 'bge_current_slide' && event.newValue !== null) {
+                const newIndex = parseInt(event.newValue, 10);
+                if (newIndex !== currentSlideIndex) {
+                    renderSlide(newIndex);
+                }
+            }
+            if (event.key === 'bge_timer_seconds' && event.newValue !== null) {
+                timerSecondsRemaining = parseInt(event.newValue, 10);
+                updateTimerDisplay();
+            }
+            if (event.key === 'bge_timer_running' && event.newValue !== null) {
+                const running = event.newValue === 'true';
+                if (running !== timerIsRunning) {
+                    if (running) startTimerInterval();
+                    else stopTimerInterval();
+                }
+            }
+        }
+
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const role = urlParams.get('role');
+            
+            if (role === 'presenter' || window.name === 'bge_presenter_view') {
+                document.getElementById('main-header').style.display = 'none';
+                document.getElementById('slide-viewer-pane').style.display = 'none';
+                document.getElementById('presenter-sidebar').classList.remove('w-[380px]', 'md:w-[460px]');
+                document.getElementById('presenter-sidebar').classList.add('w-full', 'h-full');
+            }
+
+            buildSlidesGridSelector();
+            window.addEventListener('storage', handleStorageEvent);
+            
+            const savedSlide = localStorage.getItem('bge_current_slide');
+            if (savedSlide !== null) {
+                currentSlideIndex = parseInt(savedSlide, 10);
+            }
+            
+            renderSlide(currentSlideIndex);
+            initNavigation();
+            setTimerDuration(900);
+        };
+    </script>
+</body>
+</html>

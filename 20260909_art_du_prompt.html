@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGE Pays de la Loire - L'Art du Prompt : De l'amateur à l'ingénieur de contexte</title>
+    <!-- Polices et Styles BGE Officiels -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Lato:wght@300;400;700;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bge-blue': '#004A99',      /* Deep Cobalt BGE */
+                        'bge-orange': '#F28C00',    /* Saffron Orange BGE */
+                        'bge-capri': '#009FE3',     /* Capri Blue BGE */
+                        'bge-green': '#8cc63f',     /* BGE Green */
+                        'bge-dark': '#0b132b',      /* Deep Obsidian Blue */
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        lato: ['Lato', 'sans-serif'],
+                        code: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slide-aspect-ratio {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 100%;
+            max-height: calc(100vh - 80px);
+            height: auto;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Typographies Générales Améliorées pour Projection HD */
+        .slide-body-content p,
+        .slide-body-content li,
+        .slide-body-content td,
+        .slide-body-content th {
+            font-size: 1.02rem !important;
+            line-height: 1.55 !important;
+        }
+        @media (min-width: 768px) {
+            .slide-body-content p,
+            .slide-body-content li,
+            .slide-body-content td,
+            .slide-body-content th {
+                font-size: 1.12rem !important;
+            }
+        }
+        .slide-body-content h4 { font-size: 1.28rem !important; }
+
+        /* Style Haute Lisibilité ZÉRO SCROLL pour Projection */
+        .prompt-code-block {
+            background-color: #0b132b;
+            border: 2px solid #1e293b;
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+        }
+        .prompt-text-projected {
+            font-family: 'Fira Code', 'Courier New', monospace !important;
+            font-size: 0.88rem !important;
+            line-height: 1.5 !important;
+            font-weight: 500 !important;
+            overflow: hidden !important;
+            white-space: pre-wrap !important;
+        }
+        @media (min-width: 768px) {
+            .prompt-text-projected {
+                font-size: 0.98rem !important;
+                line-height: 1.58 !important;
+            }
+        }
+        @media (min-width: 1280px) {
+            .prompt-text-projected {
+                font-size: 1.08rem !important;
+                line-height: 1.62 !important;
+            }
+        }
+
+        .toast-notification {
+            animation: fadeInOut 2.5s ease-in-out forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, 20px); }
+            15% { opacity: 1; transform: translate(-50%, 0); }
+            85% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -20px); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-lato min-h-screen flex flex-col overflow-hidden selection:bg-bge-orange selection:text-white">
+
+    <!-- BARRE DE CONTRÔLE SUPÉRIEURE -->
+    <header id="main-header" class="bg-slate-950 border-b border-slate-800 h-16 px-4 md:px-6 flex items-center justify-between z-20 flex-shrink-0">
+        <div class="flex items-center gap-3">
+            <span class="bg-bge-orange text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">BGE PAYS DE LA LOIRE</span>
+            <h1 class="font-poppins font-bold text-sm md:text-base hidden sm:inline-block tracking-tight text-white">L'Art du Prompt : De l'amateur à l'ingénieur de contexte</h1>
+        </div>
+        
+        <div class="flex items-center gap-2 md:gap-3">
+            <button onclick="navigateSlide(-1)" class="bg-slate-800 hover:bg-slate-700 text-white p-2 rounded-lg transition-colors" title="Slide Précédente">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <span id="global-slide-counter" class="text-xs md:text-sm font-bold text-slate-300 min-w-[90px] text-center bg-slate-900 px-3 py-1.5 rounded-md border border-slate-800">Slide 1 / 36</span>
+            <button onclick="navigateSlide(1)" class="bg-slate-800 hover:bg-slate-700 text-white p-2 rounded-lg transition-colors" title="Slide Suivante">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Mode Double Écran -->
+            <button onclick="openPresenterWindow()" class="bg-bge-blue hover:bg-blue-700 text-white p-2.5 rounded-lg flex items-center justify-center transition-all shadow-md" title="Console Présentateur (2e Écran Synchronisé)">
+                <i class="fa-solid fa-desktop"></i>
+            </button>
+
+            <button onclick="toggleFullscreen()" class="bg-slate-800 hover:bg-slate-700 text-white text-xs md:text-sm font-semibold p-2.5 rounded-lg flex items-center justify-center transition-colors" title="Mode Plein Écran">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <main class="flex-grow flex overflow-hidden relative">
+
+        <!-- ZONE DIAPORAMA PROJETÉ -->
+        <div id="slide-viewer-pane" class="flex-grow flex items-center justify-center p-3 md:p-5 bg-slate-900 transition-all duration-300 w-full h-full">
+            <div class="slide-aspect-ratio bg-white text-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col relative border border-slate-700/30">
+                
+                <!-- En-tête de Slide -->
+                <div class="h-14 border-b border-slate-100 px-6 md:px-8 flex items-center justify-between bg-slate-50/70 flex-shrink-0 z-10">
+                    <div class="flex items-center gap-3">
+                        <span id="slide-category-badge" class="bg-bge-blue text-white text-[10px] md:text-xs font-black px-3 py-1.5 rounded-md uppercase tracking-wider">INTRO</span>
+                        <span id="slide-sub-badge" class="text-slate-600 text-[10px] md:text-xs font-bold bg-slate-200/70 px-2.5 py-1 rounded-md">Mindset</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <span class="text-[11px] font-bold text-slate-500 hidden md:inline-block">Christophe GUILLON • BGE Pays de la Loire</span>
+                        <span class="text-slate-300 hidden md:inline-block">|</span>
+                        <span class="font-poppins font-black text-bge-blue text-sm md:text-base">BGE</span>
+                    </div>
+                </div>
+
+                <!-- Contenu central de la Slide (Centrage parfait) -->
+                <div id="slide-main-content" class="flex-grow px-6 md:px-12 py-4 flex flex-col justify-center items-center overflow-hidden w-full">
+                    <!-- Généré dynamiquement en JS -->
+                </div>
+
+                <!-- Pied de Slide -->
+                <div class="h-10 border-t border-slate-100 px-8 flex items-center justify-between text-[10px] md:text-xs text-slate-400 bg-slate-50/30 flex-shrink-0 z-10">
+                    <span class="font-bold text-slate-500 uppercase tracking-wider">BGE PAYS DE LA LOIRE • FORMATION L'ART DU PROMPT (4H)</span>
+                    <span id="slide-footer-right" class="font-semibold text-bge-orange">Slide 1 / 36</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSOLE FORMATEUR / PRÉSENTATEUR SIDEBAR -->
+        <div id="presenter-sidebar" class="w-[380px] md:w-[460px] bg-slate-950 border-l border-slate-800 flex flex-col flex-shrink-0 z-10 overflow-hidden transition-all duration-300">
+            <div class="p-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between flex-shrink-0">
+                <div class="flex items-center gap-2 text-bge-orange">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    <h3 class="font-poppins font-bold text-sm uppercase tracking-wider text-slate-100">Console Formateur BGE</h3>
+                </div>
+                <button onclick="togglePresenterSidebar()" class="text-slate-400 hover:text-white transition-colors text-xs font-bold bg-slate-800 px-2.5 py-1 rounded">
+                    <i class="fa-solid fa-chevron-right mr-1"></i> Masquer
+                </button>
+            </div>
+
+            <div class="flex-grow overflow-y-auto p-4 md:p-5 space-y-5 no-scrollbar">
+                
+                <!-- Navigation -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-inner">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3 block"><i class="fa-solid fa-compass mr-1.5 text-bge-capri"></i>Navigation Diaporama</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="navigateSlide(-1)" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs md:text-sm font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 border border-slate-700/60 transition-all">
+                            <i class="fa-solid fa-chevron-left"></i> Précédent
+                        </button>
+                        <button onclick="navigateSlide(1)" class="bg-bge-blue hover:bg-blue-700 text-white text-xs md:text-sm font-bold py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 border border-blue-600 transition-all">
+                            Suivant <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Minuteur d'exercice -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-inner">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wide"><i class="fa-solid fa-stopwatch text-bge-green mr-1.5"></i>Minuteur Atelier Pratique</span>
+                        <span id="timer-display" class="font-mono text-xl md:text-2xl font-black text-bge-green">30:00</span>
+                    </div>
+                    <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden mb-3.5">
+                        <div id="timer-progress" class="h-full bg-bge-green rounded-full transition-all duration-1000" style="width: 100%;"></div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1.5">
+                        <button onclick="setTimerDuration(300)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-slate-200">5 Min</button>
+                        <button onclick="setTimerDuration(900)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-slate-200">15 Min</button>
+                        <button onclick="setTimerDuration(1800)" class="bg-slate-800 hover:bg-slate-700 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-slate-200">30 Min</button>
+                        <button id="timer-btn" onclick="toggleTimer()" class="bg-bge-orange hover:bg-orange-600 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-white shadow-md">Lancer</button>
+                    </div>
+                </div>
+
+                <!-- Script oral formateur -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 flex flex-col min-h-[220px]">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2.5 block"><i class="fa-solid fa-microphone-lines text-bge-orange mr-1.5"></i>Conducteur / Script de l'Animateur</span>
+                    <div id="presenter-notes" class="text-xs md:text-sm text-slate-300 leading-relaxed overflow-y-auto max-h-[260px] pr-2 font-lato font-semibold space-y-2">
+                        <!-- Rempli dynamiquement -->
+                    </div>
+                </div>
+
+                <!-- Grille des slides -->
+                <div class="bg-slate-900 rounded-xl p-4 border border-slate-800">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3 block"><i class="fa-solid fa-th mr-1.5 text-bge-orange"></i>Sélecteur Rapide</span>
+                    <div id="slides-grid-container" class="grid grid-cols-6 md:grid-cols-8 gap-1.5">
+                        <!-- Rempli en JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button id="show-sidebar-btn" onclick="togglePresenterSidebar()" class="hidden fixed bottom-6 right-6 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-bge-orange w-12 h-12 rounded-full shadow-2xl flex items-center justify-center transition-all z-30" title="Ouvrir la Console Formateur">
+        <i class="fa-solid fa-graduation-cap text-lg"></i>
+    </button>
+
+    <!-- JS BASE DE DONNÉES SLIDES -->
+    <script>
+        const slidesDatabase = [
+            {
+                id: 1,
+                category: "INTRO",
+                subBadge: "Mindset BGE",
+                title: "L'Art du Prompt : De l'amateur à l'ingénieur de contexte",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full my-auto max-w-3xl mx-auto space-y-4">
+                        <p class="text-bge-orange font-bold uppercase tracking-widest text-xs md:text-sm">BGE Pays de la Loire • Appui aux Entrepreneurs</p>
+                        <h2 class="font-poppins font-black text-3xl md:text-4xl text-bge-blue leading-tight">Maîtriser l'IA pour booster sa TPE / PME</h2>
+                        <p class="text-slate-600 text-sm md:text-base">Formation-Action de 4h dédiée aux créateurs, artisans, commerçants et dirigeants.</p>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl shadow-sm">
+                            <p class="text-bge-blue font-poppins font-bold text-base md:text-lg">« L'IA est un amplificateur : du flou elle produit du flou, du clair elle produit de la valeur. »</p>
+                        </div>
+                    </div>
+                `,
+                script: "Bonjour à tous. Bienvenue à cette session BGE Pays de la Loire. Aujourd'hui, nous dépassons le stade du gadget. L'IA est un amplificateur : si votre demande est floue, vous obtenez de la soupe grise. Si vous maîtrisez l'ingénierie de contexte, elle devient votre meilleur collaborateur au quotidien !"
+            },
+            {
+                id: 2,
+                category: "INTRO",
+                subBadge: "Données 2025",
+                title: "Le Paradoxe Français & La Dette Cognitive (KPMG / MIT)",
+                content: `
+                    <div class="flex flex-col justify-center items-center h-full w-full max-w-4xl mx-auto my-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-stretch">
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 border-t-4 border-bge-blue shadow-sm flex flex-col justify-between space-y-4">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="bg-bge-blue text-white text-xs font-bold px-2.5 py-1 rounded uppercase">ÉDUCATION & USAGE</span>
+                                        <span class="text-xs font-bold text-slate-400">Étude KPMG 2025</span>
+                                    </div>
+                                    <h4 class="font-poppins font-bold text-slate-800 text-base md:text-lg mb-2">67% d'usage vs 33% de confiance</h4>
+                                    <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Les Français utilisent l'IA au quotidien (65% perso, 59% pro) mais seuls 33% lui font réellement confiance.</p>
+                                </div>
+                                <span class="text-xs text-bge-blue font-bold border-t border-slate-200 pt-2 block">💡 Sortir de la méfiance par la méthode</span>
+                            </div>
+                            <div class="bg-red-50/60 p-6 rounded-2xl border border-red-200 border-t-4 border-red-500 shadow-sm flex flex-col justify-between space-y-4">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded uppercase">RISQUE COGNITIF</span>
+                                        <span class="text-xs font-bold text-red-400">Étude MIT</span>
+                                    </div>
+                                    <h4 class="font-poppins font-bold text-red-950 text-base md:text-lg mb-2">La Dette Cognitive</h4>
+                                    <p class="text-slate-700 text-xs md:text-sm leading-relaxed mb-1"><strong>• Usage Passif :</strong> Baisse de la mémoire et dégradation des compétences.</p>
+                                    <p class="text-slate-700 text-xs md:text-sm leading-relaxed"><strong>• Usage Actif :</strong> Performance accrue et décisions éclairées.</p>
+                                </div>
+                                <span class="text-xs text-red-700 font-bold border-t border-red-200 pt-2 block">🎯 Objectif : Apprendre le Mode Actif !</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "L'étude KPMG montre le paradoxe français : 67% des actifs utilisent l'IA mais 33% seulement lui font confiance. L'étude du MIT nous met en garde contre la 'dette cognitive' : copier-coller aveuglément affaiblit votre mémoire. Nous allons apprendre le mode actif pour garder le pilotage !"
+            },
+            {
+                id: 3,
+                category: "INTRO",
+                subBadge: "La Métaphore",
+                title: "Manager son IA : Le « Stagiaire Surdoué et Stressé »",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-full my-auto items-stretch text-xs md:text-sm w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-blue flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="text-bge-blue font-black text-lg md:text-xl block mb-2">1. Stagiaire</span>
+                                <p class="text-slate-600 leading-relaxed text-xs md:text-sm">Il est là pour vous assister, mais reste 100% dépendant de vos consignes précises.</p>
+                            </div>
+                            <span class="text-xs text-slate-400 font-bold uppercase mt-2">Dépendance totale</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-bge-orange flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="text-bge-orange font-black text-lg md:text-xl block mb-2">2. Surdoué</span>
+                                <p class="text-slate-600 leading-relaxed text-xs md:text-sm">Il a lu l'intégralité du web, travaille à une vitesse folle et ne fatigue jamais.</p>
+                            </div>
+                            <span class="text-xs text-slate-400 font-bold uppercase mt-2">Puissance brute</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-t-4 border-red-500 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="text-red-500 font-black text-lg md:text-xl block mb-2">3. Stressé</span>
+                                <p class="text-slate-600 leading-relaxed text-xs md:text-sm">A tellement peur de mal faire qu'il préfère inventer (halluciner) plutôt que d'avouer qu'il ne sait pas !</p>
+                            </div>
+                            <span class="text-xs text-slate-400 font-bold uppercase mt-2">Risque d'hallucination</span>
+                        </div>
+                    </div>
+                `,
+                script: "Gaétan Roisnel (Yes We Prompt) résume parfaitement la posture à adopter : considérez l'IA comme un 'stagiaire surdoué mais très stressé'. Il sait tout faire très vite, mais si vos consignes manquent de cadre, il va inventer des faits pour vous faire plaisir. Votre rôle est de le manager activement !"
+            },
+            {
+                id: 4,
+                category: "INTRO",
+                subBadge: "Technique",
+                title: "Anatomie d'un LLM : Base LLM vs Instruction-Tuned",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-slate-200 text-slate-700 text-xs font-bold px-2.5 py-1 rounded uppercase">Moteur Brut</span>
+                                <h4 class="font-poppins font-bold text-slate-800 mt-3 mb-2 text-base md:text-lg">Base LLM (Prédiction brute)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-3">Entraîné uniquement à prédire la suite statistique d'un texte sans chercher à répondre.</p>
+                                <div class="bg-white p-3.5 rounded-xl border border-slate-200 text-sm md:text-base font-mono text-slate-800 leading-relaxed">
+                                    <span class="text-slate-500 font-bold">Prompt :</span> "Comment t'appelles-tu ?"<br>
+                                    <span class="text-slate-900 font-bold">Réponse :</span> "...est une question fréquente en français pour demander le prénom."
+                                </div>
+                            </div>
+                            <span class="text-xs text-slate-400 font-bold mt-3">Ex: Llama-3.2-3B</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-l-4 border-bge-blue flex flex-col justify-between shadow-sm">
+                            <div>
+                                <span class="bg-bge-blue text-white text-xs font-bold px-2.5 py-1 rounded uppercase">Assistant Aligné</span>
+                                <h4 class="font-poppins font-bold text-slate-800 mt-3 mb-2 text-base md:text-lg">Instruction-Tuned (-Instruct / -Chat)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-3">Ajusté (RLHF) pour suivre des consignes, exécuter des tâches et dialoguer.</p>
+                                <div class="bg-white p-3.5 rounded-xl border border-bge-blue/30 text-sm md:text-base font-mono text-bge-blue font-bold leading-relaxed">
+                                    <span class="text-slate-500 font-bold">Prompt :</span> "Comment t'appelles-tu ?"<br>
+                                    <span class="text-bge-blue font-black">Réponse :</span> "Je suis un assistant IA prêt à vous aider dans votre TPE."
+                                </div>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold mt-3">Ex: ChatGPT, Gemini, Mistral Le Chat, Claude</span>
+                        </div>
+                    </div>
+                `,
+                script: "Mikhail Biriuchinskii (ObTIC) rappelle une distinction clé : un Base LLM se contente de poursuivre du texte statistique. Les outils que nous utilisons en TPE (ChatGPT, Claude, Gemini, Mistral) sont des 'Instruction-Tuned LLMs'. Ils sont spécialement entraînés pour obéir à des consignes structurées !"
+            },
+            {
+                id: 5,
+                category: "INTRO",
+                subBadge: "Technique",
+                title: "Les 5 Ingrédients & La Fenêtre de Contexte",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-full my-auto items-center w-full max-w-4xl mx-auto">
+                        <div>
+                            <h4 class="font-poppins font-bold text-bge-blue mb-3 text-base md:text-lg">Les 5 Ingrédients de l'IA Générative</h4>
+                            <ul class="text-xs md:text-sm text-slate-600 space-y-2.5">
+                                <li>• <strong>1. Données d'entraînement :</strong> Le corpus initial de connaissances.</li>
+                                <li>• <strong>2. Tokens :</strong> Fragments de mots (1 token ≈ 4 caractères).</li>
+                                <li>• <strong>3. Fenêtre de Contexte :</strong> La mémoire vive de la session.</li>
+                                <li>• <strong>4. Prompt :</strong> La commande textuelle transmise.</li>
+                                <li>• <strong>5. Algorithme Probabiliste :</strong> Le moteur d'inférence.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-300 shadow-sm">
+                            <h4 class="font-poppins font-bold text-bge-orange mb-2 text-base md:text-lg"><i class="fa-solid fa-fish mr-2"></i>Attention au Poisson Rouge !</h4>
+                            <p class="text-slate-700 text-xs md:text-sm leading-relaxed">Une IA a une mémoire temporaire limitée (ex: 128k tokens). Tel un tableau blanc effacé au fur et à mesure, une discussion trop longue sature sa mémoire et l'IA oublie vos premières règles !</p>
+                        </div>
+                    </div>
+                `,
+                script: "Gardez en tête l'analogie du poisson rouge : un fil de discussion trop long sature la fenêtre de contexte. Quand le tableau blanc est plein, l'IA efface le début et commence à dériver. Règle d'or : 1 objectif = 1 nouvelle conversation !"
+            },
+            {
+                id: 6,
+                category: "INTRO",
+                subBadge: "Réglages",
+                title: "Les Réglages Moteurs : Température, Top-P & Max Tokens",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">La Température (0.0 à 1.0)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3">Contrôle la créativité et la prise de risque du modèle.</p>
+                                <ul class="text-xs md:text-sm text-slate-600 space-y-2">
+                                    <li>• <strong>Température = 0.2 (Basse) :</strong> Rigueur, calculs de coût, juridique, synthèses strictes.</li>
+                                    <li>• <strong>Température = 0.8 (Haute) :</strong> Brainstorming, création de slogans, posts créatifs.</li>
+                                </ul>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold mt-2">Contrôle du niveau d'aléa</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange mb-2 text-base md:text-lg">Top-P, Top-K & Max Tokens</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3">Ajustent le filtre du vocabulaire et la longueur.</p>
+                                <ul class="text-xs md:text-sm text-slate-600 space-y-2">
+                                    <li>• <strong>Top-P / Top-K :</strong> Limitent le réservoir des mots autorisés.</li>
+                                    <li>• <strong>Max Tokens :</strong> Plafonne la taille de la réponse (attention aux coupures).</li>
+                                </ul>
+                            </div>
+                            <span class="text-xs text-bge-orange font-bold mt-2">Inclus dans les API & Playgrounds</span>
+                        </div>
+                    </div>
+                `,
+                script: "Ajustez la température selon la nature de votre tâche. Pour un contrat, un calcul de coût de revient ou un diagnostic juridique, exigez une température basse (0.2). Pour trouver un nom de marque, montez à 0.8 !"
+            },
+            {
+                id: 7,
+                category: "INTRO",
+                subBadge: "Chrono-Battle",
+                title: "Démonstration Choc : Le Chrono-Battle",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-center w-full max-w-4xl mx-auto">
+                        <div class="bg-red-50 p-5 rounded-2xl border border-red-200">
+                            <div class="text-red-600 font-bold text-xs uppercase mb-2"><i class="fa-solid fa-xmark mr-1"></i> Prompt Amateur (1 ligne)</div>
+                            <p class="text-slate-800 text-xs md:text-sm font-mono bg-white p-3 rounded-xl border border-red-100">« Rédige-moi un mail de relance pour un devis en retard. »</p>
+                            <span class="text-xs text-red-600 font-bold block mt-3">Résultat : Texte générique, banal et agressif ("soupe grise").</span>
+                        </div>
+                        <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-200">
+                            <div class="text-emerald-600 font-bold text-xs uppercase mb-2"><i class="fa-solid fa-check mr-1"></i> Prompt Structuré (RCORCF / BGE XML)</div>
+                            <p class="text-slate-800 text-xs md:text-sm font-mono bg-white p-3 rounded-xl border border-emerald-100 leading-relaxed">&lt;RÔLE&gt;Ébéniste d'art à Angers&lt;/RÔLE&gt;<br>&lt;CONTEXTE&gt;Devis dressing 4 500 € relancé à J+15&lt;/CONTEXTE&gt;<br>&lt;OBJECTIF&gt;Relance chaleureuse axée sur le conseil&lt;/OBJECTIF&gt;</p>
+                            <span class="text-xs text-emerald-600 font-bold block mt-3">Résultat : Sur-mesure chirurgical, conversion commerciale immédiate.</span>
+                        </div>
+                    </div>
+                `,
+                script: "Constatez l'écart qualitatif. Un prompt naïf d'une ligne force l'IA à deviner. En lui donnant une structure claire en rôle, contexte et objectif, l'IA passe du statut de moteur flou à celui de bras droit commercial."
+            },
+            {
+                id: 8,
+                category: "INTRO",
+                subBadge: "Pièges TPE",
+                title: "Les 5 Erreurs à Ne Pas Commettre dans vos Prompts",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 h-full my-auto items-stretch text-xs md:text-sm w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                            <span class="font-bold text-red-600 block mb-1">1. Conversations à rallonge</span>
+                            <p class="text-slate-600 text-xs">Sature la mémoire vive. Règle : 1 objectif = 1 chat dédié.</p>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                            <span class="font-bold text-red-600 block mb-1">2. Mauvais modèle / option</span>
+                            <p class="text-slate-600 text-xs">Oublier d'activer le Deepsearch, l'analyse d'image ou le mode Reasoning.</p>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                            <span class="font-bold text-red-600 block mb-1">3. Croire l'IA sur parole</span>
+                            <p class="text-slate-600 text-xs">Subir les hallucinations. Exiger systématiquement les URLs de sources.</p>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                            <span class="font-bold text-red-600 block mb-1">4. Oublier le contexte TPE</span>
+                            <p class="text-slate-600 text-xs">Demander un avis sans donner vos chiffres, offres ou tarifs réels.</p>
+                        </div>
+                        <div class="bg-red-100 p-4 rounded-xl border border-red-300 md:col-span-2">
+                            <span class="font-bold text-red-800 block mb-1">5. Oublier de désactiver l'entraînement sur vos données</span>
+                            <p class="text-red-700 text-xs">Dans les paramètres, désactivez "Améliorer le modèle pour tous" pour protéger le secret des affaires !</p>
+                        </div>
+                    </div>
+                `,
+                script: "Identifions les 5 erreurs classiques soulevées par Yes We Prompt. La plus grave pour un chef d'entreprise : laisser l'option d'entraînement activée sur les versions gratuites. Vos secrets commerciaux ou données clients pourraient resurgir ailleurs !"
+            },
+            {
+                id: 9,
+                category: "MODULE 1",
+                subBadge: "Règle d'Or",
+                title: "Manager son IA avec la Règle des 3C",
+                content: `
+                    <div class="flex flex-col justify-center items-center h-full my-auto space-y-4 w-full max-w-4xl mx-auto">
+                        <div class="grid grid-cols-3 gap-3 text-center w-full">
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 border-t-4 border-bge-blue">
+                                <span class="text-bge-blue font-black text-sm md:text-base block">1. Clarté</span>
+                                <p class="text-slate-600 text-xs">Action directe sans ambiguïté</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 border-t-4 border-bge-orange">
+                                <span class="text-bge-orange font-black text-sm md:text-base block">2. Contexte</span>
+                                <p class="text-slate-600 text-xs">Situation TPE, cible, enjeu local</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 border-t-4 border-bge-green">
+                                <span class="text-bge-green font-black text-sm md:text-base block">3. Contrainte</span>
+                                <p class="text-slate-600 text-xs">Longueur, ton, format, délai</p>
+                            </div>
+                        </div>
+
+                        <div class="prompt-code-block p-5 rounded-2xl w-full border-2 border-slate-700 shadow-2xl relative">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                                <span class="text-xs md:text-sm font-mono text-bge-orange font-bold uppercase"><i class="fa-solid fa-store mr-2"></i>Exemple Projeté TPE : Boulangerie Bio (Angers)</span>
+                                <button onclick="copyText('prompt-3c-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3 py-1.5 rounded-lg border border-slate-600 transition-all flex items-center gap-1.5">
+                                    <i class="fa-solid fa-copy"></i> Copier
+                                </button>
+                            </div>
+                            <div id="prompt-3c-text" class="prompt-text-projected text-slate-100">
+<span class="text-sky-400 font-bold">[CLARTÉ]</span> Rédige 2 publications Instagram captivantes pour annoncer notre lancement de brioche.
+<span class="text-amber-400 font-bold">[CONTEXTE]</span> Je suis artisan boulanger bio installé à Angers. Ce samedi, nous lançons notre nouvelle brioche feuilletée pur beurre AOP. Notre clientèle est composée de familles locales et de gourmands du quartier.
+<span class="text-emerald-400 font-bold">[CONTRAINTE]</span> Max 80 mots par post, ton chaleureux et gourmand. Inclure un appel clair à réserver en boutique avant vendredi 18h. Ne pas utiliser de mots clichés comme "incontournable" ou "au cœur de".</div>
+                        </div>
+                    </div>
+                `,
+                script: "Voici la Règle des 3C (Clarté, Contexte, Contrainte) appliquée à un cas réel : un boulanger bio à Angers. Notez la précision de la contrainte pour éviter les clichés de rédaction !"
+            },
+            {
+                id: 10,
+                category: "MODULE 1",
+                subBadge: "Frameworks Rapides",
+                title: "Les Frameworks Rapides : RTF (Cavazza) & BGE C.T.F.I.",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <!-- RTF -->
+                        <div class="prompt-code-block p-4 md:p-5 rounded-2xl flex flex-col justify-between relative border-2 border-slate-700 shadow-2xl">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+                                    <span class="text-xs font-mono text-bge-blue font-bold uppercase"><i class="fa-solid fa-bolt mr-1.5"></i>Méthode RTF : Photographe (Nantes)</span>
+                                    <button onclick="copyText('prompt-rtf-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-600 transition-all flex items-center gap-1">
+                                        <i class="fa-solid fa-copy"></i> Copier
+                                    </button>
+                                </div>
+                                <div id="prompt-rtf-text" class="prompt-text-projected text-slate-100">
+<div><span class="text-amber-400 font-bold">&lt;RÔLE&gt;</span> Rédacteur web événementiel. <span class="text-amber-400 font-bold">&lt;/RÔLE&gt;</span></div>
+<div><span class="text-emerald-400 font-bold">&lt;TÂCHE&gt;</span> Proposer 3 objets d'e-mails de relance chaleureux après un shooting photo mariage à Nantes. <span class="text-emerald-400 font-bold">&lt;/TÂCHE&gt;</span></div>
+<div><span class="text-purple-300 font-bold">&lt;FORMAT&gt;</span> Liste de 3 accroches de moins de 8 mots chacune. <span class="text-purple-300 font-bold">&lt;/FORMAT&gt;</span></div></div>
+                            </div>
+                            <span class="text-[10px] font-mono text-slate-400 border-t border-slate-800 pt-1.5 block mt-2">RTF (Frédéric Cavazza) : Rôle • Tâche • Format</span>
+                        </div>
+
+                        <!-- C.T.F.I CORRIGÉ AVEC BLOC ITÉRATION -->
+                        <div class="prompt-code-block p-4 md:p-5 rounded-2xl flex flex-col justify-between relative border-2 border-slate-700 shadow-2xl">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+                                    <span class="text-xs font-mono text-bge-orange font-bold uppercase"><i class="fa-solid fa-shield-halved mr-1.5"></i>C.T.F.I. : Micro-Brasserie (Saumur)</span>
+                                    <button onclick="copyText('prompt-ctfi-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-600 transition-all flex items-center gap-1">
+                                        <i class="fa-solid fa-copy"></i> Copier
+                                    </button>
+                                </div>
+                                <div id="prompt-ctfi-text" class="prompt-text-projected text-slate-100">
+<div><span class="text-sky-400 font-bold">&lt;CONTEXTE&gt;</span> Micro-brasserie à Saumur (bière ambrée bio). <span class="text-sky-400 font-bold">&lt;/CONTEXTE&gt;</span></div>
+<div><span class="text-emerald-400 font-bold">&lt;TÂCHE&gt;</span> Rédiger la fiche produit revendeurs. <span class="text-emerald-400 font-bold">&lt;/TÂCHE&gt;</span></div>
+<div><span class="text-purple-300 font-bold">&lt;FORMAT&gt;</span> Tableau : Caractéristiques | Ingrédients | Argument Vente. <span class="text-purple-300 font-bold">&lt;/FORMAT&gt;</span></div>
+<div><span class="text-pink-300 font-bold">&lt;ITÉRATION&gt;</span> Propose ensuite 2 variantes axées sur le circuit court local. <span class="text-pink-300 font-bold">&lt;/ITÉRATION&gt;</span></div></div>
+                            </div>
+                            <span class="text-[10px] font-mono text-slate-400 border-t border-slate-800 pt-1.5 block mt-2">C.T.F.I. (BGE) : Contexte • Tâche • Format • Itération</span>
+                        </div>
+                    </div>
+                `,
+                script: "Voici la Slide 10 parfaitement ajustée : les deux frameworks de réponse rapide s'affichent côte à côte. Observez le bloc ITÉRATION complet du C.T.F.I. BGE qui demande à l'IA de proposer deux variantes axées circuit court !"
+            },
+            {
+                id: 11,
+                category: "MODULE 1",
+                subBadge: "Framework",
+                title: "Le Framework Universel : La Méthode RCORCF",
+                content: `
+                    <div class="flex flex-col justify-center items-center h-full my-auto space-y-3 w-full max-w-4xl mx-auto">
+                        <div class="grid grid-cols-3 md:grid-cols-6 gap-2 text-center text-xs font-bold w-full">
+                            <div class="bg-slate-100 p-2 rounded-lg text-bge-blue">R - Rôle</div>
+                            <div class="bg-slate-100 p-2 rounded-lg text-bge-orange">C - Contexte</div>
+                            <div class="bg-slate-100 p-2 rounded-lg text-bge-capri">O - Objectif</div>
+                            <div class="bg-slate-100 p-2 rounded-lg text-bge-green">R - Résultat</div>
+                            <div class="bg-slate-100 p-2 rounded-lg text-purple-600">C - Contrainte</div>
+                            <div class="bg-slate-100 p-2 rounded-lg text-pink-600">F - Format</div>
+                        </div>
+
+                        <div class="prompt-code-block p-5 rounded-2xl w-full border-2 border-slate-700 shadow-2xl relative">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                                <span class="text-xs md:text-sm font-mono text-bge-orange font-bold uppercase"><i class="fa-solid fa-laptop-code mr-2"></i>Exemple Projeté TPE : Consultant IT & Cabinet Comptable (Nantes)</span>
+                                <button onclick="copyText('prompt-rcorcf-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3 py-1.5 rounded-lg border border-slate-600 transition-all flex items-center gap-1.5">
+                                    <i class="fa-solid fa-copy"></i> Copier
+                                </button>
+                            </div>
+                            <div id="prompt-rcorcf-text" class="prompt-text-projected text-slate-100">
+<span class="text-amber-400 font-bold">&lt;RÔLE&gt;</span>Tu es un consultant senior en cybersécurité pour TPE/PME.<span class="text-amber-400 font-bold">&lt;/RÔLE&gt;</span>
+<span class="text-sky-400 font-bold">&lt;CONTEXTE&gt;</span>Un cabinet comptable de 8 salariés à Nantes veut sensibiliser son équipe au phishing avant la période fiscale.<span class="text-sky-400 font-bold">&lt;/CONTEXTE&gt;</span>
+<span class="text-emerald-400 font-bold">&lt;OBJECTIF&gt;</span>Rédiger une note d'information interne pédagogique, rassurante et engageante.<span class="text-emerald-400 font-bold">&lt;/OBJECTIF&gt;</span>
+<span class="text-teal-300 font-bold">&lt;RÉSULTAT&gt;</span>Une note synthétique expliquant 3 réflexes simples à adopter immédiatement.<span class="text-teal-300 font-bold">&lt;/RÉSULTAT&gt;</span>
+<span class="text-purple-300 font-bold">&lt;CONTRAINTE&gt;</span>200 mots max. Ton bienveillant. Zéro jargon technique complexe.<span class="text-purple-300 font-bold">&lt;/CONTRAINTE&gt;</span>
+<span class="text-pink-300 font-bold">&lt;FORMAT&gt;</span>Markdown avec sous-titres H2 et puces numérotées.<span class="text-pink-300 font-bold">&lt;/FORMAT&gt;</span></div>
+                        </div>
+                    </div>
+                `,
+                script: "Observons le framework RCORCF appliqué à un consultant IT intervenant auprès d'un cabinet comptable. Chaque composante est clairement balisée pour garantir un livrable directement exploitable !"
+            },
+            {
+                id: 12,
+                category: "MODULE 1",
+                subBadge: "Frameworks",
+                title: "Les Frameworks Avancés : CRAFT & COSTAR",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="prompt-code-block p-4 md:p-5 rounded-2xl flex flex-col justify-between relative overflow-hidden border-2 border-slate-700 shadow-2xl">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                                    <span class="text-xs font-mono text-bge-capri font-bold uppercase">CRAFT : Cuisine Végétale (Le Mans)</span>
+                                    <button onclick="copyText('prompt-craft-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-600">Copier</button>
+                                </div>
+                                <div id="prompt-craft-text" class="prompt-text-projected text-slate-100">
+<span class="text-sky-400 font-bold">Contexte:</span> Je relance mes ateliers de cuisine végétale au Mans.
+<span class="text-sky-400 font-bold">Rôle:</span> Rédacteur culinaire gourmand.
+<span class="text-sky-400 font-bold">Action:</span> Rédiger une newsletter sur la pâtisserie sans œufs.
+<span class="text-sky-400 font-bold">Format:</span> Objet + Mail 120 mots + CTA.
+<span class="text-sky-400 font-bold">Tonalité:</span> Énergique et gourmande.</div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-code-block p-4 md:p-5 rounded-2xl flex flex-col justify-between relative overflow-hidden border-2 border-slate-700 shadow-2xl">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                                    <span class="text-xs font-mono text-bge-green font-bold uppercase">COSTAR : Paysagiste (St-Nazaire)</span>
+                                    <button onclick="copyText('prompt-costar-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-600">Copier</button>
+                                </div>
+                                <div id="prompt-costar-text" class="prompt-text-projected text-slate-100">
+<span class="text-emerald-400 font-bold">Context:</span> Paysagiste TPE à St-Nazaire.
+<span class="text-emerald-400 font-bold">Objective:</span> Rédiger un mail post-RDV.
+<span class="text-emerald-400 font-bold">Style:</span> Professionnel & rassurant.
+<span class="text-emerald-400 font-bold">Tone:</span> Chaleureux & axé durabilité.
+<span class="text-emerald-400 font-bold">Audience:</span> Propriétaires (budget 15k€).
+<span class="text-emerald-400 font-bold">Resources:</span> Devis bois Mélèze joint.</div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Voici deux déclinaisons métiers : CRAFT pour une entrepreneuse en atelier culinaire au Mans, et COSTAR pour un artisan paysagiste à Saint-Nazaire qui intègre le devis en pièce jointe dans la balise Resources !"
+            },
+            {
+                id: 13,
+                category: "MODULE 1",
+                subBadge: "Méga-Prompt",
+                title: "Le Méga-Prompt Ultime : La Méthode CONTEXTE-V",
+                content: `
+                    <div class="flex flex-col justify-center items-center h-full my-auto w-full max-w-4xl mx-auto">
+                        <div class="prompt-code-block p-5 rounded-2xl w-full border-2 border-slate-700 shadow-2xl relative">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                                <span class="text-xs md:text-sm font-mono text-emerald-400 font-bold uppercase"><i class="fa-solid fa-scissors mr-2"></i>Exemple Méga-Prompt : Salon de Coiffure (Laval)</span>
+                                <button onclick="copyText('prompt-contextev-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3 py-1.5 rounded-lg border border-slate-600 transition-all flex items-center gap-1.5">
+                                    <i class="fa-solid fa-copy"></i> Copier
+                                </button>
+                            </div>
+                            <div id="prompt-contextev-text" class="prompt-text-projected text-slate-100">
+<span class="text-amber-400 font-bold">1. Contexte :</span> Salon de coiffure éco-responsable et végétal situé à Laval.
+<span class="text-amber-400 font-bold">2. Objectif :</span> Lancer notre nouvelle carte de fidélité digitale axée sur la RSE.
+<span class="text-amber-400 font-bold">3. Niveau :</span> Accessible et compréhensible pour des clients de tous âges.
+<span class="text-amber-400 font-bold">4. Tâche :</span> Rédiger le texte de présentation pour notre site web et dépliants.
+<span class="text-amber-400 font-bold">5. Exemples :</span> "Chaque visite prend soin de vous et offre un arbre à la planète."
+<span class="text-amber-400 font-bold">6. X-Contraintes :</span> Ne faire AUCUNE réduction de prix agressive ni braderie.
+<span class="text-amber-400 font-bold">7. Tonalité :</span> Élégante, naturelle, éco-friendly et très conviviale.
+<span class="text-amber-400 font-bold">8. Encodage :</span> 2 paragraphes courts de présentation + 3 puces d'avantages.
+<span class="text-emerald-400 font-bold">9. Vérification :</span> Avant de répondre, relis tes instructions et confirme expressément que le texte généré respecte l'interdiction de remise tarifaire brute.</div>
+                        </div>
+                    </div>
+                `,
+                script: "Le Méga-Prompt CONTEXTE-V appliqué à un salon de coiffure éco-responsable à Laval. Observez l'étape 9 de Vérification : elle force l'IA à auto-contrôler le respect de la consigne RSE avant d'afficher sa réponse !"
+            },
+            {
+                id: 14,
+                category: "MODULE 1",
+                subBadge: "Grammaire",
+                title: "Grammaire du Prompt : Instructions Positives vs Négatives",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-red-950/40 p-5 rounded-2xl border border-red-800 flex flex-col justify-between shadow-lg">
+                            <div>
+                                <div class="flex items-center gap-2 text-red-400 font-bold text-xs uppercase mb-2">
+                                    <i class="fa-solid fa-circle-xmark text-sm"></i> Formule Négative (Floue & Risquée)
+                                </div>
+                                <p class="text-slate-300 text-xs mb-2">Chauffagiste à La Roche-sur-Yon :</p>
+                                <div class="prompt-code-block text-red-200 p-3.5 rounded-xl font-mono text-xs md:text-sm leading-relaxed border border-red-900">« Rédige une pub Facebook pour nos pompes à chaleur. Ne parle pas du fioul, ne cite pas la concurrence, n'utilise pas de termes techniques et ne fais pas un texte trop long. »</div>
+                            </div>
+                            <span class="text-xs text-red-400 font-bold mt-2">❌ Laisse un univers d'options ambiguës</span>
+                        </div>
+
+                        <div class="bg-emerald-950/40 p-5 rounded-2xl border border-emerald-800 flex flex-col justify-between shadow-lg">
+                            <div>
+                                <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase mb-2">
+                                    <i class="fa-solid fa-circle-check text-sm"></i> Formule Positive (Claire & Directe)
+                                </div>
+                                <p class="text-slate-300 text-xs mb-2">Correction BGE / Haute Lisibilité :</p>
+                                <div class="prompt-code-block text-emerald-200 p-3.5 rounded-xl font-mono text-xs md:text-sm leading-relaxed border border-emerald-900">« Rédige une annonce Facebook de 60 mots max centrée exclusivement sur les économies d'énergie de la pompe à chaleur air-eau. Mets en avant la prime MaPrimeRénov' et invite à demander une étude thermique gratuite en 1 clic. »</div>
+                            </div>
+                            <span class="text-xs text-emerald-400 font-bold mt-2">✅ Trajectoire algorithmique exacte</span>
+                        </div>
+                    </div>
+                `,
+                script: "Comparaison directe pour un artisan chauffagiste à La Roche-sur-Yon. La version négative interdit 4 choses mais laisse l'IA hésiter. La version positive verrouille directement la cible et l'action à mener !"
+            },
+            {
+                id: 15,
+                category: "MODULE 1",
+                subBadge: "Technique",
+                title: "Les Balises XML, Variables & Délimiteurs",
+                content: `
+                    <div class="flex flex-col justify-center items-center h-full my-auto w-full max-w-4xl mx-auto">
+                        <div class="prompt-code-block p-5 rounded-2xl w-full border-2 border-slate-700 shadow-2xl relative">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                                <span class="text-xs md:text-sm font-mono text-bge-orange font-bold uppercase"><i class="fa-solid fa-code mr-2"></i>Template XML Réutilisable : Ébéniste (Cholet)</span>
+                                <button onclick="copyText('prompt-xml-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3 py-1.5 rounded-lg border border-slate-600 transition-all flex items-center gap-1.5">
+                                    <i class="fa-solid fa-copy"></i> Copier
+                                </button>
+                            </div>
+                            <div id="prompt-xml-text" class="prompt-text-projected text-slate-100 space-y-1.5">
+<div><span class="text-amber-400 font-bold">&lt;VARIABLES&gt;</span> ville = "Cholet" | projet = "Dressing sur-mesure sous pente" <span class="text-amber-400 font-bold">&lt;/VARIABLES&gt;</span></div>
+<div><span class="text-sky-400 font-bold">&lt;MON_ENTREPRISE&gt;</span> Artisan ébéniste agenceur basé à \${ville}, spécialisé en \${projet} en bois massif local. <span class="text-sky-400 font-bold">&lt;/MON_ENTREPRISE&gt;</span></div>
+<div><span class="text-emerald-400 font-bold">&lt;DEMANDE_CLIENT&gt;</span> """Bonjour, nous aimerions aménager sous pente dans notre chambre à Cholet. Longueur 3m, budget 3500€. Disponibilité mois prochain ?""" <span class="text-emerald-400 font-bold">&lt;/DEMANDE_CLIENT&gt;</span></div>
+<div><span class="text-purple-300 font-bold">&lt;TASK&gt;</span> Rédige un e-mail professionnel accusant réception de la demande de \${projet}, confirmant notre déplacement gratuit à \${ville} pour prise de cotes et proposant 2 créneaux de RDV. <span class="text-purple-300 font-bold">&lt;/TASK&gt;</span></div></div>
+                        </div>
+                    </div>
+                `,
+                script: "Voici la structure parfaitement ajustée de la Slide 15 : les balises XML et les variables sont réparties proprement sur la hauteur de l'écran. Les données clients sont isolées dans les triples guillemets pour éviter toute hallucination !"
+            },
+            {
+                id: 16,
+                category: "MODULE 1",
+                subBadge: "Configuration",
+                title: "Où stocker son contexte ? NotebookLM, Custom GPTs & Agents",
+                content: `
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 h-full my-auto items-stretch text-xs w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 border-t-4 border-bge-blue shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="font-bold text-bge-blue text-xs">1. NotebookLM (Gemini)</span>
+                                <p class="text-slate-600 text-[10px] mt-1"><strong>Note Version Gratuite :</strong> Les Gems étant réservés au Pro, importez un fichier <code class="text-bge-orange font-bold">.txt</code> ou <code class="text-bge-orange font-bold">.pdf</code> structuré en XML dans un Notebook.</p>
+                            </div>
+                            <span class="text-[9px] text-bge-blue font-bold mt-2">Source XML permanente</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 border-t-4 border-bge-orange shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="font-bold text-bge-orange text-xs">2. Projects (Claude)</span>
+                                <p class="text-slate-600 text-[10px] mt-1">Brandbook, fichiers d'offres et mémoire d'équipe centralisée.</p>
+                            </div>
+                            <span class="text-[9px] text-bge-orange font-bold mt-2">Projet Marque</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 border-t-4 border-bge-green shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="font-bold text-bge-green text-xs">3. Custom GPTs</span>
+                                <p class="text-slate-600 text-[10px] mt-1">Prompts maîtres XML + instructions système permanentes.</p>
+                            </div>
+                            <span class="text-[9px] text-bge-green font-bold mt-2">GPT Commercial</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 border-t-4 border-red-500 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="font-bold text-red-600 text-xs">4. Agents (Mistral)</span>
+                                <p class="text-slate-600 text-[10px] mt-1">Souveraineté européenne + sécurité renforcée des données.</p>
+                            </div>
+                            <span class="text-[9px] text-red-600 font-bold mt-2">Agent Sécurisé</span>
+                        </div>
+                    </div>
+                `,
+                script: "Point très important concernant Gemini : en version gratuite, les 'Gems' ne sont plus disponibles. La solution élégante consiste à utiliser NotebookLM (ou Gemini Notebooks) : vous créez un fichier texte ou PDF structuré avec vos balises XML (<MOI>, <MA_TPE>, <MES_CLIENTS>) et vous l'importez comme source permanente du Notebook !"
+            },
+            {
+                id: 17,
+                category: "MODULE 1",
+                subBadge: "Exemple",
+                title: "Exemple Métier Complet : Peintre Écologique (Nantes)",
+                content: `
+                    <div class="flex flex-col justify-center items-center h-full my-auto w-full max-w-4xl mx-auto">
+                        <div class="prompt-code-block p-5 rounded-2xl w-full border-2 border-slate-700 shadow-2xl relative">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                                <span class="text-xs md:text-sm font-mono text-bge-green font-bold uppercase"><i class="fa-solid fa-paint-roller mr-2"></i>Cas Complet : Peintre Écologique (Nantes)</span>
+                                <button onclick="copyText('prompt-complet-text')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3 py-1.5 rounded-lg border border-slate-600 transition-all flex items-center gap-1.5">
+                                    <i class="fa-solid fa-copy"></i> Copier
+                                </button>
+                            </div>
+                            <div id="prompt-complet-text" class="prompt-text-projected text-slate-100">
+<span class="text-amber-400 font-bold">&lt;SYSTEM_INSTRUCTIONS&gt;</span> Peintre en bâtiment écologique basé à Nantes, spécialisé dans les peintures biosourcées à zéro COV. Ton professionnel, rassurant et axé santé. <span class="text-amber-400 font-bold">&lt;/SYSTEM_INSTRUCTIONS&gt;</span>
+
+<span class="text-sky-400 font-bold">&lt;CLIENT_INPUT&gt;</span> """Bonjour, je souhaite repeindre les chambres de mes enfants (30m2) mais je crains les odeurs de peinture.""" <span class="text-sky-400 font-bold">&lt;/CLIENT_INPUT&gt;</span>
+
+<span class="text-emerald-400 font-bold">&lt;TASK&gt;</span> Rédiger une réponse e-mail chaleureuse proposant un diagnostic gratuit et expliquant la composition de nos peintures algales sans émission. <span class="text-emerald-400 font-bold">&lt;/TASK&gt;</span>
+
+<span class="text-purple-300 font-bold">&lt;OUTPUT_FORMAT&gt;</span> Mail de 150 mots maximum. Inclure 2 choix de dates pour le RDV. <span class="text-purple-300 font-bold">&lt;/OUTPUT_FORMAT&gt;</span></div>
+                        </div>
+                    </div>
+                `,
+                script: "Observez cette structure complète. La balise SYSTEM_INSTRUCTIONS définit votre profil permanent, CLIENT_INPUT isole la demande entrante, TASK précise l'action et OUTPUT_FORMAT verrouille la forme."
+            },
+            {
+                id: 18,
+                category: "MODULE 1",
+                subBadge: "Pratique",
+                title: "Atelier #1 : Bâtir son ADN & Configurer son Assistant (30 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <h4 class="font-poppins font-bold text-bge-blue mb-4 text-center text-base md:text-lg">Bâtissez votre Bloc XML & Installez votre Assistant</h4>
+                        <ol class="space-y-3 text-slate-700 text-xs md:text-sm">
+                            <li class="p-3 bg-slate-50 border rounded-xl shadow-sm"><strong>1. Rédiger le bloc XML :</strong> Créez les balises <code class="text-bge-orange font-bold">&lt;MOI&gt;</code>, <code class="text-bge-orange font-bold">&lt;MA_TPE&gt;</code> et <code class="text-bge-orange font-bold">&lt;MES_CLIENTS&gt;</code>.</li>
+                            <li class="p-3 bg-slate-50 border rounded-xl shadow-sm"><strong>2. Configurer l'Assistant :</strong> Créez un <strong>Custom GPT</strong> (ChatGPT), un <strong>Projet</strong> (Claude) ou un <strong>NotebookLM / Source XML</strong> (Gemini) et collez-y votre bloc.</li>
+                            <li class="p-3 bg-bge-blue/10 text-bge-blue font-bold rounded-xl border border-bge-blue/20"><strong>3. Test en direct :</strong> Dans ce nouvel espace, lancez : « Résume mon positionnement unique en 3 points. »</li>
+                        </ol>
+                    </div>
+                `,
+                script: "À vous de jouer ! Rédigez votre bloc d'identité XML et collez-le directement dans la configuration de votre assistant ou importez-le en source dans NotebookLM s'il s'agit de Gemini Gratuit. Vous venez de créer votre double numérique !"
+            },
+            {
+                id: 19,
+                category: "MODULE 1",
+                subBadge: "Validation",
+                title: "Débriefing Atelier #1 : Valider son ADN",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-center w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm">
+                            <h4 class="font-poppins font-bold text-bge-green mb-3 text-base md:text-lg">Checklist de Contrôle</h4>
+                            <ul class="space-y-2.5 text-slate-600 text-xs md:text-sm">
+                                <li><i class="fa-solid fa-check text-bge-green mr-2"></i> L'IA a-t-elle compris votre spécificité locale ?</li>
+                                <li><i class="fa-solid fa-check text-bge-green mr-2"></i> Votre assistant conserve-t-il la mémoire lors d'un nouveau chat ?</li>
+                                <li><i class="fa-solid fa-check text-bge-green mr-2"></i> Les balises XML sont-elles correctement fermées ?</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Votre assistant est désormais opérationnel. Pour les ateliers suivants, nous travaillerons directement dans cet environnement configuré.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Validons vos configurations. En gravant vos règles dans l'assistant, vous gagnez un temps précieux à chaque nouvelle requête."
+            },
+            {
+                id: 20,
+                category: "MODULE 2",
+                subBadge: "Raisonnement",
+                title: "L'IA comme Sparring Partner Stratégique",
+                content: `
+                    <div class="flex flex-col justify-center items-center text-center h-full my-auto max-w-3xl mx-auto">
+                        <div class="w-16 h-16 bg-bge-orange/10 text-bge-orange rounded-full flex items-center justify-center mb-4 text-2xl">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h2 class="font-poppins font-black text-2xl md:text-3xl text-slate-800 mb-3">Ne demandez pas la solution, demandez la réflexion !</h2>
+                        <p class="text-slate-600 text-xs md:text-sm mb-4 leading-relaxed">Pour le dirigeant de TPE, l'IA est un associé virtuel permettant de challenger ses idées et de révéler ses angles morts.</p>
+                        <span class="bg-bge-blue text-white text-xs md:text-sm font-bold px-4 py-2 rounded-full">Passer de l'exécution au conseil stratégique</span>
+                    </div>
+                `,
+                script: "Module 2 : Raisonnement stratégique. Nous allons utiliser l'IA non pas comme simple exécuteur, mais comme un sparring partner pour mûrir vos décisions complexes."
+            },
+            {
+                id: 21,
+                category: "MODULE 2",
+                subBadge: "Socratique",
+                title: "Technique : La Méthode Socratique & Step-Back Prompting",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">1. Inversion Socratique (BGE)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3">Interdire la réponse immédiate :</p>
+                                <p class="text-slate-700 text-xs md:text-sm italic font-mono bg-white p-3 rounded-xl border">« Pose-moi 5 questions de diagnostic pour mieux comprendre mes contraintes avant de proposer un plan. »</p>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold mt-2">Combler les manques d'information</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange mb-2 text-base md:text-lg">2. Step-Back Prompting</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3">Prendre du recul sur les grands principes :</p>
+                                <p class="text-slate-700 text-xs md:text-sm italic font-mono bg-white p-3 rounded-xl border">« Quels sont les principes fondamentaux qui régissent cette tâche ? Utilise ces principes comme contexte. »</p>
+                            </div>
+                            <span class="text-xs text-bge-orange font-bold mt-2">Activer les règles de fond</span>
+                        </div>
+                    </div>
+                `,
+                script: "L'approche Socratique force l'IA à vous poser des questions avant de vous conseiller. Le Step-Back Prompting de Google Cloud lui demande d'analyser les principes fondamentaux du problème avant d'agir."
+            },
+            {
+                id: 22,
+                category: "MODULE 2",
+                subBadge: "Raisonnement",
+                title: "Chain-of-Thought (CoT) & Self-Consistency",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-blue">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">Chain-of-Thought (CoT)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-3">Expliciter le raisonnement étape par étape. Utiliser une <strong>Température basse (0.2)</strong> pour la logique et le calcul.</p>
+                                <div class="bg-white p-3 rounded-xl border font-mono text-xs md:text-sm text-slate-700">« Réfléchis étape par étape. Décompose ton raisonnement avant de conclure. »</div>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold mt-2">Évite les erreurs de calcul</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-bge-orange">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange mb-2 text-base md:text-lg">Self-Consistency (Vote de Majorité)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-3">Générer plusieurs chaînes de pensée et retenir la solution qui revient le plus souvent.</p>
+                                <div class="bg-white p-3 rounded-xl border font-mono text-xs md:text-sm text-slate-700">Proposer 3 raisonnements distincts &rarr; extraire la réponse constante.</div>
+                            </div>
+                            <span class="text-xs text-bge-orange font-bold mt-2">Fiabilité décisionnelle</span>
+                        </div>
+                    </div>
+                `,
+                script: "La chaîne de pensée (CoT) élimine les raccourcis faux en forçant le détail des étapes. La Self-Consistency croise plusieurs raisonnements pour garantir la fiabilité."
+            },
+            {
+                id: 23,
+                category: "MODULE 2",
+                subBadge: "Arborescence",
+                title: "Tree of Thoughts (ToT) & Débat d'Experts",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">Tree of Thoughts (ToT)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-3">Explorer un arbre de décisions pour comparer plusieurs options stratégiques.</p>
+                                <p class="text-slate-500 text-xs md:text-sm italic font-mono bg-white p-3 rounded-xl border">« Explore 3 chemins (Prudent, Médian, Agressif). Évalue le coût/bénéfice de chaque branche. »</p>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold mt-2">Arbitrage de choix complexes</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-green mb-2 text-base md:text-lg">Le Débat d'Experts (Avocat du Diable)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-3">Simuler une discussion contradictoire (\`Devil's Advocate\`) pour identifier les risques.</p>
+                                <p class="text-slate-500 text-xs md:text-sm italic font-mono bg-white p-3 rounded-xl border">« Fais débattre un comptable prudent et un marketeur. Joue l'avocat du diable. »</p>
+                            </div>
+                            <span class="text-xs text-bge-green font-bold mt-2">Détection des angles morts</span>
+                        </div>
+                    </div>
+                `,
+                script: "Le Tree of Thoughts dessine des scénarios comparatifs. La commande 'Devil's Advocate' recommandée par Hassan Hamala met en scène un débat pour tester la solidité de votre stratégie."
+            },
+            {
+                id: 24,
+                category: "MODULE 2",
+                subBadge: "Agents",
+                title: "Technique : Le Modèle ReAct (Reason & Act)",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-center w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">La Boucle "Thought-Action-Observation"</h4>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-4">ReAct alterne pensée, action (recherche web, calcul) et observation du résultat pour ajuster son plan.</p>
+                            <span class="text-xs text-bge-blue font-extrabold bg-bge-blue/10 px-3 py-1.5 rounded-lg inline-block">Moteur des Agents IA 2026</span>
+                        </div>
+                        <div class="prompt-code-block p-5 rounded-2xl text-slate-100 font-mono text-xs md:text-sm leading-relaxed border border-slate-700 space-y-2">
+                            <p><span class="text-amber-400 font-bold">Thought:</span> Trouver le taux de TVA applicable.</p>
+                            <p><span class="text-sky-400 font-bold">Action:</span> Recherche_Web(TVA rénovation 2026)</p>
+                            <p><span class="text-emerald-400 font-bold">Observation:</span> Le taux réduit est de 5.5%.</p>
+                            <p><span class="text-purple-300 font-bold">Final Answer:</span> Appliquer 5.5% sur le devis.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Le schéma ReAct (Reason & Act) de Google Cloud combine la réflexion interne et l'usage d'outils externes. C'est la base sur laquelle reposent les agents autonomes."
+            },
+            {
+                id: 25,
+                category: "MODULE 2",
+                subBadge: "Commandes",
+                title: "Les Commandes ChatGPT Tactiques (Méthode Hassan Hamala)",
+                content: `
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 h-full my-auto items-stretch text-xs md:text-sm w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between"><span class="font-mono font-bold text-bge-blue text-base">Continue</span><p class="text-slate-600 text-xs">Reprendre une génération interrompue.</p></div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between"><span class="font-mono font-bold text-bge-orange text-base">Elaborate</span><p class="text-slate-600 text-xs">Développer un point précis.</p></div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between"><span class="font-mono font-bold text-bge-capri text-base">Summarize</span><p class="text-slate-600 text-xs">Condenser en synthèse.</p></div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between"><span class="font-mono font-bold text-bge-green text-base">Compare</span><p class="text-slate-600 text-xs">Générer un tableau comparatif.</p></div>
+                    </div>
+                `,
+                script: "Hassan Hamala liste ces 7 commandes réflexes. Au lieu de retaper un prompt long, guidez l'IA à la voix ou au clavier avec Continue, Elaborate, Summarize, Compare & Contrast."
+            },
+            {
+                id: 26,
+                category: "MODULE 2",
+                subBadge: "Pratique",
+                title: "Atelier #2 : L'Attaque de l'Irritant Métier (30 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <h4 class="font-poppins font-bold text-bge-blue mb-4 text-center text-base md:text-lg">Résolvez votre problème réel dans votre Assistant</h4>
+                        <ol class="space-y-3 text-slate-700 text-xs md:text-sm">
+                            <li class="p-3 bg-slate-50 border rounded-xl shadow-sm"><strong>1.</strong> Ouvrez votre Gem, Projet ou Custom GPT configuré.</li>
+                            <li class="p-3 bg-slate-50 border rounded-xl shadow-sm"><strong>2.</strong> Soumettez un irritant réel (litige client, problème fournisseur).</li>
+                            <li class="p-3 bg-slate-50 border rounded-xl shadow-sm"><strong>3.</strong> Appliquez la consigne Socratique : <em>« Pose-moi 5 questions de diagnostic. »</em></li>
+                            <li class="p-3 bg-bge-green/10 text-bge-green font-bold rounded-xl border border-bge-green/20"><strong>4.</strong> Demandez le plan d'action sous forme de Chain-of-Thought (CoT).</li>
+                        </ol>
+                    </div>
+                `,
+                script: "Deuxième atelier pratique : prenez un sujet qui vous a fait perdre du temps cette semaine (méthode Cap IA BGE). Lancez le diagnostic socratique dans votre assistant configuré."
+            },
+            {
+                id: 27,
+                category: "MODULE 2",
+                subBadge: "Validation",
+                title: "Débriefing Atelier #2 : Le Miroir Socratique",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-center w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-green mb-3 text-base md:text-lg">Qu'avez-vous découvert ?</h4>
+                            <ul class="space-y-2 text-slate-600 text-xs md:text-sm">
+                                <li>• L'IA a-t-elle identifié un angle mort ?</li>
+                                <li>• La décomposition pas à pas (CoT) est-elle réaliste ?</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Un échange socratique de 5 minutes évite des erreurs d'interprétation et affine votre vision stratégique.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Partageons les retours. Vous constatez qu'en interdisant la réponse immédiate, l'IA produit un plan d'action pertinent."
+            },
+            {
+                id: 28,
+                category: "MODULE 3",
+                subBadge: "Style",
+                title: "Pourquoi l'IA écrit-elle « Gris » ?",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-center w-full max-w-4xl mx-auto">
+                        <div>
+                            <p class="text-slate-600 mb-2 text-xs md:text-sm">Par construction statistique, l'IA vise la moyenne du web.</p>
+                            <span class="text-xs text-red-600 font-bold block mb-3">Résultat : Des textes polis mais totalement fades.</span>
+                            <ul class="text-xs md:text-sm text-slate-500 space-y-1.5">
+                                <li>• « Au cœur de notre passion... »</li>
+                                <li>• « Une expertise incontournable... »</li>
+                                <li>• « À l'ère du numérique... »</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 border-l-4 border-bge-blue shadow-sm">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">Le Danger pour l'Artisan / Commerçant</h4>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed">Vos clients veulent de l'humain. Un ton robotique affablira la relation de confiance.</p>
+                        </div>
+                    </div>
+                `,
+                script: "Module 3 : La signature éditoriale. Sans consigne de ton, l'IA utilise les clichés du web. Nous allons lui apprendre votre écriture."
+            },
+            {
+                id: 29,
+                category: "MODULE 3",
+                subBadge: "Few-Shot",
+                title: "Technique : Few-Shot Prompting",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-center w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                            <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">Few-Shot : Montrer au lieu de dire</h4>
+                            <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-4">Fournir 3 à 5 exemples de textes validés garantit le respect exact de votre ton et de votre rythme.</p>
+                            <span class="text-xs text-bge-blue font-bold block bg-bge-blue/10 p-2.5 rounded-lg">Diversifier les exemples pour éviter de figer le modèle.</span>
+                        </div>
+                        <div class="prompt-code-block p-5 rounded-2xl text-slate-100 font-mono text-xs md:text-sm leading-relaxed border border-slate-700 space-y-3">
+                            <p class="text-amber-400 font-bold">&lt;EXEMPLES_VALIDES&gt;</p>
+                            <p class="text-slate-300">Entrée: "Devis peinture"<br>Sortie: "Bonjour Marc, voici votre estimation détaillée pour repeindre le salon..."</p>
+                            <p class="text-slate-300">Entrée: "Relance chantier"<br>Sortie: "Salut Thomas ! Petite vérification pour caler la date..."</p>
+                            <p class="text-amber-400 font-bold">&lt;/EXEMPLES_VALIDES&gt;</p>
+                            <p class="text-emerald-400 font-bold">&lt;TASK&gt;Rédige la relance du projet Dupont en imitant ce style exact.&lt;/TASK&gt;</p>
+                        </div>
+                    </div>
+                `,
+                script: "Le Few-Shot Prompting consiste à injecter vos propres écrits dans la balise d'exemples. C'est la méthode la plus fiable pour cloner un style."
+            },
+            {
+                id: 30,
+                category: "MODULE 3",
+                subBadge: "Formats",
+                title: "Output Formats, JSON Schemas & json-repair",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg">Formats Structurés (JSON / Tables)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3">Exiger un tableau ou un schéma JSON :</p>
+                                <ul class="text-xs md:text-sm text-slate-600 space-y-1.5">
+                                    <li>• Limite les bavardages et les hallucinations</li>
+                                    <li>• Données directement exploitables</li>
+                                    <li>• Utiliser \`json-repair\` en cas de coupure</li>
+                                </ul>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold mt-2">Invariabilité du livrable</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange mb-2 text-base md:text-lg">Extraction de Style</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3">Faire analyser sa propre plume :</p>
+                                <div class="bg-slate-900 text-emerald-400 p-3 rounded-xl text-xs md:text-sm font-mono">« Analyse mes 5 e-mails et génère la balise &lt;MON_STYLE&gt;. »</div>
+                            </div>
+                            <span class="text-xs text-bge-orange font-bold mt-2">Sauvegarde dans l'Assistant</span>
+                        </div>
+                    </div>
+                `,
+                script: "Pour réutiliser vos données facilement, imposez des formats de sortie stricts (tableaux, JSON). Et faites analyser vos propres textes par l'IA pour extraire votre profil de ton."
+            },
+            {
+                id: 31,
+                category: "MODULE 3",
+                subBadge: "Productivité",
+                title: "Le « Vocal-to-Pro » : La fin de la page blanche",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <h4 class="font-poppins font-bold text-bge-blue mb-4 text-center text-base md:text-lg">La méthode ultime pour artisans et entrepreneurs</h4>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div class="p-4 bg-slate-50 border rounded-2xl shadow-sm">
+                                <div class="text-bge-orange text-2xl mb-2"><i class="fa-solid fa-microphone"></i></div>
+                                <h5 class="font-bold text-xs md:text-sm">1. Dictée Vocale</h5>
+                                <p class="text-slate-500 text-xs">Notes brutes dictées au smartphone.</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 border rounded-2xl shadow-sm">
+                                <div class="text-bge-blue text-2xl mb-2"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                <h5 class="font-bold text-xs md:text-sm">2. Mise en Forme</h5>
+                                <p class="text-slate-500 text-xs">Nettoyage des hésitations par l'IA.</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 border rounded-2xl shadow-sm">
+                                <div class="text-bge-green text-2xl mb-2"><h5 class="font-bold text-xs md:text-sm">&lt;MON_STYLE&gt;</h5></div>
+                                <h5 class="font-bold text-xs md:text-sm">3. Application ADN</h5>
+                                <p class="text-slate-500 text-xs">Résultat pro fidèle à votre voix.</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                script: "Le Vocal-to-Pro résout le manque de temps sur le terrain. Vous dictez vos pensées au smartphone sur le chantier ou en voiture, l'IA applique votre balise de style et produit un texte impeccable."
+            },
+            {
+                id: 32,
+                category: "MODULE 3",
+                subBadge: "Pratique",
+                title: "Atelier #3 : Le Clone Éditorial & Vocal-to-Pro (30 min)",
+                content: `
+                    <div class="flex flex-col justify-center h-full my-auto max-w-3xl mx-auto w-full">
+                        <h4 class="font-poppins font-bold text-bge-blue mb-4 text-center text-base md:text-lg">Générez un contenu prêt à publier avec votre voix</h4>
+                        <ol class="space-y-3 text-slate-700 text-xs md:text-sm">
+                            <li class="p-3 bg-slate-50 border rounded-xl shadow-sm"><strong>1.</strong> Donnez 3 écrits pour générer la balise <code class="text-bge-orange font-bold">&lt;MON_STYLE&gt;</code> et ajoutez-la à votre assistant / source XML.</li>
+                            <li class="p-3 bg-slate-50 border rounded-xl shadow-sm"><strong>2.</strong> Dictez une note vocale brute au smartphone.</li>
+                            <li class="p-3 bg-bge-blue/10 text-bge-blue font-bold rounded-xl border border-bge-blue/20"><strong>3.</strong> Demandez à l'Assistant : <em>« Transforme cette note en publication selon mon style. »</em></li>
+                        </ol>
+                    </div>
+                `,
+                script: "Atelier 3 : faites extraire votre guide de style par l'IA, intégrez-le dans les consignes de votre assistant, puis testez la transformation d'un brouillon vocal."
+            },
+            {
+                id: 33,
+                category: "CONCLUSION",
+                subBadge: "Méta-Prompt",
+                title: "Automatic Prompt Engineering (APE) & Méta-Prompting",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue text-base md:text-lg mb-2">Méta-Prompting</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3">Utiliser l'IA pour générer vos propres consignes optimisées :</p>
+                                <div class="prompt-code-block text-emerald-400 p-3.5 rounded-xl font-mono text-xs md:text-sm leading-relaxed border border-slate-700">« Agis comme un expert en Prompt Engineering. Rédige un prompt maître structuré en Task / Context / System pour traiter des demandes clients. »</div>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold mt-2">Création d'outils par l'IA</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-orange text-base md:text-lg mb-2">Automatic Prompt Engineering (APE)</h4>
+                                <p class="text-slate-600 text-xs md:text-sm mb-3">Générer plusieurs déclinaisons d'un prompt, les tester et sélectionner la plus performante.</p>
+                                <div class="bg-white p-3.5 rounded-xl border border-slate-200 font-mono text-xs text-slate-700">1. Génération de 5 variantes<br>2. Test d'exécution<br>3. Sélection du meilleur résultat</div>
+                            </div>
+                            <span class="text-xs text-bge-orange font-bold mt-2">Optimisation itérative</span>
+                        </div>
+                    </div>
+                `,
+                script: "Pour aller plus loin, pratiquez le méta-prompting : demandez à l'IA de concevoir elle-même les structures de prompts complexes que vous réutiliserez."
+            },
+            {
+                id: 34,
+                category: "CONCLUSION",
+                subBadge: "Sécurité & AI Act",
+                title: "Sécurité, RGPD & AI Act : Protéger la TPE",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-poppins font-bold text-bge-blue mb-2 text-base md:text-lg"><i class="fa-solid fa-shield-halved text-bge-blue mr-2"></i>30% Shadow AI & Anonymisation</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-3">30% des salariés mettent des données confidentielles dans des IA gratuites.</p>
+                                <ul class="text-xs md:text-sm text-slate-600 space-y-1.5">
+                                    <li>• Caviarder noms, e-mails et chiffres sensibles.</li>
+                                    <li>• Utiliser Mistral AI pour la souveraineté européenne.</li>
+                                </ul>
+                            </div>
+                            <span class="text-xs text-bge-blue font-bold mt-2">Règle BGE : Zéro donnée perso brute</span>
+                        </div>
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between border-l-4 border-red-500">
+                            <div>
+                                <h4 class="font-poppins font-bold text-red-700 mb-2 text-base md:text-lg"><i class="fa-solid fa-gavel text-red-600 mr-2"></i>Lignes Rouges AI Act & RSE</h4>
+                                <p class="text-slate-600 text-xs md:text-sm leading-relaxed mb-3">L'Europe interdit l'analyse des émotions et la notation sociale RH.</p>
+                                <ul class="text-xs md:text-sm text-slate-600 space-y-1.5">
+                                    <li>• Obligation d'afficher la mention « Généré par IA ».</li>
+                                    <li>• Mesurer l'impact environnemental via Compare:IA.</li>
+                                </ul>
+                            </div>
+                            <span class="text-xs text-red-700 font-bold mt-2">Responsabilité & Sobriété Green IT</span>
+                        </div>
+                    </div>
+                `,
+                script: "Sécurité et réglementation : attention au Shadow AI (30% des salariés fuient des données). Anonymisez toujours vos textes ou basculez sur Mistral AI pour vos données confidentielles. Et respectez les obligations de l'AI Act européen (mention 'Généré par IA' obligatoire) !"
+            },
+            {
+                id: 35,
+                category: "OUTIL WHAOU",
+                subBadge: "Interactif",
+                title: "Générateur & Constructeur de Prompts BGE en Direct",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full my-auto items-stretch w-full max-w-4xl mx-auto text-xs">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-3">
+                            <div>
+                                <span class="font-bold text-bge-blue text-sm block mb-1">1. Choisissez un Framework</span>
+                                <select id="builder-framework" onchange="generateLivePrompt()" class="w-full p-2 bg-white border rounded-xl font-bold text-slate-700 mb-2">
+                                    <option value="RCORCF">Framework RCORCF (Yes We Prompt)</option>
+                                    <option value="COSTAR">Framework COSTAR (Hassan Hamala)</option>
+                                    <option value="CRAFT">Framework CRAFT (Frédéric Cavazza)</option>
+                                    <option value="RTF">Framework RTF (Express)</option>
+                                    <option value="CTFI">Framework C.T.F.I. (Standard BGE XML)</option>
+                                </select>
+                                
+                                <div id="builder-usage-notice" class="bg-amber-50 border border-amber-300 p-2.5 rounded-xl text-[11px] text-amber-900 leading-snug mb-2">
+                                    <!-- Rempli dynamiquement en JS -->
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <input type="text" id="builder-role" oninput="generateLivePrompt()" placeholder="Rôle (ex: Consultant Marketing B2B)" class="w-full p-2 border rounded-xl text-xs">
+                                    <input type="text" id="builder-context" oninput="generateLivePrompt()" placeholder="Contexte TPE (ex: Lancement coaching)" class="w-full p-2 border rounded-xl text-xs">
+                                    <input type="text" id="builder-goal" oninput="generateLivePrompt()" placeholder="Objectif (ex: Rédiger 3 accroches)" class="w-full p-2 border rounded-xl text-xs">
+                                    <input type="text" id="builder-constraint" oninput="generateLivePrompt()" placeholder="Contraintes (ex: Ton dynamique, 150 mots)" class="w-full p-2 border rounded-xl text-xs">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-code-block p-4 rounded-2xl flex flex-col justify-between border-2 border-slate-700 relative overflow-hidden">
+                            <div>
+                                <div class="flex justify-between items-center mb-2 pb-2 border-b border-slate-800">
+                                    <span class="text-xs font-mono font-bold text-bge-orange uppercase">Aperçu du Prompt Formaté</span>
+                                    <button onclick="copyGeneratedPrompt()" class="bg-bge-orange hover:bg-orange-600 text-white px-3 py-1 rounded-lg text-xs font-bold transition-all"><i class="fa-solid fa-copy mr-1"></i>Copier</button>
+                                </div>
+                                <pre id="builder-output" class="prompt-text-projected text-emerald-400 leading-relaxed"></pre>
+                            </div>
+                            <span class="text-[10px] text-slate-400 font-bold mt-1">Prêt à coller dans ChatGPT, Claude, Gemini (NotebookLM) ou Mistral</span>
+                        </div>
+                    </div>
+                `,
+                script: "Voici le Générateur de Prompts BGE ! Observez le cartouche 'Quand l'utiliser' : il vous indique exactement quel framework choisir en fonction de la situation TPE (RCORCF pour le stratégique, COSTAR pour les dossiers avec pièces jointes, CRAFT pour le ton, RTF pour l'express et C.T.F.I. pour les assistants permanents) !"
+            },
+            {
+                id: 36,
+                category: "CONCLUSION",
+                subBadge: "Contrôle",
+                title: "La Checklist de Validation (Le Crash-Test BGE)",
+                content: `
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-full my-auto items-stretch w-full max-w-4xl mx-auto">
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <i class="fa-solid fa-list-check text-bge-blue text-2xl mb-2"></i>
+                            <h4 class="font-bold text-xs md:text-sm mb-1">Structure C.T.F.I</h4>
+                            <p class="text-slate-500 text-xs">Le prompt contient-il le rôle, le contexte et le format ?</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <i class="fa-solid fa-user-check text-bge-orange text-2xl mb-2"></i>
+                            <h4 class="font-bold text-xs md:text-sm mb-1">Identité & Ton</h4>
+                            <p class="text-slate-500 text-xs">Le texte sonne-t-il authentique sans clichés ?</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <i class="fa-solid fa-shield-halved text-red-500 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-xs md:text-sm mb-1">Sécurité Données</h4>
+                            <p class="text-slate-500 text-xs">Les données sensibles ont-elles été anonymisées ?</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                            <i class="fa-solid fa-magnifying-glass text-bge-green text-2xl mb-2"></i>
+                            <h4 class="font-bold text-xs md:text-sm mb-1">Vérification Faits</h4>
+                            <p class="text-slate-500 text-xs">Les chiffres et faits sont-ils exacts ?</p>
+                        </div>
+                    </div>
+                `,
+                script: "Avant toute publication ou envoi, passez votre texte au Crash-Test : structure, authenticité du ton, sécurité des données et vérification des faits."
+            }
+        ];
+
+        let currentSlideIndex = 0;
+        let timerInterval = null;
+        let timerSecondsRemaining = 1800;
+        let timerIsRunning = false;
+        let consoleIsVisible = true;
+
+        function renderSlide(index) {
+            if (index < 0 || index >= slidesDatabase.length) return;
+            currentSlideIndex = index;
+            const slide = slidesDatabase[index];
+
+            document.getElementById("slide-category-badge").innerText = slide.category;
+            document.getElementById("slide-sub-badge").innerText = slide.subBadge;
+
+            const mainContentContainer = document.getElementById("slide-main-content");
+            mainContentContainer.innerHTML = `
+                <h3 class="font-poppins font-black text-xl md:text-2xl text-bge-blue mb-4 tracking-tight border-l-4 border-bge-orange pl-3 flex-shrink-0 self-start">
+                    ${slide.title}
+                </h3>
+                <div class="slide-body-content text-slate-700 leading-relaxed text-xs md:text-sm font-lato flex-grow flex flex-col justify-center items-center w-full my-auto overflow-hidden">
+                    ${slide.content}
+                </div>
+            `;
+
+            document.getElementById("slide-footer-right").innerText = `Séquence ${slide.category} • Slide ${slide.id} / ${slidesDatabase.length}`;
+            document.getElementById("global-slide-counter").innerText = `Slide ${slide.id} / ${slidesDatabase.length}`;
+
+            const presenterNotes = document.getElementById("presenter-notes");
+            presenterNotes.innerHTML = slide.script.replace(/\n/g, "<br>");
+            presenterNotes.scrollTop = 0;
+
+            updateGridActiveIndicator(index);
+            localStorage.setItem('bge_current_slide', index.toString());
+
+            if (slide.id === 35) generateLivePrompt();
+        }
+
+        function navigateSlide(direction) {
+            const targetIndex = currentSlideIndex + direction;
+            if (targetIndex >= 0 && targetIndex < slidesDatabase.length) {
+                renderSlide(targetIndex);
+            }
+        }
+
+        function generateLivePrompt() {
+            const fw = document.getElementById('builder-framework')?.value || 'RCORCF';
+            const role = document.getElementById('builder-role')?.value || 'Consultant Marketing B2B';
+            const context = document.getElementById('builder-context')?.value || 'Accompagnement TPE en région Pays de la Loire';
+            const goal = document.getElementById('builder-goal')?.value || 'Créer une séquence de 3 messages de prospection';
+            const constraint = document.getElementById('builder-constraint')?.value || 'Ton chaleureux, dynamique, max 150 mots';
+
+            let usageNotice = "";
+            let output = "";
+
+            if (fw === 'RCORCF') {
+                usageNotice = "💡 <strong>Quand l'utiliser (RCORCF) :</strong> Pour les rédactions stratégiques et dossiers complexes nécessitant de verrouiller le rôle, le contexte et les contraintes de résultat.";
+                output = `<ROLE>${role}</ROLE>\n<CONTEXTE>${context}</CONTEXTE>\n<OBJECTIF>${goal}</OBJECTIF>\n<RESULTAT>3 propositions numérotées</RESULTAT>\n<CONTRAINTE>${constraint}</CONTRAINTE>\n<FORMAT>Markdown avec titres</FORMAT>`;
+            } else if (fw === 'COSTAR') {
+                usageNotice = "💡 <strong>Quand l'utiliser (COSTAR) :</strong> Pour les briefs marketing complets et ventes B2B nécessitant d'intégrer des ressources (fichiers joints, devis, budgets).";
+                output = `<CONTEXT>${context}</CONTEXT>\n<OBJECTIVE>${goal}</OBJECTIVE>\n<STYLE>Professionnel et direct</STYLE>\n<TONE>${constraint}</TONE>\n<AUDIENCE>Dirigeants de TPE / Décideurs</AUDIENCE>\n<RESOURCES>Données d'entreprise & pièces jointes</RESOURCES>`;
+            } else if (fw === 'CRAFT') {
+                usageNotice = "💡 <strong>Quand l'utiliser (CRAFT) :</strong> Pour la communication externe, les ateliers et le storytelling où la tonalité et l'alignement du style sont prioritaires.";
+                output = `Contexte: ${context}\nRôle: ${role}\nAction: ${goal}\nFormat: Structuré avec puces\nTonalité: ${constraint}`;
+            } else if (fw === 'RTF') {
+                usageNotice = "💡 <strong>Quand l'utiliser (RTF) :</strong> Pour les requêtes express du quotidien (objets de mail, slogans, résumés rapides) quand le contexte est déjà clair.";
+                output = `Rôle: ${role}\nTâche: ${goal}\nFormat: Synthèse directe\nContraintes: ${constraint}`;
+            } else if (fw === 'CTFI') {
+                usageNotice = "💡 <strong>Quand l'utiliser (C.T.F.I.) :</strong> Standard BGE idéal pour concevoir des trames d'assistants permanents et prévoir une phase de critique/itération.";
+                output = `<CONTEXTE>${context}</CONTEXTE>\n<TÂCHE>${goal}</TÂCHE>\n<FORMAT>Tableau Markdown</FORMAT>\n<ITÉRATION>Proposer 2 variantes d'amélioration selon les retours.</ITÉRATION>`;
+            }
+
+            const noticeElem = document.getElementById('builder-usage-notice');
+            if (noticeElem) noticeElem.innerHTML = usageNotice;
+
+            const outElem = document.getElementById('builder-output');
+            if (outElem) outElem.innerText = output;
+        }
+
+        function copyGeneratedPrompt() {
+            const text = document.getElementById('builder-output')?.innerText;
+            if (text) {
+                navigator.clipboard.writeText(text);
+                showToast("Prompt copié dans le presse-papier !");
+            }
+        }
+
+        function copyText(elementId) {
+            const textToCopy = document.getElementById(elementId)?.innerText;
+            if (textToCopy) {
+                navigator.clipboard.writeText(textToCopy);
+                showToast("Prompt copié dans le presse-papier !");
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.createElement("div");
+            toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 bg-bge-orange text-white text-xs md:text-sm font-bold px-5 py-2.5 rounded-xl shadow-2xl z-50 toast-notification flex items-center gap-2 border border-white/20";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${message}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
+        /* NAVIGATION CLAVIER SÉCURISÉE (SANS ESPACE & DÉSACTIVÉE EN SAISIE) */
+        function initNavigation() {
+            document.addEventListener("keydown", function (e) {
+                const activeTag = document.activeElement ? document.activeElement.tagName : '';
+                if (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag)) {
+                    return; // Ignore les raccourcis de navigation si l'utilisateur saisit dans un champ
+                }
+
+                if (e.key === " " || e.code === "Space") {
+                    return; // Touche Espace strictement ignorée pour la navigation
+                }
+
+                if (e.key === "ArrowRight" || e.key === "PageDown") {
+                    e.preventDefault();
+                    navigateSlide(1);
+                } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+                    e.preventDefault();
+                    navigateSlide(-1);
+                }
+            });
+        }
+
+        function buildSlidesGridSelector() {
+            const container = document.getElementById("slides-grid-container");
+            container.innerHTML = "";
+            for (let i = 0; i < slidesDatabase.length; i++) {
+                const btn = document.createElement("button");
+                btn.id = `grid-btn-${i}`;
+                btn.innerText = i + 1;
+                btn.className = "bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold py-1 rounded transition-all text-center";
+                btn.onclick = function () { renderSlide(i); };
+                container.appendChild(btn);
+            }
+        }
+
+        function updateGridActiveIndicator(activeIndex) {
+            for (let i = 0; i < slidesDatabase.length; i++) {
+                const btn = document.getElementById(`grid-btn-${i}`);
+                if (btn) {
+                    if (i === activeIndex) {
+                        btn.className = "bg-bge-orange text-white text-xs font-black py-1 rounded shadow-lg scale-105 border border-white/20 text-center";
+                    } else {
+                        btn.className = "bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold py-1 rounded transition-all text-center";
+                    }
+                }
+            }
+        }
+
+        function setTimerDuration(seconds) {
+            stopTimerInterval();
+            timerSecondsRemaining = seconds;
+            updateTimerDisplay();
+            localStorage.setItem('bge_timer_seconds', seconds.toString());
+        }
+
+        function toggleTimer() {
+            if (timerIsRunning) stopTimerInterval();
+            else startTimerInterval();
+        }
+
+        function startTimerInterval() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerIsRunning = true;
+            document.getElementById("timer-btn").innerText = "Pause";
+            document.getElementById("timer-btn").className = "bg-red-600 hover:bg-red-700 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-white shadow-md";
+            localStorage.setItem('bge_timer_running', 'true');
+
+            timerInterval = setInterval(function () {
+                if (timerSecondsRemaining > 0) {
+                    timerSecondsRemaining--;
+                    updateTimerDisplay();
+                    localStorage.setItem('bge_timer_seconds', timerSecondsRemaining.toString());
+                } else {
+                    stopTimerInterval();
+                    document.getElementById("timer-display").innerText = "FINI !";
+                }
+            }, 1000);
+        }
+
+        function stopTimerInterval() {
+            timerIsRunning = false;
+            if (timerInterval) clearInterval(timerInterval);
+            document.getElementById("timer-btn").innerText = "Lancer";
+            document.getElementById("timer-btn").className = "bg-bge-orange hover:bg-orange-600 text-[10px] md:text-xs font-bold py-1.5 rounded-lg text-white shadow-md";
+            localStorage.setItem('bge_timer_running', 'false');
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timerSecondsRemaining / 60);
+            const secs = timerSecondsRemaining % 60;
+            document.getElementById("timer-display").innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            const progressPercent = (timerSecondsRemaining / 1800) * 100;
+            document.getElementById("timer-progress").style.width = `${Math.min(progressPercent, 100)}%`;
+        }
+
+        function openPresenterWindow() {
+            const path = window.location.pathname + '?role=presenter';
+            window.open(path, 'bge_presenter_view', 'width=1200,height=800,toolbar=no,menubar=no,scrollbars=no,resizable=yes');
+        }
+
+        function togglePresenterSidebar() {
+            const sidebar = document.getElementById("presenter-sidebar");
+            const showBtn = document.getElementById("show-sidebar-btn");
+
+            if (consoleIsVisible) {
+                sidebar.classList.add('w-0', 'border-l-0', 'opacity-0');
+                sidebar.classList.remove('w-[380px]', 'md:w-[460px]');
+                showBtn.classList.remove('hidden');
+                consoleIsVisible = false;
+            } else {
+                sidebar.classList.remove('w-0', 'border-l-0', 'opacity-0');
+                sidebar.classList.add('w-[380px]', 'md:w-[460px]');
+                showBtn.classList.add('hidden');
+                consoleIsVisible = true;
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function handleStorageEvent(event) {
+            if (event.key === 'bge_current_slide' && event.newValue !== null) {
+                const newIndex = parseInt(event.newValue, 10);
+                if (newIndex !== currentSlideIndex) {
+                    renderSlide(newIndex);
+                }
+            }
+            if (event.key === 'bge_timer_seconds' && event.newValue !== null) {
+                timerSecondsRemaining = parseInt(event.newValue, 10);
+                updateTimerDisplay();
+            }
+            if (event.key === 'bge_timer_running' && event.newValue !== null) {
+                const running = event.newValue === 'true';
+                if (running !== timerIsRunning) {
+                    if (running) startTimerInterval();
+                    else stopTimerInterval();
+                }
+            }
+        }
+
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const role = urlParams.get('role');
+            
+            if (role === 'presenter' || window.name === 'bge_presenter_view') {
+                document.getElementById('main-header').style.display = 'none';
+                document.getElementById('slide-viewer-pane').style.display = 'none';
+                document.getElementById('presenter-sidebar').classList.remove('w-[380px]', 'md:w-[460px]');
+                document.getElementById('presenter-sidebar').classList.add('w-full', 'h-full');
+            }
+
+            buildSlidesGridSelector();
+            window.addEventListener('storage', handleStorageEvent);
+            
+            const savedSlide = localStorage.getItem('bge_current_slide');
+            if (savedSlide !== null) {
+                currentSlideIndex = parseInt(savedSlide, 10);
+            }
+            
+            renderSlide(currentSlideIndex);
+            initNavigation();
+            setTimerDuration(1800);
+        };
+    </script>
+</body>
+</html>
