@@ -674,7 +674,6 @@
                     console.info(`[Veille CG] ${changedCount} source(s) synchronisée(s) depuis le lien.`);
                 }
 
-                // Nettoie l'URL pour éviter de réimporter au prochain rechargement
                 window.history.replaceState(null, '', window.location.pathname + window.location.search);
                 return changedCount;
             } catch (error) {
