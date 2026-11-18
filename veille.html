@@ -1000,7 +1000,14 @@
             badge.classList.remove('hidden');
 
             refreshIcon.classList.remove('animate-spin');
-            hideStatus();
+
+            if (!hasValidServerArticles) {
+                const statusCode = Number(articlesHttpStatus) || 404;
+                showStatus(`<span class="text-amber-700 font-medium">Mode secours navigateur : <code>/data/articles.json</code> indisponible (HTTP ${statusCode}). Vérifiez l’onglet Actions GitHub pour débloquer toutes les sources.</span>`);
+            } else {
+                hideStatus();
+            }
+
             isSyncing = false;
             console.info(`[Veille CG] Synchronisation terminée : ${allArticles.length} articles en mémoire.`);
         }
@@ -1664,11 +1671,13 @@
             applyFilters(true);
 
             bindEvents();
-            syncAllFeeds(false);
 
             if (syncedFromLink > 0) {
-                showStatus(`<div class="loader"></div><span>${syncedFromLink} source(s) synchronisée(s) depuis votre lien…</span>`);
+                toggleDrawer(true);
+                showDrawerFeedback(`${syncedFromLink} source(s) importée(s) depuis votre lien de synchronisation.`);
             }
+
+            syncAllFeeds(false);
         }
 
         document.addEventListener('DOMContentLoaded', init);
