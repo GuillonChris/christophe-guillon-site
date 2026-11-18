@@ -108,19 +108,21 @@
     <!-- Contenu principal -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
 
-        <!-- Barre de filtres, recherche et bascule de vue -->
+        <!-- Barre de filtres (couleurs du logo), recherche et bascule de vue -->
         <div class="mb-6 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
             <div class="flex flex-wrap gap-2 items-center" id="filtersContainer">
-                <button type="button" class="filter-btn active bg-brand-accent text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors shadow-sm" data-category="all">
+                <button type="button" class="filter-btn active bg-brand-dark text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors shadow-sm" data-category="all">
                     Tous les articles
                 </button>
-                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-brand-dark hover:border-slate-300 px-4 py-1.5 rounded-full text-sm font-medium transition-colors" data-category="IA">
-                    Intelligence Artificielle
+                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-brand-dark hover:border-brand-accent px-4 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5" data-category="IA">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+                    <span>Intelligence Artificielle</span>
                 </button>
-                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-brand-dark hover:border-slate-300 px-4 py-1.5 rounded-full text-sm font-medium transition-colors" data-category="NoCode">
-                    NoCode
+                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-brand-dark hover:border-brand-yellow px-4 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5" data-category="NoCode">
+                    <span class="w-2 h-2 rounded-full bg-brand-yellow"></span>
+                    <span>NoCode</span>
                 </button>
-                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-amber-600 hover:border-slate-300 px-4 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5" data-category="favorites">
+                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-brand-dark hover:border-slate-300 px-4 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5" data-category="favorites">
                     <span class="text-brand-yellow">★</span>
                     <span>Favoris (<span id="favoritesCount">0</span>)</span>
                 </button>
@@ -226,11 +228,19 @@
             </ul>
         </div>
 
-        <!-- Pied du tiroir : synchronisation PC/Mobile et réinitialisation -->
-        <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
+        <!-- Pied du tiroir : synchro cloud GitHub (Worker), mobile et réinitialisation -->
+        <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-2.5">
+            <div class="flex gap-2">
+                <button id="syncCloudBtn" type="button" class="flex-1 bg-brand-dark hover:bg-slate-800 text-white px-3 py-2 rounded-md text-xs font-medium transition flex items-center justify-center gap-1.5 shadow-2xs" title="Enregistre immédiatement la liste des flux dans data/feeds.json sur GitHub">
+                    <span>☁️ Synchroniser avec GitHub</span>
+                </button>
+                <button id="configCloudBtn" type="button" class="bg-white border border-slate-300 hover:border-brand-accent text-slate-700 px-2.5 py-2 rounded-md text-xs font-medium transition" title="Configurer l'URL du Worker Cloudflare et le code PIN">
+                    ⚙️
+                </button>
+            </div>
             <div class="flex flex-wrap gap-2">
                 <button id="copySyncLinkBtn" type="button" class="flex-1 bg-white border border-slate-300 hover:border-brand-accent text-brand-dark hover:text-brand-accent px-3 py-1.5 rounded text-xs font-medium transition">
-                    🔗 Copier lien synchro mobile
+                    🔗 Lien synchro mobile
                 </button>
                 <button id="exportFeedsBtn" type="button" class="bg-white border border-slate-300 hover:border-brand-accent text-slate-700 px-2.5 py-1.5 rounded text-xs font-medium transition" title="Exporter la liste des flux en JSON">
                     Exporter
@@ -259,6 +269,8 @@
         const ARTICLES_CACHE_KEY = 'cg_articles_cache_v1';
         const FAVORITES_STORAGE_KEY = 'cg_favorites_v1';
         const VIEW_MODE_STORAGE_KEY = 'cg_view_mode_v1';
+        const WORKER_URL_STORAGE_KEY = 'cg_worker_url_v1';
+        const WORKER_PIN_STORAGE_KEY = 'cg_admin_pin_v1';
 
         const MAX_CACHED_ARTICLES = 250;
         const RETENTION_DAYS = 30;
@@ -518,9 +530,10 @@
             }
         }
 
-        /** Trie par date décroissante, purge > 30 jours et tronque à 250 articles (Issue #4) */
+        /** Trie par date décroissante, neutralise les dates futures (> 24h), purge > 30 jours et tronque à 250 articles (Issue #4) */
         function pruneAndSortArticles(articlesList) {
             const nowMs = Date.now();
+            const maxFutureMs = nowMs + 24 * 60 * 60 * 1000;
             const maxAgeMs = RETENTION_DAYS * 24 * 60 * 60 * 1000;
             const dedupMap = new Map();
 
@@ -529,9 +542,12 @@
                 const cleanLink = normalizeUrl(art.link);
                 if (!cleanLink) return;
 
-                if (art.pubDate) {
-                    const pubMs = Date.parse(art.pubDate);
-                    if (!Number.isNaN(pubMs) && (nowMs - pubMs) > maxAgeMs) {
+                let validPubDate = art.pubDate || null;
+                if (validPubDate) {
+                    const pubMs = Date.parse(validPubDate);
+                    if (Number.isNaN(pubMs) || pubMs > maxFutureMs) {
+                        validPubDate = null;
+                    } else if ((nowMs - pubMs) > maxAgeMs) {
                         return;
                     }
                 }
@@ -539,7 +555,8 @@
                 dedupMap.set(cleanLink, {
                     ...art,
                     id: art.id || hashString(cleanLink),
-                    link: cleanLink
+                    link: cleanLink,
+                    pubDate: validPubDate
                 });
             });
 
@@ -580,8 +597,84 @@
         }
 
         // =====================================================================
-        // 5. SYNCHRONISATION MANUELLE PC <-> MOBILE (Lien #sync= & Export/Import)
+        // 5. SYNCHRONISATION CLOUD (WORKER CLOUDFLARE) & MOBILE (#sync= / JSON)
         // =====================================================================
+
+        /** Lit la configuration locale du Worker Cloudflare (jamais codée en dur) */
+        function getWorkerConfig() {
+            try {
+                const url = (localStorage.getItem(WORKER_URL_STORAGE_KEY) || '').trim().replace(/\/+$/, '');
+                const pin = (localStorage.getItem(WORKER_PIN_STORAGE_KEY) || '').trim();
+                return { url, pin, isConfigured: Boolean(url && pin) };
+            } catch {
+                return { url: '', pin: '', isConfigured: false };
+            }
+        }
+
+        /** Demande et enregistre localement l'URL du Worker et le code PIN administrateur */
+        function configureWorkerSync() {
+            const current = getWorkerConfig();
+            const rawUrl = window.prompt(
+                'URL de votre Worker Cloudflare (ex. https://veille-cg-sync.xxx.workers.dev) :',
+                current.url || ''
+            );
+            if (rawUrl === null) return false;
+
+            const cleanUrl = rawUrl.trim().replace(/\/+$/, '');
+            if (!cleanUrl.startsWith('https://')) {
+                showDrawerFeedback('URL invalide : elle doit commencer par https://', true);
+                return false;
+            }
+
+            const rawPin = window.prompt('Code PIN administrateur défini dans Cloudflare :', current.pin || '');
+            if (rawPin === null) return false;
+
+            const cleanPin = rawPin.trim();
+            if (!cleanPin) {
+                showDrawerFeedback('Le code PIN ne peut pas être vide.', true);
+                return false;
+            }
+
+            localStorage.setItem(WORKER_URL_STORAGE_KEY, cleanUrl);
+            localStorage.setItem(WORKER_PIN_STORAGE_KEY, cleanPin);
+            showDrawerFeedback('Configuration Cloudflare enregistrée sur cet appareil.');
+            return true;
+        }
+
+        /** Envoie activeFeeds au Worker Cloudflare pour mettre à jour data/feeds.json sur GitHub */
+        async function syncFeedsToGitHubViaWorker(autoTriggered = false) {
+            let config = getWorkerConfig();
+            if (!config.isConfigured) {
+                if (autoTriggered) return;
+                const ok = configureWorkerSync();
+                if (!ok) return;
+                config = getWorkerConfig();
+            }
+
+            showDrawerFeedback('Publication vers GitHub (data/feeds.json) en cours…');
+
+            try {
+                const res = await fetch(`${config.url}/sync-feeds`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Pin': config.pin
+                    },
+                    body: JSON.stringify({ feeds: activeFeeds })
+                });
+
+                const result = await res.json().catch(() => ({}));
+                if (!res.ok) {
+                    throw new Error(result.error || `HTTP ${res.status}`);
+                }
+
+                showDrawerFeedback(`GitHub mis à jour (${result.count} flux). Collecte Actions lancée (~30 s).`);
+                console.info(`[Veille CG] data/feeds.json mis à jour via Worker (commit ${result.commitSha || 'OK'}).`);
+            } catch (err) {
+                console.error('[Veille CG] Erreur synchronisation Worker -> GitHub :', err);
+                showDrawerFeedback(`Échec synchro GitHub : ${err.message}`, true);
+            }
+        }
 
         /** Encode la liste des flux en Base64URL compact (compatible UTF-8) */
         function encodeFeedsPayload(feeds) {
@@ -693,7 +786,7 @@
             URL.revokeObjectURL(url);
         }
 
-        /** Importe un fichier JSON de flux dans cg_feeds_v1 */
+        /** Importe un fichier JSON de flux dans cg_feeds_v1 et synchronise vers GitHub */
         function importFeedsJSON(file) {
             if (!file) return;
             const reader = new FileReader();
@@ -718,6 +811,7 @@
                     saveFeeds(activeFeeds, true);
                     showDrawerFeedback(`${addedCount} nouveau(x) flux importé(s). Actualisation…`);
                     syncAllFeeds(true);
+                    syncFeedsToGitHubViaWorker(true);
                 } catch (err) {
                     showDrawerFeedback(`Échec de l'import JSON : ${err.message}`, true);
                 }
@@ -726,7 +820,7 @@
         }
 
         // =====================================================================
-        // 6. COLLECTE DES DONNÉES (Option b : articles.json + Repli Cache/Proxys)
+        // 6. COLLECTE DES DONNÉES (/data/articles.json + Worker + Repli Proxys)
         // =====================================================================
 
         /** Charge /data/feeds.json et /data/articles.json générés par GitHub Actions */
@@ -780,15 +874,26 @@
             return { serverArticles, officialFeedIds, articlesHttpStatus };
         }
 
-        /** Récupère le XML brut d'un flux via proxys en cascade (repli flux visiteurs) */
+        /** Récupère le XML brut d'un flux : Worker privé en priorité, puis proxys publics en repli */
         async function fetchRSSWithFallback(url) {
             const encoded = encodeURIComponent(url);
-            const proxies = [
+            const worker = getWorkerConfig();
+            const proxies = [];
+
+            if (worker.url) {
+                proxies.push({
+                    name: 'cloudflare-worker',
+                    endpoint: `${worker.url}/proxy?url=${encoded}`,
+                    jsonWrapper: false
+                });
+            }
+
+            proxies.push(
                 { name: 'corsproxy', endpoint: `https://corsproxy.io/?${encoded}`, jsonWrapper: false },
                 { name: 'allorigins-get', endpoint: `https://api.allorigins.win/get?url=${encoded}`, jsonWrapper: true },
                 { name: 'allorigins-raw', endpoint: `https://api.allorigins.win/raw?url=${encoded}`, jsonWrapper: false },
                 { name: 'codetabs', endpoint: `https://api.codetabs.com/v1/proxy?quest=${encoded}`, jsonWrapper: false }
-            ];
+            );
 
             const errors = [];
             for (const proxy of proxies) {
@@ -841,6 +946,7 @@
 
             const entries = Array.from(xmlDoc.querySelectorAll('item, entry'));
             const fetchedAt = new Date().toISOString();
+            const maxFutureMs = Date.now() + 24 * 60 * 60 * 1000;
             const parsedArticles = [];
 
             entries.forEach((entry) => {
@@ -866,11 +972,11 @@
                 const cleanLink = normalizeUrl(rawLink);
                 if (!cleanLink || !isArticleDeepLink(cleanLink)) return;
 
-                // Issue #8 : pubDate = null si absente ou invalide (jamais new Date())
+                // Issue #8 : pubDate = null si absente, invalide ou aberrante (> 24h dans le futur)
                 let pubDateISO = null;
                 if (dateNode && dateNode.textContent) {
                     const parsedTime = Date.parse(dateNode.textContent.trim());
-                    if (!Number.isNaN(parsedTime)) {
+                    if (!Number.isNaN(parsedTime) && parsedTime <= maxFutureMs) {
                         pubDateISO = new Date(parsedTime).toISOString();
                     }
                 }
@@ -896,7 +1002,7 @@
             return parsedArticles;
         }
 
-        /** Option (b) : /data/articles.json en priorité, repli sur cache localStorage puis proxys */
+        /** Synchronisation complète : /data/articles.json en priorité, repli sur cache puis Worker/proxys */
         async function syncAllFeeds(bypassHttpCache = false) {
             if (isSyncing) return;
             isSyncing = true;
@@ -928,8 +1034,6 @@
                 applyFilters(false);
             }
 
-            // Si articles.json est valide, seuls les flux personnalisés passent par proxy.
-            // Si articles.json est indisponible (404 ou 500/503), repli complet sur cache + proxys.
             const enabledFeeds = activeFeeds.filter((f) => f.enabled);
             const feedsToFetch = hasValidServerArticles
                 ? enabledFeeds.filter((f) => !officialFeedIds.has(f.id))
@@ -939,8 +1043,8 @@
                 feedStatusMap.set(feed.id, {
                     status: 'pending',
                     detail: hasValidServerArticles
-                        ? 'Interrogation des proxys de repli en cours…'
-                        : `Repli proxy actif (articles.json HTTP ${articlesHttpStatus || 'indisponible'})…`,
+                        ? 'Interrogation du relais RSS en cours…'
+                        : `Repli actif (articles.json HTTP ${articlesHttpStatus || 'indisponible'})…`,
                     checkedAt: feedStatusMap.get(feed.id)?.checkedAt || null
                 });
             });
@@ -963,7 +1067,7 @@
                                 allArticles = pruneAndSortArticles([...allArticles, ...articles]);
                                 feedStatusMap.set(feed.id, {
                                     status: 'ok',
-                                    detail: `${articles.length} article(s) récupéré(s) via proxy de repli`,
+                                    detail: `${articles.length} article(s) récupéré(s)`,
                                     checkedAt
                                 });
                                 successCount++;
@@ -1003,7 +1107,7 @@
 
             if (!hasValidServerArticles) {
                 const statusCode = Number(articlesHttpStatus) || 404;
-                showStatus(`<span class="text-amber-700 font-medium">Mode secours navigateur : <code>/data/articles.json</code> indisponible (HTTP ${statusCode}). Vérifiez l’onglet Actions GitHub pour débloquer toutes les sources.</span>`);
+                showStatus(`<span class="text-amber-700 font-medium">Mode secours navigateur : <code>/data/articles.json</code> indisponible (HTTP ${statusCode}). Vérifiez l’onglet Actions GitHub.</span>`);
             } else {
                 hideStatus();
             }
@@ -1013,7 +1117,7 @@
         }
 
         // =====================================================================
-        // 7. ACTIONS UTILISATEUR SUR LES FLUX (Issue #6)
+        // 7. ACTIONS UTILISATEUR SUR LES FLUX (Issue #6 + Synchro Worker)
         // =====================================================================
 
         function renameFeed(feedId) {
@@ -1033,6 +1137,7 @@
             );
             saveCachedArticles();
             applyFilters(false);
+            syncFeedsToGitHubViaWorker(true);
         }
 
         function deleteFeed(feedId) {
@@ -1050,6 +1155,7 @@
                 currentFeedFilter = 'all';
             }
             applyFilters(true);
+            syncFeedsToGitHubViaWorker(true);
         }
 
         function toggleFeed(feedId) {
@@ -1059,6 +1165,7 @@
             target.enabled = !target.enabled;
             saveFeeds(activeFeeds);
             applyFilters(true);
+            syncFeedsToGitHubViaWorker(true);
         }
 
         function resetDefaultFeeds() {
@@ -1070,6 +1177,7 @@
             saveFeeds(defaults);
             currentFeedFilter = 'all';
             syncAllFeeds(true);
+            syncFeedsToGitHubViaWorker(true);
         }
 
         function toggleFavorite(articleId) {
@@ -1270,9 +1378,13 @@
 
             pageSlice.forEach((article) => {
                 const isFav = favoriteIds.has(article.id);
+                // Couleurs du logo : #F5A623 (NoCode) et #0084FF (IA)
                 const badgeColor = article.category === 'NoCode'
-                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                    : 'bg-blue-50 text-blue-700 border-blue-200';
+                    ? 'bg-[#F5A623]/15 text-[#8A5A00] border-[#F5A623]/40'
+                    : 'bg-[#0084FF]/10 text-[#005BB5] border-[#0084FF]/30';
+                const dotColor = article.category === 'NoCode'
+                    ? 'bg-brand-yellow'
+                    : 'bg-brand-accent';
 
                 const card = document.createElement('article');
 
@@ -1281,8 +1393,9 @@
                     card.innerHTML = `
                         <div class="min-w-0 flex-1">
                             <div class="flex flex-wrap items-center gap-2 mb-1">
-                                <span class="text-xs font-medium px-2 py-0.5 rounded border ${badgeColor}">
-                                    ${escapeHTML(article.feedName)}
+                                <span class="text-xs font-medium px-2 py-0.5 rounded border inline-flex items-center gap-1.5 ${badgeColor}">
+                                    <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor}"></span>
+                                    <span>${escapeHTML(article.feedName)}</span>
                                 </span>
                                 <span class="text-xs text-slate-500">${escapeHTML(formatDisplayDate(article.pubDate))}</span>
                             </div>
@@ -1294,7 +1407,7 @@
                             <p class="text-sm text-slate-600 mt-1 line-clamp-1">${escapeHTML(article.description || '')}</p>
                         </div>
                         <div class="flex items-center gap-3 sm:pl-4 flex-shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-100">
-                            <button type="button" class="fav-btn text-xs font-medium px-2.5 py-1.5 rounded border border-slate-200 hover:bg-slate-50 transition ${isFav ? 'text-amber-600 border-amber-200 bg-amber-50/60' : 'text-slate-600'}" data-article-id="${escapeHTML(article.id)}" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
+                            <button type="button" class="fav-btn text-xs font-medium px-2.5 py-1.5 rounded border border-slate-200 hover:bg-slate-50 transition ${isFav ? 'text-[#8A5A00] border-[#F5A623]/50 bg-[#F5A623]/10' : 'text-slate-600'}" data-article-id="${escapeHTML(article.id)}" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
                                 ${isFav ? '★ Favori' : '☆ Favori'}
                             </button>
                             <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener noreferrer" class="text-brand-accent text-sm font-semibold hover:underline inline-flex items-center gap-1 whitespace-nowrap">
@@ -1309,8 +1422,9 @@
                     card.className = 'bg-white border border-slate-200 rounded-xl p-5 hover:border-brand-accent shadow-xs transition flex flex-col h-full';
                     card.innerHTML = `
                         <div class="flex justify-between items-center gap-2 mb-3">
-                            <span class="text-xs font-medium px-2.5 py-0.5 rounded border truncate max-w-[68%] ${badgeColor}" title="${escapeHTML(article.feedName)}">
-                                ${escapeHTML(article.feedName)}
+                            <span class="text-xs font-medium px-2.5 py-0.5 rounded border inline-flex items-center gap-1.5 max-w-[68%] ${badgeColor}" title="${escapeHTML(article.feedName)}">
+                                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor}"></span>
+                                <span class="truncate">${escapeHTML(article.feedName)}</span>
                             </span>
                             <span class="text-xs text-slate-500 whitespace-nowrap">${escapeHTML(formatDisplayDate(article.pubDate))}</span>
                         </div>
@@ -1327,7 +1441,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
                             </a>
-                            <button type="button" class="fav-btn text-xs font-medium px-2 py-1 rounded hover:bg-slate-100 transition ${isFav ? 'text-amber-600' : 'text-slate-500 hover:text-brand-dark'}" data-article-id="${escapeHTML(article.id)}" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
+                            <button type="button" class="fav-btn text-xs font-medium px-2 py-1 rounded hover:bg-slate-100 transition ${isFav ? 'text-[#8A5A00]' : 'text-slate-500 hover:text-brand-dark'}" data-article-id="${escapeHTML(article.id)}" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
                                 ${isFav ? '★ Favori' : '☆ Favori'}
                             </button>
                         </div>
@@ -1384,7 +1498,6 @@
                     statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">Cache</span>`;
                 }
 
-                // Ligne d'horodatage : date/heure du dernier article + dernière vérification
                 const metaParts = [];
                 if (freshness.latestPubLabel) {
                     metaParts.push(`Dernier article : <strong class="font-medium text-slate-700">${escapeHTML(freshness.latestPubLabel)}</strong> (${freshness.articleCount})`);
@@ -1508,7 +1621,9 @@
                 showDrawerFeedback('Cache local vidé.');
             });
 
-            // Synchronisation PC <-> Mobile (Lien #sync= & Export/Import JSON)
+            // Synchronisation Cloud GitHub (Worker) & Mobile (Lien #sync= / JSON)
+            document.getElementById('syncCloudBtn').addEventListener('click', () => syncFeedsToGitHubViaWorker(false));
+            document.getElementById('configCloudBtn').addEventListener('click', configureWorkerSync);
             document.getElementById('copySyncLinkBtn').addEventListener('click', copySyncLink);
             document.getElementById('exportFeedsBtn').addEventListener('click', exportFeedsJSON);
             document.getElementById('importFeedsInput').addEventListener('change', (e) => {
@@ -1540,6 +1655,7 @@
 
                 activeFeeds.push(newFeed);
                 saveFeeds(activeFeeds);
+                syncFeedsToGitHubViaWorker(true);
                 document.getElementById('addFeedForm').reset();
                 showDrawerFeedback(`Flux « ${name} » ajouté. Récupération en cours…`);
 
@@ -1550,7 +1666,7 @@
                     if (articles.length > 0) {
                         feedStatusMap.set(newFeed.id, {
                             status: 'ok',
-                            detail: `${articles.length} article(s) récupéré(s) via proxy de repli`,
+                            detail: `${articles.length} article(s) récupéré(s)`,
                             checkedAt
                         });
                         allArticles = pruneAndSortArticles([...allArticles, ...articles]);
@@ -1605,18 +1721,28 @@
                 }
             });
 
-            // Filtres par catégorie
+            // Filtres par catégorie avec couleurs du logo
             document.querySelectorAll('.filter-btn').forEach((btn) => {
                 btn.addEventListener('click', (e) => {
                     document.querySelectorAll('.filter-btn').forEach((b) => {
-                        b.classList.remove('active', 'bg-brand-accent', 'text-white', 'shadow-sm');
+                        b.classList.remove('active', 'bg-brand-dark', 'bg-brand-accent', 'bg-brand-yellow', 'text-white', 'text-brand-dark', 'shadow-sm');
                         b.classList.add('bg-white', 'border', 'border-slate-200', 'text-slate-600');
                     });
-                    const target = e.currentTarget;
-                    target.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-600');
-                    target.classList.add('active', 'bg-brand-accent', 'text-white', 'shadow-sm');
 
-                    currentCategory = target.getAttribute('data-category');
+                    const target = e.currentTarget;
+                    const category = target.getAttribute('data-category');
+                    target.classList.remove('bg-white', 'border', 'border-slate-200', 'text-slate-600');
+                    target.classList.add('active', 'shadow-sm');
+
+                    if (category === 'IA') {
+                        target.classList.add('bg-brand-accent', 'text-white');
+                    } else if (category === 'NoCode') {
+                        target.classList.add('bg-brand-yellow', 'text-brand-dark');
+                    } else {
+                        target.classList.add('bg-brand-dark', 'text-white');
+                    }
+
+                    currentCategory = category;
                     applyFilters(true);
                 });
             });
