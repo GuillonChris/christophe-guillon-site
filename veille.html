@@ -291,6 +291,7 @@
         let allArticles = [];
         let filteredArticles = [];
         let favoriteIds = new Set();
+        const feedStatusMap = new Map();
 
         let currentCategory = 'all';
         let currentFeedFilter = 'all';
@@ -789,7 +790,7 @@
             for (const proxy of proxies) {
                 try {
                     const controller = new AbortController();
-                    const timer = setTimeout(() => controller.abort(), 5000);
+                    const timer = setTimeout(() => controller.abort(), 8000);
                     const response = await fetch(proxy.endpoint, { signal: controller.signal });
                     clearTimeout(timer);
 
@@ -798,22 +799,27 @@
                         continue;
                     }
 
+                    let payloadText = '';
                     if (proxy.jsonWrapper) {
                         const data = await response.json();
-                        if (data && typeof data.contents === 'string' && data.contents.trim().length > 0) {
-                            return data.contents;
-                        }
-                        errors.push(`${proxy.name}:EMPTY_WRAPPER`);
+                        payloadText = typeof data?.contents === 'string' ? data.contents : '';
+                    } else {
+                        payloadText = await response.text();
+                    }
+
+                    const trimmed = payloadText.trim();
+                    if (!trimmed) {
+                        errors.push(`${proxy.name}:EMPTY`);
+                        continue;
+                    }
+                    if (/^<!doctype\s+html|^<html/i.test(trimmed)) {
+                        errors.push(`${proxy.name}:HTML_BLOCKED`);
                         continue;
                     }
 
-                    const text = await response.text();
-                    if (text && text.trim().length > 0) {
-                        return text;
-                    }
-                    errors.push(`${proxy.name}:EMPTY_TEXT`);
+                    return trimmed;
                 } catch (err) {
-                    errors.push(`${proxy.name}:${err.name === 'AbortError' ? 'TIMEOUT' : err.message}`);
+                    errors.push(`${proxy.name}:${err.name === 'AbortError' ? 'TIMEOUT_8S' : err.message}`);
                 }
             }
 
@@ -898,6 +904,11 @@
             const { serverArticles, officialFeedIds } = await loadServerData();
             if (serverArticles.length > 0) {
                 allArticles = pruneAndSortArticles([...allArticles, ...serverArticles]);
+                serverArticles.forEach((art) => {
+                    if (art && art.feedId) {
+                        feedStatusMap.set(art.feedId, { status: 'server', detail: 'Collecté via articles.json' });
+                    }
+                });
                 saveCachedArticles();
                 applyFilters(false);
             }
@@ -921,9 +932,13 @@
                             const articles = parseFeedXML(xml, feed);
                             if (articles.length > 0) {
                                 allArticles = pruneAndSortArticles([...allArticles, ...articles]);
+                                feedStatusMap.set(feed.id, { status: 'ok', detail: `${articles.length} article(s) récupéré(s)` });
                                 successCount++;
+                            } else {
+                                feedStatusMap.set(feed.id, { status: 'error', detail: 'Flux valide mais aucun article récent' });
                             }
                         } catch (err) {
+                            feedStatusMap.set(feed.id, { status: 'error', detail: err.message });
                             console.warn(`[Veille CG] Flux ignoré (${feed.name}) : ${err.message}`);
                         } finally {
                             completedCount++;
@@ -936,6 +951,8 @@
                 applyFilters(false);
             }
 
+            renderFeedsList();
+
             const nowStr = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
             const badge = document.getElementById('lastUpdateBadge');
             badge.textContent = `Mis à jour à ${nowStr} (${Math.min(successCount, enabledFeeds.length)}/${enabledFeeds.length} flux)`;
@@ -944,7 +961,12 @@
             refreshIcon.classList.remove('animate-spin');
             hideStatus();
             isSyncing = false;
-            console.info(`[Veille CG] Synchronisation terminée : ${allArticles.length} articles en mémoire.`);
+
+            if (serverArticles.length === 0) {
+                console.info('[Veille CG] Mode proxy navigateur uniquement (/data/articles.json non trouvé sur le dépôt).');
+            } else {
+                console.info(`[Veille CG] Synchronisation terminée : ${allArticles.length} articles en mémoire.`);
+            }
         }
 
         // =====================================================================
@@ -975,6 +997,7 @@
             if (!target) return;
 
             activeFeeds = activeFeeds.filter((f) => f.id !== feedId);
+            feedStatusMap.delete(feedId);
             saveFeeds(activeFeeds);
 
             allArticles = allArticles.filter((art) => art.feedId !== feedId);
@@ -999,6 +1022,7 @@
             if (!window.confirm(`Restaurer les ${defaultFeeds.length} sources par défaut ? Vos flux personnalisés seront remplacés.`)) {
                 return;
             }
+            feedStatusMap.clear();
             const defaults = defaultFeeds.map((item, idx) => normalizeFeed(item, idx));
             saveFeeds(defaults);
             currentFeedFilter = 'all';
@@ -1245,6 +1269,16 @@
             document.getElementById('drawerFeedsCount').textContent = `${enabledCount}/${activeFeeds.length}`;
 
             activeFeeds.forEach((feed) => {
+                const state = feedStatusMap.get(feed.id);
+                let statusBadge = '';
+                if (feed.enabled && state) {
+                    if (state.status === 'server' || state.status === 'ok') {
+                        statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title="${escapeHTML(state.detail)}">OK</span>`;
+                    } else if (state.status === 'error') {
+                        statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 cursor-help" title="${escapeHTML(state.detail)}">Proxy bloqué</span>`;
+                    }
+                }
+
                 const li = document.createElement('li');
                 li.className = `flex justify-between items-center gap-2 p-3 rounded-lg border ${feed.enabled ? 'bg-white border-slate-200 shadow-2xs' : 'bg-slate-100/70 border-slate-200/70 opacity-65'}`;
 
@@ -1252,9 +1286,10 @@
                     <label class="flex items-start gap-2.5 flex-1 min-w-0 cursor-pointer">
                         <input type="checkbox" class="toggle-feed mt-1 accent-[#0084FF]" data-feed-id="${escapeHTML(feed.id)}" ${feed.enabled ? 'checked' : ''}>
                         <div class="min-w-0 flex-1">
-                            <div class="flex items-center gap-2">
+                            <div class="flex flex-wrap items-center gap-1.5">
                                 <p class="font-medium text-sm text-brand-dark truncate">${escapeHTML(feed.name)}</p>
                                 <span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">${escapeHTML(feed.category)}</span>
+                                ${statusBadge}
                             </div>
                             <p class="text-xs text-slate-500 truncate">${escapeHTML(feed.url)}</p>
                         </div>
@@ -1392,14 +1427,20 @@
                     const xml = await fetchRSSWithFallback(newFeed.url);
                     const articles = parseFeedXML(xml, newFeed);
                     if (articles.length > 0) {
+                        feedStatusMap.set(newFeed.id, { status: 'ok', detail: `${articles.length} article(s) récupéré(s)` });
                         allArticles = pruneAndSortArticles([...allArticles, ...articles]);
                         saveCachedArticles();
+                        renderFeedsList();
                         applyFilters(true);
                         showDrawerFeedback(`${articles.length} articles récupérés pour « ${name} ».`);
                     } else {
+                        feedStatusMap.set(newFeed.id, { status: 'error', detail: 'Flux valide mais aucun article récent' });
+                        renderFeedsList();
                         showDrawerFeedback('Flux ajouté, mais aucun article récent trouvé.', true);
                     }
                 } catch (err) {
+                    feedStatusMap.set(newFeed.id, { status: 'error', detail: err.message });
+                    renderFeedsList();
                     showDrawerFeedback(`Flux sauvegardé, mais lecture impossible pour le moment (${err.message}).`, true);
                 }
             });
