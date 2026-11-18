@@ -3,38 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille IA &amp; NoCode | Christophe Guillon</title>
-    <meta name="description" content="Agrégateur de veille sur l'Intelligence Artificielle et le NoCode par Christophe Guillon. Flux personnalisables, filtrage rapide et actualisation continue.">
+    <title>Veille IA &amp; NoCode — Christophe Guillon</title>
+    <meta name="description" content="Agrégateur de veille technologique sur l'Intelligence Artificielle et le NoCode sélectionné par Christophe Guillon, consultant-formateur à Saumur.">
     <link rel="canonical" href="https://www.christophe-guillon.com/veille.html">
 
-    <!-- Polices Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#04101A',
-                            accent: '#0084FF',
-                            yellow: '#F5A623',
-                            gray: '#1E293B',
-                            light: '#94A3B8'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif']
-                    }
-                }
-            }
-        };
-    </script>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Veille IA &amp; NoCode — Christophe Guillon">
+    <meta property="og:description" content="Les meilleures actualités et ressources Intelligence Artificielle et NoCode sélectionnées en continu.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.christophe-guillon.com/veille.html">
 
     <!-- Google Analytics (G-VESQ4YWCTS) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VESQ4YWCTS"></script>
@@ -45,159 +22,216 @@
         gtag('config', 'G-VESQ4YWCTS');
     </script>
 
-    <style>
-        .line-clamp-1 {
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .line-clamp-3 {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .loader {
-            border: 3px solid rgba(4, 16, 26, 0.12);
-            border-radius: 50%;
-            border-top: 3px solid #0084FF;
-            width: 20px;
-            height: 20px;
-            animation: spin 0.9s linear infinite;
-            flex-shrink: 0;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body class="bg-slate-50 text-brand-dark font-sans min-h-screen flex flex-col antialiased">
+    <!-- Google Fonts : Inter & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <!-- En-tête -->
-    <header class="border-b border-slate-200 bg-white/95 sticky top-0 z-40 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap justify-between items-center gap-4">
+    <!-- Tailwind CSS CDN & Configuration de l'identité visuelle -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#04101A',
+                            accent: '#0084FF',
+                            yellow: '#F5A623'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-slate-50 text-brand-dark font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- En-tête & Navigation principale -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
             <div class="flex items-center gap-6">
-                <a href="https://www.christophe-guillon.com/" class="font-heading text-xl md:text-2xl font-bold text-brand-dark flex items-center gap-2 hover:opacity-85 transition">
-                    <span class="text-brand-accent">⚡</span>
-                    <span>Veille IA &amp; NoCode</span>
+                <a href="https://www.christophe-guillon.com/veille.html" class="flex items-center gap-2.5 group">
+                    <span class="w-8 h-8 rounded-lg bg-brand-dark text-brand-yellow flex items-center justify-center font-heading font-extrabold text-base shadow-sm">
+                        ⚡
+                    </span>
+                    <span class="font-heading font-bold text-lg sm:text-xl tracking-tight text-brand-dark group-hover:text-brand-accent transition">
+                        Veille IA &amp; NoCode
+                    </span>
                 </a>
-                <nav aria-label="Navigation principale" class="hidden md:flex items-center gap-5 text-sm text-slate-600">
-                    <a href="https://www.christophe-guillon.com/" class="hover:text-brand-accent transition-colors">Accueil</a>
-                    <a href="https://www.christophe-guillon.com/veille.html" class="text-brand-dark font-semibold">Veille</a>
+                <nav aria-label="Navigation principale" class="hidden sm:flex items-center gap-5 text-sm font-medium">
+                    <a href="https://www.christophe-guillon.com/" class="text-slate-600 hover:text-brand-dark transition">Accueil</a>
+                    <a href="https://www.christophe-guillon.com/veille.html" class="text-brand-accent font-semibold">Veille</a>
                 </nav>
             </div>
 
-            <div class="flex items-center gap-3">
-                <span id="lastUpdateBadge" class="hidden lg:inline-block text-xs text-slate-500"></span>
-                <button id="refreshBtn" type="button" class="border border-slate-300 bg-white hover:border-brand-accent text-slate-700 hover:text-brand-accent px-3 py-2 rounded-md transition-colors flex items-center gap-2 text-sm font-medium">
-                    <svg id="refreshIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <span id="lastUpdatedBadge" class="hidden md:inline-block text-xs text-slate-500">
+                    Chargement…
+                </span>
+                <button id="refreshBtn" type="button" title="Actualiser les flux" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-xs sm:text-sm font-medium text-brand-dark transition">
+                    <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                     </svg>
                     <span class="hidden sm:inline">Actualiser</span>
                 </button>
-                <button id="openDrawerBtn" type="button" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition-colors text-sm flex items-center gap-2 shadow-sm">
+                <button id="openDrawerBtn" type="button" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-brand-accent hover:bg-blue-600 text-white text-xs sm:text-sm font-semibold shadow-sm transition">
                     <span>Gérer les flux</span>
-                    <span id="activeFeedsCountBadge" class="bg-white/20 text-xs px-1.5 py-0.5 rounded-full">15</span>
+                    <span id="headerFeedCount" class="bg-white/20 text-white text-xs font-bold px-1.5 py-0.5 rounded">0</span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Contenu principal -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
 
-        <!-- Barre de filtres (couleurs du logo), recherche et bascule de vue -->
-        <div class="mb-6 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
-            <div class="flex flex-wrap gap-2 items-center" id="filtersContainer">
-                <button type="button" class="filter-btn active bg-brand-dark text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors shadow-sm" data-category="all">
-                    Tous les articles
-                </button>
-                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-brand-dark hover:border-brand-accent px-4 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5" data-category="IA">
-                    <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                    <span>Intelligence Artificielle</span>
-                </button>
-                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-brand-dark hover:border-brand-yellow px-4 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5" data-category="NoCode">
-                    <span class="w-2 h-2 rounded-full bg-brand-yellow"></span>
-                    <span>NoCode</span>
-                </button>
-                <button type="button" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:text-brand-dark hover:border-slate-300 px-4 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5" data-category="favorites">
-                    <span class="text-brand-yellow">★</span>
-                    <span>Favoris (<span id="favoritesCount">0</span>)</span>
-                </button>
-            </div>
-
-            <div class="flex flex-wrap gap-2 items-center">
-                <select id="feedFilterSelect" aria-label="Filtrer par source" class="bg-white border border-slate-300 rounded-md px-3 py-1.5 text-sm text-brand-dark focus:outline-none focus:border-brand-accent">
-                    <option value="all">Toutes les sources</option>
-                </select>
-                <div class="relative flex-1 sm:flex-initial">
-                    <input type="search" id="searchInput" placeholder="Rechercher un article..." class="w-full sm:w-56 bg-white border border-slate-300 rounded-md pl-3 pr-8 py-1.5 text-sm text-brand-dark placeholder-slate-400 focus:outline-none focus:border-brand-accent">
-                </div>
-                <!-- Sélecteur d'affichage : Vignettes / Liste -->
-                <div role="group" aria-label="Mode d'affichage" class="inline-flex rounded-md border border-slate-300 bg-white p-0.5">
-                    <button type="button" id="viewGridBtn" aria-pressed="true" title="Affichage en vignettes" class="px-2.5 py-1 rounded text-xs font-medium flex items-center gap-1.5 bg-brand-accent text-white transition-colors">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                        </svg>
-                        <span>Vignettes</span>
+        <!-- Barre de filtres, recherche et mode d'affichage -->
+        <section aria-label="Filtres de veille" class="mb-6 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <!-- Filtres catégories -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <button type="button" data-category="ALL" class="filter-btn active bg-brand-dark text-white shadow-sm px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition">
+                        Tous les articles
                     </button>
-                    <button type="button" id="viewListBtn" aria-pressed="false" title="Affichage en liste" class="px-2.5 py-1 rounded text-xs font-medium flex items-center gap-1.5 text-slate-600 hover:text-brand-dark transition-colors">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                        <span>Liste</span>
+                    <button type="button" data-category="IA" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:border-brand-accent px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+                        <span>Intelligence Artificielle</span>
+                    </button>
+                    <button type="button" data-category="NoCode" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:border-brand-yellow px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-yellow"></span>
+                        <span>NoCode</span>
+                    </button>
+                    <button type="button" data-category="FAVORITES" class="filter-btn bg-white border border-slate-200 text-slate-600 hover:border-amber-400 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition flex items-center gap-1.5">
+                        <span class="text-brand-yellow">★</span>
+                        <span>Favoris (<span id="favCountBadge">0</span>)</span>
+                    </button>
+                </div>
+
+                <!-- Sélecteur Vignettes / Liste -->
+                <div class="inline-flex rounded-lg border border-slate-200 bg-white p-0.5 shadow-sm">
+                    <button id="viewGridBtn" type="button" class="px-3 py-1 rounded-md text-xs font-medium bg-brand-accent text-white transition">
+                        ▦ Vignettes
+                    </button>
+                    <button id="viewListBtn" type="button" class="px-3 py-1 rounded-md text-xs font-medium text-slate-600 hover:text-brand-dark transition">
+                        ☰ Liste
                     </button>
                 </div>
             </div>
+
+            <!-- Filtre par source + Recherche -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+                <div class="sm:col-span-4">
+                    <label for="feedFilterSelect" class="sr-only">Filtrer par source</label>
+                    <select id="feedFilterSelect" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm text-brand-dark focus:outline-none focus:border-brand-accent">
+                        <option value="ALL">Toutes les sources</option>
+                    </select>
+                </div>
+                <div class="sm:col-span-8 relative">
+                    <label for="searchInput" class="sr-only">Rechercher un article</label>
+                    <input type="search" id="searchInput" placeholder="Rechercher un article, un outil, un mot-clé…" class="w-full bg-white border border-slate-200 rounded-lg pl-9 pr-3 py-2 text-sm text-brand-dark placeholder-slate-400 focus:outline-none focus:border-brand-accent">
+                    <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- État de chargement -->
+        <div id="loadingState" class="hidden py-16 text-center">
+            <div class="inline-block w-8 h-8 border-4 border-brand-accent border-t-transparent rounded-full animate-spin mb-3"></div>
+            <p class="text-sm text-slate-600">Chargement des articles de veille…</p>
         </div>
 
-        <!-- Bandeau de statut / progression -->
-        <div id="statusMessage" class="hidden mb-6 p-3.5 rounded-lg bg-white border border-slate-200 shadow-sm text-sm text-slate-700 flex items-center justify-between gap-3">
-            <div class="flex items-center gap-3" id="statusText"></div>
+        <!-- État vide -->
+        <div id="emptyState" class="hidden bg-white border border-slate-200 rounded-xl p-10 text-center">
+            <p class="font-heading font-semibold text-brand-dark mb-1">Aucun article ne correspond à ces critères</p>
+            <p class="text-xs text-slate-500">Modifiez vos filtres, effacez la recherche ou activez davantage de sources RSS.</p>
         </div>
 
-        <!-- Grille ou Liste d'articles -->
-        <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Articles injectés dynamiquement -->
-        </div>
+        <!-- Grille / Liste d'articles -->
+        <section id="articlesGrid" aria-label="Articles de veille" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></section>
 
         <!-- Pagination -->
-        <div id="pagination" class="mt-10 flex flex-wrap justify-center items-center gap-4 hidden">
-            <button id="prevPageBtn" type="button" class="px-4 py-2 bg-white border border-slate-300 text-brand-dark rounded-md text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:border-brand-accent transition">
+        <nav id="paginationControls" aria-label="Pagination des articles" class="hidden mt-8 flex items-center justify-between border-t border-slate-200 pt-5">
+            <button id="prevPageBtn" type="button" class="px-4 py-2 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed text-xs sm:text-sm font-medium text-brand-dark transition">
                 ← Précédent
             </button>
-            <span id="pageIndicator" class="text-slate-600 text-sm font-medium">Page 1 sur 1</span>
-            <button id="nextPageBtn" type="button" class="px-4 py-2 bg-white border border-slate-300 text-brand-dark rounded-md text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:border-brand-accent transition">
+            <span id="pageIndicator" class="text-xs sm:text-sm font-medium text-slate-600">
+                Page 1 / 1
+            </span>
+            <button id="nextPageBtn" type="button" class="px-4 py-2 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed text-xs sm:text-sm font-medium text-brand-dark transition">
                 Suivant →
             </button>
-        </div>
+        </nav>
     </main>
 
     <!-- Pied de page -->
-    <footer class="border-t border-slate-200 py-8 mt-auto bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-600 text-sm">
-            <div>
-                &copy; <span id="currentYear"></span> <a href="https://www.christophe-guillon.com/" class="text-brand-dark font-medium hover:text-brand-accent transition">Christophe Guillon</a> — Consultant-Formateur IA &amp; NoCode.
-            </div>
-            <div class="flex gap-5">
-                <a href="https://www.christophe-guillon.com/" class="hover:text-brand-accent transition">Accueil</a>
-                <a href="https://www.christophe-guillon.com/mentions-legales.html" class="hover:text-brand-accent transition">Mentions légales</a>
+    <footer class="bg-white border-t border-slate-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+            <p>© Christophe Guillon — Consultant-formateur IA &amp; NoCode (Saumur)</p>
+            <div class="flex items-center gap-4">
+                <a href="https://www.christophe-guillon.com/" class="hover:text-brand-dark transition">Accueil</a>
+                <a href="https://www.christophe-guillon.com/veille.html" class="hover:text-brand-dark transition">Veille IA &amp; NoCode</a>
             </div>
         </div>
     </footer>
 
-    <!-- Tiroir latéral : Gestion des flux -->
-    <div id="drawerOverlay" class="fixed inset-0 bg-slate-900/40 z-50 hidden backdrop-blur-xs transition-opacity"></div>
-    <aside id="feedDrawer" aria-label="Gestion des sources RSS" class="fixed top-0 right-0 h-full w-full max-w-md bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl text-brand-dark">
-        <div class="p-4 border-b border-slate-200 flex justify-between items-center bg-slate-50">
-            <div>
-                <h2 class="font-heading text-lg font-bold text-brand-dark">Sources RSS (<span id="drawerFeedsCount">0</span>)</h2>
-                <p class="text-xs text-slate-500">Ajoutez, renommez ou activez vos flux</p>
+    <!-- Modale d'authentification administrateur (Gérer les flux) -->
+    <div id="adminAuthModal" role="dialog" aria-modal="true" aria-labelledby="adminAuthTitle" class="fixed inset-0 bg-slate-900/50 z-50 hidden backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 rounded-xl shadow-2xl w-full max-w-sm p-6 text-brand-dark">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="adminAuthTitle" class="font-heading text-lg font-bold text-brand-dark flex items-center gap-2">
+                    <span>🔒</span>
+                    <span>Accès administration</span>
+                </h2>
+                <button type="button" id="closeAuthModalBtn" aria-label="Fermer la fenêtre de connexion" class="text-slate-400 hover:text-brand-dark p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
             </div>
-            <button id="closeDrawerBtn" type="button" aria-label="Fermer le panneau" class="text-slate-500 hover:text-brand-dark p-1">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <p class="text-xs text-slate-600 mb-4">Saisissez vos identifiants pour gérer et synchroniser les sources RSS.</p>
+            <form id="adminAuthForm" class="space-y-3">
+                <div>
+                    <label for="adminUsernameInput" class="block text-xs font-medium text-slate-700 mb-1">Identifiant</label>
+                    <input type="text" id="adminUsernameInput" autocomplete="username" required class="w-full bg-white border border-slate-300 rounded-md px-3 py-2 text-base sm:text-sm text-brand-dark focus:outline-none focus:border-brand-accent">
+                </div>
+                <div>
+                    <label for="adminPasswordInput" class="block text-xs font-medium text-slate-700 mb-1">Mot de passe</label>
+                    <input type="password" id="adminPasswordInput" autocomplete="current-password" required class="w-full bg-white border border-slate-300 rounded-md px-3 py-2 text-base sm:text-sm text-brand-dark focus:outline-none focus:border-brand-accent">
+                </div>
+                <details class="text-xs text-slate-500 pt-1">
+                    <summary class="cursor-pointer hover:text-brand-dark">Paramètre serveur (Worker Cloudflare)</summary>
+                    <input type="url" id="adminWorkerUrlInput" value="https://veille-cg-sync.long-leaf-4b99.workers.dev" required class="mt-2 w-full bg-slate-50 border border-slate-300 rounded px-2.5 py-1.5 text-xs text-brand-dark focus:outline-none focus:border-brand-accent">
+                </details>
+                <div id="adminAuthError" class="hidden text-xs bg-red-50 text-red-700 border border-red-200 rounded px-3 py-2"></div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" id="cancelAuthModalBtn" class="px-3.5 py-2 rounded-md border border-slate-300 text-xs font-medium text-slate-700 hover:bg-slate-50 transition">
+                        Annuler
+                    </button>
+                    <button type="submit" id="submitAuthBtn" class="px-4 py-2 rounded-md bg-brand-accent hover:bg-blue-600 text-white text-xs font-semibold transition">
+                        Déverrouiller
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tiroir latéral : Gestion des flux -->
+    <div id="drawerOverlay" class="fixed inset-0 bg-slate-900/40 z-40 hidden backdrop-blur-sm transition-opacity"></div>
+    <aside id="feedDrawer" aria-label="Gestion des sources RSS" class="fixed top-0 right-0 h-full w-full max-w-md bg-white border-l border-slate-200 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl text-brand-dark">
+        <div class="p-5 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+            <div>
+                <h2 class="font-heading text-lg font-bold text-brand-dark">Sources RSS (<span id="drawerFeedCount">0</span>)</h2>
+                <p class="text-xs text-slate-600">Ajoutez, renommez ou activez vos flux</p>
+            </div>
+            <button id="closeDrawerBtn" aria-label="Fermer le panneau" class="text-slate-500 hover:text-brand-dark p-1.5 rounded-lg hover:bg-slate-200/70 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
@@ -206,10 +240,10 @@
         <!-- Formulaire d'ajout de flux -->
         <div class="p-4 border-b border-slate-200 bg-white">
             <form id="addFeedForm" class="flex flex-col gap-3">
-                <input type="url" id="newFeedUrl" placeholder="https://exemple.com/feed.xml" required class="w-full bg-white border border-slate-300 rounded px-3 py-2 text-sm text-brand-dark focus:outline-none focus:border-brand-accent placeholder-slate-400">
+                <input type="url" id="newFeedUrl" placeholder="https://exemple.com/feed.xml" required class="w-full bg-white border border-slate-300 rounded px-3 py-2 text-base sm:text-sm text-brand-dark focus:outline-none focus:border-brand-accent placeholder-slate-400">
                 <div class="flex gap-2">
-                    <input type="text" id="newFeedName" placeholder="Nom du flux (optionnel)" class="flex-1 bg-white border border-slate-300 rounded px-3 py-2 text-sm text-brand-dark focus:outline-none focus:border-brand-accent placeholder-slate-400">
-                    <select id="newFeedCategory" class="w-32 bg-white border border-slate-300 rounded px-2 py-2 text-sm text-brand-dark focus:outline-none focus:border-brand-accent">
+                    <input type="text" id="newFeedName" placeholder="Nom du flux (optionnel)" class="flex-1 min-w-0 bg-white border border-slate-300 rounded px-3 py-2 text-base sm:text-sm text-brand-dark focus:outline-none focus:border-brand-accent placeholder-slate-400">
+                    <select id="newFeedCategory" class="w-32 bg-white border border-slate-300 rounded px-2 py-2 text-base sm:text-sm text-brand-dark focus:outline-none focus:border-brand-accent">
                         <option value="IA">IA</option>
                         <option value="NoCode">NoCode</option>
                     </select>
@@ -221,38 +255,39 @@
             <div id="drawerFeedback" class="hidden mt-2 text-xs px-2.5 py-1.5 rounded"></div>
         </div>
 
-        <!-- Liste des flux configurés -->
-        <div class="flex-grow overflow-y-auto p-4 bg-slate-50/60">
-            <ul id="feedsList" class="space-y-2.5">
-                <!-- Liste injectée dynamiquement -->
-            </ul>
-        </div>
+        <!-- Liste des flux -->
+        <div id="feedsList" class="flex-1 overflow-y-auto p-4 space-y-2.5 bg-slate-50/40"></div>
 
-        <!-- Pied du tiroir : synchro cloud GitHub (Worker), mobile et réinitialisation -->
+        <!-- Pied du tiroir : Synchronisation Cloud GitHub & Mobile + Verrouillage -->
         <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-2.5">
             <div class="flex gap-2">
-                <button id="syncCloudBtn" type="button" class="flex-1 bg-brand-dark hover:bg-slate-800 text-white px-3 py-2 rounded-md text-xs font-medium transition flex items-center justify-center gap-1.5 shadow-2xs" title="Enregistre immédiatement la liste des flux dans data/feeds.json sur GitHub">
+                <button id="syncCloudBtn" type="button" class="flex-1 text-xs bg-brand-dark hover:bg-slate-800 text-white py-2 px-3 rounded-md font-medium transition flex items-center justify-center gap-1.5 shadow-sm">
                     <span>☁️ Synchroniser avec GitHub</span>
                 </button>
-                <button id="configCloudBtn" type="button" class="bg-white border border-slate-300 hover:border-brand-accent text-slate-700 px-2.5 py-2 rounded-md text-xs font-medium transition" title="Configurer l'URL du Worker Cloudflare et le code PIN">
+                <button id="configCloudBtn" type="button" title="Configurer le Worker Cloudflare" aria-label="Configurer le Worker Cloudflare" class="text-xs bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 py-2 px-2.5 rounded-md transition">
                     ⚙️
                 </button>
             </div>
-            <div class="flex flex-wrap gap-2">
-                <button id="copySyncLinkBtn" type="button" class="flex-1 bg-white border border-slate-300 hover:border-brand-accent text-brand-dark hover:text-brand-accent px-3 py-1.5 rounded text-xs font-medium transition">
-                    🔗 Lien synchro mobile
+            <div class="grid grid-cols-2 gap-2">
+                <button id="copySyncLinkBtn" type="button" class="text-xs bg-white hover:bg-slate-100 border border-slate-300 text-brand-dark py-1.5 px-2.5 rounded font-medium transition flex items-center justify-center gap-1.5">
+                    <span>🔗 Lien synchro mobile</span>
                 </button>
-                <button id="exportFeedsBtn" type="button" class="bg-white border border-slate-300 hover:border-brand-accent text-slate-700 px-2.5 py-1.5 rounded text-xs font-medium transition" title="Exporter la liste des flux en JSON">
-                    Exporter
-                </button>
-                <label class="bg-white border border-slate-300 hover:border-brand-accent text-slate-700 px-2.5 py-1.5 rounded text-xs font-medium transition cursor-pointer" title="Importer un fichier JSON de flux">
-                    <span>Importer</span>
+                <div class="grid grid-cols-2 gap-1.5">
+                    <button id="exportFeedsBtn" type="button" class="text-xs bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 py-1.5 px-2 rounded transition">
+                        Exporter
+                    </button>
+                    <label for="importFeedsInput" class="text-xs bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 py-1.5 px-2 rounded transition text-center cursor-pointer">
+                        Importer
+                    </label>
                     <input type="file" id="importFeedsInput" accept=".json,application/json" class="hidden">
-                </label>
+                </div>
             </div>
-            <div class="flex justify-between items-center pt-1 border-t border-slate-200/70">
-                <button id="resetFeedsBtn" type="button" class="text-xs text-slate-600 hover:text-amber-600 transition underline">
-                    Réinitialiser (<span id="defaultFeedsCountLabel">15</span>)
+            <div class="flex justify-between items-center pt-1">
+                <button id="resetFeedsBtn" type="button" class="text-xs text-slate-600 hover:text-brand-dark underline transition">
+                    Réinitialiser (15)
+                </button>
+                <button id="lockAdminBtn" type="button" class="text-xs text-red-600 hover:text-red-700 font-medium transition flex items-center gap-1">
+                    <span>🔒 Verrouiller</span>
                 </button>
                 <button id="clearCacheBtn" type="button" class="text-xs text-slate-600 hover:text-brand-dark transition">
                     Vider le cache articles
@@ -262,128 +297,66 @@
     </aside>
 
     <script>
-        // =====================================================================
-        // 1. CONSTANTES & CONFIGURATION
-        // =====================================================================
+        'use strict';
+
+        // =========================================================================
+        // 1. CONSTANTES, CLÉS DE STOCKAGE ET FLUX PAR DÉFAUT (15 SOURCES)
+        // =========================================================================
         const FEEDS_STORAGE_KEY = 'cg_feeds_v1';
         const ARTICLES_CACHE_KEY = 'cg_articles_cache_v1';
         const FAVORITES_STORAGE_KEY = 'cg_favorites_v1';
         const VIEW_MODE_STORAGE_KEY = 'cg_view_mode_v1';
+        const OFFICIAL_IDS_STORAGE_KEY = 'cg_official_feed_ids_v1';
+
         const WORKER_URL_STORAGE_KEY = 'cg_worker_url_v1';
         const WORKER_PIN_STORAGE_KEY = 'cg_admin_pin_v1';
+        const WORKER_USER_STORAGE_KEY = 'cg_admin_user_v1';
+        const DEFAULT_WORKER_URL = 'https://veille-cg-sync.long-leaf-4b99.workers.dev';
 
-        const MAX_CACHED_ARTICLES = 250;
+        const MAX_ARTICLES = 250;
         const RETENTION_DAYS = 30;
-        const ITEMS_PER_PAGE = 12;
-        const FETCH_CONCURRENCY = 4;
+        const ITEMS_PER_PAGE = 18;
 
-        // 15 flux par défaut (synchronisés avec /data/feeds.json)
         const defaultFeeds = [
-            { name: 'OpenAI News', url: 'https://openai.com/news/rss.xml', category: 'IA', enabled: true },
-            { name: 'Hugging Face Blog', url: 'https://huggingface.co/blog/feed.xml', category: 'IA', enabled: true },
             { name: 'Google AI Blog', url: 'https://blog.google/technology/ai/rss/', category: 'IA', enabled: true },
+            { name: 'OpenAI Blog', url: 'https://openai.com/blog/rss.xml', category: 'IA', enabled: true },
+            { name: 'Hugging Face Blog', url: 'https://huggingface.co/blog/feed.xml', category: 'IA', enabled: true },
             { name: 'Simon Willison Weblog', url: 'https://simonwillison.net/atom/everything/', category: 'IA', enabled: true },
-            { name: 'MIT Tech Review - IA', url: 'https://www.technologyreview.com/topic/artificial-intelligence/feed', category: 'IA', enabled: true },
             { name: 'The Verge - AI', url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', category: 'IA', enabled: true },
+            { name: 'TechCrunch - AI', url: 'https://techcrunch.com/category/artificial-intelligence/feed/', category: 'IA', enabled: true },
+            { name: 'MIT Technology Review - AI', url: 'https://www.technologyreview.com/topic/artificial-intelligence/feed', category: 'IA', enabled: true },
             { name: 'ActuIA', url: 'https://www.actuia.com/feed/', category: 'IA', enabled: true },
             { name: 'Blog du Modérateur - IA', url: 'https://www.blogdumoderateur.com/dossier/intelligence-artificielle/feed/', category: 'IA', enabled: true },
-            { name: 'ZDNet France - IA', url: 'https://www.zdnet.fr/feeds/rss/actualites/intelligence-artificielle/', category: 'IA', enabled: true },
-            { name: 'Make Blog', url: 'https://www.make.com/en/blog/rss.xml', category: 'NoCode', enabled: true },
             { name: 'n8n Blog', url: 'https://blog.n8n.io/rss/', category: 'NoCode', enabled: true },
+            { name: 'Make Blog', url: 'https://www.make.com/en/blog/rss.xml', category: 'NoCode', enabled: true },
             { name: 'Zapier Blog', url: 'https://zapier.com/blog/feeds/latest/', category: 'NoCode', enabled: true },
             { name: 'Bubble Blog', url: 'https://bubble.io/blog/rss/', category: 'NoCode', enabled: true },
             { name: 'Webflow Blog', url: 'https://webflow.com/blog/feed.xml', category: 'NoCode', enabled: true },
             { name: 'Airtable Blog', url: 'https://blog.airtable.com/rss/', category: 'NoCode', enabled: true }
         ];
 
-        // =====================================================================
-        // 2. ÉTAT DE L'APPLICATION
-        // =====================================================================
+        // =========================================================================
+        // 2. ÉTAT GLOBAL DE L'APPLICATION
+        // =========================================================================
         let activeFeeds = [];
         let allArticles = [];
         let filteredArticles = [];
         let favoriteIds = new Set();
+        let officialServerFeedIds = new Set();
         const feedStatusMap = new Map();
 
-        let currentCategory = 'all';
-        let currentFeedFilter = 'all';
+        let currentCategory = 'ALL';
+        let currentFeedFilter = 'ALL';
         let currentSearchQuery = '';
+        let currentViewMode = localStorage.getItem(VIEW_MODE_STORAGE_KEY) || 'grid';
         let currentPage = 1;
-        let currentViewMode = 'grid'; // 'grid' (vignettes) | 'list' (liste)
         let isSyncing = false;
 
-        document.getElementById('currentYear').textContent = String(new Date().getFullYear());
-        document.getElementById('defaultFeedsCountLabel').textContent = String(defaultFeeds.length);
-
-        // =====================================================================
-        // 3. UTILITAIRES DE NORMALISATION & SÉCURITÉ (Issues #6, #7, #9)
-        // =====================================================================
-
-        /** Génère un identifiant déterministe FNV-1a 32-bit en hexadécimal */
-        function hashString(input) {
-            let hash = 0x811c9dc5;
-            const str = String(input || '');
-            for (let i = 0; i < str.length; i++) {
-                hash ^= str.charCodeAt(i);
-                hash = Math.imul(hash, 0x01000193);
-            }
-            return (hash >>> 0).toString(16).padStart(8, '0');
-        }
-
-        /** Normalise une URL en retirant les paramètres de tracking (utm_*, fbclid, etc.) */
-        function normalizeUrl(rawUrl) {
-            try {
-                const parsed = new URL(String(rawUrl || '').trim());
-                if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-                    return '';
-                }
-                const paramsToDelete = [];
-                parsed.searchParams.forEach((_, key) => {
-                    const lower = key.toLowerCase();
-                    if (lower.startsWith('utm_') || lower === 'fbclid' || lower === 'gclid' || lower === 'ref') {
-                        paramsToDelete.push(key);
-                    }
-                });
-                paramsToDelete.forEach((key) => parsed.searchParams.delete(key));
-                parsed.hash = '';
-                return parsed.toString();
-            } catch {
-                return '';
-            }
-        }
-
-        /** Génère un identifiant de flux stable basé sur l'URL normalisée (Issue #6) */
-        function buildFeedId(url) {
-            const norm = normalizeUrl(url) || String(url || '').trim().toLowerCase();
-            return `feed_${hashString(norm)}`;
-        }
-
-        /** Normalise un objet flux selon le schéma cible */
-        function normalizeFeed(feed, index = 0) {
-            const cleanUrl = normalizeUrl(feed?.url) || String(feed?.url || '').trim();
-            return {
-                id: String(feed?.id || (cleanUrl ? buildFeedId(cleanUrl) : `feed_${index}`)).trim(),
-                name: String(feed?.name || 'Flux sans nom').trim(),
-                url: cleanUrl,
-                category: feed?.category === 'NoCode' ? 'NoCode' : 'IA',
-                enabled: feed?.enabled !== false
-            };
-        }
-
-        /** Décode proprement le HTML externe en texte brut via DOMParser (Issue #7) */
-        function extractPlainText(rawHtml, maxLength = 0) {
-            if (!rawHtml) return '';
-            const doc = new DOMParser().parseFromString(String(rawHtml), 'text/html');
-            const text = (doc.body.textContent || '').replace(/\s+/g, ' ').trim();
-            if (maxLength > 0 && text.length > maxLength) {
-                return text.slice(0, maxLength - 1).trimEnd() + '…';
-            }
-            return text;
-        }
-
-        /** Échappe les caractères spéciaux avant insertion dans innerHTML (Issue #7) */
+        // =========================================================================
+        // 3. UTILITAIRES : SÉCURITÉ XSS, NORMALISATION D'URL ET IDENTIFIANTS
+        // =========================================================================
         function escapeHTML(str) {
-            return String(str ?? '')
+            return String(str || '')
                 .replace(/&/g, '&amp;')
                 .replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;')
@@ -391,275 +364,318 @@
                 .replace(/'/g, '&#39;');
         }
 
-        /** Vérifie qu'un lien pointe vers un article et non une page index nue (Issue #9) */
-        function isArticleDeepLink(url) {
+        function normalizeUrl(rawUrl) {
             try {
-                const parsed = new URL(url);
-                const path = parsed.pathname.replace(/\/+$/, '');
-                if (!path || path === '') return false;
-                const segments = path.split('/').filter(Boolean);
-                if (segments.length <= 2 && /^(tag|tags|category|categories|topic|topics|section|author)$/i.test(segments[0])) {
-                    return false;
-                }
-                return true;
+                const parsed = new URL(String(rawUrl || '').trim());
+                if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
+                return parsed.toString();
             } catch {
-                return false;
+                return null;
             }
         }
 
-        // =====================================================================
-        // 4. PERSISTANCE & MIGRATION IDEMPOTENTE (Issues #3, #4, #10)
-        // =====================================================================
-
-        /** Migre de façon idempotente les anciennes clés cg_rss_feeds_* vers cg_feeds_v1 */
-        function migrateStorage() {
+        function normalizeArticleLink(rawLink) {
             try {
-                const legacyKeys = [];
-                for (let i = 0; i < localStorage.length; i++) {
-                    const key = localStorage.key(i);
-                    if (key && key.startsWith('cg_rss_feeds_')) {
-                        legacyKeys.push(key);
-                    }
+                const parsed = new URL(String(rawLink || '').trim());
+                if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return '';
+                const paramsToStrip = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'fbclid', 'gclid', 'ref'];
+                paramsToStrip.forEach((p) => parsed.searchParams.delete(p));
+                parsed.hash = '';
+                let clean = parsed.toString();
+                if (clean.endsWith('/') && parsed.pathname !== '/') {
+                    clean = clean.slice(0, -1);
                 }
+                return clean;
+            } catch {
+                return '';
+            }
+        }
 
-                const existingTarget = localStorage.getItem(FEEDS_STORAGE_KEY);
-                if (existingTarget !== null) {
-                    const parsedExisting = JSON.parse(existingTarget);
-                    if (Array.isArray(parsedExisting) && parsedExisting.length > 0) {
-                        legacyKeys.forEach((key) => localStorage.removeItem(key));
-                        return;
-                    }
+        /** Hash FNV-1a 32 bits déterministe pour générer des IDs stables */
+        function fnv1aHash(str) {
+            let hash = 0x811c9dc5;
+            const clean = String(str || '').trim();
+            for (let i = 0; i < clean.length; i++) {
+                hash ^= clean.charCodeAt(i);
+                hash = Math.imul(hash, 0x01000193);
+            }
+            return (hash >>> 0).toString(16).padStart(8, '0');
+        }
+
+        function buildFeedId(url) {
+            const clean = normalizeUrl(url) || String(url || '').trim();
+            return `feed_${fnv1aHash(clean)}`;
+        }
+
+        function buildArticleId(link) {
+            const clean = normalizeArticleLink(link) || String(link || '').trim();
+            return `art_${fnv1aHash(clean)}`;
+        }
+
+        function normalizeFeed(raw, index = 0) {
+            const url = normalizeUrl(raw?.url) || String(raw?.url || '').trim();
+            const id = String(raw?.id || '').trim() || buildFeedId(url);
+            let fallbackName = `Source ${index + 1}`;
+            try {
+                fallbackName = new URL(url).hostname.replace(/^www\./, '');
+            } catch {
+                // Conserve fallbackName
+            }
+            return {
+                id,
+                name: String(raw?.name || fallbackName).trim().slice(0, 120),
+                url,
+                category: raw?.category === 'NoCode' ? 'NoCode' : 'IA',
+                enabled: raw?.enabled !== false
+            };
+        }
+
+        // =========================================================================
+        // 4. PERSISTANCE LOCALSTORAGE (MIGRATION IDEMPOTENTE VERS cg_feeds_v1)
+        // =========================================================================
+        function cleanupLegacyFeedKeys() {
+            const keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (!key || key === FEEDS_STORAGE_KEY) continue;
+                if (
+                    key.startsWith('cg_rss_feeds_') ||
+                    /^cg_feeds_v\d+$/.test(key)
+                ) {
+                    keysToRemove.push(key);
                 }
+            }
+            keysToRemove.forEach((k) => localStorage.removeItem(k));
+        }
 
-                const versionedKeys = legacyKeys
-                    .filter((k) => /^cg_rss_feeds_v\d+$/.test(k))
-                    .sort((a, b) => Number(b.replace('cg_rss_feeds_v', '')) - Number(a.replace('cg_rss_feeds_v', '')));
+        function migrateAndLoadFeeds() {
+            let loaded = null;
 
-                const priorityOrder = [
-                    'cg_rss_feeds_active',
-                    ...versionedKeys,
-                    'cg_rss_feeds_custom'
-                ];
-
-                let migrated = null;
-                for (const sourceKey of priorityOrder) {
-                    const raw = localStorage.getItem(sourceKey);
-                    if (!raw) continue;
-                    const parsed = JSON.parse(raw);
+            // 1. Lecture prioritaire de la clé canonique cg_feeds_v1
+            try {
+                const rawCanonical = localStorage.getItem(FEEDS_STORAGE_KEY);
+                if (rawCanonical) {
+                    const parsed = JSON.parse(rawCanonical);
                     if (Array.isArray(parsed) && parsed.length > 0) {
-                        migrated = parsed
-                            .filter((item) => item && item.url)
-                            .map((item, idx) => normalizeFeed(item, idx));
-                        console.info(`[Veille CG] Migration réussie depuis "${sourceKey}" (${migrated.length} flux).`);
-                        break;
+                        loaded = parsed;
                     }
                 }
-
-                if (migrated && migrated.length > 0) {
-                    localStorage.setItem(FEEDS_STORAGE_KEY, JSON.stringify(migrated));
-                    legacyKeys.forEach((key) => localStorage.removeItem(key));
-                }
-            } catch (error) {
-                console.error('[Veille CG] Erreur lors de la migration localStorage :', error);
+            } catch {
+                loaded = null;
             }
-        }
 
-        function loadFeeds() {
-            migrateStorage();
-            try {
-                const raw = localStorage.getItem(FEEDS_STORAGE_KEY);
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (Array.isArray(parsed) && parsed.length > 0) {
-                        const normalized = parsed
-                            .filter((item) => item && item.url)
-                            .map((item, idx) => normalizeFeed(item, idx));
-                        console.info(`[Veille CG] ${normalized.length} flux chargés depuis ${FEEDS_STORAGE_KEY}.`);
-                        return normalized;
+            // 2. Migration depuis d'éventuelles anciennes clés (cg_rss_feeds_active, v45, custom...)
+            if (!loaded) {
+                const legacyCandidates = ['cg_rss_feeds_active', 'cg_rss_feeds_v45', 'cg_rss_feeds_custom'];
+                for (let v = 50; v >= 25; v--) {
+                    legacyCandidates.push(`cg_rss_feeds_v${v}`);
+                    legacyCandidates.push(`cg_feeds_v${v}`);
+                }
+
+                for (const key of legacyCandidates) {
+                    try {
+                        const raw = localStorage.getItem(key);
+                        if (!raw) continue;
+                        const parsed = JSON.parse(raw);
+                        if (Array.isArray(parsed) && parsed.length > 0) {
+                            loaded = parsed;
+                            break;
+                        }
+                    } catch {
+                        // Ignore la clé corrompue
                     }
                 }
-            } catch (error) {
-                console.error('[Veille CG] Erreur lecture cg_feeds_v1 :', error);
             }
 
-            const defaults = defaultFeeds.map((item, idx) => normalizeFeed(item, idx));
-            saveFeeds(defaults, false);
-            console.info(`[Veille CG] Initialisation avec ${defaults.length} flux par défaut.`);
-            return defaults;
+            // 3. Repli sur les 15 flux par défaut
+            if (!loaded || loaded.length === 0) {
+                loaded = defaultFeeds;
+            }
+
+            const seenIds = new Set();
+            const normalized = [];
+            loaded.forEach((item, idx) => {
+                if (!item || !normalizeUrl(item.url)) return;
+                const feed = normalizeFeed(item, idx);
+                if (seenIds.has(feed.id)) return;
+                seenIds.add(feed.id);
+                normalized.push(feed);
+            });
+
+            activeFeeds = normalized.length > 0 ? normalized : defaultFeeds.map((f, i) => normalizeFeed(f, i));
+            localStorage.setItem(FEEDS_STORAGE_KEY, JSON.stringify(activeFeeds));
+            cleanupLegacyFeedKeys();
+
+            console.info(`[Veille CG] ${activeFeeds.length} flux chargés depuis ${FEEDS_STORAGE_KEY}.`);
+            updateFeedSelectorsAndCounters();
         }
 
-        function saveFeeds(feeds, shouldRender = true) {
-            try {
-                const normalized = feeds
-                    .filter((item) => item && item.url)
-                    .map((item, idx) => normalizeFeed(item, idx));
-                localStorage.setItem(FEEDS_STORAGE_KEY, JSON.stringify(normalized));
-                activeFeeds = normalized;
-                if (shouldRender) {
-                    renderFeedsList();
-                    updateFeedFilterSelect();
-                }
-                return true;
-            } catch (error) {
-                console.error('[Veille CG] Échec sauvegarde des flux :', error);
-                return false;
-            }
+        function saveFeeds(feeds) {
+            activeFeeds = feeds.map((f, i) => normalizeFeed(f, i));
+            localStorage.setItem(FEEDS_STORAGE_KEY, JSON.stringify(activeFeeds));
+            updateFeedSelectorsAndCounters();
+            renderFeedsList();
         }
 
         function loadFavorites() {
             try {
-                const raw = localStorage.getItem(FAVORITES_STORAGE_KEY);
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (Array.isArray(parsed)) {
-                        favoriteIds = new Set(parsed);
-                    }
-                }
-            } catch (error) {
-                console.error('[Veille CG] Erreur lecture favoris :', error);
+                const raw = JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY) || '[]');
+                favoriteIds = new Set(Array.isArray(raw) ? raw : []);
+            } catch {
+                favoriteIds = new Set();
             }
-            updateFavoritesBadge();
         }
 
         function saveFavorites() {
-            try {
-                localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(Array.from(favoriteIds)));
-                updateFavoritesBadge();
-            } catch (error) {
-                console.error('[Veille CG] Erreur sauvegarde favoris :', error);
-            }
-        }
-
-        /** Trie par date décroissante, neutralise les dates futures (> 24h), purge > 30 jours et tronque à 250 articles (Issue #4) */
-        function pruneAndSortArticles(articlesList) {
-            const nowMs = Date.now();
-            const maxFutureMs = nowMs + 24 * 60 * 60 * 1000;
-            const maxAgeMs = RETENTION_DAYS * 24 * 60 * 60 * 1000;
-            const dedupMap = new Map();
-
-            articlesList.forEach((art) => {
-                if (!art || !art.link) return;
-                const cleanLink = normalizeUrl(art.link);
-                if (!cleanLink) return;
-
-                let validPubDate = art.pubDate || null;
-                if (validPubDate) {
-                    const pubMs = Date.parse(validPubDate);
-                    if (Number.isNaN(pubMs) || pubMs > maxFutureMs) {
-                        validPubDate = null;
-                    } else if ((nowMs - pubMs) > maxAgeMs) {
-                        return;
-                    }
-                }
-
-                dedupMap.set(cleanLink, {
-                    ...art,
-                    id: art.id || hashString(cleanLink),
-                    link: cleanLink,
-                    pubDate: validPubDate
-                });
-            });
-
-            return Array.from(dedupMap.values())
-                .sort((a, b) => {
-                    const timeA = a.pubDate ? Date.parse(a.pubDate) : 0;
-                    const timeB = b.pubDate ? Date.parse(b.pubDate) : 0;
-                    if (timeB !== timeA) return timeB - timeA;
-                    const fetchA = a.fetchedAt ? Date.parse(a.fetchedAt) : 0;
-                    const fetchB = b.fetchedAt ? Date.parse(b.fetchedAt) : 0;
-                    return fetchB - fetchA;
-                })
-                .slice(0, MAX_CACHED_ARTICLES);
+            localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(Array.from(favoriteIds)));
+            document.getElementById('favCountBadge').textContent = String(favoriteIds.size);
         }
 
         function loadCachedArticles() {
             try {
-                const raw = localStorage.getItem(ARTICLES_CACHE_KEY);
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (Array.isArray(parsed)) {
-                        return pruneAndSortArticles(parsed);
-                    }
+                const raw = JSON.parse(localStorage.getItem(ARTICLES_CACHE_KEY) || '[]');
+                if (Array.isArray(raw) && raw.length > 0) {
+                    allArticles = pruneAndSortArticles(raw);
                 }
-            } catch (error) {
-                console.error('[Veille CG] Erreur lecture cache articles :', error);
+            } catch {
+                allArticles = [];
             }
-            return [];
         }
 
         function saveCachedArticles() {
+            allArticles = pruneAndSortArticles(allArticles);
             try {
-                allArticles = pruneAndSortArticles(allArticles);
                 localStorage.setItem(ARTICLES_CACHE_KEY, JSON.stringify(allArticles));
-            } catch (error) {
-                console.error('[Veille CG] Erreur sauvegarde cache articles :', error);
-            }
-        }
-
-        // =====================================================================
-        // 5. SYNCHRONISATION CLOUD (WORKER CLOUDFLARE) & MOBILE (#sync= / JSON)
-        // =====================================================================
-
-        /** Lit la configuration locale du Worker Cloudflare (jamais codée en dur) */
-        function getWorkerConfig() {
-            try {
-                const url = (localStorage.getItem(WORKER_URL_STORAGE_KEY) || '').trim().replace(/\/+$/, '');
-                const pin = (localStorage.getItem(WORKER_PIN_STORAGE_KEY) || '').trim();
-                return { url, pin, isConfigured: Boolean(url && pin) };
             } catch {
-                return { url: '', pin: '', isConfigured: false };
+                // Quota localStorage éventuel
             }
         }
 
-        /** Demande et enregistre localement l'URL du Worker et le code PIN administrateur */
-        function configureWorkerSync() {
+        // =========================================================================
+        // 5. AUTHENTIFICATION SERVEUR & SYNCHRONISATION CLOUD / MOBILE
+        // =========================================================================
+        function getWorkerConfig() {
+            const url = (localStorage.getItem(WORKER_URL_STORAGE_KEY) || '').trim().replace(/\/+$/, '');
+            const pin = (localStorage.getItem(WORKER_PIN_STORAGE_KEY) || '').trim();
+            const user = (localStorage.getItem(WORKER_USER_STORAGE_KEY) || '').trim();
+            return {
+                url,
+                pin,
+                user,
+                isConfigured: Boolean(url && pin)
+            };
+        }
+
+        function isAdminAuthenticated() {
+            const config = getWorkerConfig();
+            return Boolean(config.isConfigured && config.user);
+        }
+
+        function openAuthModal() {
+            const modal = document.getElementById('adminAuthModal');
+            const errorBox = document.getElementById('adminAuthError');
+            const urlInput = document.getElementById('adminWorkerUrlInput');
+            const userInput = document.getElementById('adminUsernameInput');
+            const passInput = document.getElementById('adminPasswordInput');
+
             const current = getWorkerConfig();
-            const rawUrl = window.prompt(
-                'URL de votre Worker Cloudflare (ex. https://veille-cg-sync.xxx.workers.dev) :',
-                current.url || ''
-            );
-            if (rawUrl === null) return false;
+            urlInput.value = current.url || DEFAULT_WORKER_URL;
+            userInput.value = current.user || '';
+            passInput.value = '';
+            errorBox.classList.add('hidden');
 
-            const cleanUrl = rawUrl.trim().replace(/\/+$/, '');
-            if (!cleanUrl.startsWith('https://')) {
-                showDrawerFeedback('URL invalide : elle doit commencer par https://', true);
-                return false;
-            }
-
-            const rawPin = window.prompt('Code PIN administrateur défini dans Cloudflare :', current.pin || '');
-            if (rawPin === null) return false;
-
-            const cleanPin = rawPin.trim();
-            if (!cleanPin) {
-                showDrawerFeedback('Le code PIN ne peut pas être vide.', true);
-                return false;
-            }
-
-            localStorage.setItem(WORKER_URL_STORAGE_KEY, cleanUrl);
-            localStorage.setItem(WORKER_PIN_STORAGE_KEY, cleanPin);
-            showDrawerFeedback('Configuration Cloudflare enregistrée sur cet appareil.');
-            return true;
+            modal.classList.remove('hidden');
+            setTimeout(() => (userInput.value ? passInput.focus() : userInput.focus()), 50);
         }
 
-        /** Envoie activeFeeds au Worker Cloudflare pour mettre à jour data/feeds.json sur GitHub */
+        function closeAuthModal() {
+            document.getElementById('adminAuthModal').classList.add('hidden');
+        }
+
+        async function submitAdminAuth(event) {
+            event.preventDefault();
+            const errorBox = document.getElementById('adminAuthError');
+            const submitBtn = document.getElementById('submitAuthBtn');
+
+            const username = document.getElementById('adminUsernameInput').value.trim();
+            const password = document.getElementById('adminPasswordInput').value.trim();
+            const workerUrl = document.getElementById('adminWorkerUrlInput').value.trim().replace(/\/+$/, '');
+
+            if (!username || !password || !workerUrl.startsWith('https://')) {
+                errorBox.textContent = 'Veuillez renseigner un identifiant, un mot de passe et une URL valide.';
+                errorBox.classList.remove('hidden');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Vérification…';
+            errorBox.classList.add('hidden');
+
+            try {
+                const res = await fetch(`${workerUrl}/auth`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok || !data.ok) {
+                    throw new Error(data.error || 'Identifiant ou mot de passe incorrect.');
+                }
+
+                localStorage.setItem(WORKER_URL_STORAGE_KEY, workerUrl);
+                localStorage.setItem(WORKER_USER_STORAGE_KEY, username);
+                localStorage.setItem(WORKER_PIN_STORAGE_KEY, password);
+
+                closeAuthModal();
+                toggleDrawer(true);
+                showDrawerFeedback(`Connecté en tant que ${username}.`);
+            } catch (err) {
+                errorBox.textContent = err.message;
+                errorBox.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Déverrouiller';
+            }
+        }
+
+        function lockAdminSession() {
+            localStorage.removeItem(WORKER_USER_STORAGE_KEY);
+            localStorage.removeItem(WORKER_PIN_STORAGE_KEY);
+            toggleDrawer(false);
+        }
+
+        function configureWorkerSync() {
+            toggleDrawer(false);
+            openAuthModal();
+            return false;
+        }
+
         async function syncFeedsToGitHubViaWorker(autoTriggered = false) {
-            let config = getWorkerConfig();
+            const config = getWorkerConfig();
             if (!config.isConfigured) {
-                if (autoTriggered) return;
-                const ok = configureWorkerSync();
-                if (!ok) return;
-                config = getWorkerConfig();
+                if (autoTriggered) {
+                    showDrawerFeedback('Enregistré sur cet appareil. Connectez-vous via ⚙️ pour synchroniser GitHub.');
+                    return;
+                }
+                openAuthModal();
+                return;
             }
 
             showDrawerFeedback('Publication vers GitHub (data/feeds.json) en cours…');
 
             try {
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'X-Admin-Pin': config.pin
+                };
+                if (config.user) {
+                    headers['X-Admin-User'] = config.user;
+                }
+
                 const res = await fetch(`${config.url}/sync-feeds`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Admin-Pin': config.pin
-                    },
+                    headers,
                     body: JSON.stringify({ feeds: activeFeeds })
                 });
 
@@ -676,180 +692,180 @@
             }
         }
 
-        /** Encode la liste des flux en Base64URL compact (compatible UTF-8) */
-        function encodeFeedsPayload(feeds) {
-            const compact = feeds.map((f) => ({
-                n: f.name,
-                u: f.url,
-                c: f.category,
-                e: f.enabled ? 1 : 0
-            }));
-            const bytes = new TextEncoder().encode(JSON.stringify(compact));
-            let binary = '';
-            bytes.forEach((b) => { binary += String.fromCharCode(b); });
-            return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-        }
-
-        /** Décode et valide les flux issus d'un lien #sync= */
-        function decodeFeedsPayload(encoded) {
-            const base64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
-            const padded = base64 + '='.repeat((4 - (base64.length % 4)) % 4);
-            const binary = atob(padded);
-            const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
-            const parsed = JSON.parse(new TextDecoder().decode(bytes));
-            if (!Array.isArray(parsed)) return [];
-
-            return parsed
-                .filter((item) => item && typeof item.u === 'string')
-                .map((item, idx) => normalizeFeed({
-                    name: item.n || 'Flux importé',
-                    url: item.u,
-                    category: item.c === 'NoCode' ? 'NoCode' : 'IA',
-                    enabled: item.e !== 0
-                }, idx))
-                .filter((f) => Boolean(normalizeUrl(f.url)));
-        }
-
-        /** Copie un lien contenant l'état actuel des flux à ouvrir sur téléphone */
-        async function copySyncLink() {
+        function copySyncLink() {
             try {
-                const payload = encodeFeedsPayload(activeFeeds);
-                const baseUrl = window.location.href.split('#')[0];
-                const syncUrl = `${baseUrl}#sync=${payload}`;
+                const compact = activeFeeds.map((f) => ({
+                    n: f.name,
+                    u: f.url,
+                    c: f.category,
+                    e: f.enabled ? 1 : 0
+                }));
+                const json = JSON.stringify(compact);
+                const bytes = new TextEncoder().encode(json);
+                let binary = '';
+                for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+                const encoded = btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+                const shareUrl = `${window.location.origin}${window.location.pathname}#sync=${encoded}`;
 
                 if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(syncUrl);
-                    showDrawerFeedback('Lien de synchronisation copié ! Ouvrez-le sur votre téléphone.');
+                    navigator.clipboard.writeText(shareUrl).then(() => {
+                        showDrawerFeedback('Lien de synchronisation mobile copié dans le presse-papiers.');
+                    }).catch(() => {
+                        window.prompt('Copiez ce lien pour synchroniser votre mobile :', shareUrl);
+                    });
                 } else {
-                    window.prompt('Copiez ce lien et ouvrez-le sur votre téléphone :', syncUrl);
+                    window.prompt('Copiez ce lien pour synchroniser votre mobile :', shareUrl);
                 }
-            } catch (error) {
-                console.error('[Veille CG] Erreur génération lien synchro :', error);
-                showDrawerFeedback('Impossible de générer le lien de synchronisation.', true);
+            } catch (err) {
+                showDrawerFeedback(`Impossible de générer le lien (${err.message}).`, true);
             }
         }
 
-        /** Importe automatiquement les flux présents dans #sync=... à l'ouverture sur mobile */
-        function importFeedsFromUrlHash() {
+        function checkSyncHashOnLoad() {
             const hash = window.location.hash || '';
-            if (!hash.startsWith('#sync=')) return 0;
-
-            const encoded = hash.slice('#sync='.length).trim();
-            if (!encoded) return 0;
-
+            if (!hash.startsWith('#sync=')) return;
             try {
-                const importedFeeds = decodeFeedsPayload(encoded);
-                if (importedFeeds.length === 0) return 0;
-
-                const byId = new Map(activeFeeds.map((f) => [f.id, f]));
-                let changedCount = 0;
-
-                importedFeeds.forEach((feed) => {
-                    const existing = byId.get(feed.id);
-                    if (!existing) {
-                        activeFeeds.push(feed);
-                        byId.set(feed.id, feed);
-                        changedCount++;
-                    } else if (
-                        existing.name !== feed.name ||
-                        existing.category !== feed.category ||
-                        existing.enabled !== feed.enabled
-                    ) {
-                        existing.name = feed.name;
-                        existing.category = feed.category;
-                        existing.enabled = feed.enabled;
-                        changedCount++;
+                const b64 = hash.slice(6).replace(/-/g, '+').replace(/_/g, '/');
+                const binary = atob(b64);
+                const bytes = new Uint8Array(binary.length);
+                for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+                const decoded = JSON.parse(new TextDecoder().decode(bytes));
+                if (Array.isArray(decoded) && decoded.length > 0) {
+                    const imported = decoded
+                        .filter((item) => item && normalizeUrl(item.u || item.url))
+                        .map((item, idx) => normalizeFeed({
+                            name: item.n || item.name,
+                            url: item.u || item.url,
+                            category: item.c || item.category,
+                            enabled: item.e !== undefined ? item.e === 1 : item.enabled !== false
+                        }, idx));
+                    if (imported.length > 0) {
+                        saveFeeds(imported);
+                        console.info(`[Veille CG] ${imported.length} flux importés depuis le lien de synchronisation.`);
                     }
-                });
-
-                if (changedCount > 0) {
-                    saveFeeds(activeFeeds, false);
-                    console.info(`[Veille CG] ${changedCount} source(s) synchronisée(s) depuis le lien.`);
                 }
-
-                window.history.replaceState(null, '', window.location.pathname + window.location.search);
-                return changedCount;
-            } catch (error) {
-                console.error('[Veille CG] Lien de synchronisation invalide :', error);
-                return 0;
+            } catch {
+                // Ignore un hash invalide
+            } finally {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
             }
         }
 
-        /** Exporte la liste des flux au format JSON */
         function exportFeedsJSON() {
             const blob = new Blob([JSON.stringify(activeFeeds, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'veille-cg-feeds.json';
+            a.download = `veille-cg-feeds-${new Date().toISOString().slice(0, 10)}.json`;
             a.click();
             URL.revokeObjectURL(url);
+            showDrawerFeedback('Fichier JSON des flux exporté.');
         }
 
-        /** Importe un fichier JSON de flux dans cg_feeds_v1 et synchronise vers GitHub */
         function importFeedsJSON(file) {
             if (!file) return;
             const reader = new FileReader();
             reader.onload = () => {
                 try {
-                    const parsed = JSON.parse(String(reader.result || '[]'));
-                    if (!Array.isArray(parsed)) throw new Error('Format JSON invalide');
-
-                    const byId = new Map(activeFeeds.map((f) => [f.id, f]));
-                    let addedCount = 0;
-
-                    parsed.forEach((raw, idx) => {
-                        if (!raw || !raw.url || !normalizeUrl(raw.url)) return;
-                        const norm = normalizeFeed(raw, idx);
-                        if (!byId.has(norm.id)) {
-                            activeFeeds.push(norm);
-                            byId.set(norm.id, norm);
-                            addedCount++;
-                        }
-                    });
-
-                    saveFeeds(activeFeeds, true);
-                    showDrawerFeedback(`${addedCount} nouveau(x) flux importé(s). Actualisation…`);
-                    syncAllFeeds(true);
+                    const parsed = JSON.parse(String(reader.result || ''));
+                    if (!Array.isArray(parsed) || parsed.length === 0) {
+                        throw new Error('Le fichier ne contient aucun flux valide.');
+                    }
+                    const validFeeds = parsed
+                        .filter((f) => f && normalizeUrl(f.url))
+                        .map((f, i) => normalizeFeed(f, i));
+                    if (validFeeds.length === 0) {
+                        throw new Error('Aucune URL valide trouvée dans le JSON.');
+                    }
+                    saveFeeds(validFeeds);
                     syncFeedsToGitHubViaWorker(true);
+                    syncAllFeeds(true);
+                    showDrawerFeedback(`${validFeeds.length} flux importés avec succès.`);
                 } catch (err) {
-                    showDrawerFeedback(`Échec de l'import JSON : ${err.message}`, true);
+                    showDrawerFeedback(`Import impossible : ${err.message}`, true);
                 }
             };
             reader.readAsText(file);
         }
 
-        // =====================================================================
-        // 6. COLLECTE DES DONNÉES (/data/articles.json + Worker + Repli Proxys)
-        // =====================================================================
+        function resetDefaultFeeds() {
+            if (!window.confirm('Réinitialiser la liste avec les 15 sources par défaut ?')) return;
+            const defaults = defaultFeeds.map((f, i) => normalizeFeed(f, i));
+            saveFeeds(defaults);
+            const validIds = new Set(defaults.map((f) => f.id));
+            allArticles = allArticles.filter((a) => validIds.has(a.feedId));
+            saveCachedArticles();
+            syncFeedsToGitHubViaWorker(true);
+            applyFilters(true);
+            showDrawerFeedback('Liste réinitialisée avec les 15 flux par défaut.');
+        }
 
-        /** Charge /data/feeds.json et /data/articles.json générés par GitHub Actions */
-        async function loadServerData(bypassHttpCache = false) {
+        // =========================================================================
+        // 6. COLLECTE SERVEUR (/data/*.json) & REPLI PROXY CLOUDFLARE / PUBLICS
+        // =========================================================================
+        async function loadServerData() {
             let serverArticles = [];
             let articlesHttpStatus = 0;
             const officialFeedIds = new Set();
-            const cacheSuffix = bypassHttpCache ? `?t=${Date.now()}` : '';
+            const cacheSuffix = `?t=${Date.now()}`;
 
             try {
                 const feedsRes = await fetch(`./data/feeds.json${cacheSuffix}`, { cache: 'no-store' });
                 if (feedsRes.ok) {
                     const remoteFeeds = await feedsRes.json();
                     if (Array.isArray(remoteFeeds) && remoteFeeds.length > 0) {
+                        const prevOfficialRaw = JSON.parse(localStorage.getItem(OFFICIAL_IDS_STORAGE_KEY) || '[]');
+                        const prevOfficialIds = new Set([
+                            ...(Array.isArray(prevOfficialRaw) ? prevOfficialRaw : []),
+                            ...defaultFeeds.map((df) => buildFeedId(df.url))
+                        ]);
+
                         const existingById = new Map(activeFeeds.map((f) => [f.id, f]));
+                        const mergedFeeds = [];
                         let updated = false;
+
                         remoteFeeds.forEach((rf, idx) => {
                             const norm = normalizeFeed(rf, idx);
                             officialFeedIds.add(norm.id);
-                            if (!existingById.has(norm.id)) {
-                                activeFeeds.push(norm);
+                            const localMatch = existingById.get(norm.id);
+
+                            if (
+                                !localMatch ||
+                                localMatch.name !== norm.name ||
+                                localMatch.category !== norm.category ||
+                                localMatch.enabled !== norm.enabled
+                            ) {
                                 updated = true;
                             }
+                            mergedFeeds.push(norm);
                         });
-                        if (updated) saveFeeds(activeFeeds);
+
+                        // Préserve uniquement les flux locaux ajoutés sur cet appareil et non encore publiés
+                        activeFeeds.forEach((lf) => {
+                            if (!officialFeedIds.has(lf.id)) {
+                                if (prevOfficialIds.has(lf.id)) {
+                                    updated = true;
+                                } else {
+                                    mergedFeeds.push(lf);
+                                }
+                            }
+                        });
+
+                        if (mergedFeeds.length !== activeFeeds.length) {
+                            updated = true;
+                        }
+
+                        localStorage.setItem(OFFICIAL_IDS_STORAGE_KEY, JSON.stringify(Array.from(officialFeedIds)));
+
+                        if (updated) {
+                            saveFeeds(mergedFeeds);
+                            allArticles = allArticles.filter((art) => mergedFeeds.some((f) => f.id === art.feedId));
+                            saveCachedArticles();
+                        }
                     }
                 }
             } catch {
-                // Fichier optionnel ou indisponible temporairement
+                // Fichier optionnel ou temporairement indisponible
             }
 
             try {
@@ -874,310 +890,568 @@
             return { serverArticles, officialFeedIds, articlesHttpStatus };
         }
 
-        /** Récupère le XML brut d'un flux : Worker privé en priorité, puis proxys publics en repli */
-        async function fetchRSSWithFallback(url) {
-            const encoded = encodeURIComponent(url);
-            const worker = getWorkerConfig();
-            const proxies = [];
-
-            if (worker.url) {
-                proxies.push({
-                    name: 'cloudflare-worker',
-                    endpoint: `${worker.url}/proxy?url=${encoded}`,
-                    jsonWrapper: false
-                });
+        async function fetchWithTimeout(url, timeoutMs = 8000) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), timeoutMs);
+            try {
+                return await fetch(url, { signal: controller.signal });
+            } finally {
+                clearTimeout(timer);
             }
+        }
 
-            proxies.push(
-                { name: 'corsproxy', endpoint: `https://corsproxy.io/?${encoded}`, jsonWrapper: false },
-                { name: 'allorigins-get', endpoint: `https://api.allorigins.win/get?url=${encoded}`, jsonWrapper: true },
-                { name: 'allorigins-raw', endpoint: `https://api.allorigins.win/raw?url=${encoded}`, jsonWrapper: false },
-                { name: 'codetabs', endpoint: `https://api.codetabs.com/v1/proxy?quest=${encoded}`, jsonWrapper: false }
-            );
+        async function fetchRSSWithFallback(feedUrl) {
+            const config = getWorkerConfig();
+            const workerBase = config.url || DEFAULT_WORKER_URL;
+            const encoded = encodeURIComponent(feedUrl);
+
+            const attempts = [
+                {
+                    name: 'cloudflare-worker',
+                    url: `${workerBase}/proxy?url=${encoded}`,
+                    isJsonWrapper: false,
+                    timeout: 9000
+                },
+                {
+                    name: 'corsproxy',
+                    url: `https://corsproxy.io/?${encoded}`,
+                    isJsonWrapper: false,
+                    timeout: 7500
+                },
+                {
+                    name: 'allorigins-raw',
+                    url: `https://api.allorigins.win/raw?url=${encoded}`,
+                    isJsonWrapper: false,
+                    timeout: 7500
+                },
+                {
+                    name: 'allorigins-get',
+                    url: `https://api.allorigins.win/get?url=${encoded}`,
+                    isJsonWrapper: true,
+                    timeout: 7500
+                },
+                {
+                    name: 'codetabs',
+                    url: `https://api.codetabs.com/v1/proxy?quest=${encoded}`,
+                    isJsonWrapper: false,
+                    timeout: 7500
+                }
+            ];
 
             const errors = [];
-            for (const proxy of proxies) {
+
+            for (const attempt of attempts) {
                 try {
-                    const controller = new AbortController();
-                    const timer = setTimeout(() => controller.abort(), 8000);
-                    const response = await fetch(proxy.endpoint, { signal: controller.signal });
-                    clearTimeout(timer);
-
-                    if (!response.ok) {
-                        errors.push(`${proxy.name}:HTTP_${response.status}`);
+                    const res = await fetchWithTimeout(attempt.url, attempt.timeout);
+                    if (!res.ok) {
+                        errors.push(`${attempt.name}:HTTP_${res.status}`);
                         continue;
                     }
-
-                    let payloadText = '';
-                    if (proxy.jsonWrapper) {
-                        const data = await response.json();
-                        payloadText = typeof data?.contents === 'string' ? data.contents : '';
+                    let text = '';
+                    if (attempt.isJsonWrapper) {
+                        const wrapped = await res.json();
+                        text = wrapped?.contents || '';
                     } else {
-                        payloadText = await response.text();
+                        text = await res.text();
                     }
-
-                    const trimmed = payloadText.trim();
-                    if (!trimmed) {
-                        errors.push(`${proxy.name}:EMPTY`);
+                    if (!text || /^\s*<!doctype\s+html|^\s*<html/i.test(text)) {
+                        errors.push(`${attempt.name}:HTML_NOT_XML`);
                         continue;
                     }
-                    if (/^<!doctype\s+html|^<html/i.test(trimmed)) {
-                        errors.push(`${proxy.name}:HTML_BLOCKED`);
-                        continue;
-                    }
-
-                    return trimmed;
+                    return text;
                 } catch (err) {
-                    errors.push(`${proxy.name}:${err.name === 'AbortError' ? 'TIMEOUT_8S' : err.message}`);
+                    const reason = err.name === 'AbortError' ? `TIMEOUT_${Math.round(attempt.timeout / 1000)}S` : err.message;
+                    errors.push(`${attempt.name}:${reason}`);
                 }
             }
 
             throw new Error(errors.join(' | '));
         }
 
-        /** Parse un document RSS 2.0 ou Atom selon le modèle de données cible */
-        function parseFeedXML(xmlString, feed) {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+        function isArticleDeepLink(linkUrl) {
+            try {
+                const parsed = new URL(linkUrl);
+                if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return false;
+                const path = parsed.pathname.replace(/\/+$/, '');
+                if (!path || path === '') return false;
+                // Rejette uniquement les pages d'index de taxonomie (ex: /tag/ia, /category/nocode)
+                if (/^\/(tag|tags|category|categories|topic|topics|author|authors|page)\/[^/]+$/i.test(path)) {
+                    return false;
+                }
+                return true;
+            } catch {
+                return false;
+            }
+        }
 
-            if (xmlDoc.querySelector('parsererror')) {
-                throw new Error('XML invalide ou HTML bloqué par le serveur distant');
+        function parsePubDate(rawDate) {
+            if (!rawDate) return null;
+            const parsed = new Date(String(rawDate).trim());
+            if (Number.isNaN(parsed.getTime())) return null;
+            // Rejette les dates aberrantes dans le futur (> 24h)
+            if (parsed.getTime() > Date.now() + 24 * 3600 * 1000) return null;
+            return parsed.toISOString();
+        }
+
+        function stripHtmlToPlainText(htmlStr, maxLen = 250) {
+            const doc = new DOMParser().parseFromString(String(htmlStr || ''), 'text/html');
+            const text = (doc.body.textContent || '').replace(/\s+/g, ' ').trim();
+            if (text.length <= maxLen) return text;
+            return `${text.slice(0, maxLen - 1).trim()}…`;
+        }
+
+        function parseFeedXML(xmlText, feed) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(xmlText, 'text/xml');
+            if (doc.querySelector('parsererror')) {
+                throw new Error('XML mal formé');
             }
 
-            const entries = Array.from(xmlDoc.querySelectorAll('item, entry'));
-            const fetchedAt = new Date().toISOString();
-            const maxFutureMs = Date.now() + 24 * 60 * 60 * 1000;
+            const items = Array.from(doc.querySelectorAll('item, entry'));
+            const nowIso = new Date().toISOString();
             const parsedArticles = [];
 
-            entries.forEach((entry) => {
-                const titleNode = entry.querySelector('title');
-                const descNode = entry.querySelector('description, summary, content, encoded');
-                const dateNode = entry.querySelector('pubDate, published, updated, date');
-                const sourceNode = entry.querySelector('source');
+            items.forEach((node) => {
+                const rawTitle = node.querySelector('title')?.textContent || '';
+                const title = stripHtmlToPlainText(rawTitle, 180);
 
                 let rawLink = '';
-                const linkNodes = Array.from(entry.querySelectorAll('link'));
-                for (const ln of linkNodes) {
-                    const rel = ln.getAttribute('rel');
-                    const href = ln.getAttribute('href');
-                    if (href && (!rel || rel === 'alternate')) {
-                        rawLink = href;
-                        break;
-                    }
-                    if (!rawLink && ln.textContent && ln.textContent.trim()) {
-                        rawLink = ln.textContent.trim();
-                    }
+                const linkEl = node.querySelector('link');
+                if (linkEl) {
+                    rawLink = linkEl.getAttribute('href') || linkEl.textContent || '';
                 }
+                const link = normalizeArticleLink(rawLink);
 
-                const cleanLink = normalizeUrl(rawLink);
-                if (!cleanLink || !isArticleDeepLink(cleanLink)) return;
+                if (!title || !link || !isArticleDeepLink(link)) return;
 
-                // Issue #8 : pubDate = null si absente, invalide ou aberrante (> 24h dans le futur)
-                let pubDateISO = null;
-                if (dateNode && dateNode.textContent) {
-                    const parsedTime = Date.parse(dateNode.textContent.trim());
-                    if (!Number.isNaN(parsedTime) && parsedTime <= maxFutureMs) {
-                        pubDateISO = new Date(parsedTime).toISOString();
-                    }
-                }
+                const rawDesc =
+                    node.querySelector('description')?.textContent ||
+                    node.querySelector('summary')?.textContent ||
+                    node.querySelector('content')?.textContent ||
+                    '';
+                const description = stripHtmlToPlainText(rawDesc, 250);
 
-                const title = extractPlainText(titleNode ? titleNode.textContent : '', 220) || 'Article sans titre';
-                const description = extractPlainText(descNode ? descNode.textContent : '', 250);
-                const source = extractPlainText(sourceNode ? sourceNode.textContent : '', 80) || feed.name;
+                const rawDate =
+                    node.querySelector('pubDate')?.textContent ||
+                    node.querySelector('published')?.textContent ||
+                    node.querySelector('updated')?.textContent ||
+                    '';
+                const pubDate = parsePubDate(rawDate);
+
+                const sourcePublisher =
+                    node.querySelector('source')?.textContent?.trim() ||
+                    feed.name;
 
                 parsedArticles.push({
-                    id: hashString(cleanLink),
+                    id: buildArticleId(link),
                     feedId: feed.id,
                     feedName: feed.name,
-                    source: source,
-                    title: title,
-                    link: cleanLink,
-                    description: description,
-                    pubDate: pubDateISO,
+                    source: sourcePublisher,
+                    title,
+                    link,
+                    description,
+                    pubDate,
                     category: feed.category,
-                    fetchedAt: fetchedAt
+                    fetchedAt: nowIso
                 });
             });
 
             return parsedArticles;
         }
 
-        /** Synchronisation complète : /data/articles.json en priorité, repli sur cache puis Worker/proxys */
-        async function syncAllFeeds(bypassHttpCache = false) {
+        function pruneAndSortArticles(articles) {
+            const cutoffMs = Date.now() - RETENTION_DAYS * 24 * 3600 * 1000;
+            const byNormalizedLink = new Map();
+            const activeFeedMap = new Map(activeFeeds.map((f) => [f.id, f]));
+
+            for (const raw of articles) {
+                if (!raw || !raw.link || !raw.title) continue;
+                const cleanLink = normalizeArticleLink(raw.link);
+                if (!cleanLink || !isArticleDeepLink(cleanLink)) continue;
+
+                const feedId = String(raw.feedId || '').trim();
+                const matchedFeed = activeFeedMap.get(feedId);
+                if (activeFeedMap.size > 0 && feedId && !matchedFeed) continue;
+
+                const validDate = parsePubDate(raw.pubDate);
+                if (validDate && new Date(validDate).getTime() < cutoffMs) continue;
+
+                const normalizedArticle = {
+                    id: raw.id || buildArticleId(cleanLink),
+                    feedId: matchedFeed ? matchedFeed.id : feedId,
+                    feedName: matchedFeed ? matchedFeed.name : String(raw.feedName || raw.source || 'Source'),
+                    source: String(raw.source || (matchedFeed ? matchedFeed.name : '')).trim(),
+                    title: String(raw.title).trim(),
+                    link: cleanLink,
+                    description: String(raw.description || '').trim().slice(0, 250),
+                    pubDate: validDate,
+                    category: matchedFeed ? matchedFeed.category : (raw.category === 'NoCode' ? 'NoCode' : 'IA'),
+                    fetchedAt: raw.fetchedAt || new Date().toISOString()
+                };
+
+                const existing = byNormalizedLink.get(cleanLink);
+                if (!existing) {
+                    byNormalizedLink.set(cleanLink, normalizedArticle);
+                } else if (!existing.pubDate && normalizedArticle.pubDate) {
+                    byNormalizedLink.set(cleanLink, normalizedArticle);
+                }
+            }
+
+            const deduped = Array.from(byNormalizedLink.values());
+            deduped.sort((a, b) => {
+                if (a.pubDate && b.pubDate) {
+                    return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+                }
+                if (a.pubDate && !b.pubDate) return -1;
+                if (!a.pubDate && b.pubDate) return 1;
+                return 0;
+            });
+
+            return deduped.slice(0, MAX_ARTICLES);
+        }
+
+        async function syncAllFeeds(forceNetwork = false) {
             if (isSyncing) return;
             isSyncing = true;
 
-            const refreshIcon = document.getElementById('refreshIcon');
-            refreshIcon.classList.add('animate-spin');
-            showStatus('<div class="loader"></div><span>Chargement des sources en cours…</span>');
+            const refreshBtn = document.getElementById('refreshBtn');
+            const loadingState = document.getElementById('loadingState');
+            refreshBtn.disabled = true;
 
-            const { serverArticles, officialFeedIds, articlesHttpStatus } = await loadServerData(bypassHttpCache);
-            const hasValidServerArticles = serverArticles.length > 0;
-
-            if (hasValidServerArticles) {
-                allArticles = pruneAndSortArticles([...allArticles, ...serverArticles]);
-                serverArticles.forEach((art) => {
-                    if (art && art.feedId) {
-                        const prev = feedStatusMap.get(art.feedId);
-                        const prevMs = prev?.checkedAt ? Date.parse(prev.checkedAt) : 0;
-                        const artMs = art.fetchedAt ? Date.parse(art.fetchedAt) : 0;
-                        if (!prev || artMs >= prevMs) {
-                            feedStatusMap.set(art.feedId, {
-                                status: 'server',
-                                detail: 'Collecté automatiquement via articles.json',
-                                checkedAt: art.fetchedAt || new Date().toISOString()
-                            });
-                        }
-                    }
-                });
-                saveCachedArticles();
-                applyFilters(false);
+            if (allArticles.length === 0) {
+                loadingState.classList.remove('hidden');
             }
 
-            const enabledFeeds = activeFeeds.filter((f) => f.enabled);
-            const feedsToFetch = hasValidServerArticles
-                ? enabledFeeds.filter((f) => !officialFeedIds.has(f.id))
-                : enabledFeeds;
+            try {
+                const { serverArticles, officialFeedIds } = await loadServerData();
+                officialServerFeedIds = officialFeedIds;
 
-            feedsToFetch.forEach((feed) => {
-                feedStatusMap.set(feed.id, {
-                    status: 'pending',
-                    detail: hasValidServerArticles
-                        ? 'Interrogation du relais RSS en cours…'
-                        : `Repli actif (articles.json HTTP ${articlesHttpStatus || 'indisponible'})…`,
-                    checkedAt: feedStatusMap.get(feed.id)?.checkedAt || null
+                const checkedAt = new Date().toISOString();
+                if (serverArticles.length > 0) {
+                    allArticles = pruneAndSortArticles([...serverArticles, ...allArticles]);
+                    saveCachedArticles();
+                    applyFilters(false);
+                    loadingState.classList.add('hidden');
+                }
+
+                // Détermine les flux à interroger directement (flux locaux ou forçage manuel si serveur absent)
+                const enabledFeeds = activeFeeds.filter((f) => f.enabled);
+                const feedsToFetch = enabledFeeds.filter((f) => {
+                    if (serverArticles.length === 0) return true;
+                    return !officialFeedIds.has(f.id);
                 });
-            });
-            renderFeedsList();
 
-            let completedCount = 0;
-            let successCount = hasValidServerArticles
-                ? enabledFeeds.filter((f) => officialFeedIds.has(f.id)).length
-                : 0;
+                enabledFeeds.forEach((f) => {
+                    if (officialFeedIds.has(f.id) && serverArticles.length > 0) {
+                        const count = serverArticles.filter((a) => a.feedId === f.id).length;
+                        feedStatusMap.set(f.id, {
+                            status: 'ok',
+                            detail: `${count} article(s) via serveur`,
+                            checkedAt
+                        });
+                    }
+                });
 
-            for (let i = 0; i < feedsToFetch.length; i += FETCH_CONCURRENCY) {
-                const batch = feedsToFetch.slice(i, i + FETCH_CONCURRENCY);
-                await Promise.allSettled(
-                    batch.map(async (feed) => {
-                        const checkedAt = new Date().toISOString();
-                        try {
-                            const xml = await fetchRSSWithFallback(feed.url);
-                            const articles = parseFeedXML(xml, feed);
-                            if (articles.length > 0) {
-                                allArticles = pruneAndSortArticles([...allArticles, ...articles]);
+                if (feedsToFetch.length > 0) {
+                    await Promise.allSettled(
+                        feedsToFetch.map(async (feed) => {
+                            try {
+                                const xml = await fetchRSSWithFallback(feed.url);
+                                const articles = parseFeedXML(xml, feed);
                                 feedStatusMap.set(feed.id, {
                                     status: 'ok',
-                                    detail: `${articles.length} article(s) récupéré(s)`,
+                                    detail: `${articles.length} article(s)`,
                                     checkedAt
                                 });
-                                successCount++;
-                            } else {
+                                allArticles.push(...articles);
+                            } catch (err) {
+                                console.warn(`[Veille CG] Flux ignoré (${feed.name}) : ${err.message}`);
                                 feedStatusMap.set(feed.id, {
                                     status: 'error',
-                                    detail: 'Flux valide mais aucun article récent',
+                                    detail: err.message,
                                     checkedAt
                                 });
                             }
-                        } catch (err) {
-                            feedStatusMap.set(feed.id, {
-                                status: 'error',
-                                detail: err.message,
-                                checkedAt
-                            });
-                            console.warn(`[Veille CG] Flux ignoré (${feed.name}) : ${err.message}`);
-                        } finally {
-                            completedCount++;
-                            showStatus(`<div class="loader"></div><span>Actualisation : ${completedCount}/${feedsToFetch.length} source(s) vérifiée(s)…</span>`);
-                        }
-                    })
-                );
+                        })
+                    );
+                    allArticles = pruneAndSortArticles(allArticles);
+                    saveCachedArticles();
+                }
 
-                saveCachedArticles();
+                const okCount = enabledFeeds.filter((f) => feedStatusMap.get(f.id)?.status === 'ok').length;
+                const timeStr = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+                const badge = document.getElementById('lastUpdatedBadge');
+                badge.textContent = `Mis à jour à ${timeStr} (${okCount}/${enabledFeeds.length} flux)`;
+                badge.classList.remove('hidden');
+
                 applyFilters(false);
+                renderFeedsList();
+                console.info(`[Veille CG] Synchronisation terminée : ${allArticles.length} articles en mémoire.`);
+            } finally {
+                loadingState.classList.add('hidden');
+                refreshBtn.disabled = false;
+                isSyncing = false;
             }
-
-            renderFeedsList();
-
-            const nowStr = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-            const badge = document.getElementById('lastUpdateBadge');
-            badge.textContent = `Mis à jour à ${nowStr} (${Math.min(successCount, enabledFeeds.length)}/${enabledFeeds.length} flux)`;
-            badge.classList.remove('hidden');
-
-            refreshIcon.classList.remove('animate-spin');
-
-            if (!hasValidServerArticles) {
-                const statusCode = Number(articlesHttpStatus) || 404;
-                showStatus(`<span class="text-amber-700 font-medium">Mode secours navigateur : <code>/data/articles.json</code> indisponible (HTTP ${statusCode}). Vérifiez l’onglet Actions GitHub.</span>`);
-            } else {
-                hideStatus();
-            }
-
-            isSyncing = false;
-            console.info(`[Veille CG] Synchronisation terminée : ${allArticles.length} articles en mémoire.`);
         }
 
-        // =====================================================================
-        // 7. ACTIONS UTILISATEUR SUR LES FLUX (Issue #6 + Synchro Worker)
-        // =====================================================================
+        // =========================================================================
+        // 7. FILTRAGE, PAGINATION ET RENDU DOM (ÉCHAPPEMENT XSS STRICT)
+        // =========================================================================
+        function applyFilters(resetPage = true) {
+            const enabledFeedIds = new Set(activeFeeds.filter((f) => f.enabled).map((f) => f.id));
+
+            filteredArticles = allArticles.filter((article) => {
+                if (article.feedId && !enabledFeedIds.has(article.feedId)) return false;
+
+                if (currentCategory === 'FAVORITES') {
+                    if (!favoriteIds.has(article.id)) return false;
+                } else if (currentCategory !== 'ALL') {
+                    if (article.category !== currentCategory) return false;
+                }
+
+                if (currentFeedFilter !== 'ALL' && article.feedId !== currentFeedFilter) {
+                    return false;
+                }
+
+                if (currentSearchQuery) {
+                    const haystack = `${article.title} ${article.description} ${article.feedName}`.toLowerCase();
+                    if (!haystack.includes(currentSearchQuery)) return false;
+                }
+
+                return true;
+            });
+
+            if (resetPage) {
+                currentPage = 1;
+            }
+            renderArticles();
+        }
+
+        function formatRelativeDate(isoStr) {
+            if (!isoStr) return 'Date inconnue';
+            const date = new Date(isoStr);
+            if (Number.isNaN(date.getTime())) return 'Date inconnue';
+            const diffMin = Math.floor((Date.now() - date.getTime()) / 60000);
+            if (diffMin < 1) return "À l'instant";
+            if (diffMin < 60) return `Il y a ${diffMin} min`;
+            const diffH = Math.floor(diffMin / 60);
+            if (diffH < 24) return `Il y a ${diffH} h`;
+            return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+        }
+
+        function renderArticles() {
+            const grid = document.getElementById('articlesGrid');
+            const emptyState = document.getElementById('emptyState');
+            const pagination = document.getElementById('paginationControls');
+
+            if (filteredArticles.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                pagination.classList.add('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ITEMS_PER_PAGE));
+            if (currentPage > totalPages) currentPage = totalPages;
+
+            const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+            const pageItems = filteredArticles.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+            if (currentViewMode === 'list') {
+                grid.className = 'flex flex-col gap-3';
+            } else {
+                grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5';
+            }
+
+            grid.innerHTML = pageItems.map((article) => {
+                const isFav = favoriteIds.has(article.id);
+                const dotColor = article.category === 'NoCode' ? 'bg-brand-yellow' : 'bg-brand-accent';
+                const badgeTextColor = article.category === 'NoCode' ? 'text-amber-700' : 'text-brand-accent';
+                const safeTitle = escapeHTML(article.title);
+                const safeDesc = escapeHTML(article.description);
+                const safeFeed = escapeHTML(article.feedName);
+                const safeLink = escapeHTML(article.link);
+                const safeId = escapeHTML(article.id);
+                const safeDate = escapeHTML(formatRelativeDate(article.pubDate));
+
+                if (currentViewMode === 'list') {
+                    return `
+                        <article class="bg-white border border-slate-200 hover:border-brand-accent/60 rounded-xl p-4 shadow-sm transition flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-2 text-xs mb-1">
+                                    <span class="inline-flex items-center gap-1.5 font-semibold ${badgeTextColor}">
+                                        <span class="w-2 h-2 rounded-full ${dotColor}"></span>
+                                        ${safeFeed}
+                                    </span>
+                                    <span class="text-slate-400">•</span>
+                                    <time class="text-slate-500">${safeDate}</time>
+                                </div>
+                                <h2 class="font-heading font-bold text-base text-brand-dark leading-snug mb-1">
+                                    <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition">
+                                        ${safeTitle}
+                                    </a>
+                                </h2>
+                                ${safeDesc ? `<p class="text-xs text-slate-600 line-clamp-1">${safeDesc}</p>` : ''}
+                            </div>
+                            <div class="flex items-center gap-3 shrink-0">
+                                <button type="button" data-article-id="${safeId}" class="fav-btn text-xs font-medium px-2.5 py-1 rounded border ${isFav ? 'border-amber-300 bg-amber-50 text-amber-700' : 'border-slate-200 text-slate-500 hover:text-brand-dark'} transition">
+                                    ${isFav ? '★ Favori' : '☆ Favori'}
+                                </button>
+                                <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-brand-accent hover:underline">
+                                    Lire →
+                                </a>
+                            </div>
+                        </article>
+                    `;
+                }
+
+                return `
+                    <article class="bg-white border border-slate-200 hover:border-brand-accent/60 rounded-xl p-5 shadow-sm transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 text-xs mb-2.5">
+                                <span class="inline-flex items-center gap-1.5 font-semibold ${badgeTextColor} truncate">
+                                    <span class="w-2 h-2 rounded-full ${dotColor} shrink-0"></span>
+                                    <span class="truncate">${safeFeed}</span>
+                                </span>
+                                <time class="text-slate-400 shrink-0">${safeDate}</time>
+                            </div>
+                            <h2 class="font-heading font-bold text-base sm:text-lg text-brand-dark leading-snug mb-2">
+                                <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition">
+                                    ${safeTitle}
+                                </a>
+                            </h2>
+                            ${safeDesc ? `<p class="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3 mb-4">${safeDesc}</p>` : ''}
+                        </div>
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                            <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-accent hover:underline">
+                                Lire →
+                            </a>
+                            <button type="button" data-article-id="${safeId}" class="fav-btn font-medium ${isFav ? 'text-amber-600' : 'text-slate-400 hover:text-brand-dark'} transition">
+                                ${isFav ? '★ Favori' : '☆ Favori'}
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            if (totalPages > 1) {
+                pagination.classList.remove('hidden');
+                document.getElementById('pageIndicator').textContent = `Page ${currentPage} / ${totalPages} (${filteredArticles.length} articles)`;
+                document.getElementById('prevPageBtn').disabled = currentPage <= 1;
+                document.getElementById('nextPageBtn').disabled = currentPage >= totalPages;
+            } else {
+                pagination.classList.add('hidden');
+            }
+        }
+
+        // =========================================================================
+        // 8. GESTION DU TIROIR DE SOURCES (AJOUT, RENOMMAGE, SUPPRESSION)
+        // =========================================================================
+        function updateFeedSelectorsAndCounters() {
+            document.getElementById('headerFeedCount').textContent = String(activeFeeds.length);
+            document.getElementById('drawerFeedCount').textContent = String(activeFeeds.length);
+
+            const select = document.getElementById('feedFilterSelect');
+            const previousValue = select.value;
+            select.innerHTML = '<option value="ALL">Toutes les sources</option>' +
+                activeFeeds.map((f) => `<option value="${escapeHTML(f.id)}">${escapeHTML(f.name)} (${escapeHTML(f.category)})</option>`).join('');
+
+            if (Array.from(select.options).some((opt) => opt.value === previousValue)) {
+                select.value = previousValue;
+            } else {
+                currentFeedFilter = 'ALL';
+            }
+        }
+
+        function renderFeedsList() {
+            const list = document.getElementById('feedsList');
+            list.innerHTML = activeFeeds.map((feed) => {
+                const isServer = officialServerFeedIds.has(feed.id);
+                const status = feedStatusMap.get(feed.id);
+                const catClass = feed.category === 'NoCode'
+                    ? 'bg-amber-100 text-amber-800'
+                    : 'bg-blue-100 text-blue-800';
+                const originBadge = isServer
+                    ? '<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-medium">Serveur</span>'
+                    : '<span class="px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 font-medium">Local</span>';
+
+                let statusLine = '';
+                if (status) {
+                    const color = status.status === 'ok' ? 'text-emerald-700' : 'text-red-600';
+                    statusLine = `<p class="text-[11px] ${color} mt-0.5 truncate">${escapeHTML(status.detail)}</p>`;
+                }
+
+                const safeId = escapeHTML(feed.id);
+                return `
+                    <div class="bg-white border border-slate-200 rounded-lg p-3 flex items-start justify-between gap-2 shadow-sm">
+                        <div class="flex items-start gap-2.5 min-w-0 flex-1">
+                            <input type="checkbox" data-feed-id="${safeId}" class="toggle-feed mt-1 rounded border-slate-300 text-brand-accent focus:ring-brand-accent" ${feed.enabled ? 'checked' : ''}>
+                            <div class="min-w-0 flex-1">
+                                <div class="flex flex-wrap items-center gap-1.5">
+                                    <span class="font-semibold text-xs sm:text-sm text-brand-dark truncate">${escapeHTML(feed.name)}</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 rounded font-semibold ${catClass}">${escapeHTML(feed.category)}</span>
+                                    <span class="text-[10px]">${originBadge}</span>
+                                </div>
+                                <p class="text-[11px] text-slate-500 truncate mt-0.5">${escapeHTML(feed.url)}</p>
+                                ${statusLine}
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 shrink-0">
+                            <button type="button" data-feed-id="${safeId}" title="Renommer ce flux" class="rename-feed p-1.5 text-slate-400 hover:text-brand-accent rounded hover:bg-slate-100 transition">
+                                ✏️
+                            </button>
+                            <button type="button" data-feed-id="${safeId}" title="Supprimer ce flux" class="delete-feed p-1.5 text-slate-400 hover:text-red-600 rounded hover:bg-red-50 transition">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
 
         function renameFeed(feedId) {
-            const target = activeFeeds.find((f) => f.id === feedId);
-            if (!target) return;
+            const idx = activeFeeds.findIndex((f) => f.id === feedId);
+            if (idx === -1) return;
+            const current = activeFeeds[idx];
+            const nextName = window.prompt('Nouveau nom pour cette source :', current.name);
+            if (!nextName || !nextName.trim() || nextName.trim() === current.name) return;
 
-            const proposed = window.prompt('Nouveau nom pour cette source :', target.name);
-            if (proposed === null) return;
-            const trimmed = proposed.trim();
-            if (!trimmed || trimmed === target.name) return;
-
-            target.name = trimmed;
+            const cleanName = nextName.trim().slice(0, 120);
+            activeFeeds[idx] = { ...current, name: cleanName };
             saveFeeds(activeFeeds);
 
-            allArticles = allArticles.map((art) =>
-                art.feedId === feedId ? { ...art, feedName: trimmed } : art
-            );
+            // Mise à jour immédiate sur tous les articles de ce feedId
+            allArticles = allArticles.map((art) => (art.feedId === feedId ? { ...art, feedName: cleanName } : art));
             saveCachedArticles();
-            applyFilters(false);
             syncFeedsToGitHubViaWorker(true);
+            applyFilters(false);
+            showDrawerFeedback(`Source renommée en « ${cleanName} ».`);
         }
 
         function deleteFeed(feedId) {
             const target = activeFeeds.find((f) => f.id === feedId);
             if (!target) return;
+            if (!window.confirm(`Supprimer le flux « ${target.name} » et ses articles ?`)) return;
 
-            activeFeeds = activeFeeds.filter((f) => f.id !== feedId);
-            feedStatusMap.delete(feedId);
-            saveFeeds(activeFeeds);
+            const updated = activeFeeds.filter((f) => f.id !== feedId);
+            saveFeeds(updated);
 
             allArticles = allArticles.filter((art) => art.feedId !== feedId);
             saveCachedArticles();
-
-            if (currentFeedFilter === feedId) {
-                currentFeedFilter = 'all';
-            }
-            applyFilters(true);
             syncFeedsToGitHubViaWorker(true);
+            applyFilters(true);
+            showDrawerFeedback(`Flux « ${target.name} » supprimé.`);
         }
 
         function toggleFeed(feedId) {
-            const target = activeFeeds.find((f) => f.id === feedId);
-            if (!target) return;
-
-            target.enabled = !target.enabled;
+            const idx = activeFeeds.findIndex((f) => f.id === feedId);
+            if (idx === -1) return;
+            activeFeeds[idx].enabled = !activeFeeds[idx].enabled;
             saveFeeds(activeFeeds);
+            syncFeedsToGitHubViaWorker(true);
             applyFilters(true);
-            syncFeedsToGitHubViaWorker(true);
-        }
-
-        function resetDefaultFeeds() {
-            if (!window.confirm(`Restaurer les ${defaultFeeds.length} sources par défaut ? Vos flux personnalisés seront remplacés.`)) {
-                return;
-            }
-            feedStatusMap.clear();
-            const defaults = defaultFeeds.map((item, idx) => normalizeFeed(item, idx));
-            saveFeeds(defaults);
-            currentFeedFilter = 'all';
-            syncAllFeeds(true);
-            syncFeedsToGitHubViaWorker(true);
         }
 
         function toggleFavorite(articleId) {
@@ -1190,425 +1464,64 @@
             applyFilters(false);
         }
 
-        // =====================================================================
-        // 8. GESTION DES VUES, FRAÎCHEUR DES SOURCES & RENDU DOM
-        // =====================================================================
+        function setViewMode(mode) {
+            currentViewMode = mode === 'list' ? 'list' : 'grid';
+            localStorage.setItem(VIEW_MODE_STORAGE_KEY, currentViewMode);
 
-        function loadViewMode() {
-            try {
-                const saved = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
-                if (saved === 'list' || saved === 'grid') {
-                    currentViewMode = saved;
-                }
-            } catch {
-                currentViewMode = 'grid';
-            }
-            applyViewModeUI();
-        }
-
-        function applyViewModeUI() {
-            const container = document.getElementById('articlesGrid');
             const gridBtn = document.getElementById('viewGridBtn');
             const listBtn = document.getElementById('viewListBtn');
-            if (!container || !gridBtn || !listBtn) return;
-
-            const activeClasses = ['bg-brand-accent', 'text-white'];
-            const inactiveClasses = ['text-slate-600', 'hover:text-brand-dark'];
-
             if (currentViewMode === 'list') {
-                container.className = 'flex flex-col gap-3';
-                listBtn.classList.add(...activeClasses);
-                listBtn.classList.remove(...inactiveClasses);
-                listBtn.setAttribute('aria-pressed', 'true');
-
-                gridBtn.classList.remove(...activeClasses);
-                gridBtn.classList.add(...inactiveClasses);
-                gridBtn.setAttribute('aria-pressed', 'false');
+                listBtn.className = 'px-3 py-1 rounded-md text-xs font-medium bg-brand-accent text-white transition';
+                gridBtn.className = 'px-3 py-1 rounded-md text-xs font-medium text-slate-600 hover:text-brand-dark transition';
             } else {
-                container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6';
-                gridBtn.classList.add(...activeClasses);
-                gridBtn.classList.remove(...inactiveClasses);
-                gridBtn.setAttribute('aria-pressed', 'true');
-
-                listBtn.classList.remove(...activeClasses);
-                listBtn.classList.add(...inactiveClasses);
-                listBtn.setAttribute('aria-pressed', 'false');
+                gridBtn.className = 'px-3 py-1 rounded-md text-xs font-medium bg-brand-accent text-white transition';
+                listBtn.className = 'px-3 py-1 rounded-md text-xs font-medium text-slate-600 hover:text-brand-dark transition';
             }
-        }
-
-        function setViewMode(mode) {
-            if (mode !== 'grid' && mode !== 'list') return;
-            currentViewMode = mode;
-            try {
-                localStorage.setItem(VIEW_MODE_STORAGE_KEY, mode);
-            } catch (error) {
-                console.warn('[Veille CG] Impossible de sauvegarder le mode de vue :', error);
-            }
-            applyViewModeUI();
             renderArticles();
         }
 
-        /** Formate un horodatage ISO en date et heure lisibles (ex. "18/11 à 11:30") */
-        function formatDateTimeShort(isoString) {
-            if (!isoString) return '';
-            const date = new Date(isoString);
-            if (Number.isNaN(date.getTime())) return '';
-
-            const datePart = date.toLocaleDateString('fr-FR', {
-                day: '2-digit',
-                month: '2-digit',
-                year: date.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined
-            });
-            const timePart = date.toLocaleTimeString('fr-FR', {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            return `${datePart} à ${timePart}`;
-        }
-
-        /** Calcule la fraîcheur d'une source (dernier article publié + dernière vérification) */
-        function getFeedFreshnessInfo(feedId) {
-            const feedArticles = allArticles.filter((art) => art.feedId === feedId);
-            let latestPubMs = 0;
-            let latestPubIso = null;
-            let latestFetchMs = 0;
-            let latestFetchIso = null;
-
-            for (const art of feedArticles) {
-                if (art.pubDate) {
-                    const pubMs = Date.parse(art.pubDate);
-                    if (!Number.isNaN(pubMs) && pubMs > latestPubMs) {
-                        latestPubMs = pubMs;
-                        latestPubIso = art.pubDate;
-                    }
-                }
-                if (art.fetchedAt) {
-                    const fetchMs = Date.parse(art.fetchedAt);
-                    if (!Number.isNaN(fetchMs) && fetchMs > latestFetchMs) {
-                        latestFetchMs = fetchMs;
-                        latestFetchIso = art.fetchedAt;
-                    }
-                }
-            }
-
-            const statusEntry = feedStatusMap.get(feedId);
-            const checkedIso = statusEntry?.checkedAt || latestFetchIso;
-
-            return {
-                articleCount: feedArticles.length,
-                latestPubLabel: formatDateTimeShort(latestPubIso),
-                checkedLabel: formatDateTimeShort(checkedIso)
-            };
-        }
-
-        function applyFilters(resetPage = true) {
-            const enabledFeedMap = new Map(
-                activeFeeds.filter((f) => f.enabled).map((f) => [f.id, f])
-            );
-
-            const visibleArticles = allArticles
-                .filter((art) => enabledFeedMap.has(art.feedId))
-                .map((art) => {
-                    const feed = enabledFeedMap.get(art.feedId);
-                    return {
-                        ...art,
-                        feedName: feed.name,
-                        category: feed.category
-                    };
-                });
-
-            filteredArticles = visibleArticles.filter((art) => {
-                if (currentCategory === 'favorites' && !favoriteIds.has(art.id)) {
-                    return false;
-                }
-                if (currentCategory !== 'all' && currentCategory !== 'favorites' && art.category !== currentCategory) {
-                    return false;
-                }
-                if (currentFeedFilter !== 'all' && art.feedId !== currentFeedFilter) {
-                    return false;
-                }
-                if (currentSearchQuery) {
-                    const haystack = `${art.title} ${art.description} ${art.feedName}`.toLowerCase();
-                    if (!haystack.includes(currentSearchQuery)) {
-                        return false;
-                    }
-                }
-                return true;
-            });
-
-            if (resetPage) {
-                currentPage = 1;
+        function toggleDrawer(open) {
+            const drawer = document.getElementById('feedDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            if (open) {
+                renderFeedsList();
+                overlay.classList.remove('hidden');
+                drawer.classList.remove('translate-x-full');
             } else {
-                const maxPages = Math.max(1, Math.ceil(filteredArticles.length / ITEMS_PER_PAGE));
-                if (currentPage > maxPages) currentPage = maxPages;
+                overlay.classList.add('hidden');
+                drawer.classList.add('translate-x-full');
             }
-
-            renderArticles();
-            renderFeedsList();
-        }
-
-        function formatDisplayDate(isoDate) {
-            if (!isoDate) return 'Date inconnue';
-            const parsed = new Date(isoDate);
-            if (Number.isNaN(parsed.getTime())) return 'Date inconnue';
-            return parsed.toLocaleDateString('fr-FR', {
-                day: 'numeric',
-                month: 'short',
-                year: parsed.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined
-            });
-        }
-
-        function renderArticles() {
-            const grid = document.getElementById('articlesGrid');
-            grid.innerHTML = '';
-
-            if (filteredArticles.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full py-16 px-4 text-center bg-white border border-slate-200 rounded-xl shadow-xs">
-                        <p class="text-brand-dark font-semibold mb-1">Aucun article à afficher</p>
-                        <p class="text-sm text-slate-500">Essayez de modifier vos filtres ou cliquez sur « Actualiser » pour interroger vos sources.</p>
-                    </div>
-                `;
-                document.getElementById('pagination').classList.add('hidden');
-                return;
-            }
-
-            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-            const pageSlice = filteredArticles.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-
-            pageSlice.forEach((article) => {
-                const isFav = favoriteIds.has(article.id);
-                // Couleurs du logo : #F5A623 (NoCode) et #0084FF (IA)
-                const badgeColor = article.category === 'NoCode'
-                    ? 'bg-[#F5A623]/15 text-[#8A5A00] border-[#F5A623]/40'
-                    : 'bg-[#0084FF]/10 text-[#005BB5] border-[#0084FF]/30';
-                const dotColor = article.category === 'NoCode'
-                    ? 'bg-brand-yellow'
-                    : 'bg-brand-accent';
-
-                const card = document.createElement('article');
-
-                if (currentViewMode === 'list') {
-                    card.className = 'bg-white border border-slate-200 rounded-lg px-4 py-3.5 hover:border-brand-accent shadow-xs transition flex flex-col sm:flex-row sm:items-center justify-between gap-3';
-                    card.innerHTML = `
-                        <div class="min-w-0 flex-1">
-                            <div class="flex flex-wrap items-center gap-2 mb-1">
-                                <span class="text-xs font-medium px-2 py-0.5 rounded border inline-flex items-center gap-1.5 ${badgeColor}">
-                                    <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor}"></span>
-                                    <span>${escapeHTML(article.feedName)}</span>
-                                </span>
-                                <span class="text-xs text-slate-500">${escapeHTML(formatDisplayDate(article.pubDate))}</span>
-                            </div>
-                            <h3 class="font-heading font-bold text-base text-brand-dark leading-snug">
-                                <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition">
-                                    ${escapeHTML(article.title)}
-                                </a>
-                            </h3>
-                            <p class="text-sm text-slate-600 mt-1 line-clamp-1">${escapeHTML(article.description || '')}</p>
-                        </div>
-                        <div class="flex items-center gap-3 sm:pl-4 flex-shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-100">
-                            <button type="button" class="fav-btn text-xs font-medium px-2.5 py-1.5 rounded border border-slate-200 hover:bg-slate-50 transition ${isFav ? 'text-[#8A5A00] border-[#F5A623]/50 bg-[#F5A623]/10' : 'text-slate-600'}" data-article-id="${escapeHTML(article.id)}" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
-                                ${isFav ? '★ Favori' : '☆ Favori'}
-                            </button>
-                            <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener noreferrer" class="text-brand-accent text-sm font-semibold hover:underline inline-flex items-center gap-1 whitespace-nowrap">
-                                <span>Lire</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    `;
-                } else {
-                    card.className = 'bg-white border border-slate-200 rounded-xl p-5 hover:border-brand-accent shadow-xs transition flex flex-col h-full';
-                    card.innerHTML = `
-                        <div class="flex justify-between items-center gap-2 mb-3">
-                            <span class="text-xs font-medium px-2.5 py-0.5 rounded border inline-flex items-center gap-1.5 max-w-[68%] ${badgeColor}" title="${escapeHTML(article.feedName)}">
-                                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor}"></span>
-                                <span class="truncate">${escapeHTML(article.feedName)}</span>
-                            </span>
-                            <span class="text-xs text-slate-500 whitespace-nowrap">${escapeHTML(formatDisplayDate(article.pubDate))}</span>
-                        </div>
-                        <h3 class="font-heading font-bold text-base text-brand-dark leading-snug mb-2.5 flex-grow">
-                            <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition">
-                                ${escapeHTML(article.title)}
-                            </a>
-                        </h3>
-                        <p class="text-sm text-slate-600 mb-4 line-clamp-3">${escapeHTML(article.description || 'Aucun résumé disponible pour cet article.')}</p>
-                        <div class="mt-auto pt-3 border-t border-slate-100 flex justify-between items-center">
-                            <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener noreferrer" class="text-brand-accent text-sm font-semibold hover:underline inline-flex items-center gap-1">
-                                <span>Lire</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </a>
-                            <button type="button" class="fav-btn text-xs font-medium px-2 py-1 rounded hover:bg-slate-100 transition ${isFav ? 'text-[#8A5A00]' : 'text-slate-500 hover:text-brand-dark'}" data-article-id="${escapeHTML(article.id)}" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
-                                ${isFav ? '★ Favori' : '☆ Favori'}
-                            </button>
-                        </div>
-                    `;
-                }
-
-                grid.appendChild(card);
-            });
-
-            renderPagination();
-        }
-
-        /** Issue #5 : Pagination strictement basée sur filteredArticles.length */
-        function renderPagination() {
-            const totalItems = filteredArticles.length;
-            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
-            const pagContainer = document.getElementById('pagination');
-
-            if (totalPages <= 1) {
-                pagContainer.classList.add('hidden');
-                return;
-            }
-
-            pagContainer.classList.remove('hidden');
-            document.getElementById('pageIndicator').textContent = `Page ${currentPage} sur ${totalPages} (${totalItems} articles)`;
-            document.getElementById('prevPageBtn').disabled = currentPage <= 1;
-            document.getElementById('nextPageBtn').disabled = currentPage >= totalPages;
-        }
-
-        function renderFeedsList() {
-            const list = document.getElementById('feedsList');
-            list.innerHTML = '';
-
-            const enabledCount = activeFeeds.filter((f) => f.enabled).length;
-            document.getElementById('activeFeedsCountBadge').textContent = String(enabledCount);
-            document.getElementById('drawerFeedsCount').textContent = `${enabledCount}/${activeFeeds.length}`;
-
-            activeFeeds.forEach((feed) => {
-                const state = feedStatusMap.get(feed.id);
-                const freshness = getFeedFreshnessInfo(feed.id);
-
-                let statusBadge = '';
-                if (feed.enabled && state) {
-                    if (state.status === 'pending') {
-                        statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-blue-50 text-brand-accent border border-blue-200">En cours…</span>`;
-                    } else if (state.status === 'server') {
-                        statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title="${escapeHTML(state.detail)}">Serveur</span>`;
-                    } else if (state.status === 'ok') {
-                        statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title="${escapeHTML(state.detail)}">OK</span>`;
-                    } else if (state.status === 'error') {
-                        statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 cursor-help" title="${escapeHTML(state.detail)}">Proxy bloqué</span>`;
-                    }
-                } else if (feed.enabled && freshness.articleCount > 0) {
-                    statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">Cache</span>`;
-                }
-
-                const metaParts = [];
-                if (freshness.latestPubLabel) {
-                    metaParts.push(`Dernier article : <strong class="font-medium text-slate-700">${escapeHTML(freshness.latestPubLabel)}</strong> (${freshness.articleCount})`);
-                } else if (freshness.articleCount > 0) {
-                    metaParts.push(`${freshness.articleCount} article(s) sans date`);
-                } else {
-                    metaParts.push('Aucun article en mémoire');
-                }
-
-                if (freshness.checkedLabel) {
-                    metaParts.push(`Vérifié : ${escapeHTML(freshness.checkedLabel)}`);
-                }
-
-                const li = document.createElement('li');
-                li.className = `flex justify-between items-start gap-2 p-3 rounded-lg border ${feed.enabled ? 'bg-white border-slate-200 shadow-2xs' : 'bg-slate-100/70 border-slate-200/70 opacity-65'}`;
-
-                li.innerHTML = `
-                    <label class="flex items-start gap-2.5 flex-1 min-w-0 cursor-pointer">
-                        <input type="checkbox" class="toggle-feed mt-1 accent-[#0084FF]" data-feed-id="${escapeHTML(feed.id)}" ${feed.enabled ? 'checked' : ''}>
-                        <div class="min-w-0 flex-1">
-                            <div class="flex flex-wrap items-center gap-1.5">
-                                <p class="font-medium text-sm text-brand-dark truncate">${escapeHTML(feed.name)}</p>
-                                <span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">${escapeHTML(feed.category)}</span>
-                                ${statusBadge}
-                            </div>
-                            <p class="text-xs text-slate-500 truncate mt-0.5">${escapeHTML(feed.url)}</p>
-                            <p class="text-[11px] text-slate-500 mt-1 leading-tight">${metaParts.join(' • ')}</p>
-                        </div>
-                    </label>
-                    <div class="flex items-center gap-1 flex-shrink-0">
-                        <button type="button" class="rename-feed text-slate-500 hover:text-brand-dark p-1.5 rounded hover:bg-slate-100 transition" data-feed-id="${escapeHTML(feed.id)}" title="Renommer">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                            </svg>
-                        </button>
-                        <button type="button" class="delete-feed text-red-500 hover:text-red-700 p-1.5 rounded hover:bg-red-50 transition" data-feed-id="${escapeHTML(feed.id)}" title="Supprimer">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                `;
-                list.appendChild(li);
-            });
-        }
-
-        function updateFeedFilterSelect() {
-            const select = document.getElementById('feedFilterSelect');
-            const previousValue = currentFeedFilter;
-            select.innerHTML = '<option value="all">Toutes les sources</option>';
-
-            activeFeeds
-                .filter((f) => f.enabled)
-                .forEach((feed) => {
-                    const opt = document.createElement('option');
-                    opt.value = feed.id;
-                    opt.textContent = feed.name;
-                    select.appendChild(opt);
-                });
-
-            if (Array.from(select.options).some((o) => o.value === previousValue)) {
-                select.value = previousValue;
-            } else {
-                currentFeedFilter = 'all';
-                select.value = 'all';
-            }
-        }
-
-        function updateFavoritesBadge() {
-            document.getElementById('favoritesCount').textContent = String(favoriteIds.size);
-        }
-
-        function showStatus(htmlContent) {
-            document.getElementById('statusText').innerHTML = htmlContent;
-            document.getElementById('statusMessage').classList.remove('hidden');
-        }
-
-        function hideStatus() {
-            document.getElementById('statusMessage').classList.add('hidden');
         }
 
         function showDrawerFeedback(message, isError = false) {
             const box = document.getElementById('drawerFeedback');
             box.textContent = message;
-            box.className = `mt-2 text-xs px-2.5 py-1.5 rounded ${isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`;
+            box.className = isError
+                ? 'mt-2 text-xs px-2.5 py-1.5 rounded bg-red-50 text-red-700 border border-red-200'
+                : 'mt-2 text-xs px-2.5 py-1.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200';
             box.classList.remove('hidden');
-            setTimeout(() => box.classList.add('hidden'), 4500);
         }
 
-        // =====================================================================
-        // 9. ÉVÉNEMENTS & INITIALISATION
-        // =====================================================================
-
-        function toggleDrawer(forceState) {
-            const drawer = document.getElementById('feedDrawer');
-            const overlay = document.getElementById('drawerOverlay');
-            const shouldOpen = typeof forceState === 'boolean'
-                ? forceState
-                : drawer.classList.contains('translate-x-full');
-
-            if (shouldOpen) {
-                drawer.classList.remove('translate-x-full');
-                overlay.classList.remove('hidden');
-            } else {
-                drawer.classList.add('translate-x-full');
-                overlay.classList.add('hidden');
-            }
-        }
-
+        // =========================================================================
+        // 9. ÉCOUTEURS D'ÉVÉNEMENTS & INITIALISATION
+        // =========================================================================
         function bindEvents() {
-            document.getElementById('openDrawerBtn').addEventListener('click', () => toggleDrawer(true));
+            document.getElementById('openDrawerBtn').addEventListener('click', () => {
+                if (isAdminAuthenticated()) {
+                    toggleDrawer(true);
+                } else {
+                    openAuthModal();
+                }
+            });
+
+            document.getElementById('adminAuthForm').addEventListener('submit', submitAdminAuth);
+            document.getElementById('closeAuthModalBtn').addEventListener('click', closeAuthModal);
+            document.getElementById('cancelAuthModalBtn').addEventListener('click', closeAuthModal);
+            document.getElementById('adminAuthModal').addEventListener('click', (e) => {
+                if (e.target.id === 'adminAuthModal') closeAuthModal();
+            });
+
+            document.getElementById('lockAdminBtn').addEventListener('click', lockAdminSession);
             document.getElementById('closeDrawerBtn').addEventListener('click', () => toggleDrawer(false));
             document.getElementById('drawerOverlay').addEventListener('click', () => toggleDrawer(false));
             document.getElementById('refreshBtn').addEventListener('click', () => syncAllFeeds(true));
@@ -1621,7 +1534,7 @@
                 showDrawerFeedback('Cache local vidé.');
             });
 
-            // Synchronisation Cloud GitHub (Worker) & Mobile (Lien #sync= / JSON)
+            // Synchronisation Cloud GitHub (Worker) & Mobile
             document.getElementById('syncCloudBtn').addEventListener('click', () => syncFeedsToGitHubViaWorker(false));
             document.getElementById('configCloudBtn').addEventListener('click', configureWorkerSync);
             document.getElementById('copySyncLinkBtn').addEventListener('click', copySyncLink);
@@ -1721,7 +1634,7 @@
                 }
             });
 
-            // Filtres par catégorie avec couleurs du logo
+            // Filtres par catégorie avec couleurs de l'identité visuelle
             document.querySelectorAll('.filter-btn').forEach((btn) => {
                 btn.addEventListener('click', (e) => {
                     document.querySelectorAll('.filter-btn').forEach((b) => {
@@ -1781,32 +1694,28 @@
             });
         }
 
-        function init() {
-            loadViewMode();
+        document.addEventListener('DOMContentLoaded', () => {
+            migrateAndLoadFeeds();
+            checkSyncHashOnLoad();
             loadFavorites();
-            activeFeeds = loadFeeds();
-
-            // Importe les flux si la page est ouverte via un lien #sync=... depuis le PC
-            const syncedFromLink = importFeedsFromUrlHash();
-
-            renderFeedsList();
-            updateFeedFilterSelect();
-
-            // Affichage immédiat du cache localStorage avant toute requête réseau
-            allArticles = loadCachedArticles();
-            applyFilters(true);
-
+            saveFavorites();
+            loadCachedArticles();
+            setViewMode(currentViewMode);
             bindEvents();
 
-            if (syncedFromLink > 0) {
-                toggleDrawer(true);
-                showDrawerFeedback(`${syncedFromLink} source(s) importée(s) depuis votre lien de synchronisation.`);
+            if (allArticles.length > 0) {
+                applyFilters(true);
             }
 
             syncAllFeeds(false);
-        }
 
-        document.addEventListener('DOMContentLoaded', init);
+            // Actualisation légère en arrière-plan toutes les 15 min si l'onglet est visible
+            setInterval(() => {
+                if (!document.hidden) {
+                    syncAllFeeds(false);
+                }
+            }, 15 * 60 * 1000);
+        });
     </script>
 </body>
 </html>
