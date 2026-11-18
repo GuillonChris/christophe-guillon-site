@@ -718,7 +718,7 @@
 
                     saveFeeds(activeFeeds, true);
                     showDrawerFeedback(`${addedCount} nouveau(x) flux importé(s). Actualisation…`);
-                    syncAllFeeds(false);
+                    syncAllFeeds(true);
                 } catch (err) {
                     showDrawerFeedback(`Échec de l'import JSON : ${err.message}`, true);
                 }
@@ -727,16 +727,17 @@
         }
 
         // =====================================================================
-        // 6. COLLECTE DES DONNÉES (Architecture Cible + Repli Proxys)
+        // 6. COLLECTE DES DONNÉES (Option b : articles.json + Repli Proxys)
         // =====================================================================
 
         /** Charge /data/feeds.json et /data/articles.json générés par GitHub Actions */
-        async function loadServerData() {
+        async function loadServerData(bypassHttpCache = false) {
             let serverArticles = [];
             const officialFeedIds = new Set();
+            const cacheSuffix = bypassHttpCache ? `?t=${Date.now()}` : '';
 
             try {
-                const feedsRes = await fetch('./data/feeds.json', { cache: 'no-cache' });
+                const feedsRes = await fetch(`./data/feeds.json${cacheSuffix}`, { cache: 'no-store' });
                 if (feedsRes.ok) {
                     const remoteFeeds = await feedsRes.json();
                     if (Array.isArray(remoteFeeds) && remoteFeeds.length > 0) {
@@ -758,7 +759,7 @@
             }
 
             try {
-                const articlesRes = await fetch('./data/articles.json', { cache: 'no-cache' });
+                const articlesRes = await fetch(`./data/articles.json${cacheSuffix}`, { cache: 'no-store' });
                 if (articlesRes.ok) {
                     const remoteArticles = await articlesRes.json();
                     if (Array.isArray(remoteArticles)) {
@@ -770,7 +771,7 @@
                     }
                 }
             } catch {
-                console.info('[Veille CG] /data/articles.json absent, utilisation du cache et des proxys.');
+                console.info('[Veille CG] /data/articles.json absent, repli sur le cache local et les proxys.');
             }
 
             return { serverArticles, officialFeedIds };
@@ -892,8 +893,8 @@
             return parsedArticles;
         }
 
-        /** Synchronise les articles : /data/articles.json d'abord, puis flux personnalisés */
-        async function syncAllFeeds(forceProxyRefresh = false) {
+        /** Option (b) : /data/articles.json pour les flux officiels, proxys uniquement pour les flux personnalisés */
+        async function syncAllFeeds(bypassHttpCache = false) {
             if (isSyncing) return;
             isSyncing = true;
 
@@ -901,7 +902,7 @@
             refreshIcon.classList.add('animate-spin');
             showStatus('<div class="loader"></div><span>Chargement des sources en cours…</span>');
 
-            const { serverArticles, officialFeedIds } = await loadServerData();
+            const { serverArticles, officialFeedIds } = await loadServerData(bypassHttpCache);
             if (serverArticles.length > 0) {
                 allArticles = pruneAndSortArticles([...allArticles, ...serverArticles]);
                 serverArticles.forEach((art) => {
@@ -922,12 +923,20 @@
                 applyFilters(false);
             }
 
-            // Si articles.json est disponible et qu'on ne force pas le rafraîchissement manuel,
-            // seuls les flux personnalisés du visiteur sont interrogés via proxy
+            // En Option (b) : si articles.json est disponible, seuls les flux personnalisés passent par proxy
             const enabledFeeds = activeFeeds.filter((f) => f.enabled);
-            const feedsToFetch = (serverArticles.length > 0 && !forceProxyRefresh)
+            const feedsToFetch = serverArticles.length > 0
                 ? enabledFeeds.filter((f) => !officialFeedIds.has(f.id))
                 : enabledFeeds;
+
+            feedsToFetch.forEach((feed) => {
+                feedStatusMap.set(feed.id, {
+                    status: 'pending',
+                    detail: 'Interrogation des proxys de repli en cours…',
+                    checkedAt: feedStatusMap.get(feed.id)?.checkedAt || null
+                });
+            });
+            renderFeedsList();
 
             let completedCount = 0;
             let successCount = serverArticles.length > 0 ? officialFeedIds.size : 0;
@@ -944,7 +953,7 @@
                                 allArticles = pruneAndSortArticles([...allArticles, ...articles]);
                                 feedStatusMap.set(feed.id, {
                                     status: 'ok',
-                                    detail: `${articles.length} article(s) récupéré(s) via proxy`,
+                                    detail: `${articles.length} article(s) récupéré(s) via proxy de repli`,
                                     checkedAt
                                 });
                                 successCount++;
@@ -964,7 +973,7 @@
                             console.warn(`[Veille CG] Flux ignoré (${feed.name}) : ${err.message}`);
                         } finally {
                             completedCount++;
-                            showStatus(`<div class="loader"></div><span>Actualisation : ${completedCount}/${feedsToFetch.length} source(s) vérifiée(s)…</span>`);
+                            showStatus(`<div class="loader"></div><span>Vérification flux personnalisés : ${completedCount}/${feedsToFetch.length}…</span>`);
                         }
                     })
                 );
@@ -1048,7 +1057,7 @@
             const defaults = defaultFeeds.map((item, idx) => normalizeFeed(item, idx));
             saveFeeds(defaults);
             currentFeedFilter = 'all';
-            syncAllFeeds(false);
+            syncAllFeeds(true);
         }
 
         function toggleFavorite(articleId) {
@@ -1350,7 +1359,9 @@
 
                 let statusBadge = '';
                 if (feed.enabled && state) {
-                    if (state.status === 'server') {
+                    if (state.status === 'pending') {
+                        statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-blue-50 text-brand-accent border border-blue-200">En cours…</span>`;
+                    } else if (state.status === 'server') {
                         statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title="${escapeHTML(state.detail)}">Serveur</span>`;
                     } else if (state.status === 'ok') {
                         statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title="${escapeHTML(state.detail)}">OK</span>`;
@@ -1527,7 +1538,7 @@
                     if (articles.length > 0) {
                         feedStatusMap.set(newFeed.id, {
                             status: 'ok',
-                            detail: `${articles.length} article(s) récupéré(s) via proxy`,
+                            detail: `${articles.length} article(s) récupéré(s) via proxy de repli`,
                             checkedAt
                         });
                         allArticles = pruneAndSortArticles([...allArticles, ...articles]);
