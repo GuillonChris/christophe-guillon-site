@@ -906,7 +906,16 @@
                 allArticles = pruneAndSortArticles([...allArticles, ...serverArticles]);
                 serverArticles.forEach((art) => {
                     if (art && art.feedId) {
-                        feedStatusMap.set(art.feedId, { status: 'server', detail: 'Collecté via articles.json' });
+                        const prev = feedStatusMap.get(art.feedId);
+                        const prevMs = prev?.checkedAt ? Date.parse(prev.checkedAt) : 0;
+                        const artMs = art.fetchedAt ? Date.parse(art.fetchedAt) : 0;
+                        if (!prev || artMs >= prevMs) {
+                            feedStatusMap.set(art.feedId, {
+                                status: 'server',
+                                detail: 'Collecté automatiquement via articles.json',
+                                checkedAt: art.fetchedAt || new Date().toISOString()
+                            });
+                        }
                     }
                 });
                 saveCachedArticles();
@@ -927,18 +936,31 @@
                 const batch = feedsToFetch.slice(i, i + FETCH_CONCURRENCY);
                 await Promise.allSettled(
                     batch.map(async (feed) => {
+                        const checkedAt = new Date().toISOString();
                         try {
                             const xml = await fetchRSSWithFallback(feed.url);
                             const articles = parseFeedXML(xml, feed);
                             if (articles.length > 0) {
                                 allArticles = pruneAndSortArticles([...allArticles, ...articles]);
-                                feedStatusMap.set(feed.id, { status: 'ok', detail: `${articles.length} article(s) récupéré(s)` });
+                                feedStatusMap.set(feed.id, {
+                                    status: 'ok',
+                                    detail: `${articles.length} article(s) récupéré(s) via proxy`,
+                                    checkedAt
+                                });
                                 successCount++;
                             } else {
-                                feedStatusMap.set(feed.id, { status: 'error', detail: 'Flux valide mais aucun article récent' });
+                                feedStatusMap.set(feed.id, {
+                                    status: 'error',
+                                    detail: 'Flux valide mais aucun article récent',
+                                    checkedAt
+                                });
                             }
                         } catch (err) {
-                            feedStatusMap.set(feed.id, { status: 'error', detail: err.message });
+                            feedStatusMap.set(feed.id, {
+                                status: 'error',
+                                detail: err.message,
+                                checkedAt
+                            });
                             console.warn(`[Veille CG] Flux ignoré (${feed.name}) : ${err.message}`);
                         } finally {
                             completedCount++;
@@ -1040,7 +1062,7 @@
         }
 
         // =====================================================================
-        // 8. GESTION DES VUES (VIGNETTES / LISTE) & RENDU DOM
+        // 8. GESTION DES VUES, FRAÎCHEUR DES SOURCES & RENDU DOM
         // =====================================================================
 
         function loadViewMode() {
@@ -1097,6 +1119,59 @@
             renderArticles();
         }
 
+        /** Formate un horodatage ISO en date et heure lisibles (ex. "18/11 à 11:30") */
+        function formatDateTimeShort(isoString) {
+            if (!isoString) return '';
+            const date = new Date(isoString);
+            if (Number.isNaN(date.getTime())) return '';
+
+            const datePart = date.toLocaleDateString('fr-FR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: date.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined
+            });
+            const timePart = date.toLocaleTimeString('fr-FR', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            return `${datePart} à ${timePart}`;
+        }
+
+        /** Calcule la fraîcheur d'une source (dernier article publié + dernière vérification) */
+        function getFeedFreshnessInfo(feedId) {
+            const feedArticles = allArticles.filter((art) => art.feedId === feedId);
+            let latestPubMs = 0;
+            let latestPubIso = null;
+            let latestFetchMs = 0;
+            let latestFetchIso = null;
+
+            for (const art of feedArticles) {
+                if (art.pubDate) {
+                    const pubMs = Date.parse(art.pubDate);
+                    if (!Number.isNaN(pubMs) && pubMs > latestPubMs) {
+                        latestPubMs = pubMs;
+                        latestPubIso = art.pubDate;
+                    }
+                }
+                if (art.fetchedAt) {
+                    const fetchMs = Date.parse(art.fetchedAt);
+                    if (!Number.isNaN(fetchMs) && fetchMs > latestFetchMs) {
+                        latestFetchMs = fetchMs;
+                        latestFetchIso = art.fetchedAt;
+                    }
+                }
+            }
+
+            const statusEntry = feedStatusMap.get(feedId);
+            const checkedIso = statusEntry?.checkedAt || latestFetchIso;
+
+            return {
+                articleCount: feedArticles.length,
+                latestPubLabel: formatDateTimeShort(latestPubIso),
+                checkedLabel: formatDateTimeShort(checkedIso)
+            };
+        }
+
         function applyFilters(resetPage = true) {
             const enabledFeedMap = new Map(
                 activeFeeds.filter((f) => f.enabled).map((f) => [f.id, f])
@@ -1140,6 +1215,7 @@
             }
 
             renderArticles();
+            renderFeedsList();
         }
 
         function formatDisplayDate(isoDate) {
@@ -1270,17 +1346,37 @@
 
             activeFeeds.forEach((feed) => {
                 const state = feedStatusMap.get(feed.id);
+                const freshness = getFeedFreshnessInfo(feed.id);
+
                 let statusBadge = '';
                 if (feed.enabled && state) {
-                    if (state.status === 'server' || state.status === 'ok') {
+                    if (state.status === 'server') {
+                        statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title="${escapeHTML(state.detail)}">Serveur</span>`;
+                    } else if (state.status === 'ok') {
                         statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200" title="${escapeHTML(state.detail)}">OK</span>`;
                     } else if (state.status === 'error') {
                         statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 cursor-help" title="${escapeHTML(state.detail)}">Proxy bloqué</span>`;
                     }
+                } else if (feed.enabled && freshness.articleCount > 0) {
+                    statusBadge = `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">Cache</span>`;
+                }
+
+                // Ligne d'horodatage : date/heure du dernier article + dernière vérification
+                const metaParts = [];
+                if (freshness.latestPubLabel) {
+                    metaParts.push(`Dernier article : <strong class="font-medium text-slate-700">${escapeHTML(freshness.latestPubLabel)}</strong> (${freshness.articleCount})`);
+                } else if (freshness.articleCount > 0) {
+                    metaParts.push(`${freshness.articleCount} article(s) sans date`);
+                } else {
+                    metaParts.push('Aucun article en mémoire');
+                }
+
+                if (freshness.checkedLabel) {
+                    metaParts.push(`Vérifié : ${escapeHTML(freshness.checkedLabel)}`);
                 }
 
                 const li = document.createElement('li');
-                li.className = `flex justify-between items-center gap-2 p-3 rounded-lg border ${feed.enabled ? 'bg-white border-slate-200 shadow-2xs' : 'bg-slate-100/70 border-slate-200/70 opacity-65'}`;
+                li.className = `flex justify-between items-start gap-2 p-3 rounded-lg border ${feed.enabled ? 'bg-white border-slate-200 shadow-2xs' : 'bg-slate-100/70 border-slate-200/70 opacity-65'}`;
 
                 li.innerHTML = `
                     <label class="flex items-start gap-2.5 flex-1 min-w-0 cursor-pointer">
@@ -1291,7 +1387,8 @@
                                 <span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">${escapeHTML(feed.category)}</span>
                                 ${statusBadge}
                             </div>
-                            <p class="text-xs text-slate-500 truncate">${escapeHTML(feed.url)}</p>
+                            <p class="text-xs text-slate-500 truncate mt-0.5">${escapeHTML(feed.url)}</p>
+                            <p class="text-[11px] text-slate-500 mt-1 leading-tight">${metaParts.join(' • ')}</p>
                         </div>
                     </label>
                     <div class="flex items-center gap-1 flex-shrink-0">
@@ -1423,23 +1520,35 @@
                 document.getElementById('addFeedForm').reset();
                 showDrawerFeedback(`Flux « ${name} » ajouté. Récupération en cours…`);
 
+                const checkedAt = new Date().toISOString();
                 try {
                     const xml = await fetchRSSWithFallback(newFeed.url);
                     const articles = parseFeedXML(xml, newFeed);
                     if (articles.length > 0) {
-                        feedStatusMap.set(newFeed.id, { status: 'ok', detail: `${articles.length} article(s) récupéré(s)` });
+                        feedStatusMap.set(newFeed.id, {
+                            status: 'ok',
+                            detail: `${articles.length} article(s) récupéré(s) via proxy`,
+                            checkedAt
+                        });
                         allArticles = pruneAndSortArticles([...allArticles, ...articles]);
                         saveCachedArticles();
-                        renderFeedsList();
                         applyFilters(true);
                         showDrawerFeedback(`${articles.length} articles récupérés pour « ${name} ».`);
                     } else {
-                        feedStatusMap.set(newFeed.id, { status: 'error', detail: 'Flux valide mais aucun article récent' });
+                        feedStatusMap.set(newFeed.id, {
+                            status: 'error',
+                            detail: 'Flux valide mais aucun article récent',
+                            checkedAt
+                        });
                         renderFeedsList();
                         showDrawerFeedback('Flux ajouté, mais aucun article récent trouvé.', true);
                     }
                 } catch (err) {
-                    feedStatusMap.set(newFeed.id, { status: 'error', detail: err.message });
+                    feedStatusMap.set(newFeed.id, {
+                        status: 'error',
+                        detail: err.message,
+                        checkedAt
+                    });
                     renderFeedsList();
                     showDrawerFeedback(`Flux sauvegardé, mais lecture impossible pour le moment (${err.message}).`, true);
                 }
