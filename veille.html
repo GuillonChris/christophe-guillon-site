@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille IA & NoCode | Christophe Guillon</title>
-    <meta name="description" content="Agrégateur de veille sur l'Intelligence Artificielle et le NoCode. Flux personnalisables, actualisation en temps réel.">
-    
+    <title>Veille IA &amp; NoCode | Christophe Guillon</title>
+    <meta name="description" content="Agrégateur de veille sur l'Intelligence Artificielle et le NoCode par Christophe Guillon. Flux personnalisables, filtrage rapide et actualisation continue.">
+    <link rel="canonical" href="https://www.christophe-guillon.com/veille.html">
+
     <!-- Polices Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -32,14 +33,14 @@
                     }
                 }
             }
-        }
+        };
     </script>
-    
+
     <!-- Google Analytics (G-VESQ4YWCTS) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VESQ4YWCTS"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-VESQ4YWCTS');
     </script>
@@ -48,356 +49,844 @@
         .line-clamp-3 {
             display: -webkit-box;
             -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;  
+            -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        /* Loader CSS */
         .loader {
-            border: 3px solid rgba(255, 255, 255, 0.1);
+            border: 3px solid rgba(255, 255, 255, 0.12);
             border-radius: 50%;
             border-top: 3px solid #0084FF;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.9s linear infinite;
+            flex-shrink: 0;
         }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
-<body class="bg-brand-dark text-white font-sans min-h-screen flex flex-col">
+<body class="bg-brand-dark text-white font-sans min-h-screen flex flex-col antialiased">
 
-    <!-- Header -->
+    <!-- En-tête -->
     <header class="border-b border-brand-gray bg-brand-dark/95 sticky top-0 z-40 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="font-heading text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-                <span class="text-brand-accent">⚡</span> Veille IA & NoCode
-            </h1>
-            <nav class="flex gap-4 items-center">
-                <button id="refreshBtn" class="text-brand-light hover:text-white transition-colors flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-6">
+                <a href="https://www.christophe-guillon.com/" class="font-heading text-xl md:text-2xl font-bold text-white flex items-center gap-2 hover:opacity-90 transition">
+                    <span class="text-brand-accent">⚡</span>
+                    <span>Veille IA &amp; NoCode</span>
+                </a>
+                <nav aria-label="Navigation principale" class="hidden md:flex items-center gap-5 text-sm text-brand-light">
+                    <a href="https://www.christophe-guillon.com/" class="hover:text-white transition-colors">Accueil</a>
+                    <a href="https://www.christophe-guillon.com/veille.html" class="text-white font-medium">Veille</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <span id="lastUpdateBadge" class="hidden lg:inline-block text-xs text-brand-light"></span>
+                <button id="refreshBtn" type="button" class="border border-brand-gray hover:border-brand-accent text-brand-light hover:text-white px-3 py-2 rounded-md transition-colors flex items-center gap-2 text-sm">
+                    <svg id="refreshIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
                     <span class="hidden sm:inline">Actualiser</span>
                 </button>
-                <button id="openDrawerBtn" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition-colors text-sm">
-                    Gérer les flux
+                <button id="openDrawerBtn" type="button" class="bg-brand-accent hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition-colors text-sm flex items-center gap-2">
+                    <span>Gérer les flux</span>
+                    <span id="activeFeedsCountBadge" class="bg-black/25 text-xs px-1.5 py-0.5 rounded-full">15</span>
                 </button>
-            </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Contenu principal -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-        <!-- Filtres -->
-        <div class="mb-8 flex flex-wrap gap-3 items-center" id="filtersContainer">
-            <button class="filter-btn active bg-brand-accent text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors" data-category="all">
-                Tous les articles
-            </button>
-            <button class="filter-btn bg-brand-gray text-brand-light hover:text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors" data-category="IA">
-                Intelligence Artificielle
-            </button>
-            <button class="filter-btn bg-brand-gray text-brand-light hover:text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors" data-category="NoCode">
-                NoCode
-            </button>
+
+        <!-- Barre de filtres et recherche -->
+        <div class="mb-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div class="flex flex-wrap gap-2 items-center" id="filtersContainer">
+                <button type="button" class="filter-btn active bg-brand-accent text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors" data-category="all">
+                    Tous les articles
+                </button>
+                <button type="button" class="filter-btn bg-brand-gray text-brand-light hover:text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors" data-category="IA">
+                    Intelligence Artificielle
+                </button>
+                <button type="button" class="filter-btn bg-brand-gray text-brand-light hover:text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors" data-category="NoCode">
+                    NoCode
+                </button>
+                <button type="button" class="filter-btn bg-brand-gray text-brand-light hover:text-brand-yellow px-4 py-1.5 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5" data-category="favorites">
+                    <span>★</span>
+                    <span>Favoris (<span id="favoritesCount">0</span>)</span>
+                </button>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2 sm:items-center">
+                <select id="feedFilterSelect" aria-label="Filtrer par source" class="bg-[#0A1929] border border-brand-gray rounded-md px-3 py-1.5 text-sm text-white focus:outline-none focus:border-brand-accent">
+                    <option value="all">Toutes les sources</option>
+                </select>
+                <div class="relative">
+                    <input type="search" id="searchInput" placeholder="Rechercher un article..." class="w-full sm:w-64 bg-[#0A1929] border border-brand-gray rounded-md pl-3 pr-8 py-1.5 text-sm text-white placeholder-brand-light focus:outline-none focus:border-brand-accent">
+                </div>
+            </div>
         </div>
 
-        <!-- Status / Loader -->
-        <div id="statusMessage" class="hidden mb-6 p-4 rounded-md bg-brand-gray text-sm flex items-center gap-3"></div>
+        <!-- Bandeau de statut / progression -->
+        <div id="statusMessage" class="hidden mb-6 p-3.5 rounded-lg bg-[#0A1929] border border-brand-gray text-sm flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3" id="statusText"></div>
+        </div>
 
         <!-- Grille d'articles -->
         <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Articles injectés via JS -->
+            <!-- Articles injectés dynamiquement -->
         </div>
 
         <!-- Pagination -->
-        <div id="pagination" class="mt-10 flex justify-center items-center gap-4 hidden">
-            <button id="prevPageBtn" class="px-4 py-2 bg-brand-gray rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition">Précédent</button>
-            <span id="pageIndicator" class="text-brand-light text-sm">Page 1</span>
-            <button id="nextPageBtn" class="px-4 py-2 bg-brand-gray rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition">Suivant</button>
+        <div id="pagination" class="mt-10 flex flex-wrap justify-center items-center gap-4 hidden">
+            <button id="prevPageBtn" type="button" class="px-4 py-2 bg-brand-gray rounded-md text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 transition">
+                ← Précédent
+            </button>
+            <span id="pageIndicator" class="text-brand-light text-sm">Page 1 sur 1</span>
+            <button id="nextPageBtn" type="button" class="px-4 py-2 bg-brand-gray rounded-md text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 transition">
+                Suivant →
+            </button>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-brand-gray py-8 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 text-center text-brand-light text-sm">
-            &copy; <span id="currentYear"></span> Christophe Guillon. Agrégateur statique expérimental.
+    <!-- Pied de page -->
+    <footer class="border-t border-brand-gray py-8 mt-auto bg-[#030C14]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-brand-light text-sm">
+            <div>
+                &copy; <span id="currentYear"></span> <a href="https://www.christophe-guillon.com/" class="hover:text-white transition">Christophe Guillon</a> — Consultant-Formateur IA &amp; NoCode.
+            </div>
+            <div class="flex gap-5">
+                <a href="https://www.christophe-guillon.com/" class="hover:text-white transition">Accueil</a>
+                <a href="https://www.christophe-guillon.com/mentions-legales.html" class="hover:text-white transition">Mentions légales</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Tiroir latéral (Gestion des flux) -->
-    <div id="drawerOverlay" class="fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
-    <div id="feedDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-brand-dark border-l border-brand-gray z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
-        <div class="p-4 border-b border-brand-gray flex justify-between items-center bg-brand-dark/95">
-            <h2 class="font-heading text-lg font-bold">Gérer les sources</h2>
-            <button id="closeDrawerBtn" class="text-brand-light hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <!-- Tiroir latéral : Gestion des flux -->
+    <div id="drawerOverlay" class="fixed inset-0 bg-black/70 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+    <aside id="feedDrawer" aria-label="Gestion des sources RSS" class="fixed top-0 right-0 h-full w-full max-w-md bg-brand-dark border-l border-brand-gray z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <div class="p-4 border-b border-brand-gray flex justify-between items-center bg-[#071624]">
+            <div>
+                <h2 class="font-heading text-lg font-bold">Sources RSS (<span id="drawerFeedsCount">0</span>)</h2>
+                <p class="text-xs text-brand-light">Ajoutez, renommez ou activez vos flux</p>
+            </div>
+            <button id="closeDrawerBtn" type="button" aria-label="Fermer le panneau" class="text-brand-light hover:text-white p-1">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
             </button>
         </div>
-        <div class="p-4 border-b border-brand-gray bg-gray-900/50">
+
+        <!-- Formulaire d'ajout de flux -->
+        <div class="p-4 border-b border-brand-gray bg-[#0A1929]">
             <form id="addFeedForm" class="flex flex-col gap-3">
-                <input type="url" id="newFeedUrl" placeholder="URL du flux RSS/Atom" required class="w-full bg-brand-dark border border-brand-gray rounded px-3 py-2 text-sm focus:outline-none focus:border-brand-accent placeholder-gray-500">
+                <input type="url" id="newFeedUrl" placeholder="https://exemple.com/feed.xml" required class="w-full bg-brand-dark border border-brand-gray rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-accent placeholder-slate-500">
                 <div class="flex gap-2">
-                    <input type="text" id="newFeedName" placeholder="Nom (optionnel)" class="flex-1 bg-brand-dark border border-brand-gray rounded px-3 py-2 text-sm focus:outline-none focus:border-brand-accent placeholder-gray-500">
-                    <select id="newFeedCategory" class="w-32 bg-brand-dark border border-brand-gray rounded px-2 py-2 text-sm focus:outline-none">
+                    <input type="text" id="newFeedName" placeholder="Nom du flux (optionnel)" class="flex-1 bg-brand-dark border border-brand-gray rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-accent placeholder-slate-500">
+                    <select id="newFeedCategory" class="w-32 bg-brand-dark border border-brand-gray rounded px-2 py-2 text-sm text-white focus:outline-none focus:border-brand-accent">
                         <option value="IA">IA</option>
                         <option value="NoCode">NoCode</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-brand-accent hover:bg-blue-600 text-white py-2 rounded-md font-medium transition text-sm">Ajouter le flux</button>
+                <button type="submit" class="w-full bg-brand-accent hover:bg-blue-600 text-white py-2 rounded-md font-medium transition text-sm">
+                    + Ajouter le flux
+                </button>
             </form>
+            <div id="drawerFeedback" class="hidden mt-2 text-xs px-2.5 py-1.5 rounded"></div>
         </div>
+
+        <!-- Liste des flux configurés -->
         <div class="flex-grow overflow-y-auto p-4">
-            <ul id="feedsList" class="space-y-3">
-                <!-- Liste des flux injectée via JS -->
+            <ul id="feedsList" class="space-y-2.5">
+                <!-- Liste injectée dynamiquement -->
             </ul>
         </div>
-    </div>
 
-    <!-- Logique JS -->
+        <!-- Pied du tiroir : réinitialisation -->
+        <div class="p-4 border-t border-brand-gray bg-[#071624] flex justify-between items-center">
+            <button id="resetFeedsBtn" type="button" class="text-xs text-brand-light hover:text-brand-yellow transition underline">
+                Réinitialiser (15)
+            </button>
+            <button id="clearCacheBtn" type="button" class="text-xs text-brand-light hover:text-white transition">
+                Vider le cache articles
+            </button>
+        </div>
+    </aside>
+
     <script>
-        // --- CONSTANTES & ÉTATS ---
+        // =====================================================================
+        // 1. CONSTANTES & CONFIGURATION
+        // =====================================================================
         const FEEDS_STORAGE_KEY = 'cg_feeds_v1';
         const ARTICLES_CACHE_KEY = 'cg_articles_cache_v1';
-        
+        const FAVORITES_STORAGE_KEY = 'cg_favorites_v1';
+
+        const MAX_CACHED_ARTICLES = 250;
+        const RETENTION_DAYS = 30;
+        const ITEMS_PER_PAGE = 12;
+        const FETCH_CONCURRENCY = 4;
+
+        // 15 flux par défaut (modifiables librement ou via /data/feeds.json)
         const defaultFeeds = [
-            { name: 'OpenAI Blog', url: 'https://openai.com/blog/rss/', category: 'IA' },
-            { name: 'Hugging Face', url: 'https://huggingface.co/blog/feed.xml', category: 'IA' },
-            { name: 'Make Blog', url: 'https://www.make.com/en/blog/rss', category: 'NoCode' }
-            // Ajoutez ici vos 15 flux par défaut
+            { name: 'OpenAI News', url: 'https://openai.com/news/rss.xml', category: 'IA', enabled: true },
+            { name: 'Hugging Face Blog', url: 'https://huggingface.co/blog/feed.xml', category: 'IA', enabled: true },
+            { name: 'Google AI Blog', url: 'https://blog.google/technology/ai/rss/', category: 'IA', enabled: true },
+            { name: 'Simon Willison Weblog', url: 'https://simonwillison.net/atom/everything/', category: 'IA', enabled: true },
+            { name: 'MIT Tech Review - IA', url: 'https://www.technologyreview.com/topic/artificial-intelligence/feed', category: 'IA', enabled: true },
+            { name: 'The Verge - AI', url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', category: 'IA', enabled: true },
+            { name: 'ActuIA', url: 'https://www.actuia.com/feed/', category: 'IA', enabled: true },
+            { name: 'Blog du Modérateur - IA', url: 'https://www.blogdumoderateur.com/dossier/intelligence-artificielle/feed/', category: 'IA', enabled: true },
+            { name: 'ZDNet France - IA', url: 'https://www.zdnet.fr/feeds/rss/actualites/intelligence-artificielle/', category: 'IA', enabled: true },
+            { name: 'Make Blog', url: 'https://www.make.com/en/blog/rss.xml', category: 'NoCode', enabled: true },
+            { name: 'n8n Blog', url: 'https://blog.n8n.io/rss/', category: 'NoCode', enabled: true },
+            { name: 'Zapier Blog', url: 'https://zapier.com/blog/feeds/latest/', category: 'NoCode', enabled: true },
+            { name: 'Bubble Blog', url: 'https://bubble.io/blog/rss/', category: 'NoCode', enabled: true },
+            { name: 'Webflow Blog', url: 'https://webflow.com/blog/feed.xml', category: 'NoCode', enabled: true },
+            { name: 'Airtable Blog', url: 'https://blog.airtable.com/rss/', category: 'NoCode', enabled: true }
         ];
 
+        // =====================================================================
+        // 2. ÉTAT DE L'APPLICATION
+        // =====================================================================
         let activeFeeds = [];
         let allArticles = [];
         let filteredArticles = [];
-        let currentPage = 1;
-        const itemsPerPage = 12;
+        let favoriteIds = new Set();
 
-        // --- UTILITAIRES ---
+        let currentCategory = 'all';
+        let currentFeedFilter = 'all';
+        let currentSearchQuery = '';
+        let currentPage = 1;
+        let isSyncing = false;
+
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        /** Échappe les entités HTML pour éviter l'injection XSS (Issue #7) */
-        function escapeHTML(str) {
-            if (!str) return '';
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
+        // =====================================================================
+        // 3. UTILITAIRES DE NORMALISATION & SÉCURITÉ (Issues #6, #7, #9)
+        // =====================================================================
 
-        /** Génère un hash simple pour les IDs d'articles */
-        function hashString(str) {
-            let hash = 0;
+        /** Génère un identifiant déterministe FNV-1a 32-bit en hexadécimal */
+        function hashString(input) {
+            let hash = 0x811c9dc5;
+            const str = String(input || '');
             for (let i = 0; i < str.length; i++) {
-                hash = ((hash << 5) - hash) + str.charCodeAt(i);
-                hash |= 0;
+                hash ^= str.charCodeAt(i);
+                hash = Math.imul(hash, 0x01000193);
             }
-            return Math.abs(hash).toString(16);
+            return (hash >>> 0).toString(16).padStart(8, '0');
         }
 
-        /** Normalise un flux et lui attribue un identifiant stable */
+        /** Normalise une URL en retirant les paramètres de tracking (utm_*, fbclid, etc.) */
+        function normalizeUrl(rawUrl) {
+            try {
+                const parsed = new URL(String(rawUrl || '').trim());
+                if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+                    return '';
+                }
+                const paramsToDelete = [];
+                parsed.searchParams.forEach((_, key) => {
+                    const lower = key.toLowerCase();
+                    if (lower.startsWith('utm_') || lower === 'fbclid' || lower === 'gclid' || lower === 'ref') {
+                        paramsToDelete.push(key);
+                    }
+                });
+                paramsToDelete.forEach((key) => parsed.searchParams.delete(key));
+                parsed.hash = '';
+                return parsed.toString();
+            } catch {
+                return '';
+            }
+        }
+
+        /** Génère un identifiant de flux stable basé sur l'URL normalisée (Issue #6) */
+        function buildFeedId(url) {
+            const norm = normalizeUrl(url) || String(url || '').trim().toLowerCase();
+            return `feed_${hashString(norm)}`;
+        }
+
+        /** Normalise un objet flux selon le schéma cible */
         function normalizeFeed(feed, index = 0) {
-            const cleanUrl = String(feed?.url || '').trim();
-            const fallbackId = cleanUrl
-                ? 'feed_' + btoa(unescape(encodeURIComponent(cleanUrl))).replace(/[^a-zA-Z0-9]/g, '').slice(0, 16)
-                : `feed_${index}`;
+            const cleanUrl = normalizeUrl(feed?.url) || String(feed?.url || '').trim();
             return {
-                id: String(feed?.id || fallbackId).trim(),
+                id: String(feed?.id || (cleanUrl ? buildFeedId(cleanUrl) : `feed_${index}`)).trim(),
                 name: String(feed?.name || 'Flux sans nom').trim(),
                 url: cleanUrl,
-                category: String(feed?.category || 'IA & NoCode').trim(),
+                category: feed?.category === 'NoCode' ? 'NoCode' : 'IA',
                 enabled: feed?.enabled !== false
             };
         }
 
-        // --- GESTION DU STORAGE & MIGRATION (Issues #3 & #10) ---
-        function migrateFeedsStorage() {
+        /** Décode proprement le HTML externe en texte brut via DOMParser (Issue #7) */
+        function extractPlainText(rawHtml, maxLength = 0) {
+            if (!rawHtml) return '';
+            const doc = new DOMParser().parseFromString(String(rawHtml), 'text/html');
+            const text = (doc.body.textContent || '').replace(/\s+/g, ' ').trim();
+            if (maxLength > 0 && text.length > maxLength) {
+                return text.slice(0, maxLength - 1).trimEnd() + '…';
+            }
+            return text;
+        }
+
+        /** Échappe les caractères spéciaux avant insertion dans innerHTML (Issue #7) */
+        function escapeHTML(str) {
+            return String(str ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        /** Vérifie qu'un lien pointe vers un article et non une racine ou page index nue (Issue #9) */
+        function isArticleDeepLink(url) {
             try {
-                const legacyKeys = ['cg_rss_feeds_active', 'cg_rss_feeds_v45', 'cg_rss_feeds_custom'];
+                const parsed = new URL(url);
+                const path = parsed.pathname.replace(/\/+$/, '');
+                if (!path || path === '') return false;
+                const segments = path.split('/').filter(Boolean);
+                // Rejette uniquement les pages d'index taxonomiques à 1 ou 2 segments courts sans slug d'article
+                if (segments.length <= 2 && /^(tag|tags|category|categories|topic|topics|section|author)$/i.test(segments[0])) {
+                    return false;
+                }
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
+        // =====================================================================
+        // 4. PERSISTANCE & MIGRATION IDEMPOTENTE (Issues #3, #4, #10)
+        // =====================================================================
+
+        /** Migre de façon idempotente les anciennes clés cg_rss_feeds_* vers cg_feeds_v1 */
+        function migrateStorage() {
+            try {
+                const legacyKeys = [];
                 for (let i = 0; i < localStorage.length; i++) {
                     const key = localStorage.key(i);
-                    if (key && key.startsWith('cg_rss_feeds_') && !legacyKeys.includes(key)) legacyKeys.push(key);
+                    if (key && key.startsWith('cg_rss_feeds_')) {
+                        legacyKeys.push(key);
+                    }
                 }
-                if (localStorage.getItem(FEEDS_STORAGE_KEY) !== null) {
-                    legacyKeys.forEach(key => localStorage.removeItem(key));
-                    return;
+
+                // Si la clé cible existe déjà avec des données valides, purge uniquement les résidus
+                const existingTarget = localStorage.getItem(FEEDS_STORAGE_KEY);
+                if (existingTarget !== null) {
+                    const parsedExisting = JSON.parse(existingTarget);
+                    if (Array.isArray(parsedExisting) && parsedExisting.length > 0) {
+                        legacyKeys.forEach((key) => localStorage.removeItem(key));
+                        return;
+                    }
                 }
-                const priorityOrder = ['cg_rss_feeds_active', 'cg_rss_feeds_v45', 'cg_rss_feeds_custom'];
-                let migratedFeeds = null;
+
+                // Ordre de priorité : cg_rss_feeds_active d'abord, puis versions décroissantes, puis custom
+                const versionedKeys = legacyKeys
+                    .filter((k) => /^cg_rss_feeds_v\d+$/.test(k))
+                    .sort((a, b) => Number(b.replace('cg_rss_feeds_v', '')) - Number(a.replace('cg_rss_feeds_v', '')));
+
+                const priorityOrder = [
+                    'cg_rss_feeds_active',
+                    ...versionedKeys,
+                    'cg_rss_feeds_custom'
+                ];
+
+                let migrated = null;
                 for (const sourceKey of priorityOrder) {
                     const raw = localStorage.getItem(sourceKey);
                     if (!raw) continue;
                     const parsed = JSON.parse(raw);
                     if (Array.isArray(parsed) && parsed.length > 0) {
-                        migratedFeeds = parsed.filter(item => item && item.url).map((item, idx) => normalizeFeed(item, idx));
+                        migrated = parsed
+                            .filter((item) => item && item.url)
+                            .map((item, idx) => normalizeFeed(item, idx));
+                        console.info(`[Veille CG] Migration réussie depuis "${sourceKey}" (${migrated.length} flux).`);
                         break;
                     }
                 }
-                if (migratedFeeds) localStorage.setItem(FEEDS_STORAGE_KEY, JSON.stringify(migratedFeeds));
-                legacyKeys.forEach(key => localStorage.removeItem(key));
-            } catch (error) { console.error('[Veille CG] Erreur migration:', error); }
+
+                if (migrated && migrated.length > 0) {
+                    localStorage.setItem(FEEDS_STORAGE_KEY, JSON.stringify(migrated));
+                    legacyKeys.forEach((key) => localStorage.removeItem(key));
+                }
+            } catch (error) {
+                console.error('[Veille CG] Erreur lors de la migration localStorage :', error);
+            }
         }
 
         function loadFeeds() {
-            migrateFeedsStorage();
+            migrateStorage();
             try {
                 const raw = localStorage.getItem(FEEDS_STORAGE_KEY);
                 if (raw) {
                     const parsed = JSON.parse(raw);
-                    if (Array.isArray(parsed)) return parsed.map((item, idx) => normalizeFeed(item, idx));
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        const normalized = parsed
+                            .filter((item) => item && item.url)
+                            .map((item, idx) => normalizeFeed(item, idx));
+                        console.info(`[Veille CG] ${normalized.length} flux chargés depuis ${FEEDS_STORAGE_KEY}.`);
+                        return normalized;
+                    }
                 }
-            } catch (e) { console.error('[Veille CG] Erreur lecture flux:', e); }
-            
+            } catch (error) {
+                console.error('[Veille CG] Erreur lecture cg_feeds_v1 :', error);
+            }
+
             const defaults = defaultFeeds.map((item, idx) => normalizeFeed(item, idx));
-            saveFeeds(defaults);
+            saveFeeds(defaults, false);
+            console.info(`[Veille CG] Initialisation avec ${defaults.length} flux par défaut.`);
             return defaults;
         }
 
-        function saveFeeds(feeds) {
+        function saveFeeds(feeds, shouldRender = true) {
             try {
-                const normalized = feeds.map((item, idx) => normalizeFeed(item, idx));
+                const normalized = feeds
+                    .filter((item) => item && item.url)
+                    .map((item, idx) => normalizeFeed(item, idx));
                 localStorage.setItem(FEEDS_STORAGE_KEY, JSON.stringify(normalized));
                 activeFeeds = normalized;
-                renderFeedsList();
-            } catch (e) { console.error('[Veille CG] Erreur sauvegarde flux:', e); }
+                if (shouldRender) {
+                    renderFeedsList();
+                    updateFeedFilterSelect();
+                }
+                return true;
+            } catch (error) {
+                console.error('[Veille CG] Échec sauvegarde des flux :', error);
+                return false;
+            }
         }
 
-        function saveCachedArticles() {
+        function loadFavorites() {
             try {
-                // Issue #4: Trier avant de tronquer pour ne pas perdre les récents
-                const sorted = [...allArticles].sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-                const truncated = sorted.slice(0, 150); 
-                localStorage.setItem(ARTICLES_CACHE_KEY, JSON.stringify(truncated));
-            } catch (e) { console.error('[Veille CG] Erreur cache articles:', e); }
+                const raw = localStorage.getItem(FAVORITES_STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed)) {
+                        favoriteIds = new Set(parsed);
+                    }
+                }
+            } catch (error) {
+                console.error('[Veille CG] Erreur lecture favoris :', error);
+            }
+            updateFavoritesBadge();
+        }
+
+        function saveFavorites() {
+            try {
+                localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(Array.from(favoriteIds)));
+                updateFavoritesBadge();
+            } catch (error) {
+                console.error('[Veille CG] Erreur sauvegarde favoris :', error);
+            }
+        }
+
+        /** Trie par date décroissante, purge > 30 jours et tronque à 250 articles (Issue #4) */
+        function pruneAndSortArticles(articlesList) {
+            const nowMs = Date.now();
+            const maxAgeMs = RETENTION_DAYS * 24 * 60 * 60 * 1000;
+            const dedupMap = new Map();
+
+            articlesList.forEach((art) => {
+                if (!art || !art.link) return;
+                const cleanLink = normalizeUrl(art.link);
+                if (!cleanLink) return;
+
+                // Purge des articles datés de plus de 30 jours
+                if (art.pubDate) {
+                    const pubMs = Date.parse(art.pubDate);
+                    if (!Number.isNaN(pubMs) && (nowMs - pubMs) > maxAgeMs) {
+                        return;
+                    }
+                }
+
+                dedupMap.set(cleanLink, {
+                    ...art,
+                    id: art.id || hashString(cleanLink),
+                    link: cleanLink
+                });
+            });
+
+            return Array.from(dedupMap.values())
+                .sort((a, b) => {
+                    const timeA = a.pubDate ? Date.parse(a.pubDate) : 0;
+                    const timeB = b.pubDate ? Date.parse(b.pubDate) : 0;
+                    if (timeB !== timeA) return timeB - timeA;
+                    const fetchA = a.fetchedAt ? Date.parse(a.fetchedAt) : 0;
+                    const fetchB = b.fetchedAt ? Date.parse(b.fetchedAt) : 0;
+                    return fetchB - fetchA;
+                })
+                .slice(0, MAX_CACHED_ARTICLES);
         }
 
         function loadCachedArticles() {
             try {
                 const raw = localStorage.getItem(ARTICLES_CACHE_KEY);
-                if (raw) return JSON.parse(raw);
-            } catch (e) { console.error('[Veille CG] Erreur chargement cache:', e); }
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed)) {
+                        return pruneAndSortArticles(parsed);
+                    }
+                }
+            } catch (error) {
+                console.error('[Veille CG] Erreur lecture cache articles :', error);
+            }
             return [];
         }
 
-        // --- COLLECTE DES DONNÉES (Préparation Architecture Cible) ---
-        async function fetchRSS(url) {
-            // Proxys en cascade (à remplacer à terme par appel serveur)
+        function saveCachedArticles() {
+            try {
+                allArticles = pruneAndSortArticles(allArticles);
+                localStorage.setItem(ARTICLES_CACHE_KEY, JSON.stringify(allArticles));
+            } catch (error) {
+                console.error('[Veille CG] Erreur sauvegarde cache articles :', error);
+            }
+        }
+
+        // =====================================================================
+        // 5. COLLECTE DES DONNÉES (Architecture Cible + Repli Proxys)
+        // =====================================================================
+
+        /** Charge /data/feeds.json et /data/articles.json s'ils existent sur le dépôt */
+        async function loadServerData() {
+            let serverArticles = [];
+            try {
+                const feedsRes = await fetch('./data/feeds.json', { cache: 'no-cache' });
+                if (feedsRes.ok) {
+                    const remoteFeeds = await feedsRes.json();
+                    if (Array.isArray(remoteFeeds) && remoteFeeds.length > 0) {
+                        const existingById = new Map(activeFeeds.map((f) => [f.id, f]));
+                        let updated = false;
+                        remoteFeeds.forEach((rf, idx) => {
+                            const norm = normalizeFeed(rf, idx);
+                            if (!existingById.has(norm.id)) {
+                                activeFeeds.push(norm);
+                                updated = true;
+                            }
+                        });
+                        if (updated) saveFeeds(activeFeeds);
+                    }
+                }
+            } catch {
+                // Fichier optionnel non encore créé
+            }
+
+            try {
+                const articlesRes = await fetch('./data/articles.json', { cache: 'no-cache' });
+                if (articlesRes.ok) {
+                    const remoteArticles = await articlesRes.json();
+                    if (Array.isArray(remoteArticles)) {
+                        serverArticles = remoteArticles;
+                        console.info(`[Veille CG] ${serverArticles.length} articles chargés depuis /data/articles.json.`);
+                    }
+                }
+            } catch {
+                console.info('[Veille CG] /data/articles.json absent, utilisation du cache et des proxys.');
+            }
+
+            return serverArticles;
+        }
+
+        /** Récupère le XML brut d'un flux via proxys en cascade avec timeout court (Issue #1) */
+        async function fetchRSSWithFallback(url) {
+            const encoded = encodeURIComponent(url);
             const proxies = [
-                `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-                `https://corsproxy.io/?${encodeURIComponent(url)}`
+                { name: 'corsproxy', endpoint: `https://corsproxy.io/?${encoded}`, jsonWrapper: false },
+                { name: 'allorigins-get', endpoint: `https://api.allorigins.win/get?url=${encoded}`, jsonWrapper: true },
+                { name: 'allorigins-raw', endpoint: `https://api.allorigins.win/raw?url=${encoded}`, jsonWrapper: false },
+                { name: 'codetabs', endpoint: `https://api.codetabs.com/v1/proxy?quest=${encoded}`, jsonWrapper: false }
             ];
-            
+
+            const errors = [];
             for (const proxy of proxies) {
                 try {
                     const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 6000);
-                    const response = await fetch(proxy, { signal: controller.signal });
-                    clearTimeout(timeoutId);
-                    if (response.ok) return await response.text();
-                } catch (e) {
-                    console.warn(`Proxy échoué pour ${url}: ${e.message}`);
+                    const timer = setTimeout(() => controller.abort(), 5000);
+                    const response = await fetch(proxy.endpoint, { signal: controller.signal });
+                    clearTimeout(timer);
+
+                    if (!response.ok) {
+                        errors.push(`${proxy.name}:HTTP_${response.status}`);
+                        continue;
+                    }
+
+                    if (proxy.jsonWrapper) {
+                        const data = await response.json();
+                        if (data && typeof data.contents === 'string' && data.contents.trim().length > 0) {
+                            return data.contents;
+                        }
+                        errors.push(`${proxy.name}:EMPTY_WRAPPER`);
+                        continue;
+                    }
+
+                    const text = await response.text();
+                    if (text && text.trim().length > 0) {
+                        return text;
+                    }
+                    errors.push(`${proxy.name}:EMPTY_TEXT`);
+                } catch (err) {
+                    errors.push(`${proxy.name}:${err.name === 'AbortError' ? 'TIMEOUT' : err.message}`);
                 }
             }
-            throw new Error("Tous les proxys ont échoué.");
+
+            throw new Error(errors.join(' | '));
         }
 
-        function parseFeed(xmlString, feed) {
+        /** Parse un document RSS 2.0 ou Atom selon le modèle de données cible */
+        function parseFeedXML(xmlString, feed) {
             const parser = new DOMParser();
-            const xml = parser.parseFromString(xmlString, "text/xml");
-            const items = Array.from(xml.querySelectorAll("item, entry"));
-            const newArticles = [];
+            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
 
-            items.forEach(item => {
-                const titleNode = item.querySelector("title");
-                const linkNode = item.querySelector("link");
-                const descNode = item.querySelector("description, summary, content");
-                const dateNode = item.querySelector("pubDate, published, updated, date");
+            if (xmlDoc.querySelector('parsererror')) {
+                throw new Error('XML invalide ou HTML bloqué par le serveur distant');
+            }
 
-                let link = linkNode ? (linkNode.textContent || linkNode.getAttribute("href")) : "";
-                if (!link) return;
+            const entries = Array.from(xmlDoc.querySelectorAll('item, entry'));
+            const fetchedAt = new Date().toISOString();
+            const parsedArticles = [];
 
-                // Issue #8: Gestion des dates manquantes
-                let pubDate = new Date();
-                if (dateNode && dateNode.textContent) {
-                    const parsedDate = new Date(dateNode.textContent);
-                    if (!isNaN(parsedDate.getTime())) pubDate = parsedDate;
+            entries.forEach((entry) => {
+                const titleNode = entry.querySelector('title');
+                const descNode = entry.querySelector('description, summary, content, encoded');
+                const dateNode = entry.querySelector('pubDate, published, updated, date');
+                const sourceNode = entry.querySelector('source');
+
+                // Extraction robuste du lien RSS ou Atom (rel="alternate")
+                let rawLink = '';
+                const linkNodes = Array.from(entry.querySelectorAll('link'));
+                for (const ln of linkNodes) {
+                    const rel = ln.getAttribute('rel');
+                    const href = ln.getAttribute('href');
+                    if (href && (!rel || rel === 'alternate')) {
+                        rawLink = href;
+                        break;
+                    }
+                    if (!rawLink && ln.textContent && ln.textContent.trim()) {
+                        rawLink = ln.textContent.trim();
+                    }
                 }
 
-                const rawTitle = titleNode ? titleNode.textContent : "Sans titre";
-                const rawDesc = descNode ? descNode.textContent.replace(/(<([^>]+)>)/gi, "") : "";
+                const cleanLink = normalizeUrl(rawLink);
+                if (!cleanLink || !isArticleDeepLink(cleanLink)) return;
 
-                // Issue #6: feedId attaché à l'article pour intégrité
-                newArticles.push({
-                    id: hashString(link),
+                // Issue #8 : pubDate = null si absente ou invalide (jamais new Date())
+                let pubDateISO = null;
+                if (dateNode && dateNode.textContent) {
+                    const parsedTime = Date.parse(dateNode.textContent.trim());
+                    if (!Number.isNaN(parsedTime)) {
+                        pubDateISO = new Date(parsedTime).toISOString();
+                    }
+                }
+
+                const title = extractPlainText(titleNode ? titleNode.textContent : '', 220) || 'Article sans titre';
+                const description = extractPlainText(descNode ? descNode.textContent : '', 250);
+                const source = extractPlainText(sourceNode ? sourceNode.textContent : '', 80) || feed.name;
+
+                parsedArticles.push({
+                    id: hashString(cleanLink),
                     feedId: feed.id,
                     feedName: feed.name,
-                    title: rawTitle,
-                    link: link,
-                    description: rawDesc.substring(0, 200) + (rawDesc.length > 200 ? '...' : ''),
-                    pubDate: pubDate.toISOString(),
-                    category: feed.category
+                    source: source,
+                    title: title,
+                    link: cleanLink,
+                    description: description,
+                    pubDate: pubDateISO,
+                    category: feed.category,
+                    fetchedAt: fetchedAt
                 });
             });
-            return newArticles;
+
+            return parsedArticles;
         }
 
-        async function syncArticles() {
-            showStatus(`<div class="loader"></div> <span>Actualisation des données...</span>`);
-            
-            // 1. Tenter de charger le JSON centralisé via Github Actions (Architecture cible)
-            let serverArticles = [];
-            try {
-                const response = await fetch('./data/articles.json', { cache: 'no-store' });
-                if (response.ok) {
-                    serverArticles = await response.json();
-                }
-            } catch (e) {
-                console.info("[Veille CG] articles.json indisponible, mode dynamique/cache activé.");
-            }
+        /** Synchronise les articles avec rendu progressif par lots */
+        async function syncAllFeeds() {
+            if (isSyncing) return;
+            isSyncing = true;
 
-            allArticles = serverArticles.length > 0 ? serverArticles : loadCachedArticles();
-            applyFilters(); 
-            
-            // 2. Fetch dynamique pour les flux non présents dans articles.json (ou tous si pas de json)
-            const feedsToFetch = activeFeeds.filter(f => f.enabled);
-            let newFetched = [];
+            const refreshIcon = document.getElementById('refreshIcon');
+            refreshIcon.classList.add('animate-spin');
+            showStatus('<div class="loader"></div><span>Chargement des sources en cours…</span>');
 
-            for (const feed of feedsToFetch) {
-                try {
-                    const xml = await fetchRSS(feed.url);
-                    const articles = parseFeed(xml, feed);
-                    newFetched = [...newFetched, ...articles];
-                } catch (error) {
-                    console.error(`[Veille CG] Impossible de récupérer le flux ${feed.name}`);
-                }
-            }
-
-            if (newFetched.length > 0) {
-                // Déduplication (sur l'URL) et fusion
-                const allMap = new Map();
-                [...allArticles, ...newFetched].forEach(art => allMap.set(art.link, art));
-                
-                allArticles = Array.from(allMap.values())
-                    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-                
+            // 1. Chargement immédiat depuis /data/articles.json si disponible
+            const serverArticles = await loadServerData();
+            if (serverArticles.length > 0) {
+                allArticles = pruneAndSortArticles([...allArticles, ...serverArticles]);
                 saveCachedArticles();
+                applyFilters(false);
             }
 
+            // 2. Récupération parallèle par lots pour les flux actifs
+            const enabledFeeds = activeFeeds.filter((f) => f.enabled);
+            let completedCount = 0;
+            let successCount = 0;
+
+            for (let i = 0; i < enabledFeeds.length; i += FETCH_CONCURRENCY) {
+                const batch = enabledFeeds.slice(i, i + FETCH_CONCURRENCY);
+                await Promise.allSettled(
+                    batch.map(async (feed) => {
+                        try {
+                            const xml = await fetchRSSWithFallback(feed.url);
+                            const articles = parseFeedXML(xml, feed);
+                            if (articles.length > 0) {
+                                allArticles = pruneAndSortArticles([...allArticles, ...articles]);
+                                successCount++;
+                            }
+                        } catch (err) {
+                            console.warn(`[Veille CG] Flux ignoré (${feed.name}) : ${err.message}`);
+                        } finally {
+                            completedCount++;
+                            showStatus(`<div class="loader"></div><span>Actualisation : ${completedCount}/${enabledFeeds.length} sources vérifiées…</span>`);
+                        }
+                    })
+                );
+
+                // Mise à jour progressive de l'écran dès chaque lot terminé
+                saveCachedArticles();
+                applyFilters(false);
+            }
+
+            const nowStr = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+            const badge = document.getElementById('lastUpdateBadge');
+            badge.textContent = `Mis à jour à ${nowStr} (${successCount}/${enabledFeeds.length} flux)`;
+            badge.classList.remove('hidden');
+
+            refreshIcon.classList.remove('animate-spin');
             hideStatus();
-            applyFilters();
+            isSyncing = false;
+            console.info(`[Veille CG] Synchronisation terminée : ${allArticles.length} articles en mémoire (${successCount}/${enabledFeeds.length} flux actifs répondent).`);
         }
 
-        // --- AFFICHAGE & FILTRES ---
-        let currentFilter = 'all';
+        // =====================================================================
+        // 6. ACTIONS UTILISATEUR SUR LES FLUX (Issue #6)
+        // =====================================================================
 
-        function applyFilters() {
-            // Purge silencieuse des articles orphelins (dont le feedId n'existe plus ou est désactivé)
-            const enabledFeedIds = activeFeeds.filter(f => f.enabled).map(f => f.id);
-            allArticles = allArticles.filter(art => enabledFeedIds.includes(art.feedId));
+        function renameFeed(feedId) {
+            const target = activeFeeds.find((f) => f.id === feedId);
+            if (!target) return;
 
-            if (currentFilter === 'all') {
-                filteredArticles = [...allArticles];
-            } else {
-                filteredArticles = allArticles.filter(art => art.category === currentFilter);
+            const proposed = window.prompt('Nouveau nom pour cette source :', target.name);
+            if (proposed === null) return;
+            const trimmed = proposed.trim();
+            if (!trimmed || trimmed === target.name) return;
+
+            target.name = trimmed;
+            saveFeeds(activeFeeds);
+
+            // Mise à jour immédiate de feedName sur tous les articles liés via feedId
+            allArticles = allArticles.map((art) =>
+                art.feedId === feedId ? { ...art, feedName: trimmed } : art
+            );
+            saveCachedArticles();
+            applyFilters(false);
+        }
+
+        function deleteFeed(feedId) {
+            const target = activeFeeds.find((f) => f.id === feedId);
+            if (!target) return;
+
+            activeFeeds = activeFeeds.filter((f) => f.id !== feedId);
+            saveFeeds(activeFeeds);
+
+            // Purge immédiate des articles de ce flux via feedId
+            allArticles = allArticles.filter((art) => art.feedId !== feedId);
+            saveCachedArticles();
+
+            if (currentFeedFilter === feedId) {
+                currentFeedFilter = 'all';
             }
-            
-            currentPage = 1;
+            applyFilters(true);
+        }
+
+        function toggleFeed(feedId) {
+            const target = activeFeeds.find((f) => f.id === feedId);
+            if (!target) return;
+
+            target.enabled = !target.enabled;
+            saveFeeds(activeFeeds);
+            applyFilters(true);
+        }
+
+        function resetDefaultFeeds() {
+            if (!window.confirm('Restaurer les 15 sources par défaut ? Vos flux personnalisés seront remplacés.')) {
+                return;
+            }
+            const defaults = defaultFeeds.map((item, idx) => normalizeFeed(item, idx));
+            saveFeeds(defaults);
+            currentFeedFilter = 'all';
+            syncAllFeeds();
+        }
+
+        function toggleFavorite(articleId) {
+            if (favoriteIds.has(articleId)) {
+                favoriteIds.delete(articleId);
+            } else {
+                favoriteIds.add(articleId);
+            }
+            saveFavorites();
+            applyFilters(false);
+        }
+
+        // =====================================================================
+        // 7. FILTRAGE, PAGINATION & RENDU DOM (Issues #5, #6, #7, #8)
+        // =====================================================================
+
+        function applyFilters(resetPage = true) {
+            const enabledFeedMap = new Map(
+                activeFeeds.filter((f) => f.enabled).map((f) => [f.id, f])
+            );
+
+            // Synchronise les noms de flux et masque les flux désactivés/supprimés
+            const visibleArticles = allArticles
+                .filter((art) => enabledFeedMap.has(art.feedId))
+                .map((art) => {
+                    const feed = enabledFeedMap.get(art.feedId);
+                    return {
+                        ...art,
+                        feedName: feed.name,
+                        category: feed.category
+                    };
+                });
+
+            filteredArticles = visibleArticles.filter((art) => {
+                if (currentCategory === 'favorites' && !favoriteIds.has(art.id)) {
+                    return false;
+                }
+                if (currentCategory !== 'all' && currentCategory !== 'favorites' && art.category !== currentCategory) {
+                    return false;
+                }
+                if (currentFeedFilter !== 'all' && art.feedId !== currentFeedFilter) {
+                    return false;
+                }
+                if (currentSearchQuery) {
+                    const haystack = `${art.title} ${art.description} ${art.feedName}`.toLowerCase();
+                    if (!haystack.includes(currentSearchQuery)) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+
+            if (resetPage) {
+                currentPage = 1;
+            } else {
+                const maxPages = Math.max(1, Math.ceil(filteredArticles.length / ITEMS_PER_PAGE));
+                if (currentPage > maxPages) currentPage = maxPages;
+            }
+
             renderArticles();
+        }
+
+        function formatDisplayDate(isoDate) {
+            if (!isoDate) return 'Date inconnue';
+            const parsed = new Date(isoDate);
+            if (Number.isNaN(parsed.getTime())) return 'Date inconnue';
+            return parsed.toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'short',
+                year: parsed.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined
+            });
         }
 
         function renderArticles() {
@@ -405,39 +894,51 @@
             grid.innerHTML = '';
 
             if (filteredArticles.length === 0) {
-                grid.innerHTML = `<div class="col-span-full py-12 text-center text-brand-light">Aucun article trouvé pour cette catégorie ou vos flux sont vides.</div>`;
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 px-4 text-center bg-[#0A1929] border border-brand-gray rounded-xl">
+                        <p class="text-white font-medium mb-1">Aucun article à afficher</p>
+                        <p class="text-sm text-brand-light">Essayez de modifier vos filtres ou cliquez sur « Actualiser » pour interroger vos sources.</p>
+                    </div>
+                `;
                 document.getElementById('pagination').classList.add('hidden');
                 return;
             }
 
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            const paginatedItems = filteredArticles.slice(startIndex, endIndex);
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const pageSlice = filteredArticles.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-            paginatedItems.forEach(article => {
-                const dateObj = new Date(article.pubDate);
-                const dateStr = dateObj.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
-                
-                // Issue #7 : Injection sécurisée
-                const safeTitle = escapeHTML(article.title);
-                const safeDesc = escapeHTML(article.description);
-                const safeFeedName = escapeHTML(article.feedName);
+            pageSlice.forEach((article) => {
+                const isFav = favoriteIds.has(article.id);
+                const badgeColor = article.category === 'NoCode'
+                    ? 'bg-emerald-950/80 text-emerald-300 border-emerald-800/50'
+                    : 'bg-blue-950/80 text-blue-300 border-blue-800/50';
 
                 const card = document.createElement('article');
-                card.className = "bg-[#0A1929] border border-brand-gray rounded-xl p-5 hover:border-brand-accent transition flex flex-col h-full";
+                card.className = 'bg-[#0A1929] border border-brand-gray rounded-xl p-5 hover:border-brand-accent transition flex flex-col h-full';
+
                 card.innerHTML = `
-                    <div class="flex justify-between items-start mb-3">
-                        <span class="text-xs font-semibold px-2 py-1 rounded bg-brand-gray text-brand-light">${safeFeedName}</span>
-                        <span class="text-xs text-brand-light">${dateStr}</span>
+                    <div class="flex justify-between items-center gap-2 mb-3">
+                        <span class="text-xs font-medium px-2.5 py-0.5 rounded border truncate max-w-[68%] ${badgeColor}" title="${escapeHTML(article.feedName)}">
+                            ${escapeHTML(article.feedName)}
+                        </span>
+                        <span class="text-xs text-brand-light whitespace-nowrap">${escapeHTML(formatDisplayDate(article.pubDate))}</span>
                     </div>
-                    <h3 class="font-heading font-bold text-lg leading-tight mb-3 flex-grow">
-                        <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition">${safeTitle}</a>
-                    </h3>
-                    <p class="text-sm text-brand-light mb-4 line-clamp-3">${safeDesc}</p>
-                    <div class="mt-auto pt-4 border-t border-brand-gray/50">
-                        <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="text-brand-accent text-sm font-medium hover:underline inline-flex items-center gap-1">
-                            Lire l'article <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <h3 class="font-heading font-bold text-base leading-snug mb-2.5 flex-grow">
+                        <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition">
+                            ${escapeHTML(article.title)}
                         </a>
+                    </h3>
+                    <p class="text-sm text-brand-light mb-4 line-clamp-3">${escapeHTML(article.description || 'Aucun résumé disponible pour cet article.')}</p>
+                    <div class="mt-auto pt-3 border-t border-brand-gray/60 flex justify-between items-center">
+                        <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener noreferrer" class="text-brand-accent text-sm font-medium hover:underline inline-flex items-center gap-1">
+                            <span>Lire</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        <button type="button" class="fav-btn text-sm px-2 py-1 rounded hover:bg-brand-gray transition ${isFav ? 'text-brand-yellow' : 'text-brand-light hover:text-white'}" data-article-id="${escapeHTML(article.id)}" title="${isFav ? 'Retirer des favoris' : 'Ajouter aux favoris'}">
+                            ${isFav ? '★ Favori' : '☆ Favori'}
+                        </button>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -446,148 +947,272 @@
             renderPagination();
         }
 
-        // Issue #5: Pagination corrigée (basée sur filteredArticles)
+        /** Issue #5 : Pagination strictement basée sur filteredArticles.length */
         function renderPagination() {
-            const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
+            const totalItems = filteredArticles.length;
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
             const pagContainer = document.getElementById('pagination');
-            
+
             if (totalPages <= 1) {
                 pagContainer.classList.add('hidden');
                 return;
             }
-            
+
             pagContainer.classList.remove('hidden');
-            document.getElementById('pageIndicator').textContent = `Page ${currentPage} sur ${totalPages}`;
-            
-            const prevBtn = document.getElementById('prevPageBtn');
-            const nextBtn = document.getElementById('nextPageBtn');
-            
-            prevBtn.disabled = currentPage === 1;
-            nextBtn.disabled = currentPage === totalPages;
+            document.getElementById('pageIndicator').textContent = `Page ${currentPage} sur ${totalPages} (${totalItems} articles)`;
+            document.getElementById('prevPageBtn').disabled = currentPage <= 1;
+            document.getElementById('nextPageBtn').disabled = currentPage >= totalPages;
         }
 
-        // --- GESTION DE L'INTERFACE ---
+        function renderFeedsList() {
+            const list = document.getElementById('feedsList');
+            list.innerHTML = '';
+
+            const enabledCount = activeFeeds.filter((f) => f.enabled).length;
+            document.getElementById('activeFeedsCountBadge').textContent = String(enabledCount);
+            document.getElementById('drawerFeedsCount').textContent = `${enabledCount}/${activeFeeds.length}`;
+
+            activeFeeds.forEach((feed) => {
+                const li = document.createElement('li');
+                li.className = `flex justify-between items-center gap-2 p-3 rounded-lg border ${feed.enabled ? 'bg-[#0A1929] border-brand-gray' : 'bg-brand-dark/60 border-brand-gray/40 opacity-60'}`;
+
+                li.innerHTML = `
+                    <label class="flex items-start gap-2.5 flex-1 min-w-0 cursor-pointer">
+                        <input type="checkbox" class="toggle-feed mt-1 accent-[#0084FF]" data-feed-id="${escapeHTML(feed.id)}" ${feed.enabled ? 'checked' : ''}>
+                        <div class="min-w-0 flex-1">
+                            <div class="flex items-center gap-2">
+                                <p class="font-medium text-sm text-white truncate">${escapeHTML(feed.name)}</p>
+                                <span class="text-[10px] px-1.5 py-0.2 rounded bg-brand-gray text-brand-light">${escapeHTML(feed.category)}</span>
+                            </div>
+                            <p class="text-xs text-brand-light truncate">${escapeHTML(feed.url)}</p>
+                        </div>
+                    </label>
+                    <div class="flex items-center gap-1 flex-shrink-0">
+                        <button type="button" class="rename-feed text-brand-light hover:text-white p-1.5 rounded hover:bg-brand-gray transition" data-feed-id="${escapeHTML(feed.id)}" title="Renommer">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" class="delete-feed text-red-400 hover:text-red-300 p-1.5 rounded hover:bg-brand-gray transition" data-feed-id="${escapeHTML(feed.id)}" title="Supprimer">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                list.appendChild(li);
+            });
+        }
+
+        function updateFeedFilterSelect() {
+            const select = document.getElementById('feedFilterSelect');
+            const previousValue = currentFeedFilter;
+            select.innerHTML = '<option value="all">Toutes les sources</option>';
+
+            activeFeeds
+                .filter((f) => f.enabled)
+                .forEach((feed) => {
+                    const opt = document.createElement('option');
+                    opt.value = feed.id;
+                    opt.textContent = feed.name;
+                    select.appendChild(opt);
+                });
+
+            if (Array.from(select.options).some((o) => o.value === previousValue)) {
+                select.value = previousValue;
+            } else {
+                currentFeedFilter = 'all';
+                select.value = 'all';
+            }
+        }
+
+        function updateFavoritesBadge() {
+            document.getElementById('favoritesCount').textContent = String(favoriteIds.size);
+        }
+
         function showStatus(htmlContent) {
-            const status = document.getElementById('statusMessage');
-            status.innerHTML = htmlContent;
-            status.classList.remove('hidden');
+            document.getElementById('statusText').innerHTML = htmlContent;
+            document.getElementById('statusMessage').classList.remove('hidden');
         }
 
         function hideStatus() {
             document.getElementById('statusMessage').classList.add('hidden');
         }
 
-        // Tiroir latéral
-        const drawer = document.getElementById('feedDrawer');
-        const overlay = document.getElementById('drawerOverlay');
-        
-        function toggleDrawer() {
-            const isOpen = !drawer.classList.contains('translate-x-full');
-            if (isOpen) {
-                drawer.classList.add('translate-x-full');
-                overlay.classList.add('hidden');
-            } else {
+        function showDrawerFeedback(message, isError = false) {
+            const box = document.getElementById('drawerFeedback');
+            box.textContent = message;
+            box.className = `mt-2 text-xs px-2.5 py-1.5 rounded ${isError ? 'bg-red-950/80 text-red-300 border border-red-800/60' : 'bg-emerald-950/80 text-emerald-300 border border-emerald-800/60'}`;
+            box.classList.remove('hidden');
+            setTimeout(() => box.classList.add('hidden'), 4500);
+        }
+
+        // =====================================================================
+        // 8. ÉVÉNEMENTS & INITIALISATION
+        // =====================================================================
+
+        function toggleDrawer(forceState) {
+            const drawer = document.getElementById('feedDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            const shouldOpen = typeof forceState === 'boolean'
+                ? forceState
+                : drawer.classList.contains('translate-x-full');
+
+            if (shouldOpen) {
                 drawer.classList.remove('translate-x-full');
                 overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
             }
         }
 
-        document.getElementById('openDrawerBtn').addEventListener('click', toggleDrawer);
-        document.getElementById('closeDrawerBtn').addEventListener('click', toggleDrawer);
-        overlay.addEventListener('click', toggleDrawer);
+        function bindEvents() {
+            document.getElementById('openDrawerBtn').addEventListener('click', () => toggleDrawer(true));
+            document.getElementById('closeDrawerBtn').addEventListener('click', () => toggleDrawer(false));
+            document.getElementById('drawerOverlay').addEventListener('click', () => toggleDrawer(false));
+            document.getElementById('refreshBtn').addEventListener('click', syncAllFeeds);
+            document.getElementById('resetFeedsBtn').addEventListener('click', resetDefaultFeeds);
 
-        // Rendu de la liste des flux
-        function renderFeedsList() {
-            const list = document.getElementById('feedsList');
-            list.innerHTML = '';
-            
-            activeFeeds.forEach(feed => {
-                const li = document.createElement('li');
-                li.className = "flex justify-between items-center p-3 bg-brand-gray rounded-md";
-                li.innerHTML = `
-                    <div class="flex-1 min-w-0 pr-3">
-                        <p class="font-medium text-sm truncate">${escapeHTML(feed.name)}</p>
-                        <p class="text-xs text-brand-light truncate">${escapeHTML(feed.url)}</p>
-                    </div>
-                    <div class="flex gap-2 items-center">
-                        <button class="delete-feed text-red-400 hover:text-red-300 p-1" data-id="${feed.id}" title="Supprimer">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </button>
-                    </div>
-                `;
-                list.appendChild(li);
+            document.getElementById('clearCacheBtn').addEventListener('click', () => {
+                localStorage.removeItem(ARTICLES_CACHE_KEY);
+                allArticles = [];
+                applyFilters(true);
+                showDrawerFeedback('Cache local vidé.');
             });
 
-            // Boutons supprimer
-            document.querySelectorAll('.delete-feed').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const feedId = e.currentTarget.getAttribute('data-id');
-                    // Issue #6 : Suppression propre par ID
-                    activeFeeds = activeFeeds.filter(f => f.id !== feedId);
-                    saveFeeds(activeFeeds);
-                    applyFilters(); // Purgera immédiatement les articles orphelins
-                });
-            });
-        }
+            // Ajout d'un flux personnalisé avec validation immédiate
+            document.getElementById('addFeedForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const rawUrl = document.getElementById('newFeedUrl').value.trim();
+                const rawName = document.getElementById('newFeedName').value.trim();
+                const category = document.getElementById('newFeedCategory').value;
 
-        // Ajout d'un flux
-        document.getElementById('addFeedForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const url = document.getElementById('newFeedUrl').value.trim();
-            let name = document.getElementById('newFeedName').value.trim();
-            const category = document.getElementById('newFeedCategory').value;
-            
-            if (!url) return;
-            if (!name) name = new URL(url).hostname.replace('www.', '');
+                const cleanUrl = normalizeUrl(rawUrl);
+                if (!cleanUrl) {
+                    showDrawerFeedback('URL invalide. Utilisez une adresse http:// ou https://.', true);
+                    return;
+                }
 
-            const newFeed = normalizeFeed({ url, name, category, enabled: true }, activeFeeds.length);
-            
-            if (!activeFeeds.some(f => f.url === newFeed.url)) {
+                const feedId = buildFeedId(cleanUrl);
+                if (activeFeeds.some((f) => f.id === feedId)) {
+                    showDrawerFeedback('Ce flux est déjà présent dans votre liste.', true);
+                    return;
+                }
+
+                const name = rawName || new URL(cleanUrl).hostname.replace(/^www\./, '');
+                const newFeed = normalizeFeed({ id: feedId, name, url: cleanUrl, category, enabled: true }, activeFeeds.length);
+
                 activeFeeds.push(newFeed);
                 saveFeeds(activeFeeds);
                 document.getElementById('addFeedForm').reset();
-                syncArticles(); // Relance la synchro pour ce flux
-            } else {
-                alert("Ce flux existe déjà dans votre liste.");
-            }
-        });
+                showDrawerFeedback(`Flux « ${name} » ajouté. Récupération en cours…`);
 
-        // Pagination Events
-        document.getElementById('prevPageBtn').addEventListener('click', () => {
-            if (currentPage > 1) { currentPage--; renderArticles(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        });
-        document.getElementById('nextPageBtn').addEventListener('click', () => {
-            const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
-            if (currentPage < totalPages) { currentPage++; renderArticles(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        });
-
-        // Filtres Events
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-btn').forEach(b => {
-                    b.classList.remove('active', 'bg-brand-accent', 'text-white');
-                    b.classList.add('bg-brand-gray', 'text-brand-light');
-                });
-                const target = e.currentTarget;
-                target.classList.remove('bg-brand-gray', 'text-brand-light');
-                target.classList.add('active', 'bg-brand-accent', 'text-white');
-                
-                currentFilter = target.getAttribute('data-category');
-                applyFilters();
+                try {
+                    const xml = await fetchRSSWithFallback(newFeed.url);
+                    const articles = parseFeedXML(xml, newFeed);
+                    if (articles.length > 0) {
+                        allArticles = pruneAndSortArticles([...allArticles, ...articles]);
+                        saveCachedArticles();
+                        applyFilters(true);
+                        showDrawerFeedback(`${articles.length} articles récupérés pour « ${name} ».`);
+                    } else {
+                        showDrawerFeedback('Flux ajouté, mais aucun article récent trouvé.', true);
+                    }
+                } catch (err) {
+                    showDrawerFeedback(`Flux sauvegardé, mais lecture impossible pour le moment (${err.message}).`, true);
+                }
             });
-        });
 
-        document.getElementById('refreshBtn').addEventListener('click', syncArticles);
+            // Délégation des actions dans la liste des flux (toggle, renommer, supprimer)
+            document.getElementById('feedsList').addEventListener('click', (e) => {
+                const renameBtn = e.target.closest('.rename-feed');
+                if (renameBtn) {
+                    renameFeed(renameBtn.getAttribute('data-feed-id'));
+                    return;
+                }
+                const deleteBtn = e.target.closest('.delete-feed');
+                if (deleteBtn) {
+                    deleteFeed(deleteBtn.getAttribute('data-feed-id'));
+                }
+            });
 
-        // --- INITIALISATION ---
+            document.getElementById('feedsList').addEventListener('change', (e) => {
+                const checkbox = e.target.closest('.toggle-feed');
+                if (checkbox) {
+                    toggleFeed(checkbox.getAttribute('data-feed-id'));
+                }
+            });
+
+            // Délégation des favoris sur la grille
+            document.getElementById('articlesGrid').addEventListener('click', (e) => {
+                const favBtn = e.target.closest('.fav-btn');
+                if (favBtn) {
+                    toggleFavorite(favBtn.getAttribute('data-article-id'));
+                }
+            });
+
+            // Filtres par catégorie
+            document.querySelectorAll('.filter-btn').forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach((b) => {
+                        b.classList.remove('active', 'bg-brand-accent', 'text-white');
+                        b.classList.add('bg-brand-gray', 'text-brand-light');
+                    });
+                    const target = e.currentTarget;
+                    target.classList.remove('bg-brand-gray', 'text-brand-light');
+                    target.classList.add('active', 'bg-brand-accent', 'text-white');
+
+                    currentCategory = target.getAttribute('data-category');
+                    applyFilters(true);
+                });
+            });
+
+            // Filtre par source et recherche
+            document.getElementById('feedFilterSelect').addEventListener('change', (e) => {
+                currentFeedFilter = e.target.value;
+                applyFilters(true);
+            });
+
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                currentSearchQuery = e.target.value.trim().toLowerCase();
+                applyFilters(true);
+            });
+
+            // Pagination
+            document.getElementById('prevPageBtn').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderArticles();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+
+            document.getElementById('nextPageBtn').addEventListener('click', () => {
+                const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderArticles();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        }
+
         function init() {
+            loadFavorites();
             activeFeeds = loadFeeds();
             renderFeedsList();
-            syncArticles();
+            updateFeedFilterSelect();
+
+            // Affichage immédiat du cache localStorage avant toute requête réseau
+            allArticles = loadCachedArticles();
+            applyFilters(true);
+
+            bindEvents();
+            syncAllFeeds();
         }
 
         document.addEventListener('DOMContentLoaded', init);
-
     </script>
 </body>
 </html>
