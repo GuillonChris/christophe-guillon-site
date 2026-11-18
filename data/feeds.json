@@ -124,5 +124,12 @@
     "url": "https://deepmind.google/blog/rss.xml",
     "category": "IA",
     "enabled": true
+  },
+  {
+    "id": "feed_35d32cf7",
+    "name": "Siècle Digital",
+    "url": "https://siecledigital.fr/intelligence-artificielle/feed/",
+    "category": "IA",
+    "enabled": true
   }
 ]
