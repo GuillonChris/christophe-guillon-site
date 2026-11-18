@@ -131,5 +131,12 @@
     "url": "https://siecledigital.fr/intelligence-artificielle/feed/",
     "category": "IA",
     "enabled": true
+  },
+  {
+    "id": "feed_21a47634",
+    "name": "FlutterFlow Blog",
+    "url": "https://blog.flutterflow.io/rss/",
+    "category": "NoCode",
+    "enabled": true
   }
 ]
