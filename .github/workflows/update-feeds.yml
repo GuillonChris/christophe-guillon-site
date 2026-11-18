@@ -1,0 +1,44 @@
+name: Mise à jour automatique des flux RSS
+
+on:
+  schedule:
+    # Exécution automatique toutes les 30 minutes
+    - cron: '*/30 * * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/feeds.json'
+      - 'scripts/update-feeds.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-articles:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v4
+
+      - name: Configuration de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Collecte et normalisation des flux RSS
+        run: node scripts/update-feeds.mjs
+
+      - name: Publication de data/articles.json si modifié
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/articles.json
+          if git diff --staged --quiet; then
+            echo "Aucune mise à jour d'articles."
+          else
+            git commit -m "chore(veille): mise à jour automatique de articles.json"
+            git push
+          fi
