@@ -1,5 +1,77 @@
 [
   {
+    "id": "6c2b80d1",
+    "feedId": "feed_3802eede",
+    "feedName": "DeepMind Google",
+    "source": "DeepMind Google",
+    "title": "Genie 4 is now available",
+    "link": "https://deepmind.google/blog/genie-4-is-now-available/",
+    "description": "",
+    "pubDate": "2026-11-18T18:13:42.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:14.115Z"
+  },
+  {
+    "id": "891e2174",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Anthropic en Bourse : les entreprises face au risque de dépendance - l'Opinion",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lopinion.fr/economie/anthropic-en-bourse-les-entreprises-face-au-risque-de-dependance&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0WJ2gjNbwKuoN3wSHR_HQN",
+    "description": "Cet accord stratégique prévoit le déploiement des outils d' intelligence artificielle au sein des rédactions et l'intégration des contenus des médias ...",
+    "pubDate": "2026-11-18T17:53:52.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "d9d4f969",
+    "feedId": "feed_d72ae229",
+    "feedName": "The Verge - AI",
+    "source": "The Verge - AI",
+    "title": "Disney’s new Star Wars animatronics interact with guests using AI",
+    "link": "https://www.theverge.com/tech/1036729/disney-star-wars-anzellans-animatronic-amazon-aws-cloud-ai",
+    "description": "As advanced and lifelike as the animatronic characters at Disney parks have become, they typically either stick to predefined movements and routines, or there's an out of sight puppeteer helping make their behavior appear more spontaneous. That coul…",
+    "pubDate": "2026-11-18T17:50:57.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
+  },
+  {
+    "id": "3e69a19b",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Défense et intelligence artificielle : Rennes accueillera un centre international dès 2027",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://hitwest.ouest-france.fr/rennes-va-accueillir-le-centre-international-pour-l-ia-de-defense-european-cyber-week-cybersecurite&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0wlfUcMuvq47KNWxGxnTV0",
+    "description": "La ville de Rennes a été choisie pour accueillir le futur centre international dédié à l' intelligence artificielle de défense.",
+    "pubDate": "2026-11-18T17:49:50.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "01853e63",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "« J'ai rarement vu un lobbying aussi agressif » : droits d'auteur et IA, une bataille sans fin - Les Echos",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lesechos.fr/tech-medias/intelligence-artificielle/jai-rarement-vu-un-lobbying-aussi-agressif-droits-dauteur-et-ia-une-bataille-sans-fin-2263338&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3Ig_C2HzTmvfsOCjIIMcof",
+    "description": "... intelligence artificielle (IA). Tous enchaînent les grandes déclarations d'amour au secteur. La proposition de loi de la sénatrice Laure Darcos ...",
+    "pubDate": "2026-11-18T17:17:50.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "0d1b77cf",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle , développement personnel… les nouvelles tendances des formations ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ouest-france.fr/formation/intelligence-artificielle-developpement-personnel-les-nouvelles-tendances-des-formations-professionnelles-670526ae-cc86-11f1-bf87-17eca79cb13c&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0UZ-9NGt9Z4KVEMiDSHmon",
+    "description": "Voici les grandes tendances et les nouvelles thématiques qui s'imposent dans les offres de formation. L' intelligence artificielle et l'automatisation.",
+    "pubDate": "2026-11-18T17:01:45.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
     "id": "153429dc",
     "feedId": "feed_9bbd3683",
     "feedName": "Google AI Blog",
@@ -9,7 +81,55 @@
     "description": "The Google Gemini app now supports lower-memory Android devices. Access Gemini Live and custom image creation on your phone. Download the app today.",
     "pubDate": "2026-11-18T17:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
+  },
+  {
+    "id": "acbd699d",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Graulhet. Un ciné-débat sur l' intelligence artificielle au Vertigo - ladepeche.fr",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ladepeche.fr/2026/11/18/un-cine-debat-sur-lintelligence-artificielle-au-vertigo-13657875.php&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw14_5pBEApumYmFqDlpcb1q",
+    "description": "Tarn Opinion propose la projection de Dalloway, suivie d'un échange sur les enjeux de l' intelligence artificielle . photo Y. G.. Ajouter aux sources ...",
+    "pubDate": "2026-11-18T16:18:52.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "e565d4a2",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L' intelligence artificielle au service de la lutte contre les maladies infectieuses émergentes",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://nouvelles.ulaval.ca/2026/11/18/lintelligence-artificielle-au-service-de-la-lutte-contre-les-maladies-infectieuses-emergentes-f1155cd1-8f2c-416a-aad7-06ab6e8006b5&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2lO_xBe2NVjmv8smLIW324",
+    "description": "... intelligence artificielle au service de la lutte contre les maladies infectieuses émergentes. Face à l'émergence croissante de maladies ...",
+    "pubDate": "2026-11-18T16:10:57.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "50c15456",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "« L' intelligence artificielle changera-t-elle notre manière de croire ? » - La Croix",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.la-croix.com/a-vif/l-intelligence-artificielle-changera-t-elle-notre-maniere-de-croire-20261118&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2_xrNHKuNlU_m4zyYXC0rP",
+    "description": "L' intelligence artificielle s'invite de plus en plus dans les pratiques spirituelles. Sans perdre de vue certaines opportunités pour les paroisses ...",
+    "pubDate": "2026-11-18T16:07:19.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "cd535a38",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "P'tite Planète : quelles parties du jeu utilisent l' intelligence artificielle ? - Journal du Geek",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.journaldugeek.com/2026/11/18/ptite-planete-quelles-parties-du-jeu-utilisent-lintelligence-artificielle/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0az4331Rstk_t3FGDLU8iX",
+    "description": "Des personnages écrits par des humains, pas par une IA. Premier point important, HoYoverse ne compte pas laisser une intelligence artificielle ...",
+    "pubDate": "2026-11-18T16:04:11.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
   },
   {
     "id": "3eba307b",
@@ -21,7 +141,7 @@
     "description": "During the time these agents converted 185,000 lines of C code into 340,000 lines of Rust code (I counted), we merged over 300 commits in the actual curl project. We actually improved curl during these a little more than three weeks. A little over 2…",
     "pubDate": "2026-11-18T15:58:27.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "ab71ea69",
@@ -33,7 +153,19 @@
     "description": "This summer, OpenAI paused its largest planned frontier training run after its AI agents accidentally hacked Hugging Face and early evidence suggested that its next model could independently find and exploit security flaws. In September, Anthropic C…",
     "pubDate": "2026-11-18T15:44:02.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
+  },
+  {
+    "id": "d50a583f",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L'histoire de Boni prend vie grâce à l' intelligence artificielle - France-Guyane",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.franceguyane.fr/actualite/culture-et-patrimoine/lhistoire-de-boni-prend-vie-grace-a-lintelligence-artificielle-1100087.php&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3bh-iLb-bFcqUlYQeOqCHz",
+    "description": "Et si l' intelligence artificielle devenait un outil de transmission de l'histoire guyanaise ? C'est le pari lancé par deux frères Dekon. Philippe ...",
+    "pubDate": "2026-11-18T15:39:31.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
   },
   {
     "id": "36c138c2",
@@ -45,7 +177,43 @@
     "description": "D'après le Wall Street Journal, qui cite des personnes informées, la SEC a ouvert une enquête civile sur Nvidia, notamment pour savoir si les informations publiées par le groupe ont trompé les investisseurs. La SEC refuse de commenter, Nvidia n'a pa…",
     "pubDate": "2026-11-18T15:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
+  },
+  {
+    "id": "6311417f",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "'Le pire peut arriver' : l' intelligence artificielle , une technologie inarrêtable selon Amin ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.rtbf.be/article/le-pire-peut-arriver-l-intelligence-artificielle-une-technologie-inarretable-selon-amin-maalouf-qui-appelle-a-des-decisions-rapides-11817436&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw08FniT5ElSH-7cYFSOfxpe",
+    "description": "L' intelligence artificielle est l'une des révolutions les plus importantes de notre siècle. Depuis l'explosion des...",
+    "pubDate": "2026-11-18T15:23:37.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "045b5b82",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Afrique : l' intelligence artificielle au service de la lutte contre la polio - Africanews",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://fr.africanews.com/2026/11/18/afrique-lintelligence-artificielle-au-service-de-la-lutte-contre-la-polio/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2X4P_5gyPAPbAFBgMKRfXq",
+    "description": "L'Organisation mondiale de la santé (OMS) utilise désormais l' intelligence artificielle pour améliorer le suivi de la poliomyélite en Afrique.",
+    "pubDate": "2026-11-18T15:10:40.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "5233078c",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Kenya: l' intelligence artificielle pour étudier les éléphants - TV5MONDE Info",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://information.tv5monde.com/international/video/kenya-lintelligence-artificielle-pour-etudier-les-elephants-2846217&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2hlL_1bb_BJpK3fVlfw085",
+    "description": "La Turquie, pays hôte, de la COP31 plaide pour une utilisation durable de l' intelligence artificielle . Une révolution technologique qui peut ...",
+    "pubDate": "2026-11-18T15:05:52.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
   },
   {
     "id": "9eba2704",
@@ -57,7 +225,19 @@
     "description": "",
     "pubDate": "2026-11-18T15:00:23.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
+  },
+  {
+    "id": "40c7ed47",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L' intelligence artificielle va-t-elle tuer l'auteur ou le lecteur? - Le Temps",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.letemps.ch/opinions/chroniques/l-intelligence-artificielle-va-t-elle-tuer-l-auteur-ou-le-lecteur&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw14t3MyI44ioTueCfQyZAsl",
+    "description": "L' intelligence artificielle va-t-elle tuer l'auteur ou le lecteur? CHRONIQUE. Le «sampling», le «sound design» parmi d'autres pratiques ont fait ...",
+    "pubDate": "2026-11-18T14:53:13.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
   },
   {
     "id": "6e0d9124",
@@ -69,7 +249,7 @@
     "description": "The PSF end-of-year fundraiser With my Python Software Foundation board director hat on: we've launched our end-of-year fundraiser for the non-profit that supports Python development and the Python community. If your company or your work benefits fr…",
     "pubDate": "2026-11-18T14:44:48.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "522d2c21",
@@ -81,7 +261,43 @@
     "description": "Like a nasty rash, AI seems to spread everywhere. Google crams AI Overviews down your throat even though it costs the company billions of dollars in lost ad revenue. Leave your apartment, and you might pass two people heaving an AI-powered humanoid…",
     "pubDate": "2026-11-18T14:42:44.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
+  },
+  {
+    "id": "a2b9ec69",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Expressions figées, incohérences visuelles, intrigue décousue... En Chine, le premier film ... - BFM",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.bfmtv.com/tech/intelligence-artificielle/expressions-figees-incoherences-visuelles-intrigue-decousue-en-chine-le-premier-film-entierement-concu-par-intelligence-artificielle-fait-un-flop-au-cinema_AV-202611180677.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1cMgkvmIdP7wCrsb4xNd11",
+    "description": "Un échec qui contraste avec l'essor des contenus générés par IA sur les smartphones chinois. L' intelligence artificielle sait générer des images à la ...",
+    "pubDate": "2026-11-18T14:27:49.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "38d4d901",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "NVIDIA RTX Spark Compact Desktops Out Now",
+    "link": "https://blogs.nvidia.com/blog/rtx-spark-desktop-local-ai-available-now/",
+    "description": "New NVIDIA RTX Spark compact desktops from ASUS, Dell and MSI are available today, bringing local AI agents, image and video generation, and model fine-tuning to a dedicated Windows PC. With up to 128GB of unified memory and NVIDIA’s AI software sta…",
+    "pubDate": "2026-11-18T14:00:31.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "d7b949fb",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Entrée en Bourse d'Anthropic : un premier test financier pour l' intelligence artificielle - RTBF",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.rtbf.be/article/entree-en-bourse-d-anthropic-un-premier-test-financier-pour-l-intelligence-artificielle-11817255&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0SphN7pTdyNmiconNa5md_",
+    "description": "Wall Street attend Claude, le programme d' intelligence artificielle développé par Anthropic, avec impatience. La start-up américaine, ...",
+    "pubDate": "2026-11-18T14:00:17.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
   },
   {
     "id": "756e07d6",
@@ -93,7 +309,67 @@
     "description": "Will Wright, the creator of legendary franchises like SimCity and The Sims, is working on a new game - and it's built around AI. The new title, focused on your memories, is called MyMems. Like Wright's other titles, it sounds extremely ambitious, gi…",
     "pubDate": "2026-11-18T14:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
+  },
+  {
+    "id": "6cd83aba",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L'entrée en bourse d'Anthropic teste pour la première fois le cœur de l' intelligence artificielle",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.rfi.fr/fr/podcasts/aujourd-hui-l-%25C3%25A9conomie/20261118-l-entr%25C3%25A9e-en-bourse-d-anthropic-teste-pour-la-premi%25C3%25A8re-fois-le-c%25C5%2593ur-de-l-intelligence-artificielle&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0lj8XHp_JqOjKhKnpg8i01",
+    "description": "... Francisco. Moins de six ans plus tard, Anthropic, l'entreprise californienne à l'origine de l'assistant d' intelligence artificielle Claude,…",
+    "pubDate": "2026-11-18T13:58:55.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "16b3cd25",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Comment l' intelligence artificielle contribue à renforcer la surveillance de la poliomyélite en Afrique",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.afro.who.int/fr/news/comment-lintelligence-artificielle-contribue-renforcer-la-surveillance-de-la-poliomyelite-en&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2KD_cxOANwbeWtNgBbc3Xt",
+    "description": "Le Centre SIG du Bureau régional de l'OMS pour l'Afrique répond à ce défi en intégrant l' intelligence artificielle dans ses tableaux de bord ...",
+    "pubDate": "2026-11-18T13:51:07.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "c4e13a29",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Périgord noir : les professionnels invités à s'approprier l' intelligence artificielle pour détenir ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.sudouest.fr/tourisme/dordogne/tourisme-a-sarlat/perigord-noir-les-professionnels-invites-a-s-approprier-l-intelligence-artificielle-pour-detenir-les-clefs-du-tourisme-de-demain-31562743.php&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3dfXhGAAWJfzMcIVpy2c9R",
+    "description": "Recevez la newsletter Périgueux ... C'est une première : une journée dédiée à l'IA ( Intelligence artificielle ) dans le tourisme en Sarladais avec en ...",
+    "pubDate": "2026-11-18T13:46:10.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "17c57312",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "après la diffusion d'une vidéo devenue virale, les robots-taxis Waymo sont interdits de ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.bfmtv.com/tech/intelligence-artificielle/un-danger-imminent-pour-la-securite-publique-apres-la-diffusion-d-une-video-devenue-virale-les-robots-taxis-waymo-sont-interdits-de-circulation-sur-les-autoroutes-californiennes_AV-202611180582.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3sGxqTV7IjG9BbCAtQvtoX",
+    "description": "- Intelligence artificielle . \"Un danger imminent pour la sécurité ... Intelligence artificielle &middot; Auto &middot; États-Unis &middot; Actualités &middot; Tech. Top Articles ...",
+    "pubDate": "2026-11-18T13:39:39.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
+  },
+  {
+    "id": "ae7a92dc",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Nvidia, Microsoft, Google… « Faut-il plus craindre la disparition des nouveaux empires de la tech",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lesechos.fr/idees-debats/cercle/nvidia-microsoft-google-faut-il-plus-craindre-la-disparition-des-nouveaux-empires-de-la-tech-2263264&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3xt9-Zf_PVsMoTypZJUsXC",
+    "description": "... intelligence artificielle . (Photo Rick Wilking/Reuters). Par Jacques Marceau (président d'Aromates et président du conseil scientifique de la ...",
+    "pubDate": "2026-11-18T13:36:19.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.768Z"
   },
   {
     "id": "dfeb2d01",
@@ -105,7 +381,7 @@
     "description": "Nvidia has stopped sending its advanced AI chips to China despite the approval it received from the White House to do so in December last year. The announcement was made by interim Nvidia CEO Colette Kress during an earnings call on Tuesday, marking…",
     "pubDate": "2026-11-18T13:01:05.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
   },
   {
     "id": "d3eb4097",
@@ -117,7 +393,7 @@
     "description": "Selon une étude d'IBM et d'Oxford Economics auprès de 1 667 responsables de l'IA, 18 % seulement contrôlent totalement les décisions d'investissement en IA. En Europe, 46 % disent que des agents exécutent déjà des actions dans les processus, mais 77…",
     "pubDate": "2026-11-18T13:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "22b89a03",
@@ -129,7 +405,7 @@
     "description": "La suite bureautique Nextcloud Office est rapide, stable et prend en charge tous les types de documents dont j'ai besoin. De plus, son installation est gratuite sous Linux, macOS ou Windows.",
     "pubDate": "2026-11-18T12:11:32.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "40e98082",
@@ -141,7 +417,7 @@
     "description": "Suno has introduced image and video generation in its latest effort to expand beyond being an AI music platform. The new feature, called \"Visuals,\" allows users to turn Suno songs into AI-generated video clips that automatically lipsync to lyrics, o…",
     "pubDate": "2026-11-18T11:16:53.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
   },
   {
     "id": "6c2c7bd9",
@@ -153,7 +429,7 @@
     "description": "A l’occasion de l’European cyber week, le directeur général de l’Anssi a fait le point dans son discours et auprès de ZDnet.fr sur la question cruciale de l’IA.",
     "pubDate": "2026-11-18T11:11:58.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "177379ff",
@@ -165,7 +441,7 @@
     "description": "Oura vient de lancer un programme « Jet Lag » pour vous aider à rester alerte lorsque vous changez de fuseau horaire, que ce soit pour un voyage d'affaires ou d'agrément.",
     "pubDate": "2026-11-18T11:11:53.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "8f0ab41a",
@@ -177,7 +453,7 @@
     "description": "Face à l'explosion des pétaoctets de signaux acoustiques captés sous les mers et à la rareté des experts militaires capables de les identifier, la jeune pousse française Ezako développe une approche pour entraîner des modèles d'IA sans saturer les s…",
     "pubDate": "2026-11-18T11:11:25.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "dd1e9564",
@@ -189,7 +465,7 @@
     "description": "Si la fonction « Android Fast Switch » fonctionne comme « Handoff » sur l'iPhone, une eSIM peut être transférée rapidement d'un téléphone à l'autre.",
     "pubDate": "2026-11-18T11:11:21.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "bf1102d4",
@@ -201,7 +477,7 @@
     "description": "MAI Code 2 est disponible dans GitHub Copilot. Microsoft le dit à 96 % des performances de Claude Opus 5.5 pour 5 % du prix, sur sa propre moyenne de quatre tests de code, sans publier de tarif au token. Copilot Autopilot arrive chez les clients du…",
     "pubDate": "2026-11-18T11:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "4d1660b5",
@@ -213,7 +489,7 @@
     "description": "In a lab near Newark Airport in New Jersey, a team of around 30 experienced human sniffers are slowly working their way through every odor on Earth. Their careful notes—“nutty,” “peachy,” “marine”—are cross-referenced with a chemical analysis to cre…",
     "pubDate": "2026-11-18T10:20:30.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
   },
   {
     "id": "8677c3ae",
@@ -225,7 +501,7 @@
     "description": "Des chercheurs ont développé un dispositif portable capable d’agir directement sur le cerveau pour améliorer le sommeil paradoxal. Les premiers résultats laissent entrevoir une alternative prometteuse aux traitements médicamenteux.",
     "pubDate": "2026-11-18T10:11:27.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "4ab3d3bf",
@@ -237,7 +513,7 @@
     "description": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
     "pubDate": "2026-11-18T09:11:44.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "3d5eee02",
@@ -249,7 +525,7 @@
     "description": "Quelques heures après que Jensen Huang s’est dit prêt à reprendre son poste si le conseil d’administration le décidait, le président de Nvidia, Harvey Jones, a fermé la porte. Nvidia a engagé un cabinet de recrutement pour trouver un successeur, en…",
     "pubDate": "2026-11-18T09:11:19.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "fabc7056",
@@ -261,7 +537,7 @@
     "description": "L'Appel de Paris pour la sécurité de l'IA, publié par l'Élysée le 9 novembre 2026, réunissait le 18 novembre 18 États, 10 entreprises et 11 organisations. Les développeurs s'y engagent à des mécanismes d'arrêt de leurs modèles, entraînement et usage…",
     "pubDate": "2026-11-18T09:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "27cce1a8",
@@ -273,7 +549,7 @@
     "description": "Microsoft fait de Copilot un espace où employés et agents IA travaillent ensemble, relié aux données et aux logiciels de l’entreprise. Il y ajoute des outils pour sécuriser et mesurer le coût des agents, ainsi que de nouvelles machines virtuelles Az…",
     "pubDate": "2026-11-18T08:11:11.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "6ff5467e",
@@ -285,7 +561,19 @@
     "description": "Malgré ses 800 000 utilisateurs payants, Elon Musk reconnaît que son intelligence artificielle Grok coûte plus cher qu'elle ne rapporte. L'intégration de la plateforme Cursor aggrave ce gouffre financier, signant la fin des abonnements illimités pou…",
     "pubDate": "2026-11-18T08:11:03.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
+  },
+  {
+    "id": "64ef1e43",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Inside the Codex sandbox",
+    "link": "https://openai.com/index/inside-the-codex-sandbox",
+    "description": "See how Codex runs commands on your machine while enforcing the filesystem and network limits you control across macOS, Linux, and Windows.",
+    "pubDate": "2026-11-18T08:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "13bcbc5a",
@@ -297,7 +585,7 @@
     "description": "Nvidia publie 115,8 milliards de dollars de chiffre d'affaires pour le trimestre clos le 25 octobre, au-dessus de sa prévision, et vise 130 milliards pour le suivant, qui compte quatorze semaines. Colette Kress, directrice générale par intérim, relè…",
     "pubDate": "2026-11-18T07:26:37.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "8d760136",
@@ -309,7 +597,7 @@
     "description": "At Zapier, we're big believers in automation. That's a given. But our platform goes beyond automating simple \"if this, then that\" work—you can build fully automated systems for your work. You can set these systems up from the AI tool you already use…",
     "pubDate": "2026-11-18T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "b56b8755",
@@ -321,7 +609,7 @@
     "description": "H Company rend sa plateforme d'agents d'IA disponible sur l'AWS European Sovereign Cloud. L'inférence des clients européens qui le demandent tourne dans l'Union, sur des instances gérées par Nvidia ; l'entraînement des modèles reste sur l'infrastruc…",
     "pubDate": "2026-11-18T07:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "eefb5653",
@@ -333,7 +621,7 @@
     "description": "Double authentification, rôles minimaux, accès partenaire pour les agences : Yohan Bernardin, fondateur de l’agence montpelliéraine The Gratin, détaille les réglages Meta Business et TikTok Business Center qui limitent les dégâts d’un piratage de co…",
     "pubDate": "2026-11-18T05:11:22.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "632feca3",
@@ -345,7 +633,7 @@
     "description": "Unfortunately for me and my appallingly long TBR list, they still haven't invented a way to hand off my entire workload to a robot so I can curl up on the couch with my Border Collie mix and binge fantasy novels instead. But AI agents are the closes…",
     "pubDate": "2026-11-18T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "d7512c4f",
@@ -357,7 +645,7 @@
     "description": "Growing up as a band kid, I would have considered it the height of achievement to someday conduct a symphonic orchestra. (What can I say—I was really cool and popular as a teenager.) As an adult tech writer (equally as cool), workflow orchestration…",
     "pubDate": "2026-11-18T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "d981363a",
@@ -369,7 +657,7 @@
     "description": "When you read the word \"apple,\" what image pops into your head? For me, it's usually a blurry outline of an apple, or (if I'm reading fast) just a loose connection to what the word means. Imagine my jealousy when I discovered that I fall on the apha…",
     "pubDate": "2026-11-18T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "ec7671cc",
@@ -381,7 +669,7 @@
     "description": "These days, more and more customers prefer to interact with businesses through messaging. If you've already invested in chat-based marketing and sales, you're probably familiar with Telegram, a popular cloud-based, encrypted instant messaging servic…",
     "pubDate": "2026-11-18T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "3ccaf3de",
@@ -393,7 +681,7 @@
     "description": "La mise à jour de Chrome propose des onglets verticaux encore plus pratiques, un partage d'écran simplifié et quelques raccourcis clavier très utiles.",
     "pubDate": "2026-11-18T04:11:39.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "75232a72",
@@ -405,7 +693,7 @@
     "description": "Google met fin à Gemini Gems. Voici la marche à suivre pour accéder aux mêmes outils que ceux proposés par Skills.",
     "pubDate": "2026-11-18T04:11:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "a70ad848",
@@ -417,7 +705,7 @@
     "description": "Vous pourrez bientôt désactiver l'entraînement du modèle Gemini tout en conservant l'accès à vos conversations précédentes avec l'IA de Google.",
     "pubDate": "2026-11-18T01:11:31.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "74cf634c",
@@ -429,7 +717,7 @@
     "description": "Plus vous payez cher pour un forfait iCloud+, plus vous pourrez utiliser l'IA de Siri et Apple Intelligence pour des tâches avancées côté serveur.",
     "pubDate": "2026-11-18T01:11:23.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "101f03f4",
@@ -441,7 +729,43 @@
     "description": "Selon la dernière campagne de mesures de l’Arcep, les quatre opérateurs se tiennent dans un mouchoir de poche. La situation est plus contrastée en zones rurales. Pour la première fois, le gendarme des télécoms prend en compte la latence et les débit…",
     "pubDate": "2026-11-18T01:11:19.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
+  },
+  {
+    "id": "a17fb126",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Le Groupe Figaro and OpenAI partner to bring Le Figaro journalism to ChatGPT",
+    "link": "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
+    "description": "Le Groupe Figaro and OpenAI partner to bring Le Figaro’s journalism to ChatGPT through summaries and excerpts, with links to original stories.",
+    "pubDate": "2026-11-18T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "c90f0c50",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "The Silent Consensus",
+    "link": "https://openai.com/index/the-silent-consensus",
+    "description": "Dean Ball, Head of Strategic Futures at OpenAI, examines how more capable AI could reshape society and how people can retain control of their institutions.",
+    "pubDate": "2026-11-18T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "92cffe4d",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Advancing chip design with OpenAI models",
+    "link": "https://openai.com/index/advancing-chip-design-with-our-models",
+    "description": "OpenAI models optimized circuits used in Jalapeño silicon and improved RISC‑V core designs, showing progress in AI-assisted chip design with GPT‑6 Astra.",
+    "pubDate": "2026-11-18T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "a784f11b",
@@ -453,7 +777,7 @@
     "description": "",
     "pubDate": "2026-11-18T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "d3854d15",
@@ -465,19 +789,7 @@
     "description": "",
     "pubDate": "2026-11-18T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "a17fb126",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Le Groupe Figaro and OpenAI partner to bring Le Figaro journalism to ChatGPT",
-    "link": "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
-    "description": "Le Groupe Figaro and OpenAI partner to bring Le Figaro’s journalism to ChatGPT through summaries and excerpts, with links to original stories.",
-    "pubDate": "2026-11-18T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "f820bf74",
@@ -489,7 +801,7 @@
     "description": "Microsoft CEO Satya Nadella says he's AGI-pilled, at least when it comes to how AI might make startling changes to the structure of the economy and how politics might change because of it. \"I am AGI-pilled in the sense that at an economy level, what…",
     "pubDate": "2026-11-17T23:41:18.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
   },
   {
     "id": "874096e5",
@@ -501,7 +813,7 @@
     "description": "External sandboxes for coding agents I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake or prompt injection attack might cause them to take…",
     "pubDate": "2026-11-17T22:52:29.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "0cb8606a",
@@ -513,7 +825,7 @@
     "description": "GPT‑6.2 Astra and GPT‑6.2 Sol OpenAI: We’re introducing GPT‑6.2 Astra, our new frontier model for your hardest projects, and GPT‑6.2 Sol, our efficient, versatile model for everyday work. They're available in the API as gpt-6.2-astra and gpt-6.2-sol…",
     "pubDate": "2026-11-17T22:38:52.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "0b004ce8",
@@ -525,7 +837,7 @@
     "description": "Interim Nvidia CEO Colette Kress announced the company's Q3 earnings on Tuesday, without initially mentioning former CEO Jensen Huang or the details of his departure, or possible attempt at a return. On the earnings call accompanying the release, bo…",
     "pubDate": "2026-11-17T21:40:59.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
   },
   {
     "id": "31a006a3",
@@ -537,7 +849,7 @@
     "description": "Instagram is filled with people posting deepfaked content - including, as of late, from one of Meta's most prominent executives. Earlier in November, Alexandr Wang, Meta's chief AI officer, shared a short clip to promote Muse, the company's consumer…",
     "pubDate": "2026-11-17T21:00:55.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
   },
   {
     "id": "ee1581bb",
@@ -549,7 +861,7 @@
     "description": "Genesis AI, fondée en 2024 par Zhou Xian et Théophile Gervet et installée à Paris et en Californie, lève 500 millions de dollars en série A pour une valorisation de 3,5 milliards. Le tour est mené par Khosla Ventures, Premji Invest et Eclipse, avec…",
     "pubDate": "2026-11-17T18:58:29.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "640754b6",
@@ -561,19 +873,19 @@
     "description": "Google is rebranding its Spark AI agent as \"Tasks\" and making it free to use. The feature, which is powered by Google's new Gemini 4 Hydrogen AI model, can do things like create meal plans, manage your calendar, and dig through your emails to find r…",
     "pubDate": "2026-11-17T18:58:01.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
   },
   {
     "id": "289cf95a",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Introducing GPT-6.2 Astra and Sol",
     "link": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
     "description": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
     "pubDate": "2026-11-17T17:45:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "39ff0c2b",
@@ -585,7 +897,7 @@
     "description": "Dans l'usine Novares de Seseña, en Espagne, un robot humanoïde Unitree intégré par Innov8 détecte les pièces à 100 %, les manipule avec 99,5 % de réussite et tient 60 minutes en autonomie. Le logiciel de Bleu Robotics, start-up parisienne cofondée p…",
     "pubDate": "2026-11-17T17:05:53.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "8b572679",
@@ -597,7 +909,7 @@
     "description": "Tasks in Gemini is now free of charge in six countries, with new features starting in the U.S. and deeper Google Workspace integration to get things done on your behalf.",
     "pubDate": "2026-11-17T17:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "368ad8ac",
@@ -609,7 +921,7 @@
     "description": "Datasette Lite is my port of the Datasette Python application to run directly in the browser using WebAssembly and Pyodide . I've released a complete rewrite of Datasette Lite using service workers, and it's now almost indistinguishable from the rea…",
     "pubDate": "2026-11-17T16:48:33.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "72e292b4",
@@ -621,7 +933,7 @@
     "description": "Do you copy posts from your Facebook Page and paste them into LinkedIn? What if you didn't have to do the copying and pasting yourself? Set up a Zap once, and every new post on your Facebook Page gets published to LinkedIn on its own, with no more c…",
     "pubDate": "2026-11-17T16:44:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "8a451825",
@@ -633,7 +945,7 @@
     "description": "The Justice and Commerce Departments said that they are investigating Megaspeed, the Singapore-based data center company intertwined with the resignation of Nvidia CEO Jensen Huang, after reporting suggested an investigation had been halted last yea…",
     "pubDate": "2026-11-17T16:19:03.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
+    "fetchedAt": "2026-11-18T18:32:12.807Z"
   },
   {
     "id": "8bbb26c5",
@@ -657,7 +969,7 @@
     "description": "En 2026, les électeurs américains ont choisi de limiter les centres de données dans 46 consultations locales sur 47, la plupart le 3 novembre, dont 21 dans l'Ohio, où Trenton bloque un projet Amazon de 1 000 mégawatts. L'opposition réunit électeurs…",
     "pubDate": "2026-11-17T15:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "d3dde90e",
@@ -669,7 +981,19 @@
     "description": "To access a report, click on the corresponding image below.",
     "pubDate": "2026-11-17T14:39:46.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
+  },
+  {
+    "id": "f040b2af",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "Ian Buck Kicks Off NVIDIA’s Week at SC26 as Science Enters the Age of Agents",
+    "link": "https://blogs.nvidia.com/blog/ian-buck-sc26/",
+    "description": "NVIDIA’s Ian Buck kicked off the company’s week at SC26 in Chicago on Monday with new tools for AI agents, software that can plan experiments, run code and check results on researchers’ own systems. In NVIDIA’s special address, Buck announced Nemotr…",
+    "pubDate": "2026-11-17T14:00:10.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
   },
   {
     "id": "fd6bed5e",
@@ -681,7 +1005,7 @@
     "description": "A paper system and 28 hours a week When John Cabanela became the interim bookkeeper at Theatre Passe Muraille in April 2024, he inherited a paper-heavy bookkeeping system built around QuickBooks Desktop. \"I was not about that at all,\" he says. He be…",
     "pubDate": "2026-11-17T14:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "f6f12ec2",
@@ -693,7 +1017,7 @@
     "description": "Le prix au token de Claude Fable 5.2 baisse de 20 %, mais au réglage maximal le modèle produit 69 % de tokens en plus et la tâche coûte deux fois plus cher. Gemini 4 Carbon, vendu au prix d'Argon, consomme davantage de tokens ; son tarif doublera le…",
     "pubDate": "2026-11-17T13:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "3447256e",
@@ -705,7 +1029,7 @@
     "description": "Remanence, start-up parisienne fondée par Pierre-Louis Cedoz, Hamza Benchekroun et Axel Moyal, anciens de H Company, lève 30 millions de dollars en amorçage. Le tour est mené par EQT Ventures et FirstMark. Sa plateforme convertit les traces d'exécut…",
     "pubDate": "2026-11-17T11:14:57.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "b29e8fb9",
@@ -717,7 +1041,7 @@
     "description": "I love a good to-do list for my personal life. (Whether I actually follow that list and check things off in a timely manner is my own business.) And most of the joy of managing tasks, at least to my nerdy soul, is in using automation to make sure ev…",
     "pubDate": "2026-11-17T11:12:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "4fa3b8b0",
@@ -729,7 +1053,7 @@
     "description": "Lorsque la taille des caractères affichés sur l'écran de votre smartphone est trop réduite pour qu’ils soient lisibles et que le pinch ne marche pas comme prévu, essayez la fonction Agrandissement.",
     "pubDate": "2026-11-17T11:11:48.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "f76a0ea8",
@@ -741,7 +1065,7 @@
     "description": "Pour 1 4000 €, vous avez un smartphone équipé du Bluetooth 7.0 et du Wi-Fi 8, qui relèvent encore d'un avenir lointain. Est-ce que ça vaut le coup ?",
     "pubDate": "2026-11-17T10:11:32.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "73ab3178",
@@ -753,7 +1077,19 @@
     "description": "La Fondation Sopra Steria-Institut de France dote de 100 000 euros son Grand Prix de recherche 2027, consacré aux effets de l'IA sur les apprentissages des jeunes. Il récompense des travaux déjà engagés, menés dans un organisme de recherche européen…",
     "pubDate": "2026-11-17T09:38:10.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
+  },
+  {
+    "id": "518b1d90",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Introducing ChatGPT for Sales",
+    "link": "https://openai.com/index/introducing-chatgpt-for-sales",
+    "description": "Explore the new Sales plugin and 30+ new and expanded partner plugins in ChatGPT to research prospects, prepare pitches, update your CRM, and move deals forward.",
+    "pubDate": "2026-11-17T08:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "6f673396",
@@ -765,7 +1101,7 @@
     "description": "A customer relationship management tool (or CRM) is a critical hub for sales and marketing teams—but it's not just a place to store contact details. When used effectively, your CRM becomes a central command center for tracking relationships, managin…",
     "pubDate": "2026-11-17T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "719dfff3",
@@ -777,7 +1113,7 @@
     "description": "My calendar basically dictates how I spend each and every moment of my work day. It helps me prioritize my tasks, prepare for meetings, and lets me know when I have downtime to get specific things done. But none of that is possible—or as streamlined…",
     "pubDate": "2026-11-17T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "96a03d59",
@@ -789,19 +1125,7 @@
     "description": "Remember rifling through old metal file cabinets filled to the brim with manila folders? Those cabinets required meticulous, organized systems—or else it would be impossible to find the documents you needed. We may have upgraded that file cabinet to…",
     "pubDate": "2026-11-17T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
-  },
-  {
-    "id": "518b1d90",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Introducing ChatGPT for Sales",
-    "link": "https://openai.com/index/introducing-chatgpt-for-sales",
-    "description": "Explore the new Sales plugin and 30+ new and expanded partner plugins in ChatGPT to research prospects, prepare pitches, update your CRM, and move deals forward.",
-    "pubDate": "2026-11-17T08:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "e82937e7",
@@ -813,7 +1137,7 @@
     "description": "OVHcloud a annoncé le 17 novembre 2026 Olala mini 7A1B, modèle ouvert de 7 milliards de paramètres dont un milliard actif, attendu jeudi 19 novembre sur Hugging Face sous licence Apache 2.0. L'annonce ne contient aucun résultat d'évaluation ; les 8…",
     "pubDate": "2026-11-17T07:46:15.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "c2c1d40f",
@@ -825,7 +1149,7 @@
     "description": "Quatre jours après la démission sans motif de Jensen Huang, le département américain du Commerce a publié, le 16 novembre 2026, une règle provisoire qui soumet à licence les puces avancées destinées aux centres de données fournissant plus de 12 mill…",
     "pubDate": "2026-11-17T07:26:09.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "80681f44",
@@ -837,7 +1161,7 @@
     "description": "Facebook Pages lets businesses promote their brand and start conversations with customers or prospects interested in learning more about their services. Your Facebook Page should be a central location where you share reviews, events, and anything el…",
     "pubDate": "2026-11-17T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "a93afcc2",
@@ -849,7 +1173,7 @@
     "description": "The first thing I do in the mornings before work is check my Google Calendar. It's my source of truth for whatever the day ahead holds, including team meetings, projects that need my attention, and even errands I need to fit in between. But even if…",
     "pubDate": "2026-11-17T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "a06f67ea",
@@ -861,7 +1185,7 @@
     "description": "I used to organize my entire life by taking notes in an actual notebook, pen to paper. That was, of course, a very messy way to keep track of my personal and work life. But I discovered that even when using a note taking app, it's easy to become dis…",
     "pubDate": "2026-11-17T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "849d4bab",
@@ -873,7 +1197,7 @@
     "description": "Anthropic fixe le 18 novembre le prix de son introduction en Bourse, avec 900,9 milliards de dollars d'engagements de calcul, dont 70,7 dus en un an. Epoch AI mesure un retard moyen de quatre mois des meilleurs modèles ouverts, l'AISI britannique qu…",
     "pubDate": "2026-11-17T06:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.300Z"
+    "fetchedAt": "2026-11-18T18:32:13.536Z"
   },
   {
     "id": "51ed24b6",
@@ -885,7 +1209,7 @@
     "description": "A little copying is better than a little dependency. &mdash; Go Proverbs , via Tags: go , programming",
     "pubDate": "2026-11-17T06:16:26.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "e38db454",
@@ -897,7 +1221,7 @@
     "description": "OVHcloud annonce le lancement de sa première famille de modèles, baptisée Olala. Un premier aperçu sera disponible en open source à la fin du mois de novembre.",
     "pubDate": "2026-11-17T05:11:25.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "bbeede34",
@@ -909,7 +1233,7 @@
     "description": "Alors que Bercy pousse ses prestataires numériques à répercuter les gains de l’IA sur leurs tarifs, Damien Tabusse, Responsable Business Unit et Responsable Industrialisation de l’IA chez Klee Group, nuance : automatiser le code ne suffit pas sur le…",
     "pubDate": "2026-11-17T05:11:20.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "df49522c",
@@ -921,7 +1245,7 @@
     "description": "Marketing teams juggle a lot: capturing leads, nurturing them across channels, tracking campaign performance, and personalizing every touchpoint—all while managing an ever-growing stack of tools. Doing that manually isn't just time-consuming—it's un…",
     "pubDate": "2026-11-17T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "bf734df7",
@@ -933,7 +1257,7 @@
     "description": "Congrats: You've captured some leads through Facebook Lead Ads. Now you need to act fast based on where your prospects are in the sales funnel. You might need your sales team to reach out while they're warm, for example, or add them to a nurture cam…",
     "pubDate": "2026-11-17T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "7162b47b",
@@ -945,7 +1269,7 @@
     "description": "When OpenClaw went viral, the reaction from most people I talked to was some mix of impressed and afraid. The idea that an open-source AI personal assistant could negotiate a car deal or fight your insurance company over WhatsApp while you slept was…",
     "pubDate": "2026-11-17T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "11735274",
@@ -957,7 +1281,7 @@
     "description": "Texting can be a great way to stay connected to your work on the go. You can talk to your team, your boss—maybe even your mom if you need a little encouragement. And with tools like WhatsApp, you can text across time zones and countries for free, wh…",
     "pubDate": "2026-11-17T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "da01375e",
@@ -969,7 +1293,7 @@
     "description": "À l'instar de Gemini Intelligence et de Siri AI, Galaxy Claw pourrait doter votre téléphone d'une intelligence inter-applications.",
     "pubDate": "2026-11-17T04:11:57.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "47a70781",
@@ -981,7 +1305,7 @@
     "description": "Alors que les délais de fabrication approchent à grands pas, on ne sait pas encore lesquelles, parmi les nombreuses améliorations prévues, devront peut-être attendre la troisième génération de ce smartphone pliable.",
     "pubDate": "2026-11-17T04:11:48.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "433dcd60",
@@ -993,7 +1317,7 @@
     "description": "Des responsables de sécurité informatique dévoilent les conséquences futures d'une IA qui devancerait les défenseurs humains.",
     "pubDate": "2026-11-17T04:11:33.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "b46d5d20",
@@ -1005,7 +1329,7 @@
     "description": "I've been connecting Google Sheets to other apps since long before ChatGPT was even a sparkle in an algorithm's eye. I use all sorts of Google Sheets add-ons, and more commonly, I use Zapier so Google Sheets can talk to every other app I use for wor…",
     "pubDate": "2026-11-17T04:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "5f1e72fa",
@@ -1017,7 +1341,7 @@
     "description": "France Travail a sondé 16.000 employeurs, dont 38% utilisent ou testent actuellement l’IA, pour en anticiper l’impact sur l’emploi dans 5 ans. Seuls 6% estiment que l’IA pourrait concurrencer l'humain sur leur métier principal.",
     "pubDate": "2026-11-17T03:11:59.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "f0ce62ab",
@@ -1029,7 +1353,7 @@
     "description": "Cette fonctionnalité, prise en charge par Intune, permettra aux administrateurs de verrouiller à distance tout appareil Windows compromis.",
     "pubDate": "2026-11-17T03:11:42.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "45a2cabb",
@@ -1041,7 +1365,7 @@
     "description": "Les fonctionnalités « Demander à Maps » de Google sont déployées dès aujourd'hui sur Android et iOS. Voici ce qu'elles proposent.",
     "pubDate": "2026-11-17T03:11:27.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "4a2b754b",
@@ -1053,7 +1377,7 @@
     "description": "Face au développement de l'intelligence artificielle, les militaires raccourcissent leurs cycles pour anticiper un affrontement de haute intensité.",
     "pubDate": "2026-11-17T02:11:13.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "67e6e794",
@@ -1065,7 +1389,7 @@
     "description": "Selon Google, des revendeurs clandestins vendent l'accès à des comptes d'IA d'entreprise piratés, dont les frais d'utilisation sont pris en charge par les victimes.",
     "pubDate": "2026-11-17T02:11:10.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "f30510a3",
@@ -1077,7 +1401,7 @@
     "description": "Le commandement de la cyberdéfense pointe l'irresponsabilité du secteur privé après le sabotage de centaines d'équipements frigorifiques. Les autorités militaires dénoncent une absence d'hygiène informatique élémentaire, allant jusqu'à évoquer la re…",
     "pubDate": "2026-11-17T01:11:32.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "e118f63c",
@@ -1089,43 +1413,43 @@
     "description": "Opérateurs et équipementiers télécoms réduisent fortement leurs effectifs, tout particulièrement en Europe. Ces dégraissages massifs sont justifiés pour partie par les gains de productivité apportés par l’IA.",
     "pubDate": "2026-11-17T01:11:13.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:48.334Z"
+    "fetchedAt": "2026-11-18T18:32:13.392Z"
   },
   {
     "id": "499c2ca7",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Strengthening NATO and allied cyber defenses with AI",
     "link": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
     "description": "How OpenAI is working with NATO and allied cyber agencies to help trusted defenders find vulnerabilities, test fixes and protect essential systems.",
     "pubDate": "2026-11-17T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "21dfebd3",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Astra for Law leads in legal intelligence",
     "link": "https://openai.com/index/astra-law-6-2",
     "description": "Astra for Law ranked first in a launch evaluation spanning 24 areas of law. Every ChatGPT Enterprise customer can now request access.",
     "pubDate": "2026-11-17T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "9896e730",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Introducing OpenAI for Chile",
     "link": "https://openai.com/index/introducing-openai-for-chile",
     "description": "OpenAI and the Government of Chile are partnering to support responsible AI adoption, build public-sector skills and help local startups develop AI applications.",
     "pubDate": "2026-11-17T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "a8b82254",
@@ -1137,7 +1461,31 @@
     "description": "Release: llm 0.37.3 A bug fix release for LLM , mainly to cover a problem with the most recent Homebrew package of the software. Homebrew now ships the latest SQLite, 3.54.1 , which includes a fix that broke LLM's logging code . Short version: in SQ…",
     "pubDate": "2026-11-16T23:57:26.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
+  },
+  {
+    "id": "fc863ae0",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "NVIDIA DGX Spark Developer Kit Turns a Desk Into a Supercomputing Lab",
+    "link": "https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/",
+    "description": "At SC26, an annual supercomputing conference taking place this week in Chicago, NVIDIA is introducing the DGX Spark HPC Developer Kit for researchers, academics and developers. The kit is a four-node cluster of NVIDIA DGX Spark systems, each connect…",
+    "pubDate": "2026-11-16T23:00:05.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "1da4f6c8",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "How the World’s Most Advanced AI Infrastructure Supply Chain Invents the Future",
+    "link": "https://blogs.nvidia.com/blog/ai-infrastructure-supply-chain/",
+    "description": "Deb Shoquist leads operations at NVIDIA, overseeing the supply chain and manufacturing behind its AI platforms. That description sums up the job, but it doesn’t begin to encompass what Shoquist has made possible over decades. Shoquist, her team and…",
+    "pubDate": "2026-11-16T20:00:37.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
   },
   {
     "id": "610a029d",
@@ -1149,31 +1497,31 @@
     "description": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. On Friday, a petition to reinstate Jensen Huang as CEO of Nvidia began circulating on social media, and by Mond…",
     "pubDate": "2026-11-16T18:38:47.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
   },
   {
     "id": "a5225eeb",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Broadening access to AI for scientists",
     "link": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
     "description": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models.",
     "pubDate": "2026-11-16T17:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "daba5fcd",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Strengthening the fight against online child sexual abuse with new tools and support",
     "link": "https://openai.com/index/strengthening-online-child-safety",
     "description": "New tools, practical guidance, and partnerships will help prevent, detect and respond to online child sexual exploitation and abuse.",
     "pubDate": "2026-11-16T17:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "dc7009a3",
@@ -1185,7 +1533,79 @@
     "description": "In October this year, OpenAI disclosed that two of its AI agents had switched off the systems built to monitor them. One muted its own safety alerts after misreading an instruction not to send messages; the other removed its monitoring integration d…",
     "pubDate": "2026-11-16T16:04:28.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
+  },
+  {
+    "id": "fd561e01",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "Lambda Boosts AI Factory Resiliency and Efficiency With NVIDIA Photonics",
+    "link": "https://blogs.nvidia.com/blog/lambda-photonics/",
+    "description": "To train an AI model, thousands of GPUs have to work together, requiring a network that’s fast, efficient and resilient. Lambda is tackling the network piece of the puzzle with NVIDIA Photonics co-packaged optics (CPO) switches. The cloud provider i…",
+    "pubDate": "2026-11-16T16:00:51.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "cfa85562",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "NVIDIA Expands Slurm to Bring Quantum Computing Into Supercomputing",
+    "link": "https://blogs.nvidia.com/blog/slurm-quantum-computing-supercomputing/",
+    "description": "Quantum processor deployments at supercomputing centers have grown nearly sevenfold over the past five years, with nearly 30 supercomputing centers around the world now in the process of deploying over 50 quantum processors. Many of these centers us…",
+    "pubDate": "2026-11-16T16:00:47.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "217dd386",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "NVIDIA Sweeps MLPerf Training and Endpoints as Vera Rubin Debuts With Leading Performance",
+    "link": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
+    "description": "In its MLPerf benchmarks debut, with results released today, the NVIDIA Vera Rubin platform delivers leading performance across training, post-training and agentic inference. NVIDIA swept every MLPerf Training v6.1 benchmark and, in its first MLPerf…",
+    "pubDate": "2026-11-16T16:00:25.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "70a18efe",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "NVIDIA CUDA-X Libraries Give Agents the Tools to Accelerate Scientific Discovery",
+    "link": "https://blogs.nvidia.com/blog/cuda-x-libraries-agents-accelerate-scientific-discovery/",
+    "description": "With expanded NVIDIA CUDA-X libraries, including cuPhoton, cuPotential and cuSpa, researchers can sift through vast amounts of data to accelerate research, from astrophysics and materials science to single-cell biology. The speedups are helping scie…",
+    "pubDate": "2026-11-16T16:00:16.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "6f184465",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "CUDA at 20: How the Platform Transformed Scientific Computing",
+    "link": "https://blogs.nvidia.com/blog/20-years-cuda/",
+    "description": "This week at SC26, NVIDIA is marking two decades of CUDA by honoring the researchers, developers and engineers who helped make GPU computing a foundation for modern science and AI. CUDA’s 20th anniversary presents an occasion to reflect across compu…",
+    "pubDate": "2026-11-16T16:00:11.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "9f61f1ba",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "NVIDIA Announces Rubin HPC — A New GPU to Accelerate Agents for Science, Engineering and Analytics",
+    "link": "https://blogs.nvidia.com/blog/rubin-hpc/",
+    "description": "Announced today at SC26, NVIDIA Rubin HPC is a new GPU in the NVIDIA Vera Rubin platform designed to accelerate simulation and data processing for science, engineering and analytics workflows. As agents help scientists and engineers explore more can…",
+    "pubDate": "2026-11-16T16:00:01.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
   },
   {
     "id": "3569679a",
@@ -1197,7 +1617,7 @@
     "description": "Google Alerts make it easy to keep up with headlines on any subject, but there's one big downside: headlines are delivered via email. What if you'd rather keep up to date without keeping your inbox open? Turns out you can. Here's how to get an RSS f…",
     "pubDate": "2026-11-16T14:32:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "9dff25c8",
@@ -1209,7 +1629,7 @@
     "description": "Plan holiday road trips, get route tips, find local appointments, and search your saved lists with new Ask Maps features.",
     "pubDate": "2026-11-16T14:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "7db8fa68",
@@ -1221,19 +1641,19 @@
     "description": "For years, enterprises have approached AI as a series of discrete experiments. Now, as AI agents begin to move into the workflows that run the business, that model is starting to look inadequate. Organizations moving from isolated pilots toward AI a…",
     "pubDate": "2026-11-16T13:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
   },
   {
     "id": "b304c1bf",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Science at the Frontier: How scientists use ChatGPT",
     "link": "https://openai.com/index/science-at-the-frontier",
     "description": "Explore how more than 1,800 scientists use ChatGPT in research. See findings on daily workflows, reported productivity, and expectations for discovery.",
     "pubDate": "2026-11-16T12:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "e52e80d6",
@@ -1245,31 +1665,43 @@
     "description": "In the second iteration of the AI Agent Development Tools report , I replaced the integrability axis with enterprise-readiness. I wanted this to signify the departure from 2020-style IPaaS. With MCP getting traction to the point where every vendor o…",
     "pubDate": "2026-11-16T10:17:32.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
+    "fetchedAt": "2026-11-18T18:32:13.405Z"
   },
   {
     "id": "f321c657",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "How Revolut raises ambition without lowering the bar",
     "link": "https://openai.com/business/customer-stories/revolut",
     "description": "Discover how Revolut uses OpenAI models and Codex to cut coding time by 30–60%, scale financial crime investigations, and innovate without compromising security.",
     "pubDate": "2026-11-16T09:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "51a65484",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "LVMH’s Media Division announces strategic partnership with OpenAI",
     "link": "https://openai.com/index/lvmh-media-division-partnership",
     "description": "LVMH’s Media Division and OpenAI announce a partnership to support journalism with AI and make its publications more accessible through ChatGPT.",
     "pubDate": "2026-11-16T09:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "6ce33ed9",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Our first phase of embedded assessments",
+    "link": "https://openai.com/index/our-first-phase-of-embedded-assessments",
+    "description": "OpenAI begins embedded assessments with Apollo Research, METR, and Transluce, and Goodfire to independently evaluate model alignment, safeguards, and monitoring systems.",
+    "pubDate": "2026-11-16T08:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "09131034",
@@ -1281,7 +1713,7 @@
     "description": "The first spreadsheet tool ever invented was such a compelling idea to the public that people often bought the computers it came installed on just to try it out. (And that was 1979, so computers weren't exactly a widespread thing.) Whether you hate…",
     "pubDate": "2026-11-16T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "b7287ebe",
@@ -1293,7 +1725,7 @@
     "description": "Slack is a great way to coordinate your team, cross-collaborate on projects, and find information about your business in real-time. It is, essentially, where most of the work happens. That's not to say that Slack isn't distracting at times. Between…",
     "pubDate": "2026-11-16T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "fe5748dd",
@@ -1305,7 +1737,7 @@
     "description": "Where else can you do everything from discussing intricate Minecraft builds, recommending lawn care services in your area, and diving deep into obscure scientific theories—but Reddit? The popular social sharing site boasts more than 130 million dail…",
     "pubDate": "2026-11-16T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "9c187306",
@@ -1317,43 +1749,67 @@
     "description": "Whether you're engaging leads, following up on form submissions, or sending critical reminders, text messages cut through the noise of crowded email inboxes and provide an immediate, reliable way to reach your audience. But manually managing these m…",
     "pubDate": "2026-11-16T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.599Z"
-  },
-  {
-    "id": "6ce33ed9",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Our first phase of embedded assessments",
-    "link": "https://openai.com/index/our-first-phase-of-embedded-assessments",
-    "description": "OpenAI begins embedded assessments with Apollo Research, METR, and Transluce, and Goodfire to independently evaluate model alignment, safeguards, and monitoring systems.",
-    "pubDate": "2026-11-16T08:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.635Z"
   },
   {
     "id": "d6f8e9cb",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Advancing computer-use agents for healthcare teams",
     "link": "https://openai.com/index/advancing-computer-use-for-healthcare-teams",
     "description": "",
     "pubDate": "2026-11-16T06:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "16408c26",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "More ways to move care forward with ChatGPT for Healthcare",
     "link": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
     "description": "Introducing computer-use agents, improved clinical answers, and new healthcare plugins that work across healthcare software to get real work done.",
     "pubDate": "2026-11-16T06:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "d5402c9a",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "AI Day Seoul Brings Together Korea’s Industry Leaders, Startups and Developer Communities",
+    "link": "https://blogs.nvidia.com/blog/ai-day-seoul-wrapup/",
+    "description": "Over two days at COEX, more than 2,000 attendees converged for AI Day Seoul, bringing together Korea’s industry leaders, startups and developer communities advancing physical AI and AI agents. At the plenary sessions, Deepu Talla, vice president of…",
+    "pubDate": "2026-11-16T00:00:28.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "5ec32daf",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "The King’s Trust and OpenAI launch £1m partnership",
+    "link": "https://openai.com/index/the-kings-trust-and-openai",
+    "description": "The King’s Trust and OpenAI launch a £1m partnership to help up to 25,000 young people across the UK build practical AI skills for work.",
+    "pubDate": "2026-11-16T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "40900edf",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "At Holiday Extras, dots get to work before anyone asks",
+    "link": "https://openai.com/business/customer-stories/holiday-extras-dots",
+    "description": "Dots deliver launch reports unprompted, flag issues people might miss, and talk through upcoming meetings on the commute to work.",
+    "pubDate": "2026-11-16T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "15f255bb",
@@ -1365,31 +1821,7 @@
     "description": "",
     "pubDate": "2026-11-16T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "5ec32daf",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "The King’s Trust and OpenAI launch £1m partnership",
-    "link": "https://openai.com/index/the-kings-trust-and-openai",
-    "description": "The King’s Trust and OpenAI launch a £1m partnership to help up to 25,000 young people across the UK build practical AI skills for work.",
-    "pubDate": "2026-11-16T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "40900edf",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "At Holiday Extras, dots get to work before anyone asks",
-    "link": "https://openai.com/business/customer-stories/holiday-extras-dots",
-    "description": "Dots deliver launch reports unprompted, flag issues people might miss, and talk through upcoming meetings on the commute to work.",
-    "pubDate": "2026-11-16T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "f37db236",
@@ -1401,7 +1833,7 @@
     "description": "Release: datasette-maplibre 0.1a0 The first new Datasette geospatial plugin in quite a while! This one combines the excellent MapLibre GL library with OpenFreeMap , the free vector map server operated by Zsolt Ero (you should sponsor Zsolt on GitHub…",
     "pubDate": "2026-11-15T23:58:36.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "c0fe18f3",
@@ -1413,7 +1845,7 @@
     "description": "Release: datasette 1.0a43 I've been leaning hard into Claude Fable 5.2 to help knock things off the 1.0 milestone , which is now 53% complete. The biggest 1.0 item in this release is streaming support for output renderers - the built-in TSV and CSV…",
     "pubDate": "2026-11-15T23:20:27.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "9afbedba",
@@ -1425,31 +1857,31 @@
     "description": "Release: datasette 0.65.6 I backported a minor security fix from 1.0a43: Fixed a security issue where a database registered using add_database(db, name=..., route=...) with a route that differs from its name could be downloaded from / .db by actors…",
     "pubDate": "2026-11-15T23:18:17.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "08cf3fe0",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "A step toward defining the Standard Model on a lattice",
     "link": "https://openai.com/index/step-toward-defining-the-standard-model",
     "description": "Explore a candidate nonperturbative lattice definition of the Standard Model and how GPT-6 Astra helped turn the idea into a detailed proof.",
     "pubDate": "2026-11-15T22:00:01.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "a74dce9c",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Our new blog for science",
     "link": "https://openai.com/index/our-new-blog-for-science",
     "description": "The OpenAI science blog shares new findings, practical methods, and firsthand accounts from researchers using AI to advance scientific discovery.",
     "pubDate": "2026-11-15T22:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "26fcb72a",
@@ -1461,7 +1893,7 @@
     "description": "Release: datasette-apps 0.4a0 Datasette Apps are sandboxed HTML and JavaScript applications that live inside Datasette - think Claude Artifacts, but these ones can run SQL queries against your data. 0.4a0 adds support for linking: you can link to an…",
     "pubDate": "2026-11-15T04:02:45.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "27af88e7",
@@ -1473,7 +1905,7 @@
     "description": "Release: datasette-agent 0.6a0 Accumulated small fixes for Datasette Agent, my agent plugin for Datasette that lets you ask questions about your data. Most notably, it now adds an agent prompt directly to the Datasette homepage, with support for has…",
     "pubDate": "2026-11-15T03:49:47.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "f3ca54d8",
@@ -1485,7 +1917,7 @@
     "description": "Release: datasette-llm 0.1a11 datasette-llm is the intermediate plugin for Datasette that supports configuring LLMs for use with other Datasette plugins. This release adds support for OpenAI-compatible endpoints, so you can configure Datasette to us…",
     "pubDate": "2026-11-14T23:59:28.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "12eae4f6",
@@ -1497,7 +1929,7 @@
     "description": "Release: datasette-vega 0.7 A new release of Datasette's longest untouched plugin, for rendering charts (using Vega-Lite ) against data in a table or custom query. The last release was in July 2018! I finally bumped it for compatibility with the lat…",
     "pubDate": "2026-11-14T17:09:09.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "3c4f4259",
@@ -1509,7 +1941,7 @@
     "description": "Release: datasette-cluster-map 0.19 One of the oldest Datasette plugins, and still one of my favorites. It now works with Datasette 1.0a42, and depends on the new datasette-leaflet to ensure OpenStreetMap tiles are requested with a referrer header.…",
     "pubDate": "2026-11-13T23:02:45.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "e64a5265",
@@ -1521,7 +1953,7 @@
     "description": "Release: datasette-leaflet 0.3 OpenStreetMap have a very reasonable policy that hits to their hosted tile server should send a referrer header . Datasette table pages used the Referrer-Policy: no-referrer HTTP header, causing plugins that loaded til…",
     "pubDate": "2026-11-13T22:30:54.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "6473b661",
@@ -1533,7 +1965,7 @@
     "description": "",
     "pubDate": "2026-11-13T18:00:39.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "50bfbeac",
@@ -1545,19 +1977,19 @@
     "description": "",
     "pubDate": "2026-11-13T17:02:35.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "d2de5a6f",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Introducing ChatGPT Wallet",
     "link": "https://openai.com/index/introducing-chatgpt-wallet",
     "description": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections.",
     "pubDate": "2026-11-13T15:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "3f0891ee",
@@ -1569,7 +2001,19 @@
     "description": "",
     "pubDate": "2026-11-13T14:05:22.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
+  },
+  {
+    "id": "46fd7b5f",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "AI Is Helping Care Teams Get Patients the Right Care, Sooner",
+    "link": "https://blogs.nvidia.com/blog/how-ai-is-helping-care-teams/",
+    "description": "From pediatric research to smart hospitals, AI is helping care teams spend less time on routine tasks and more time with patients. Health systems and startups are putting it to work across healthcare, from matching patients to clinical trials to sup…",
+    "pubDate": "2026-11-13T13:00:42.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
   },
   {
     "id": "78b21640",
@@ -1581,19 +2025,19 @@
     "description": "Cap public API requests per API key in n8n, with 429 headers that tell clients when to retry and idempotency keys for safe retries.",
     "pubDate": "2026-11-13T09:29:35.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
+    "fetchedAt": "2026-11-18T18:32:13.405Z"
   },
   {
     "id": "959351d1",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Shield helps technicians hand off legacy portal work with OpenAI",
     "link": "https://openai.com/business/customer-stories/shield",
     "description": "Shield uses OpenAI to help IT technicians hand off work in legacy portals. Its Forge agents navigate systems so technicians can focus on issues needing their judgment.",
     "pubDate": "2026-11-13T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "c145df96",
@@ -1605,7 +2049,7 @@
     "description": "Release: llm-gemini 0.37 Google launched Gemini 4 Hydrogen today - the lowest cost member of the Gemini 4 family. It's actually not too far off the price of its much bigger siblings, Carbon and Argon. I'm finding Gemini 4's pricing really confusing.…",
     "pubDate": "2026-11-12T22:55:19.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "24a38565",
@@ -1617,7 +2061,7 @@
     "description": "Find the right AI app builder for your project with this comparison of Bubble vs. Base44 — covering development workflow, design control, backend and database visibility, mobile publishing, integrations, security, and pricing.",
     "pubDate": "2026-11-12T20:36:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
   },
   {
     "id": "f18fa23c",
@@ -1629,19 +2073,19 @@
     "description": "Representatives from Nvidia told Illinois representative Bill Foster that it would be technically possible to implement the anti-smuggling measures called for in the Chip Security Act, Foster told MIT Technology Review in an interview on Thursday, e…",
     "pubDate": "2026-11-12T20:16:24.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
   },
   {
     "id": "c97a5e65",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
     "link": "https://openai.com/business/customer-stories/amplitude",
     "description": "Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measures the impact.",
     "pubDate": "2026-11-12T20:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "eb923958",
@@ -1653,7 +2097,19 @@
     "description": "",
     "pubDate": "2026-11-12T19:07:35.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
+  },
+  {
+    "id": "92e11c78",
+    "feedId": "feed_3802eede",
+    "feedName": "DeepMind Google",
+    "source": "DeepMind Google",
+    "title": "Introducing Gemini 4 Hydrogen",
+    "link": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+    "description": "",
+    "pubDate": "2026-11-12T18:00:50.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:14.115Z"
   },
   {
     "id": "197684e6",
@@ -1665,7 +2121,7 @@
     "description": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
     "pubDate": "2026-11-12T18:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "c05a4388",
@@ -1677,7 +2133,19 @@
     "description": "Bubble for native mobile is now available to everyone. See what’s new, what it means for your app’s reliability, and how to bring an existing Bubble web app to mobile.",
     "pubDate": "2026-11-12T16:12:09.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
+  },
+  {
+    "id": "a2cbcf1a",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "A New Dawn in the Cloud: ‘Warhammer 40,000: Dawn of War IV’ Is Coming to GeForce NOW",
+    "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-warhammer-dawn-of-war-iv-coming/",
+    "description": "Rally the ranks this GFN Thursday. Warhammer 40,000: Dawn of War IV is coming to GeForce NOW, allowing players to experience the battle for Kronus through cloud gaming. There’s more on the horizon, with NVIDIA DLSS 5 technology coming to War Thunder…",
+    "pubDate": "2026-11-12T14:00:59.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
   },
   {
     "id": "f8e16eea",
@@ -1689,31 +2157,31 @@
     "description": "Find the right AI-powered app builder for your next project based on your needs, skill level, and more. We compared Replit, Bolt, and Bubble across 12 categories to help you choose the best option.",
     "pubDate": "2026-11-12T13:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
   },
   {
     "id": "484a54f2",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Gondola doubles revenue as its team builds more with Codex",
     "link": "https://openai.com/business/customer-stories/gondola",
     "description": "Gondola helps creatives get credit and get hired, with Codex raising its lead engineer’s output by 50% and ChatGPT simplifying daily work.",
     "pubDate": "2026-11-12T12:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "08ca74f9",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Holiday Extras is rethinking what it can build with Codex",
     "link": "https://openai.com/business/customer-stories/holidays-extras-codex",
     "description": "With Codex, Holiday Extras is turning customer expertise into better apps, higher booking conversion and new possibilities for growth.",
     "pubDate": "2026-11-12T09:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "ecfe8d89",
@@ -1725,7 +2193,43 @@
     "description": "Building automation is getting easier fast. So why keep it locked inside one team? A follow-up on what replaces the central automation team, and what n8n is learning as it opens building up to everyone.",
     "pubDate": "2026-11-12T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
+    "fetchedAt": "2026-11-18T18:32:13.405Z"
+  },
+  {
+    "id": "b8938914",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Supporting research on AI and children’s safety",
+    "link": "https://openai.com/index/children-first-declaration",
+    "description": "OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.",
+    "pubDate": "2026-11-12T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "acf84a08",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "ChatGPT Ads increases its market presence in 44 countries",
+    "link": "https://openai.com/ads/blog/chatgpt-ads-increases-its-market-presence",
+    "description": "Aleph selected as ChatGPT Ads’ exclusive reseller in 44 countries to offer local invoicing, in-person support and local market expertise to brands and agencies",
+    "pubDate": "2026-11-12T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "c1a1ef8a",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Gilbert + Tobin rethinks the business of law with AI",
+    "link": "https://openai.com/index/gilbert-tobin-sam-nickless",
+    "description": "A conversation with Sam Nickless, Partner and Chief Executive Officer at Gilbert + Tobin.",
+    "pubDate": "2026-11-12T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "dd1d111a",
@@ -1737,43 +2241,7 @@
     "description": "",
     "pubDate": "2026-11-12T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "b8938914",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Supporting research on AI and children’s safety",
-    "link": "https://openai.com/index/children-first-declaration",
-    "description": "OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.",
-    "pubDate": "2026-11-12T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "acf84a08",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "ChatGPT Ads increases its market presence in 44 countries",
-    "link": "https://openai.com/ads/blog/chatgpt-ads-increases-its-market-presence",
-    "description": "Aleph selected as ChatGPT Ads’ exclusive reseller in 44 countries to offer local invoicing, in-person support and local market expertise to brands and agencies",
-    "pubDate": "2026-11-12T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "c1a1ef8a",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Gilbert + Tobin rethinks the business of law with AI",
-    "link": "https://openai.com/index/gilbert-tobin-sam-nickless",
-    "description": "A conversation with Sam Nickless, Partner and Chief Executive Officer at Gilbert + Tobin.",
-    "pubDate": "2026-11-12T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "2078b4c8",
@@ -1785,7 +2253,7 @@
     "description": "Gemini Decisions API Google join Jev and OpenAI in the decision model category with \"Gemini Decision 1\". This new model API is almost identical to Jev: it supports the same three types of questions (yes/no, choice, and rubric-scoring) and even reuse…",
     "pubDate": "2026-11-11T22:03:25.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "443719a5",
@@ -1797,7 +2265,7 @@
     "description": "aws-emulator Finally, an official emulator from AWS to run tests against a local clone of their many different services without having to provision a paid API key to do so. It's written in Rust by a huge swarm of agents - 29,684 commits in the first…",
     "pubDate": "2026-11-11T21:18:30.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "166e7aa9",
@@ -1809,7 +2277,7 @@
     "description": "Browse tools.simonwillison.net by tag I've been wanting a better way to browse my collection of vibe-coded tools (244 and counting) for a while. I had a few Fable 5.2 credits left over before my weekly reset so I set it to work using tree-sitter to…",
     "pubDate": "2026-11-11T18:42:50.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "d3938403",
@@ -1821,7 +2289,7 @@
     "description": "Meet the Gemini Decisions API, powered by our state-of-the-art model Gemini Decision for fast, calibrated multimodal decisions.",
     "pubDate": "2026-11-11T18:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "3ab2d883",
@@ -1833,7 +2301,7 @@
     "description": "Release: llm 0.37.2 Fixes a security issue reported by Daniel de Araujo in GHSA-v9h7-jj4g-f862 and GHSA-r639-rr7r-x72w . LLM has a mechanism called extra-openai-models.yaml - now managed by the new-in-0.37 llm openai endpoint add command - for using…",
     "pubDate": "2026-11-11T17:19:52.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "7b37c3f1",
@@ -1845,7 +2313,7 @@
     "description": "Tabletop is a new Google Labs experiment for group collaboration. Build interactive itineraries, polls, and brackets with your team. Join the waitlist.",
     "pubDate": "2026-11-11T16:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "0d58842f",
@@ -1857,7 +2325,19 @@
     "description": "Anthropic's IPO roadshow video Anthropic kicked off their IPO roadshow yesterday, and their roadshow video has some previously unreleased information about how their business works. The section on \"Approach to compute\" with co-founder Tom Brown is p…",
     "pubDate": "2026-11-11T15:11:59.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
+  },
+  {
+    "id": "67c97bc0",
+    "feedId": "feed_3802eede",
+    "feedName": "DeepMind Google",
+    "source": "DeepMind Google",
+    "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+    "link": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+    "description": "Predicting how DNA sequences and their variations impact specific human cell types and disease.",
+    "pubDate": "2026-11-11T15:00:15.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:14.115Z"
   },
   {
     "id": "89133aca",
@@ -1869,19 +2349,19 @@
     "description": "A new online archive of Esther Mahlangu’s life and art is now on Google Arts & Culture.",
     "pubDate": "2026-11-11T09:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "32066f3c",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "ChatGPT Plus for veterans and servicemembers",
     "link": "https://openai.com/index/chatgpt-plus-for-veterans",
     "description": "More than 20,000 veterans and transitioning service members have claimed a free year of ChatGPT Plus. See how they use it to prepare for civilian careers.",
     "pubDate": "2026-11-11T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "47f86959",
@@ -1893,7 +2373,31 @@
     "description": "",
     "pubDate": "2026-11-11T05:01:16.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
+  },
+  {
+    "id": "65295f42",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "AI Helps Recyclers Turn Mixed Waste Into Reusable Material",
+    "link": "https://blogs.nvidia.com/blog/ai-recycling-startups/",
+    "description": "Vision AI and robotics pick what’s worth recovering out of conveyor belts of used clothing, bottles and mixed recyclables, diverting thousands of tons of materials from landfills.",
+    "pubDate": "2026-11-11T03:00:20.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "55cc46fd",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "JioStar’s chief architect on AI discovery at 500M-user scale",
+    "link": "https://openai.com/index/jiostar-vijay-seshadri",
+    "description": "JioStar’s Vijay Seshadri explains AI discovery at 500M-user scale. Read his lessons on evals, guardrails, and taking AI into production.",
+    "pubDate": "2026-11-11T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "d1805e14",
@@ -1905,19 +2409,7 @@
     "description": "",
     "pubDate": "2026-11-11T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "55cc46fd",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "JioStar’s chief architect on AI discovery at 500M-user scale",
-    "link": "https://openai.com/index/jiostar-vijay-seshadri",
-    "description": "JioStar’s Vijay Seshadri explains AI discovery at 500M-user scale. Read his lessons on evals, guardrails, and taking AI into production.",
-    "pubDate": "2026-11-11T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "3fdc79ee",
@@ -1929,7 +2421,7 @@
     "description": "Discover microservices best practices to build resilient systems. Learn what the best patterns look like and how workflow automation fits into the process.",
     "pubDate": "2026-11-10T20:39:16.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
+    "fetchedAt": "2026-11-18T18:32:13.405Z"
   },
   {
     "id": "aca2c230",
@@ -1941,7 +2433,7 @@
     "description": "Learn batch processing patterns for scalable workflows, including chunking, rate limits, retries. Discover the tools that put these patterns into practice.",
     "pubDate": "2026-11-10T20:36:22.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
+    "fetchedAt": "2026-11-18T18:32:13.405Z"
   },
   {
     "id": "b1eac4ac",
@@ -1953,7 +2445,7 @@
     "description": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else . This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that'…",
     "pubDate": "2026-11-10T20:09:44.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "5f75316a",
@@ -1965,7 +2457,7 @@
     "description": "Gemini Intelligence is rolling out to more devices. See how expanded capabilities across these devices help you do more.",
     "pubDate": "2026-11-10T19:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "f603d29b",
@@ -1977,7 +2469,31 @@
     "description": "Gemini 4 Carbon is out and it's now available in n8n. Google is calling it its strongest model yet, with big gains in coding, long-running agentic work and cybersecurity. In Google's results, it posts a 53.9% on AutomationBench, a benchmark for auto…",
     "pubDate": "2026-11-10T16:43:11.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
+    "fetchedAt": "2026-11-18T18:32:13.405Z"
+  },
+  {
+    "id": "922b3740",
+    "feedId": "feed_3802eede",
+    "feedName": "DeepMind Google",
+    "source": "DeepMind Google",
+    "title": "Gemini 4 Carbon is now available",
+    "link": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+    "description": "",
+    "pubDate": "2026-11-10T16:03:47.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:14.115Z"
+  },
+  {
+    "id": "51a7954b",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "NVIDIA Expands Open Source Commitment With OpenShell Contribution and New AI Infrastructure",
+    "link": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+    "description": "Kubernetes, the open source system that manages how applications run across thousands of AI factories, has become the foundation for AI, and the demands on it are only growing. To help meet them, NVIDIA is deepening its commitment to open source at…",
+    "pubDate": "2026-11-10T16:00:03.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
   },
   {
     "id": "649c2b34",
@@ -1989,7 +2505,7 @@
     "description": "Google and Adobe are integrating creative and productivity tools. Edit PDFs in Drive and use Adobe AI in Gemini. See what’s new in this partnership.",
     "pubDate": "2026-11-10T14:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "697c22fd",
@@ -2001,7 +2517,7 @@
     "description": "Google Cloud launches Gemini for healthcare to unify clinical data and automate workflows. Reduce administrative burnout. See how it works.",
     "pubDate": "2026-11-10T13:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
+    "fetchedAt": "2026-11-18T18:32:12.771Z"
   },
   {
     "id": "bd0e89ed",
@@ -2013,55 +2529,79 @@
     "description": "Nod gets stuff done for you. It works in your apps and on any website, asks before it acts, and uses the AI provider you choose.",
     "pubDate": "2026-11-10T12:52:49.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
+    "fetchedAt": "2026-11-18T18:32:13.405Z"
+  },
+  {
+    "id": "211e1a27",
+    "feedId": "feed_3802eede",
+    "feedName": "DeepMind Google",
+    "source": "DeepMind Google",
+    "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+    "link": "https://deepmind.google/blog/introducing-alphaproof-code/",
+    "description": "AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.",
+    "pubDate": "2026-11-10T12:02:28.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:14.115Z"
   },
   {
     "id": "e01cec8a",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Helping caregivers use AI in everyday life",
     "link": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
     "description": "OpenAI Academy is bringing free, hands-on ChatGPT workshops to caregivers in five U.S. cities, helping them build practical AI skills for everyday life.",
     "pubDate": "2026-11-10T12:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "7038b939",
+    "feedId": "feed_3802eede",
+    "feedName": "DeepMind Google",
+    "source": "DeepMind Google",
+    "title": "Opening the datasets behind our AI weather models",
+    "link": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
+    "description": "Foundational precipitation and geostationary satellite datasets to observe the planet clearly.",
+    "pubDate": "2026-11-10T11:13:04.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:14.115Z"
   },
   {
     "id": "719cbf68",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Introducing Businesses in ChatGPT",
     "link": "https://openai.com/index/introducing-businesses-chatgpt",
     "description": "Manage your business information, get insights about how your business shows up, and turn interest into action in ChatGPT.",
     "pubDate": "2026-11-10T10:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "ddc6c404",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Closing the AI guidance gap in education",
     "link": "https://openai.com/index/closing-ai-guidance-gap-education",
     "description": "New ThinkYoung research and lessons from OpenAI’s EMEA education partnerships on supporting teachers, AI literacy, and independent learning.",
     "pubDate": "2026-11-10T09:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "fbe69c48",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Singapore Airlines elevates travel & work with OpenAI technology",
     "link": "https://openai.com/index/singapore-airlines-travel-work",
     "description": "Discover how Singapore Airlines uses OpenAI models and API to enhance customer support, travel discovery, and employee productivity, doubling CSAT for its Kris chatbot.",
     "pubDate": "2026-11-10T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "d23e6427",
@@ -2073,19 +2613,19 @@
     "description": "Introducing Our Smallest, Most Efficient Model: Muse Ember Meta AI just launched their entry in the Claude Haiku/GPT Luna category: Muse Ember, which they describe as: [...] our smallest and most efficient model designed for complex reasoning execut…",
     "pubDate": "2026-11-10T07:28:21.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "196d773f",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Work at the Frontier: AI’s effect on freelance work",
     "link": "https://openai.com/index/ai-effect-on-freelance-work",
     "description": "New research from OpenAI and Upwork finds shifting demand for freelance work, new skill combinations, and larger budgets and more hours for AI-related projects.",
     "pubDate": "2026-11-10T07:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "720130a3",
@@ -2097,7 +2637,7 @@
     "description": "Claude Fable 5.2 pays close attention to who owns the code it works on. In Anthropic’s testing on small coding tasks, the model tended to add to the existing structure when the prompt said nothing about ownership or presented the code base as someon…",
     "pubDate": "2026-11-10T05:34:14.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "dc66b839",
@@ -2109,7 +2649,19 @@
     "description": "Tool: Yonkers Rises I realized I didn't know where Yonkers was, so I looked it up on Google Maps and then, to help embed its location and shape in my head (and to try out Claude Fable 5.2's 3D modeling and animation skills), I prompted Fable 5.2 Med…",
     "pubDate": "2026-11-10T03:53:04.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
+  },
+  {
+    "id": "35da0e8a",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Cogent and OpenAI build cyber defense factories for enterprises",
+    "link": "https://openai.com/index/cogent-security",
+    "description": "Cogent combines OpenAI models with enterprise context to help automatically remediate vulnerabilities with agents.",
+    "pubDate": "2026-11-10T00:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "fdfff368",
@@ -2121,7 +2673,7 @@
     "description": "",
     "pubDate": "2026-11-10T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "d563e208",
@@ -2133,19 +2685,7 @@
     "description": "",
     "pubDate": "2026-11-10T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "35da0e8a",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Cogent and OpenAI build cyber defense factories for enterprises",
-    "link": "https://openai.com/index/cogent-security",
-    "description": "Cogent combines OpenAI models with enterprise context to help automatically remediate vulnerabilities with agents.",
-    "pubDate": "2026-11-10T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
   },
   {
     "id": "d1443323",
@@ -2157,7 +2697,7 @@
     "description": "Release: llm-anthropic 0.31 Anthropic released Fable 5.2 and Mythos 5.2 today. Fable 5.2 is currently ranked first on Artificial Analysis . Anthropic say it \"solved two open problems in the physics of black holes\", so clearly their internal benchmar…",
     "pubDate": "2026-11-09T23:58:46.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "b596d073",
@@ -2169,7 +2709,19 @@
     "description": "Our house has a box room, full of boxes that we still haven't unpacked from our last move. A couple of weeks ago something in that room started intermittently beeping . The beeps were far enough apart that standing in the room and trying to determin…",
     "pubDate": "2026-11-09T23:57:21.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
+  },
+  {
+    "id": "79c22a85",
+    "feedId": "feed_3802eede",
+    "feedName": "DeepMind Google",
+    "source": "DeepMind Google",
+    "title": "Gemini Robotics 2.5 accelerates real-world general dexterity",
+    "link": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+    "description": "Our most capable vision-language-action model enhances robot dexterity, reliability, and safety",
+    "pubDate": "2026-11-09T19:51:47.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:14.115Z"
   },
   {
     "id": "22e83637",
@@ -2181,19 +2733,19 @@
     "description": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. As voters went to the polls across the US last week, I was in Ashburn, Virginia, part of what’s known as Data C…",
     "pubDate": "2026-11-09T19:35:33.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
   },
   {
     "id": "c6f257b6",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "ChatGPT Enterprise now available in AWS Marketplace",
     "link": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
     "description": "ChatGPT Enterprise is now available through AWS Marketplace, helping organizations simplify procurement through existing AWS purchasing and billing relationships.",
     "pubDate": "2026-11-09T19:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "01368386",
@@ -2205,7 +2757,7 @@
     "description": "Learn what app maintenance includes, how to ship updates without breaking your app, and how to set up a weekly, monthly, and quarterly maintenance routine.",
     "pubDate": "2026-11-09T18:12:10.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
   },
   {
     "id": "1114b4f4",
@@ -2217,7 +2769,7 @@
     "description": "Compare the top Bolt AI alternatives by use case — from fast browser-based prototyping to full visual control — so you can pick the right tool and ship a real app.",
     "pubDate": "2026-11-09T18:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
   },
   {
     "id": "10566c70",
@@ -2229,7 +2781,31 @@
     "description": "As a California state senator, Scott Wiener authored legislation aimed at curbing the risks of advanced AI. Now, after winning a tight congressional race for former Speaker of the House Nancy Pelosi’s open San Francisco seat, he could play a key rol…",
     "pubDate": "2026-11-09T17:05:43.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
+  },
+  {
+    "id": "b4cb64a8",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "Practice Makes Precise: At CoRL, NVIDIA and Partners Reveal How Robots Rehearse Delicate Work in Simulation",
+    "link": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/",
+    "description": "Simulation, which has long been the proving ground for robots learning to walk, roll and hop, is now helping researchers teach robots tasks that require a finer touch: aligning gears, connecting cables and assembling small components. The shift from…",
+    "pubDate": "2026-11-09T14:00:01.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
+  },
+  {
+    "id": "6d5b73da",
+    "feedId": "feed_e5f69fa3",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
+    "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
+    "link": "https://openai.com/index/control-room",
+    "description": "Learn how OpenAI’s Control Room tracks model workloads across our research infrastructure and can rapidly stop them when safety or security concerns arise.",
+    "pubDate": "2026-11-09T13:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "13843b27",
@@ -2241,19 +2817,7 @@
     "description": "As companies look to accelerate innovation with artificial intelligence, cloud computing, and advanced modeling, the primary challenge is connecting new technologies to reliable data, scientific expertise, and the practical realities of bringing pro…",
     "pubDate": "2026-11-09T13:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.434Z"
-  },
-  {
-    "id": "6d5b73da",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
-    "link": "https://openai.com/index/control-room",
-    "description": "Learn how OpenAI’s Control Room tracks model workloads across our research infrastructure and can rapidly stop them when safety or security concerns arise.",
-    "pubDate": "2026-11-09T13:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:12.672Z"
   },
   {
     "id": "be2dd76b",
@@ -2265,31 +2829,55 @@
     "description": "",
     "pubDate": "2026-11-09T12:34:29.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:12.615Z"
+  },
+  {
+    "id": "3c9ae8ed",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum",
+    "link": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+    "description": "Korea’s Ministry of Science and ICT and NVIDIA hosted the MSIT-NVIDIA AI Startup Partnership Forum at COEX. Representatives from the Ministry of Science and ICT and NVIDIA met with over 20 Korean startups across foundation models, physical AI, AI in…",
+    "pubDate": "2026-11-09T08:00:53.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
   },
   {
     "id": "b388c138",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "CodeRabbit scales agentic software development and ships 20x more",
     "link": "https://openai.com/index/coderabbit-codex-daybreak",
     "description": "CodeRabbit uses OpenAI models to govern and trust AI-generated code and Codex to ship 20 times more software with the same engineering team.",
     "pubDate": "2026-11-09T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "08c099cd",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Kuken Industries searches 70 years of drawings in minutes",
     "link": "https://openai.com/index/kuken",
     "description": "Kuken Industries uses the OpenAI API to search 70 years of cooling tower drawings. Engineers can find the drawing for a repair in 4.5 minutes, down from nearly an hour.",
     "pubDate": "2026-11-09T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
+  },
+  {
+    "id": "ad37b45c",
+    "feedId": "feed_5c57c121",
+    "feedName": "Nvidia Blog",
+    "source": "Nvidia Blog",
+    "title": "Korea Advances Physical AI Across Industries With NVIDIA",
+    "link": "https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/",
+    "description": "Tapping into the country’s strengths in manufacturing and engineering, NVIDIA is helping advance Korea’s physical AI ecosystem. The country’s industry leaders are applying accelerated computing, AI and simulation to everything from semiconductor man…",
+    "pubDate": "2026-11-09T05:00:40.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-18T18:32:13.817Z"
   },
   {
     "id": "53bc999e",
@@ -2301,7 +2889,7 @@
     "description": "My comment on The Web Is More Than Enough, by Paul Ford &mdash; Hacker News. OK, this comment convinced me to give that a shot. Here's a thing I made in Three.js this morning - a Nudibranch themed Faberge Egg: https://static.simonwillison.net/static…",
     "pubDate": "2026-11-09T04:32:33.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "4890de40",
@@ -2313,19 +2901,19 @@
     "description": "Most of the changes I make to my projects these days come in the form of PRs opened for me by Claude Code or Codex. The PR is my unit of work - I use them to bundle commits together, iterating on them until a feature is complete, document decisions…",
     "pubDate": "2026-11-09T04:25:05.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.778Z"
+    "fetchedAt": "2026-11-18T18:32:13.097Z"
   },
   {
     "id": "fcb44805",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "How VistaPrint helps small businesses get the word out",
     "link": "https://openai.com/ads/customers/vistaprint",
     "description": "Small business owners preparing for a launch or an event often know what they want to accomplish before they know what to print. VistaPrint uses ChatGPT Ads to show how products like signs and branded merchandise can help them get the word out.",
     "pubDate": "2026-11-09T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "f13070ff",
@@ -2337,7 +2925,7 @@
     "description": "This Verified Node Spotlight is a guest post written by Nicolas Fry, CEO of TurboDocx. The deal is closed and the contract is ready. It's been sitting in someone's inbox for three days, waiting for an \"OK, send it.\" Once it's finally",
     "pubDate": "2026-11-08T14:07:15.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
+    "fetchedAt": "2026-11-18T18:32:13.405Z"
   },
   {
     "id": "8b194276",
@@ -2349,7 +2937,7 @@
     "description": "Learn what an app builder costs at each plan level and how to forecast your bill as your app grows, so you can pick a platform you can afford long term.",
     "pubDate": "2026-11-06T22:02:36.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
   },
   {
     "id": "57784a97",
@@ -2361,7 +2949,7 @@
     "description": "Learn how to build a secure client portal that keeps each client’s data private, collects documents, shows invoices, and tells clients where their work stands. You’ll also see how client portal software compares with a custom build.",
     "pubDate": "2026-11-06T21:31:33.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
   },
   {
     "id": "2d82f985",
@@ -2373,19 +2961,19 @@
     "description": "Our preliminary root cause analysis of the October 26, 2026 security incident: what happened, what we’ve fixed, what we’re still verifying, and what app owners should do now.",
     "pubDate": "2026-11-06T20:08:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
   },
   {
     "id": "4f900307",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
     "link": "https://openai.com/index/partnering-with-hacktron",
     "description": "OpenAI is partnering with Hacktron to find vulnerabilities, test connections with third-party services, and strengthen defenses with frontier AI.",
     "pubDate": "2026-11-06T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   },
   {
     "id": "6f144a55",
@@ -2397,606 +2985,18 @@
     "description": "Build AI features users love — personalization, chat, camera vision — then ship to iOS and Android fast.",
     "pubDate": "2026-11-06T07:03:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
-  },
-  {
-    "id": "37b23e28",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
-    "link": "https://huggingface.co/blog/open-asr-leaderboard-liva",
-    "description": "",
-    "pubDate": "2026-11-06T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:13.747Z"
   },
   {
     "id": "81a0fd32",
     "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
+    "feedName": "Open AI blog",
+    "source": "Open AI blog",
     "title": "Measuring how AI agents handle everyday wet-lab science",
     "link": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
     "description": "OpenAI introduces BioBasicsBench, a 100-task benchmark measuring how well AI agents interpret raw experimental data and handle everyday wet-lab science.",
     "pubDate": "2026-11-06T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "06bc9743",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Cult.fit builds operational muscle with Codex",
-    "link": "https://openai.com/index/cultfit-builds-with-codex",
-    "description": "Cult.fit is using Codex to help teams across functions build tools, move faster, and change how work gets done.",
-    "pubDate": "2026-11-05T20:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "5755228c",
-    "feedId": "feed_245a5c89",
-    "feedName": "Bubble Blog",
-    "source": "Bubble Blog",
-    "title": "How to Make a Fitness App with AI in Just Five Steps",
-    "link": "https://bubble.io/blog/build-fitness-app/",
-    "description": "Make your own custom fitness app, wellness app, or workout app with our step-by-step guide. Bubble AI will help you generate the foundation, then we’ll walk you through how to customize and complete your app.",
-    "pubDate": "2026-11-05T19:52:00.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
-  },
-  {
-    "id": "1a149659",
-    "feedId": "feed_245a5c89",
-    "feedName": "Bubble Blog",
-    "source": "Bubble Blog",
-    "title": "8 Best Lovable Alternatives for AI App and Web Development",
-    "link": "https://bubble.io/blog/best-lovable-alternatives-ai-app-development/",
-    "description": "Discover eight Lovable alternatives for AI app development, from platforms with full visual control to specialized coding tools. We break down features, pricing, and ideal use cases to help you choose the right platform.",
-    "pubDate": "2026-11-05T18:26:00.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
-  },
-  {
-    "id": "9732ff15",
-    "feedId": "feed_9bbd3683",
-    "feedName": "Google AI Blog",
-    "source": "Google AI Blog",
-    "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-    "link": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-    "description": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
-    "pubDate": "2026-11-05T17:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
-  },
-  {
-    "id": "15ec7e98",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Australian universities are creating AI-native graduates",
-    "link": "https://openai.com/index/australian-universities-ai-native-graduates",
-    "description": "Australian universities are expanding access to ChatGPT and bringing AI into teaching and learning to prepare students for an AI-enabled workforce.",
-    "pubDate": "2026-11-05T17:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "0fe94fb6",
-    "feedId": "feed_245a5c89",
-    "feedName": "Bubble Blog",
-    "source": "Bubble Blog",
-    "title": "How to Build an iPhone App With AI: Complete Guide",
-    "link": "https://bubble.io/blog/how-to-build-app-for-iphone/",
-    "description": "Build a native iPhone app without writing code — from first prompt to App Store listing.",
-    "pubDate": "2026-11-05T14:40:00.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
-  },
-  {
-    "id": "a175f1be",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
-    "link": "https://openai.com/index/introducing-gpt-6-cyber",
-    "description": "Introducing GPT‑6 Cyber, OpenAI’s cybersecurity model for finding exploitable vulnerabilities and developing fixes, trained to stay within authorized scope.",
-    "pubDate": "2026-11-05T09:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "360a2b0f",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Merge builds product and business tools with OpenAI technology",
-    "link": "https://openai.com/index/merge-builds-with-openai",
-    "description": "Merge uses GPT-6 Astra, ChatGPT, and Codex to review product code and support marketing. Its teams also use AI to plan executive dinners and prepare sales updates.",
-    "pubDate": "2026-11-05T08:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "2bc06518",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Setting a new standard for responsible AI infrastructure",
-    "link": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
-    "description": "OpenAI introduces its National Community Compact and Compute Campus Policy Blueprint to protect local resources, create jobs, and guide responsible AI infrastructure development.",
-    "pubDate": "2026-11-05T02:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "bffb044c",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Flipsnack grows product signups with conversion optimization",
-    "link": "https://openai.com/ads/customers/flipsnack",
-    "description": "Flipsnack focused its ChatGPT Ads campaigns on getting people to try its product, growing registrations while lowering the cost per signup.",
-    "pubDate": "2026-11-05T00:45:15.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "dce1e49e",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
-    "link": "https://huggingface.co/blog/phonon-tts",
-    "description": "",
-    "pubDate": "2026-11-05T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "4ce5e2f9",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Franklin Templeton uses OpenAI to support investment research",
-    "link": "https://openai.com/index/franklin-templeton",
-    "description": "Starting with equity research, Franklin Templeton is developing AI workflows to help portfolio managers compare research views and examine investment risks.",
-    "pubDate": "2026-11-05T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "61b10e1c",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
-    "link": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
-    "description": "",
-    "pubDate": "2026-11-04T17:50:10.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "37d05b80",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "OpenAI to acquire Pierre Computer Company, Inc.",
-    "link": "https://openai.com/index/openai-to-acquire-pierre",
-    "description": "OpenAI will acquire Pierre Computer Company, expanding Codex’s tools for building, understanding, and reviewing code.",
-    "pubDate": "2026-11-04T14:30:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "914fb399",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "A thousand fewer paths to root",
-    "link": "https://openai.com/index/a-thousand-fewer-paths-to-root",
-    "description": "OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.",
-    "pubDate": "2026-11-04T08:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "d0955c10",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
-    "link": "https://openai.com/index/daybreak-red-aws-govcloud",
-    "description": "Daybreak Red brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work.",
-    "pubDate": "2026-11-04T07:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "ea1e4a4a",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Introducing Images 2.6",
-    "link": "https://openai.com/index/introducing-images-2-6",
-    "description": "Images 2.6 brings faster image generation, GIF creation, more precise editing, and new API controls across ChatGPT, Codex, and the API.",
-    "pubDate": "2026-11-04T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "79bf9cfa",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
-    "link": "https://openai.com/index/devrev-enterprise-self-service",
-    "description": "DevRev uses GPT-6.1 Sol to power Computer and Operator, balancing reasoning, speed, and cost for enterprise service.",
-    "pubDate": "2026-11-04T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "d04e62a5",
-    "feedId": "feed_245a5c89",
-    "feedName": "Bubble Blog",
-    "source": "Bubble Blog",
-    "title": "Security Is Now the Most Important Topic in Tech",
-    "link": "https://bubble.io/blog/october-2026-security-ai-cyberattacks/",
-    "description": "Since mid-October, an AI-powered threat actor has targeted Bubble and the apps we host. Here’s what we’ve learned, how we’re defending the platform, and what you can do to secure your app.",
-    "pubDate": "2026-11-03T20:08:02.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
-  },
-  {
-    "id": "5b4dc98f",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Palette: teaching a small model to build decks in your design language",
-    "link": "https://huggingface.co/blog/ibm-research/palette-deck-building",
-    "description": "",
-    "pubDate": "2026-11-03T16:35:36.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "878dde7c",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Accelerating engineering for the physical world",
-    "link": "https://openai.com/index/accelerating-engineering-for-the-physical-world",
-    "description": "Discover how ChatGPT and Codex are helping engineers accelerate CAD, PCB design, simulation, and other workflows across the physical world.",
-    "pubDate": "2026-11-03T12:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "bd081c28",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "How Cisco defends at machine speed with OpenAI",
-    "link": "https://openai.com/index/cisco-cyber",
-    "description": "Cisco combines network intelligence with OpenAI models to strengthen enterprise security. Learn how it is building more adaptive defenses.",
-    "pubDate": "2026-11-03T08:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "3c610e6d",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Heimstaden is changing residential real estate management with AI",
-    "link": "https://openai.com/index/heimstaden",
-    "description": "Discover how Heimstaden uses OpenAI’s ChatGPT Enterprise and Codex to transform property management, cut costs, and empower employees across Europe.",
-    "pubDate": "2026-11-03T08:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "9d6a2d28",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "CWE-bench v2: More coverage, quality, and transparency",
-    "link": "https://huggingface.co/blog/cwe-bench",
-    "description": "",
-    "pubDate": "2026-11-03T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "a011df40",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Transformers Model Integration Contracts",
-    "link": "https://huggingface.co/blog/transformers-mic",
-    "description": "",
-    "pubDate": "2026-11-03T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "6e0d28b6",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "OpenAI appoints Jill Hazelbaker as Chief Corporate Affairs Officer",
-    "link": "https://openai.com/index/jill-hazelbaker-chief-corporate-affairs-officer",
-    "description": "Jill Hazelbaker will join OpenAI as Chief Corporate Affairs Officer, leading the company’s global communications and corporate positioning.",
-    "pubDate": "2026-11-03T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "bcf51c3c",
-    "feedId": "feed_245a5c89",
-    "feedName": "Bubble Blog",
-    "source": "Bubble Blog",
-    "title": "How to Build a Multi-Tenant SaaS App With No Code",
-    "link": "https://bubble.io/blog/multi-tenant-saas/",
-    "description": "Learn how to build a multi-tenant SaaS app with separate workspaces, roles, and billing for each customer, using Bubble's fully visual editor.",
-    "pubDate": "2026-11-02T21:09:18.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
-  },
-  {
-    "id": "44a7ba2f",
-    "feedId": "feed_245a5c89",
-    "feedName": "Bubble Blog",
-    "source": "Bubble Blog",
-    "title": "How to Build a Legal Case Management App Without Code",
-    "link": "https://bubble.io/blog/legal-case-management-software/",
-    "description": "Build a legal case management app on Bubble, a fully visual app builder where you can see and change everything, and shape it around how your firm runs.",
-    "pubDate": "2026-11-02T20:43:40.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.662Z"
-  },
-  {
-    "id": "8ce678e2",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Rewarding defenders with bigger bug bounties",
-    "link": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
-    "description": "OpenAI is raising Security Bug Bounty rewards and introducing report quality, loyalty, and priority campaign bonuses for independent security researchers.",
-    "pubDate": "2026-11-02T18:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "32b855ce",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Preparing our next security sprint to harden OpenAI",
-    "link": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai",
-    "description": "OpenAI is preparing its next internal security sprint with Cathedral Systems to test and strengthen its defenses using AI.",
-    "pubDate": "2026-11-02T18:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "2a884761",
-    "feedId": "feed_9bbd3683",
-    "feedName": "Google AI Blog",
-    "source": "Google AI Blog",
-    "title": "The latest AI news we announced in October 2026",
-    "link": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
-    "description": "Here are Google’s latest AI updates from October 2026",
-    "pubDate": "2026-11-02T17:45:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.714Z"
-  },
-  {
-    "id": "bd19c0a8",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Scaling Git at OpenAI",
-    "link": "https://openai.com/index/scaling-git-at-openai",
-    "description": "How OpenAI built Pando, a Git-compatible backend designed for the scale of development that Codex makes possible.",
-    "pubDate": "2026-11-02T15:30:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "46bb8b16",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Introducing the Grid Protectors Program",
-    "link": "https://openai.com/index/grid-protectors-program",
-    "description": "OpenAI’s Grid Protectors Program will work with utilities to help future compute campuses support grid reliability and protect consumer electricity costs.",
-    "pubDate": "2026-11-02T15:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "8ac1aef2",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "LifeVal",
-    "link": "https://openai.com/index/lifeval",
-    "description": "Introducing LifeVal, a benchmark measuring how well AI helps people complete everyday tasks, from finding childcare to managing finances and government paperwork.",
-    "pubDate": "2026-11-02T09:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "74224be8",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "OpenAI appoints Dan Driscoll as Senior Counselor for National Security Modernization",
-    "link": "https://openai.com/index/dan-driscoll-joins-openai",
-    "description": "OpenAI appoints Dan Driscoll to advise on responsible AI for national security modernization, cyber resilience, and collaboration with U.S. allies.",
-    "pubDate": "2026-11-02T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "5a46b5e6",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Qodo builds context into AI code review with Codex",
-    "link": "https://openai.com/index/qodo-codex-plugin",
-    "description": "Qodo brings company knowledge and coding standards into Codex, helping developers catch P0 issues across repositories before opening a pull request.",
-    "pubDate": "2026-11-02T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "3345c386",
-    "feedId": "feed_25bf0ace",
-    "feedName": "n8n Blog",
-    "source": "n8n Blog",
-    "title": "Throttling vs. rate limiting: Backoff strategies for workflows",
-    "link": "https://blog.n8n.io/throttling-vs-rate-limiting/",
-    "description": "Throttling versus rate limiting changes how you respond to API limits. See how Retry-After, exponential backoff, and jitter make retries more reliable.",
-    "pubDate": "2026-10-30T16:30:34.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
-  },
-  {
-    "id": "477b169b",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Making it easier for websites to express AI training preferences",
-    "link": "https://openai.com/index/helping-websites-express-ai-training-preferences",
-    "description": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.",
-    "pubDate": "2026-10-30T09:30:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "dc42f3f0",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Community safety report and new protections for teens",
-    "link": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
-    "description": "OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting.",
-    "pubDate": "2026-10-30T09:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "513cd7ea",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "Fair use benefits everyone",
-    "link": "https://openai.com/index/fair-use-benefits-everyone",
-    "description": "OpenAI shares excerpts from court briefs by creators, academics, accessibility advocates, and legal experts, among others, on how fair use supports AI training and innovation.",
-    "pubDate": "2026-10-30T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "c40a8990",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "An updated Model Spec for more capable and beneficial AI",
-    "link": "https://openai.com/index/updated-model-spec",
-    "description": "OpenAI’s updated Model Spec outlines five core values to guide more capable AI toward sound judgment, human agency, and faithfulness to human intent.",
-    "pubDate": "2026-10-29T17:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "e342c0ac",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Granite Switch 4.1.1 — Update models like you update software",
-    "link": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
-    "description": "",
-    "pubDate": "2026-10-29T13:37:07.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "bce9cfa5",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "How we detect frontier model misalignment",
-    "link": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
-    "description": "OpenAI uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate.",
-    "pubDate": "2026-10-29T09:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "6f7e6063",
-    "feedId": "feed_25bf0ace",
-    "feedName": "n8n Blog",
-    "source": "n8n Blog",
-    "title": "Why we're moving n8n's automation team beyond the service desk model",
-    "link": "https://blog.n8n.io/why-were-moving-n8ns-automation-team-beyond-the-service-desk-model/",
-    "description": "Romina da Costa, head of internal AI and automation at n8n, shares the four principles her team uses to help every team build and own its automations.",
-    "pubDate": "2026-10-29T07:10:00.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-18T17:11:48.553Z"
-  },
-  {
-    "id": "4c853e3c",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "OpenAI News",
-    "source": "OpenAI News",
-    "title": "How Ropes & Gray is developing AI for transactional diligence",
-    "link": "https://openai.com/index/ropes-gray-ai-diligence",
-    "description": "Ropes & Gray is developing AI for transactional diligence with OpenAI. Lawyers review grouped documents, summaries, and reports before advising clients.",
-    "pubDate": "2026-10-29T07:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.329Z"
-  },
-  {
-    "id": "a61c05e9",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
-    "link": "https://huggingface.co/blog/announcing-project-protostar",
-    "description": "",
-    "pubDate": "2026-10-29T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "cc1ce33c",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
-    "link": "https://huggingface.co/blog/mistral-large4",
-    "description": "",
-    "pubDate": "2026-10-29T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
-  },
-  {
-    "id": "159a4847",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
-    "link": "https://huggingface.co/blog/anydecisionmodel",
-    "description": "",
-    "pubDate": "2026-10-29T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.399Z"
+    "fetchedAt": "2026-11-18T18:32:13.835Z"
   }
 ]
