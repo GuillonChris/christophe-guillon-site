@@ -1,17 +1,128 @@
 [
-  { "id": "feed_e5f69fa3", "name": "OpenAI News", "url": "https://openai.com/news/rss.xml", "category": "IA", "enabled": true },
-  { "id": "feed_73d2bb9d", "name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "category": "IA", "enabled": true },
-  { "id": "feed_9bbd3683", "name": "Google AI Blog", "url": "https://blog.google/technology/ai/rss/", "category": "IA", "enabled": true },
-  { "id": "feed_592e3479", "name": "Simon Willison Weblog", "url": "https://simonwillison.net/atom/everything/", "category": "IA", "enabled": true },
-  { "id": "feed_2b647a44", "name": "MIT Tech Review - IA", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed", "category": "IA", "enabled": true },
-  { "id": "feed_d72ae229", "name": "The Verge - AI", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "category": "IA", "enabled": true },
-  { "id": "feed_7f6b34f5", "name": "ActuIA", "url": "https://www.actuia.com/feed/", "category": "IA", "enabled": true },
-  { "id": "feed_d1ad843d", "name": "Blog du Modérateur - IA", "url": "https://www.blogdumoderateur.com/dossier/intelligence-artificielle/feed/", "category": "IA", "enabled": true },
-  { "id": "feed_3ad51128", "name": "ZDNet France - IA", "url": "https://www.zdnet.fr/feeds/rss/actualites/intelligence-artificielle/", "category": "IA", "enabled": true },
-  { "id": "feed_ca3e2283", "name": "Make Blog", "url": "https://www.make.com/en/blog/rss.xml", "category": "NoCode", "enabled": true },
-  { "id": "feed_25bf0ace", "name": "n8n Blog", "url": "https://blog.n8n.io/rss/", "category": "NoCode", "enabled": true },
-  { "id": "feed_d47aff04", "name": "Zapier Blog", "url": "https://zapier.com/blog/feeds/latest/", "category": "NoCode", "enabled": true },
-  { "id": "feed_245a5c89", "name": "Bubble Blog", "url": "https://bubble.io/blog/rss/", "category": "NoCode", "enabled": true },
-  { "id": "feed_483e6c9a", "name": "Webflow Blog", "url": "https://webflow.com/blog/feed.xml", "category": "NoCode", "enabled": true },
-  { "id": "feed_5bc2da9d", "name": "Airtable Blog", "url": "https://blog.airtable.com/rss/", "category": "NoCode", "enabled": true }
+  {
+    "id": "feed_73d2bb9d",
+    "name": "Hugging Face Blog",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_9bbd3683",
+    "name": "Google AI Blog",
+    "url": "https://blog.google/technology/ai/rss/",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_592e3479",
+    "name": "Simon Willison Weblog",
+    "url": "https://simonwillison.net/atom/everything/",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_2b647a44",
+    "name": "MIT Tech Review - IA",
+    "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_d72ae229",
+    "name": "The Verge - AI",
+    "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_7f6b34f5",
+    "name": "ActuIA",
+    "url": "https://www.actuia.com/feed/",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_d1ad843d",
+    "name": "Blog du Modérateur - IA",
+    "url": "https://www.blogdumoderateur.com/dossier/intelligence-artificielle/feed/",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_3ad51128",
+    "name": "ZDNet France - IA",
+    "url": "https://www.zdnet.fr/feeds/rss/actualites/intelligence-artificielle/",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_ca3e2283",
+    "name": "Make Blog",
+    "url": "https://www.make.com/en/blog/rss.xml",
+    "category": "NoCode",
+    "enabled": true
+  },
+  {
+    "id": "feed_25bf0ace",
+    "name": "n8n Blog",
+    "url": "https://blog.n8n.io/rss/",
+    "category": "NoCode",
+    "enabled": true
+  },
+  {
+    "id": "feed_d47aff04",
+    "name": "Zapier Blog",
+    "url": "https://zapier.com/blog/feeds/latest/",
+    "category": "NoCode",
+    "enabled": true
+  },
+  {
+    "id": "feed_245a5c89",
+    "name": "Bubble Blog",
+    "url": "https://bubble.io/blog/rss/",
+    "category": "NoCode",
+    "enabled": true
+  },
+  {
+    "id": "feed_483e6c9a",
+    "name": "Webflow Blog",
+    "url": "https://webflow.com/blog/feed.xml",
+    "category": "NoCode",
+    "enabled": true
+  },
+  {
+    "id": "feed_5bc2da9d",
+    "name": "Airtable Blog",
+    "url": "https://blog.airtable.com/rss/",
+    "category": "NoCode",
+    "enabled": true
+  },
+  {
+    "id": "feed_d5c7b40e",
+    "name": "Alertes Google IA",
+    "url": "https://www.google.fr/alerts/feeds/02939438039346009603/14360364933273791455",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_e5f69fa3",
+    "name": "Open AI blog",
+    "url": "https://openai.com/news/rss.xml",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_5c57c121",
+    "name": "Nvidia Blog",
+    "url": "https://blogs.nvidia.com/feed/",
+    "category": "IA",
+    "enabled": true
+  },
+  {
+    "id": "feed_3802eede",
+    "name": "DeepMind Google",
+    "url": "https://deepmind.google/blog/rss.xml",
+    "category": "IA",
+    "enabled": true
+  }
 ]
