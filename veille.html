@@ -226,14 +226,28 @@
             </ul>
         </div>
 
-        <!-- Pied du tiroir : réinitialisation -->
-        <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-between items-center">
-            <button id="resetFeedsBtn" type="button" class="text-xs text-slate-600 hover:text-amber-600 transition underline">
-                Réinitialiser (<span id="defaultFeedsCountLabel">15</span>)
-            </button>
-            <button id="clearCacheBtn" type="button" class="text-xs text-slate-600 hover:text-brand-dark transition">
-                Vider le cache articles
-            </button>
+        <!-- Pied du tiroir : synchronisation PC/Mobile et réinitialisation -->
+        <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
+            <div class="flex flex-wrap gap-2">
+                <button id="copySyncLinkBtn" type="button" class="flex-1 bg-white border border-slate-300 hover:border-brand-accent text-brand-dark hover:text-brand-accent px-3 py-1.5 rounded text-xs font-medium transition">
+                    🔗 Copier lien synchro mobile
+                </button>
+                <button id="exportFeedsBtn" type="button" class="bg-white border border-slate-300 hover:border-brand-accent text-slate-700 px-2.5 py-1.5 rounded text-xs font-medium transition" title="Exporter la liste des flux en JSON">
+                    Exporter
+                </button>
+                <label class="bg-white border border-slate-300 hover:border-brand-accent text-slate-700 px-2.5 py-1.5 rounded text-xs font-medium transition cursor-pointer" title="Importer un fichier JSON de flux">
+                    <span>Importer</span>
+                    <input type="file" id="importFeedsInput" accept=".json,application/json" class="hidden">
+                </label>
+            </div>
+            <div class="flex justify-between items-center pt-1 border-t border-slate-200/70">
+                <button id="resetFeedsBtn" type="button" class="text-xs text-slate-600 hover:text-amber-600 transition underline">
+                    Réinitialiser (<span id="defaultFeedsCountLabel">15</span>)
+                </button>
+                <button id="clearCacheBtn" type="button" class="text-xs text-slate-600 hover:text-brand-dark transition">
+                    Vider le cache articles
+                </button>
+            </div>
         </div>
     </aside>
 
@@ -565,7 +579,154 @@
         }
 
         // =====================================================================
-        // 5. COLLECTE DES DONNÉES (Architecture Cible + Repli Proxys)
+        // 5. SYNCHRONISATION MANUELLE PC <-> MOBILE (Lien #sync= & Export/Import)
+        // =====================================================================
+
+        /** Encode la liste des flux en Base64URL compact (compatible UTF-8) */
+        function encodeFeedsPayload(feeds) {
+            const compact = feeds.map((f) => ({
+                n: f.name,
+                u: f.url,
+                c: f.category,
+                e: f.enabled ? 1 : 0
+            }));
+            const bytes = new TextEncoder().encode(JSON.stringify(compact));
+            let binary = '';
+            bytes.forEach((b) => { binary += String.fromCharCode(b); });
+            return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+        }
+
+        /** Décode et valide les flux issus d'un lien #sync= */
+        function decodeFeedsPayload(encoded) {
+            const base64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
+            const padded = base64 + '='.repeat((4 - (base64.length % 4)) % 4);
+            const binary = atob(padded);
+            const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+            const parsed = JSON.parse(new TextDecoder().decode(bytes));
+            if (!Array.isArray(parsed)) return [];
+
+            return parsed
+                .filter((item) => item && typeof item.u === 'string')
+                .map((item, idx) => normalizeFeed({
+                    name: item.n || 'Flux importé',
+                    url: item.u,
+                    category: item.c === 'NoCode' ? 'NoCode' : 'IA',
+                    enabled: item.e !== 0
+                }, idx))
+                .filter((f) => Boolean(normalizeUrl(f.url)));
+        }
+
+        /** Copie un lien contenant l'état actuel des flux à ouvrir sur téléphone */
+        async function copySyncLink() {
+            try {
+                const payload = encodeFeedsPayload(activeFeeds);
+                const baseUrl = window.location.href.split('#')[0];
+                const syncUrl = `${baseUrl}#sync=${payload}`;
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(syncUrl);
+                    showDrawerFeedback('Lien de synchronisation copié ! Ouvrez-le sur votre téléphone.');
+                } else {
+                    window.prompt('Copiez ce lien et ouvrez-le sur votre téléphone :', syncUrl);
+                }
+            } catch (error) {
+                console.error('[Veille CG] Erreur génération lien synchro :', error);
+                showDrawerFeedback('Impossible de générer le lien de synchronisation.', true);
+            }
+        }
+
+        /** Importe automatiquement les flux présents dans #sync=... à l'ouverture sur mobile */
+        function importFeedsFromUrlHash() {
+            const hash = window.location.hash || '';
+            if (!hash.startsWith('#sync=')) return 0;
+
+            const encoded = hash.slice('#sync='.length).trim();
+            if (!encoded) return 0;
+
+            try {
+                const importedFeeds = decodeFeedsPayload(encoded);
+                if (importedFeeds.length === 0) return 0;
+
+                const byId = new Map(activeFeeds.map((f) => [f.id, f]));
+                let changedCount = 0;
+
+                importedFeeds.forEach((feed) => {
+                    const existing = byId.get(feed.id);
+                    if (!existing) {
+                        activeFeeds.push(feed);
+                        byId.set(feed.id, feed);
+                        changedCount++;
+                    } else if (
+                        existing.name !== feed.name ||
+                        existing.category !== feed.category ||
+                        existing.enabled !== feed.enabled
+                    ) {
+                        existing.name = feed.name;
+                        existing.category = feed.category;
+                        existing.enabled = feed.enabled;
+                        changedCount++;
+                    }
+                });
+
+                if (changedCount > 0) {
+                    saveFeeds(activeFeeds, false);
+                    console.info(`[Veille CG] ${changedCount} source(s) synchronisée(s) depuis le lien.`);
+                }
+
+                // Nettoie l'URL pour éviter de réimporter au prochain rechargement
+                window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                return changedCount;
+            } catch (error) {
+                console.error('[Veille CG] Lien de synchronisation invalide :', error);
+                return 0;
+            }
+        }
+
+        /** Exporte la liste des flux au format JSON */
+        function exportFeedsJSON() {
+            const blob = new Blob([JSON.stringify(activeFeeds, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'veille-cg-feeds.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        /** Importe un fichier JSON de flux dans cg_feeds_v1 */
+        function importFeedsJSON(file) {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    const parsed = JSON.parse(String(reader.result || '[]'));
+                    if (!Array.isArray(parsed)) throw new Error('Format JSON invalide');
+
+                    const byId = new Map(activeFeeds.map((f) => [f.id, f]));
+                    let addedCount = 0;
+
+                    parsed.forEach((raw, idx) => {
+                        if (!raw || !raw.url || !normalizeUrl(raw.url)) return;
+                        const norm = normalizeFeed(raw, idx);
+                        if (!byId.has(norm.id)) {
+                            activeFeeds.push(norm);
+                            byId.set(norm.id, norm);
+                            addedCount++;
+                        }
+                    });
+
+                    saveFeeds(activeFeeds, true);
+                    showDrawerFeedback(`${addedCount} nouveau(x) flux importé(s). Actualisation…`);
+                    syncAllFeeds(false);
+                } catch (err) {
+                    showDrawerFeedback(`Échec de l'import JSON : ${err.message}`, true);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // =====================================================================
+        // 6. COLLECTE DES DONNÉES (Architecture Cible + Repli Proxys)
         // =====================================================================
 
         /** Charge /data/feeds.json et /data/articles.json générés par GitHub Actions */
@@ -766,7 +927,7 @@
                             console.warn(`[Veille CG] Flux ignoré (${feed.name}) : ${err.message}`);
                         } finally {
                             completedCount++;
-                            showStatus(`<div class="loader"></div><span>Actualisation : ${completedCount}/${feedsToFetch.length} sources personnalisées vérifiées…</span>`);
+                            showStatus(`<div class="loader"></div><span>Actualisation : ${completedCount}/${feedsToFetch.length} source(s) vérifiée(s)…</span>`);
                         }
                     })
                 );
@@ -787,7 +948,7 @@
         }
 
         // =====================================================================
-        // 6. ACTIONS UTILISATEUR SUR LES FLUX (Issue #6)
+        // 7. ACTIONS UTILISATEUR SUR LES FLUX (Issue #6)
         // =====================================================================
 
         function renameFeed(feedId) {
@@ -855,7 +1016,7 @@
         }
 
         // =====================================================================
-        // 7. GESTION DES VUES (VIGNETTES / LISTE) & RENDU DOM
+        // 8. GESTION DES VUES (VIGNETTES / LISTE) & RENDU DOM
         // =====================================================================
 
         function loadViewMode() {
@@ -1159,7 +1320,7 @@
         }
 
         // =====================================================================
-        // 8. ÉVÉNEMENTS & INITIALISATION
+        // 9. ÉVÉNEMENTS & INITIALISATION
         // =====================================================================
 
         function toggleDrawer(forceState) {
@@ -1190,6 +1351,14 @@
                 allArticles = [];
                 applyFilters(true);
                 showDrawerFeedback('Cache local vidé.');
+            });
+
+            // Synchronisation PC <-> Mobile (Lien #sync= & Export/Import JSON)
+            document.getElementById('copySyncLinkBtn').addEventListener('click', copySyncLink);
+            document.getElementById('exportFeedsBtn').addEventListener('click', exportFeedsJSON);
+            document.getElementById('importFeedsInput').addEventListener('change', (e) => {
+                importFeedsJSON(e.target.files[0]);
+                e.target.value = '';
             });
 
             // Ajout d'un flux personnalisé
@@ -1317,6 +1486,10 @@
             loadViewMode();
             loadFavorites();
             activeFeeds = loadFeeds();
+
+            // Importe les flux si la page est ouverte via un lien #sync=... depuis le PC
+            const syncedFromLink = importFeedsFromUrlHash();
+
             renderFeedsList();
             updateFeedFilterSelect();
 
@@ -1326,6 +1499,10 @@
 
             bindEvents();
             syncAllFeeds(false);
+
+            if (syncedFromLink > 0) {
+                showStatus(`<div class="loader"></div><span>${syncedFromLink} source(s) synchronisée(s) depuis votre lien…</span>`);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', init);
