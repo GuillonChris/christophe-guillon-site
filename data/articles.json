@@ -9,7 +9,211 @@
     "description": "Jesse Walker spent years as a tech product manager. About 10 years ago he left the industry to turn his evening gig, coaching jiu-jitsu, into a full-time one. He now owns and coaches at Rough Hands BJJ in Louisville, Kentucky. Rough Hands BJJ has be…",
     "pubDate": "2026-11-20T14:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
+  },
+  {
+    "id": "114bd308",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "STMicroelectronics : un composant 60 % plus petit pour des appareils électroniques plus compacts et mieux protégés",
+    "link": "https://www.zdnet.fr/actualites/stmicroelectronics-un-composant-60-plus-petit-pour-des-appareils-electroniques-plus-compacts-et-mieux-proteges-508267.htm",
+    "description": "STMicroelectronics présente un dispositif miniature destiné à protéger les circuits électroniques contre les surtensions et les décharges électrostatiques. Une solution qui cible notamment les équipements industriels, les objets connectés et les app…",
+    "pubDate": "2026-11-20T10:11:55.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
+  },
+  {
+    "id": "c70208ae",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "L'IA au secours d'elfes, de nains et d'hobbits à l'assaut des failles dans le code",
+    "link": "https://www.zdnet.fr/actualites/lia-au-secours-delfes-de-nains-et-dhobbits-a-lassaut-des-failles-dans-le-code-508243.htm",
+    "description": "Face à des vulnérabilités enfouies depuis des décennies que l'intelligence artificielle sait désormais exploiter en quelques secondes, la traque aux failles change d'échelle. Entre fuzzing, exécution symbolique, vérification formelle et LLM, plongée…",
+    "pubDate": "2026-11-20T10:11:50.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
+  },
+  {
+    "id": "31e87d03",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Copilot Workspaces et autres nouveautés pour l'IA au travail, le point sur les annonces de Microsoft Ignite 2026",
+    "link": "https://www.zdnet.fr/actualites/copilot-workspaces-et-autres-nouveautes-pour-lia-au-travail-le-point-sur-les-annonces-de-microsoft-ignite-2026-508149.htm",
+    "description": "L'entreprise a également lancé de nouveaux outils de suivi du retour sur investissement destinés aux entreprises qui surveillent leurs dépenses en matière d'IA.",
+    "pubDate": "2026-11-20T10:11:25.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
+  },
+  {
+    "id": "15720351",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Fausses citations, calculs : les anciens défauts de l’IA s’effacent, mais d’autres se renforcent",
+    "link": "https://www.zdnet.fr/actualites/fausses-citations-calculs-les-anciens-defauts-de-lia-seffacent-dautres-se-renforcent-508268.htm",
+    "description": "Des chercheurs de Stanford ont rejoué 50 comportements problématiques de l’IA, décrits entre 2022 et 2025, sur 20 modèles récents. Près de la moitié ont presque disparu, comme les fausses références, mais la flatterie envers l’utilisateur et l’auto-…",
+    "pubDate": "2026-11-20T09:11:16.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
+  },
+  {
+    "id": "4590ce47",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Muse Charm : Meta veut vendre son compagnon IA 300 dollars",
+    "link": "https://www.zdnet.fr/actualites/muse-charm-meta-veut-vendre-son-compagnon-ia-300-dollars-508264.htm",
+    "description": "Meta se prépare à lancer Muse Charm, un appareil de poche à 300 dollars pour parler à son agent IA Muse sans smartphone, avec jusqu’à 12 mois de données 5G offerts.",
+    "pubDate": "2026-11-20T08:11:46.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
+  },
+  {
+    "id": "3db73b5a",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "ZD Tech : Renault bascule dans l'économie de guerre avec ses drones",
+    "link": "https://www.zdnet.fr/actualites/zd-tech-renault-bascule-dans-leconomie-de-guerre-avec-ses-drones-507404.htm",
+    "description": "Le constructeur automobile s'associe au belge John Cockerill pour créer le Forefront Concept. Ce robot terrestre réutilise des composants civils pour diviser les coûts de production par dix.",
+    "pubDate": "2026-11-20T08:11:04.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
+  },
+  {
+    "id": "63094a04",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L'entreprise américaine d' intelligence artificielle Anthropic signe une entrée en Bourse historique...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://x.com/franceinfo/status/2123556226965414166&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw09T4ZWCPg0dxvbCKGJiZYg",
+    "description": "L'entreprise américaine d' intelligence artificielle Anthropic signe une entrée en Bourse historique en détrônant SpaceX https://t.co/90So7lmfVk.",
+    "pubDate": "2026-11-20T07:29:19.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "07280ecd",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle : quand l'IA bouscule notre rapport à la littérature - Tribune de Genève",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.tdg.ch/intelligence-artificielle-quand-lia-bouscule-notre-rapport-a-la-litterature-937788768685&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3EXejMfZnAL-1tKWoi0EUG",
+    "description": "Intelligence artificielle . Car c'était déjà un vertige de dialoguer avec une interlocutrice imaginaire de l'IA. Figure fantôme de l'humain renseignant ...",
+    "pubDate": "2026-11-20T06:44:09.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "bd9512ee",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle : les étudiants de l'UTBM formés pour mieux appréhender cette technologie",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ici.fr/emissions/l-info-d-ici-ici-belfort-montbeliard/intelligence-artificielle-les-etudiants-de-l-utbm-formes-pour-mieux-apprehender-cette-technologie-5704907&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3hBGlamvVSGx_oSpSIClj4",
+    "description": "Difficile en novembre 2026, quatre ans après le lancement officiel de ChatGPT, de ne pas évoquer l' intelligence artificielle (IA) dans les cursus d' ...",
+    "pubDate": "2026-11-20T06:39:01.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "abb5595c",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Claude brûle la politesse à ChatGPT : ce que l'IPO d'Anthropic signifie pour son grand rival OpenAI",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lesechos.fr/tech-medias/intelligence-artificielle/claude-brule-la-politesse-a-chatgpt-ce-que-lipo-danthropic-signifie-pour-son-grand-rival-openai-2263658&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw20K4Q2VDBpTsfFEMDW-UTP",
+    "description": "Anthropic a fait ses débuts en grande pompe jeudi à Wall Street. Le laboratoire d' intelligence artificielle fondé par Dario et Daniela Amodei a ...",
+    "pubDate": "2026-11-20T06:36:40.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "baba04f2",
+    "feedId": "feed_7f6b34f5",
+    "feedName": "ActuIA",
+    "source": "ActuIA",
+    "title": "Styliser son raisonnement rend un modèle d'IA moins surveillable",
+    "link": "https://www.actuia.com/actualite/styliser-son-raisonnement-rend-un-modele-dia-moins-surveillable/",
+    "description": "Une prépublication arXiv montre qu'un modèle ouvert affiné pour réécrire son raisonnement dans la voix de personnages devient moins lisible par un moniteur automatique, sans avoir été entraîné à dissimuler. Ce résultat interroge la fiabilité de la s…",
+    "pubDate": "2026-11-20T06:30:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
+  },
+  {
+    "id": "b067b688",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle : Anthropic entre en Bourse sous les critiques de manifestants",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.20min.ch/fr/story/intelligence-artificielle-anthropic-entre-en-bourse-sous-les-critiques-de-manifestants-103670478&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2MR9Rut-96OzdqIW4CAVO8",
+    "description": "Intelligence artificielle : Anthropic entre en Bourse sous les critiques de manifestants. Une centaine de personnes ont protesté à San Francisco. Elles ...",
+    "pubDate": "2026-11-20T06:11:03.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "a02ef0c3",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "« Quel que soit le problème, l'IA fait probablement partie de la solution » - Les Echos",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lesechos.fr/tech-medias/intelligence-artificielle/quel-que-soit-le-probleme-lia-fait-probablement-partie-de-la-solution-2263669&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3w3As8NbkhCrhNOh5Bj4FO",
+    "description": "Dans cet épisode spécial du podcast des « Echos » dédié à l' intelligence artificielle (IA), le président de Microsoft livre sa vision de la révolution ...",
+    "pubDate": "2026-11-20T06:07:08.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "ef3418c3",
+    "feedId": "feed_592e3479",
+    "feedName": "Simon Willison Weblog",
+    "source": "Simon Willison Weblog",
+    "title": "Token fraud is here and it’s BAD (YouTube)",
+    "link": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
+    "description": "Token fraud is here and it’s BAD (YouTube) Claire Vo runs ChatPRD , an AI platform that helps product managers \"turn an idea into a spec\". The product has been live since the GPT-4 era, and Claire has been building it in public for much of that time…",
+    "pubDate": "2026-11-20T02:49:57.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:00.936Z"
+  },
+  {
+    "id": "4c415f35",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle : l'action Anthropic finit sa première journée en hausse de 17 % et ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lemonde.fr/economie/article/2026/11/20/intelligence-artificielle-l-action-anthropic-finit-sa-premiere-journee-en-hausse-de-17-et-valorise-l-entreprise-a-1-280-milliards-de-dollars_6813415_3234.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3NItR5XdNoqNeESj69wUMu",
+    "description": "Une histoire de famille extraordinaire, qui a conduit à construire en six ans le leader de l' intelligence artificielle (IA), avec son célèbre modèle ...",
+    "pubDate": "2026-11-20T02:32:02.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "a932c2d7",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Cinéma : l' intelligence artificielle doit-elle avoir sa place? - Radio-Canada",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://ici.radio-canada.ca/en-bref/1-10813785/cinema-intelligence-artificielle-doit-elle-avoir-sa-place&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3Jl76gv_hGcK8iUJzDidZP",
+    "description": "Cinéma : l' intelligence artificielle doit-elle avoir sa place? Cinéma : l'intelligence … plus. Karine Godin. Cinéma : l' intelligence artificielle ...",
+    "pubDate": "2026-11-20T02:27:57.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "b2e0d46b",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L'entreprise américaine d' intelligence artificielle Anthropic signe une entrée en Bourse ... - franceinfo",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.franceinfo.fr/economie/bourse/l-entreprise-americaine-d-intelligence-artificielle-anthropic-signe-une-entree-en-bourse-historique-en-detronant-spacex_8290763.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1kPSf-Ept9MXWSi4tYKA9R",
+    "description": "L'entreprise américaine d' intelligence artificielle Anthropic signe une entrée en Bourse historique en détrônant SpaceX. Les débuts d'Anthropic ...",
+    "pubDate": "2026-11-20T01:57:35.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "6b54f469",
@@ -21,7 +225,19 @@
     "description": "Intelligence artificielle , Automobile, Hérault, Béziers ... Dans ses échanges avec l' intelligence artificielle , le salarié s'interroge sur le ...",
     "pubDate": "2026-11-20T00:38:59.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "bad42bfe",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Conférence. L' intelligence artificielle entre dans la boîte à outil du médico-social",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.laviecorrezienne.fr/actualite-8326-conference-l-intelligence-artificielle-entre-dans-la-boite-a-outil-du-medico-social&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0kib4Nau-cUT9XhPwEuqjD",
+    "description": "... intelligence artificielle (IA), à l'amphithéâtre du Conseil départemental de la Corrèze, à Tulle.",
+    "pubDate": "2026-11-19T23:50:14.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "c0e10c16",
@@ -33,7 +249,7 @@
     "description": "Photo: Yasin Akgul Agence France-Presse Le thème de l' intelligence artificielle n'apparaît pas du tout à l'ordre du jour de la COP31, en Turquie, en ...",
     "pubDate": "2026-11-19T23:32:01.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "77c2aedd",
@@ -45,7 +261,7 @@
     "description": "Gabriel Attal, candidat déclaré pour la présidentielle française de 2027, a récemment mis en lumière l'importance de l' intelligence artificielle (IA) ...",
     "pubDate": "2026-11-19T23:26:52.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "e2a765b1",
@@ -57,7 +273,7 @@
     "description": "Gabriel Attal, candidat à la présidentielle française de 2027, a récemment mis en lumière l'importance de l' intelligence artificielle (IA) dans sa ...",
     "pubDate": "2026-11-19T23:16:51.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "af6d9014",
@@ -69,7 +285,7 @@
     "description": "L'éthique, la sécurité, le besoin de comprendre l' intelligence artificielle : tout cela a-t-il été jeté à la poubelle par Anthropic? Ce jeudi, la firme ...",
     "pubDate": "2026-11-19T22:54:12.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "07c06b5d",
@@ -81,7 +297,7 @@
     "description": "... intelligence artificielle permettraient d'automatiser les solutions se révèle illusoire”, selon un éditorial du site Think Digital. Antonia Romeo ...",
     "pubDate": "2026-11-19T22:43:13.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "b4160d52",
@@ -93,7 +309,7 @@
     "description": "La star de l' intelligence artificielle , qui s'est introduite sur une valorisation à 1.500 milliards de dollars, fait beaucoup d'heureux.",
     "pubDate": "2026-11-19T22:43:10.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "bd5a5fee",
@@ -105,7 +321,7 @@
     "description": "Apple is working on its own AI agent that can perform a range of tasks for you, including browsing the web, working across apps, writing code, and calling services. That's according to a job listing spotted by Bloomberg, which says Apple is looking…",
     "pubDate": "2026-11-19T22:31:41.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "50d189d3",
@@ -117,7 +333,19 @@
     "description": "Face au développement de l' intelligence artificielle , Meta \"réévalue\" son objectif de zéro émission nette à l'horizon 2030 ...",
     "pubDate": "2026-11-19T22:27:34.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
+  },
+  {
+    "id": "d0ddb3a3",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle : la CCI2M lance Propulsion IA - Journal L'Éveil de Saint-Eustache",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://leveil.com/economie/la-cci2m-lance-un-parcours-de-neuf-mois-sur-lia&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0MvFz76CG5W6a3Xu8ZNm4E",
+    "description": "Photo Vincent Yergeau – La CCI2M propose un parcours de neuf mois pour aider les entreprises à intégrer l' intelligence artificielle . La CCI2M ...",
+    "pubDate": "2026-11-19T22:16:01.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "a605096a",
@@ -129,7 +357,7 @@
     "description": "... intelligence artificielle (IA), cha... - 19/11/2026 à 20 ... intelligence artificielle (IA) Anthropic, le 19 novembre 2026 à New York ...",
     "pubDate": "2026-11-19T22:15:27.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.185Z"
+    "fetchedAt": "2026-11-20T09:31:02.069Z"
   },
   {
     "id": "22d83d2b",
@@ -165,7 +393,7 @@
     "description": "\"We've got this,\" Colette Kress, interim CEO of Nvidia, said Tuesday night as she closed out the embattled chip company's third quarter earnings call. By Thursday, the company's stock price was hovering at around $150 per share, a nearly 40 percent…",
     "pubDate": "2026-11-19T21:59:35.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "d81a175b",
@@ -261,7 +489,7 @@
     "description": "PostgreSQL 19 Released Most years PostgreSQL ships a new release in September, but this year's release came two months later thanks mainly to the flurry of issues that the PostgreSQL team needed to address as part of the ongoing AI-reported vulnerab…",
     "pubDate": "2026-11-19T20:43:57.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.884Z"
+    "fetchedAt": "2026-11-20T09:31:00.936Z"
   },
   {
     "id": "9614a870",
@@ -285,7 +513,7 @@
     "description": "Meta is planning to price the Muse Charm, a little gadget with a screen that lets you chat with your Muse AI agent, at $300, according to The Information. CEO Mark Zuckerberg revealed the gadget earlier this year and said the company expected to shi…",
     "pubDate": "2026-11-19T20:22:17.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "719490cc",
@@ -309,7 +537,7 @@
     "description": "Google is updating its homepage to include AI searches. In a post on X, Google's vice president of product, Robby Stein, shows how you can now open a collapsible sidebar to view and continue your AI chats. Based on the GIF shared by Stein, it looks…",
     "pubDate": "2026-11-19T20:05:06.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "bb293d43",
@@ -333,7 +561,7 @@
     "description": "NVIDIA and Microsoft are extending their full-stack collaboration to help organizations build, customize and deploy intelligent applications — from next-generation infrastructure on Azure to industrial systems and Windows PCs. At Microsoft Ignite, t…",
     "pubDate": "2026-11-19T20:00:15.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.239Z"
+    "fetchedAt": "2026-11-20T09:31:02.287Z"
   },
   {
     "id": "bbb3ace3",
@@ -369,7 +597,7 @@
     "description": "Google's Gemini app for macOS now has computer use, meaning it can help you \"get multi-step tasks done across your local files, desktop apps, and the web,\" the company says. Google suggests the feature might be useful for things like speeding up wor…",
     "pubDate": "2026-11-19T18:21:13.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "217516bc",
@@ -381,7 +609,7 @@
     "description": "Microsoft a annoncé à Ignite une initiative de transparence réunissant plus de 40 organisations pour permettre une vérification indépendante des agents d'IA. L'éditeur a aussi mis en préversion un score de risque et des contrôles de confinement, tou…",
     "pubDate": "2026-11-19T18:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "58131ea1",
@@ -393,7 +621,7 @@
     "description": "Give your agents access to hundreds of tools while using fewer tokens with Tool Retrieval, now in preview in the Gemini API.",
     "pubDate": "2026-11-19T18:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.897Z"
+    "fetchedAt": "2026-11-20T09:31:01.056Z"
   },
   {
     "id": "926431ef",
@@ -465,7 +693,7 @@
     "description": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended. Developers are combining frontier AI models with NVIDIA Omniverse libraries to help carr…",
     "pubDate": "2026-11-19T17:00:35.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.239Z"
+    "fetchedAt": "2026-11-20T09:31:02.287Z"
   },
   {
     "id": "b25ba451",
@@ -477,7 +705,7 @@
     "description": "Walter Isaacson joins Google to discuss how history’s greatest innovators inspire creativity and human judgment in the AI age. Watch the episode.",
     "pubDate": "2026-11-19T17:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.897Z"
+    "fetchedAt": "2026-11-20T09:31:01.056Z"
   },
   {
     "id": "13341686",
@@ -501,7 +729,7 @@
     "description": "Anthropic has officially gone public. It began trading on the Nasdaq under the ticker symbol \"ANT\" at $111.50 per share, up from its initial $83 per share price that put company's value at around $1.5 trillion. The listing comes nearly a month after…",
     "pubDate": "2026-11-19T16:52:01.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "77fbf113",
@@ -633,7 +861,7 @@
     "description": "Le standard Agent Name Service (ANS), passé sous la gouvernance de la Linux Foundation en novembre 2026, rattache l'identité d'un agent IA à un nom de domaine, des certificats et un journal public. Ses sept spécifications restent à l'état de brouill…",
     "pubDate": "2026-11-19T16:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "6abd10fd",
@@ -657,7 +885,7 @@
     "description": "ChatGPT can receive audio prompts from your microphone faster now with a Live Dictation feature that transcribes as you speak, rather than waiting until you finish recording. It's rolling out now globally on all ChatGPT plans on the web, desktop app…",
     "pubDate": "2026-11-19T15:16:45.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "5f02d279",
@@ -669,7 +897,7 @@
     "description": "Today is a new beginning for Anthropic: a years-in-the-making IPO that beat out SpaceX for most valuable of all time, having raised $81.3 billion and set an important precedent for the other public AI lab debuts to come. But it's not simply a financ…",
     "pubDate": "2026-11-19T14:25:37.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "b80ea27a",
@@ -681,7 +909,7 @@
     "description": "GeForce NOW is kicking off Black Friday with more reasons to make time for gaming. Six-month memberships are back for a limited time. Save 30% on the first six-month term of a Performance or Ultimate membership. Big gaming plans, smaller price tag.…",
     "pubDate": "2026-11-19T14:00:12.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.239Z"
+    "fetchedAt": "2026-11-20T09:31:02.287Z"
   },
   {
     "id": "ed0fbdc7",
@@ -693,7 +921,7 @@
     "description": "Was it worth it? I've been asking myself this quite a bit over the last month or so while testing both the Amazon Bee Frontier and Siri Recap on the Apple Watch Ultra 4. Both enable a wearable to ambiently listen to your conversations and, using AI,…",
     "pubDate": "2026-11-19T13:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "37ff65cd",
@@ -705,7 +933,7 @@
     "description": "Cohere a désigné HCLTech comme intégrateur privilégié de ses solutions d'IA souveraine au Canada et en Allemagne. Le communiqué laisse chaque client choisir son lieu de déploiement et ne cite que la certification ISO 42001, les garanties de souverai…",
     "pubDate": "2026-11-19T12:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "7a3c86ed",
@@ -717,7 +945,7 @@
     "description": "Canva will now allow you to turn off its generative AI features. With this change, you can disable the graphic design platform's array of AI tools, such as its AI photo-extending Magic Expand feature, as well as turn off the ability to generate imag…",
     "pubDate": "2026-11-19T12:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.012Z"
+    "fetchedAt": "2026-11-20T09:31:00.950Z"
   },
   {
     "id": "e19d0857",
@@ -729,7 +957,7 @@
     "description": "En juin, la firme à la pomme comparaîtra devant le tribunal correctionnel de Paris pour « entrave à la réparation et au reconditionnement hors de ses circuits agréés » sur plusieurs modèles d’iPhone.",
     "pubDate": "2026-11-19T12:11:07.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "e7a9c620",
@@ -741,7 +969,7 @@
     "description": "Vous êtes peut-être perdu dans le labyrinthe de ces câbles ? Car si leur prise est devenue un standard dans le monde des smartphones, des ordinateurs et autres appareils du quotidien, ils se distinguent par le plafond des débits de données et de pui…",
     "pubDate": "2026-11-19T11:11:59.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "c6320e56",
@@ -825,7 +1053,7 @@
     "description": "Anthropic a vendu le 18 novembre 980 millions d'actions à 83 dollars, au-dessus de sa fourchette de 70 à 78 dollars, soit 81,3 milliards de dollars avant frais, dont 79,4 milliards pour la société. La valorisation atteint environ 1 500 milliards de…",
     "pubDate": "2026-11-19T10:42:47.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "6a6c39aa",
@@ -837,7 +1065,7 @@
     "description": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
     "pubDate": "2026-11-19T10:11:26.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "c18a3a02",
@@ -849,7 +1077,7 @@
     "description": "Lors de la conférence Ignite 2026, Microsoft a annoncé deux nouveaux modèles d'IA qui promettent des performances impressionnantes à un coût nettement inférieur. Ceux-ci pourraient bien redéfinir définitivement ses relations avec OpenAI et Anthropic.",
     "pubDate": "2026-11-19T10:11:12.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "bfa12275",
@@ -861,7 +1089,7 @@
     "description": "Une étude américaine alerte sur les conséquences d’une explosion nucléaire en orbite terrestre basse. Les radiations pourraient rendre la quasi-totalité des satellites inopérants, perturber durablement les infrastructures de communication et comprom…",
     "pubDate": "2026-11-19T10:11:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "4d8647c1",
@@ -933,7 +1161,7 @@
     "description": "Microsoft intégrera PowerShell 7 à la prochaine version de Windows. Windows PowerShell 5.1, qui ne reçoit plus de nouvelles fonctions, deviendra une fonctionnalité à la demande avant son retrait dans une version ultérieure.",
     "pubDate": "2026-11-19T09:11:36.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "14a510ef",
@@ -1053,7 +1281,7 @@
     "description": "Porté par une forte demande, Anthropic a fixé le prix de son action à 83 dollars, au-dessus de la fourchette de 70 à 78 dollars.",
     "pubDate": "2026-11-19T08:11:58.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "61d9d0c0",
@@ -1065,7 +1293,7 @@
     "description": "Pour contrer la complexité grandissante de ses systèmes historiques, IBM déploie Z Atlas. Cet outil propulsé par l'intelligence artificielle cartographie les architectures critiques afin de prévenir les pannes. Une stratégie de rétention face au clo…",
     "pubDate": "2026-11-19T08:11:54.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "b8f27a9e",
@@ -1077,7 +1305,7 @@
     "description": "Vous butterez peut-être sur son nom, mais cette nouvelle distro est rapide à la tâche. Encore à ses débuts, elle se heurte elle-même à un problème en particulier mais cela devrait être bientôt résolu.",
     "pubDate": "2026-11-19T08:11:37.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "9d9cc194",
@@ -1089,7 +1317,7 @@
     "description": "Learn how OpenAI built the Performance Factory, a system of Codex-powered workflows that finds and fixes performance issues to help keep ChatGPT fast.",
     "pubDate": "2026-11-19T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "0c4e4146",
@@ -1101,7 +1329,7 @@
     "description": "A Google Form is the easy part: questions in, responses out. What happens next is where things stall. Someone has to notice the new submission, thank the respondent, tell the team, and add a task. Connect Zapier to Claude, ChatGPT, or Cursor, tell y…",
     "pubDate": "2026-11-19T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "aedfa9e5",
@@ -1113,7 +1341,7 @@
     "description": "Every Instagram post leaves a small to-do list behind it: share it on Facebook and LinkedIn, tell the team in Slack, save a copy somewhere safe, log it in a spreadsheet. Your AI assistant can help you write the caption, but those chores don't happen…",
     "pubDate": "2026-11-19T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "49edc503",
@@ -1125,7 +1353,7 @@
     "description": "JUPITER Booster, à Jülich, est cinquième du TOP500 avec 1 exaflop. C'est la seule machine européenne à ce niveau, et HPC7, HPC6 et Alps complètent la présence européenne dans le top 10. D'après le décompte de la liste par ActuIA, l'Europe aligne 161…",
     "pubDate": "2026-11-19T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "679ce5e5",
@@ -1137,7 +1365,7 @@
     "description": "Your Facebook page doubles as an inbox. Someone asks if an item is still in stock at 9 p.m., a customer wants to know where their order is, a prospect says \"how much?\" and then goes quiet. An AI agent can help you word the reply, but only while the…",
     "pubDate": "2026-11-19T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "d5761a61",
@@ -1149,7 +1377,7 @@
     "description": "Your team probably lives in Google Workspace: Gmail for conversations, Sheets for tracking, Calendar for meetings, Drive for files, Forms for intake. Gemini—or any other AI assistant—can summarize a thread or draft a spreadsheet formula, but when th…",
     "pubDate": "2026-11-19T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "06034193",
@@ -1161,7 +1389,7 @@
     "description": "France Travail a interrogé plus de 16 000 employeurs sur leur usage de l'IA. 38 % l'utilisent ou la testent, avec un fort écart selon la taille de l'établissement. 6 % pensent qu'elle pourrait concurrencer l'humain sur leur métier principal d'ici ci…",
     "pubDate": "2026-11-19T06:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "d08b6c11",
@@ -1173,7 +1401,7 @@
     "description": "La CNIL sanctionne la Macif pour de graves manquements au RGPD. L'assureur conservait les mots de passe de ses clients en clair et stockait des données personnelles pendant plus de dix ans. Une décision qui rappelle les exigences en matière de sécur…",
     "pubDate": "2026-11-19T06:11:23.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "93e61129",
@@ -1185,7 +1413,7 @@
     "description": "Après Le Monde, OpenAI consolide son emprise sur la presse française en signant avec Le Figaro et LVMH. Ces accords permettront d'alimenter directement l'intelligence artificielle avec des articles vérifiés, tout en déployant l'outil au sein des réd…",
     "pubDate": "2026-11-19T06:11:11.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "fa06666e",
@@ -1197,7 +1425,7 @@
     "description": "Your AI assistant can help you plan a campaign or write the copy for a graphic. But when the chat ends, you're still the one creating a Canva design for every spreadsheet row, naming it, filing it, and letting the team know it's ready. Now you can a…",
     "pubDate": "2026-11-19T06:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "2113c71a",
@@ -1209,7 +1437,7 @@
     "description": "L'éditeur détaille l'enchaînement de défaillances ayant paralysé ses services Cloud pendant 24 heures la semaine dernière.",
     "pubDate": "2026-11-19T05:11:36.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "11b8a751",
@@ -1221,7 +1449,7 @@
     "description": "Deux ans après le délai initial de transposition, la directive NIS2 s’apprête enfin à entrer dans le droit français. Pour Alexandre Diehl, avocat à la Cour, et Jean-Baptiste Artignan, CEO et fondateur de BlueSecure, l’enjeu dépasse la simple mise en…",
     "pubDate": "2026-11-19T05:11:05.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "1343015a",
@@ -1233,7 +1461,7 @@
     "description": "Notion gives your projects, notes, and databases a home. Getting information into it is the hard part: things like the task someone mentions in Slack, an event on your calendar, or a form response you'd rather not retype. Equally important is gettin…",
     "pubDate": "2026-11-19T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "5ee2d9da",
@@ -1245,7 +1473,7 @@
     "description": "A customer messages your WhatsApp Business number. Your AI assistant could help you word the perfect reply, but when the chat closes, the lead still has to be logged in your CRM, the ticket still has to be opened, and the confirmation still has to g…",
     "pubDate": "2026-11-19T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "0b635da3",
@@ -1257,7 +1485,7 @@
     "description": "Your AI assistant can put together a road-trip playlist or point you to artists who sound like your favorites. But when the chat closes, so does the help. The song you liked in the car still has to be dropped into the right playlist, your listening…",
     "pubDate": "2026-11-19T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "6315d00f",
@@ -1269,7 +1497,7 @@
     "description": "Do you use a regular spreadsheet (like Google Sheets or Excel) to store information? I get it. Not only are they the tried-and-true tools of data storage, but they've also been around forever. But what if you need something…more actionable? For exam…",
     "pubDate": "2026-11-19T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "3039cab6",
@@ -1281,7 +1509,7 @@
     "description": "Microsoft comble le fossé entre l'IA propriétaire et l'IA open-source, tout en ciblant les entreprises soucieuses de la gestion de leurs données.",
     "pubDate": "2026-11-19T04:11:37.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "2052fc8d",
@@ -1293,7 +1521,7 @@
     "description": "Une faille critique baptisée Java4Shell (CVE-2026-114938) expose les systèmes d'information à des attaques par exécution de code à distance. Cette vulnérabilité impose le déploiement des correctifs logiciels sur les serveurs concernés.",
     "pubDate": "2026-11-19T04:11:18.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "a53bd87a",
@@ -1305,7 +1533,7 @@
     "description": "L'équipe de sécurité PHP déploie ce jeudi 19 novembre des correctifs pour l'ensemble des versions maintenues. Cette intervention traite une faille d'exécution de code à distance (RCE), accentuant la pression sur des directions informatiques encore a…",
     "pubDate": "2026-11-19T04:11:16.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "e8f0f667",
@@ -1329,7 +1557,7 @@
     "description": "La pépite franco-américaine annonce une série A de 500 millions de dollars. Cette opération propulse sa valorisation, et doit lui permettre d'accélérer la production d'Eno, un robot généraliste autonome, cible les lignes de production logistiques et…",
     "pubDate": "2026-11-19T03:11:43.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "6e93605b",
@@ -1341,7 +1569,7 @@
     "description": "Visé par un procès pour entrave à la réparation prévu en juin à Paris, Apple conteste les accusations de l'association HOP. Le constructeur défend une stratégie de durabilité axée sur la sécurité.",
     "pubDate": "2026-11-19T03:11:25.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "b204831b",
@@ -1353,7 +1581,7 @@
     "description": "Avec Agent 365 Business Analytics, Microsoft pourrait redéfinir les dépenses des entreprises, mais il existe une différence fondamentale entre la valeur estimée et les économies réalisées.",
     "pubDate": "2026-11-19T02:11:26.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "a1af61d3",
@@ -1365,7 +1593,7 @@
     "description": "Cela pourrait améliorer l'efficacité énergétique de votre Pixel Watch ou de votre Samsung Galaxy Watch.",
     "pubDate": "2026-11-19T02:11:05.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "d2ac3c1e",
@@ -1389,7 +1617,7 @@
     "description": "J'utilise Ubuntu 27.04 depuis quelque temps, et le gain de vitesse est perceptible. Voici les autres nouveautés à venir.",
     "pubDate": "2026-11-19T01:11:36.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "a0a4785b",
@@ -1425,7 +1653,7 @@
     "description": "Explore a reference architecture for supervised security investigations with Daybreak Red, including safety controls, setup, and monitoring.",
     "pubDate": "2026-11-19T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "08e06f3b",
@@ -1437,7 +1665,7 @@
     "description": "Watch a walkthrough of PR scans and see how the presenter reviews scan results in a pull request workflow.",
     "pubDate": "2026-11-19T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "002d13b4",
@@ -1449,7 +1677,7 @@
     "description": "Watch a demo of the Codex Security Plugin and see the workflow in action, from getting started to reviewing the results shown in the recording.",
     "pubDate": "2026-11-19T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "9712b78e",
@@ -1461,7 +1689,7 @@
     "description": "Watch a walkthrough of onboarding to Daybreak Blue, with a closer look at the setup experience and how to get started.",
     "pubDate": "2026-11-19T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "f9729304",
@@ -1473,7 +1701,7 @@
     "description": "Release: llm-gemini 0.38 Today Google introduced Gemini 4 Neon . I wrote recently about how confusing the pricing for the Gemini 4 series was - Neon has somehow made this even worse. Previously the Gemini 4 lineup was Hydrogen, Argon, and Carbon - w…",
     "pubDate": "2026-11-18T23:59:20.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.884Z"
+    "fetchedAt": "2026-11-20T09:31:00.936Z"
   },
   {
     "id": "6c7e5a91",
@@ -1593,7 +1821,7 @@
     "description": "",
     "pubDate": "2026-11-18T21:35:43.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.326Z"
+    "fetchedAt": "2026-11-20T09:31:02.380Z"
   },
   {
     "id": "99d09aa1",
@@ -1713,7 +1941,7 @@
     "description": "",
     "pubDate": "2026-11-18T19:54:56.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.794Z"
+    "fetchedAt": "2026-11-20T09:31:00.864Z"
   },
   {
     "id": "781d07c5",
@@ -1821,7 +2049,7 @@
     "description": "",
     "pubDate": "2026-11-18T18:53:43.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.794Z"
+    "fetchedAt": "2026-11-20T09:31:00.864Z"
   },
   {
     "id": "a64c63a5",
@@ -1857,7 +2085,7 @@
     "description": "",
     "pubDate": "2026-11-18T18:13:42.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.326Z"
+    "fetchedAt": "2026-11-20T09:31:02.380Z"
   },
   {
     "id": "891e2174",
@@ -1929,7 +2157,7 @@
     "description": "Release: datasette-arrows 0.1a0 Datasette 1.0a43 added the ability for plugins to implement streaming export formats. Datasette core supports streaming CSV and TSV - you can export millions of lines of data from a table without needing to load it al…",
     "pubDate": "2026-11-18T17:09:59.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.884Z"
+    "fetchedAt": "2026-11-20T09:31:00.936Z"
   },
   {
     "id": "c7acba89",
@@ -1977,7 +2205,7 @@
     "description": "The Google Gemini app now supports lower-memory Android devices. Access Gemini Live and custom image creation on your phone. Download the app today.",
     "pubDate": "2026-11-18T17:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.897Z"
+    "fetchedAt": "2026-11-20T09:31:01.056Z"
   },
   {
     "id": "6e404c8d",
@@ -2061,7 +2289,7 @@
     "description": "During the time these agents converted 185,000 lines of C code into 340,000 lines of Rust code (I counted), we merged over 300 commits in the actual curl project. We actually improved curl during these a little more than three weeks. A little over 2…",
     "pubDate": "2026-11-18T15:58:27.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.884Z"
+    "fetchedAt": "2026-11-20T09:31:00.936Z"
   },
   {
     "id": "ab71ea69",
@@ -2097,7 +2325,7 @@
     "description": "D'après le Wall Street Journal, qui cite des personnes informées, la SEC a ouvert une enquête civile sur Nvidia, notamment pour savoir si les informations publiées par le groupe ont trompé les investisseurs. La SEC refuse de commenter, Nvidia n'a pa…",
     "pubDate": "2026-11-18T15:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "6311417f",
@@ -2145,7 +2373,7 @@
     "description": "",
     "pubDate": "2026-11-18T15:00:23.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.794Z"
+    "fetchedAt": "2026-11-20T09:31:00.864Z"
   },
   {
     "id": "40c7ed47",
@@ -2169,7 +2397,7 @@
     "description": "The PSF end-of-year fundraiser With my Python Software Foundation board director hat on: we've launched our end-of-year fundraiser for the non-profit that supports Python development and the Python community. If your company or your work benefits fr…",
     "pubDate": "2026-11-18T14:44:48.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.884Z"
+    "fetchedAt": "2026-11-20T09:31:00.936Z"
   },
   {
     "id": "522d2c21",
@@ -2181,7 +2409,7 @@
     "description": "Like a nasty rash, AI seems to spread everywhere. Google crams AI Overviews down your throat even though it costs the company billions of dollars in lost ad revenue. Leave your apartment, and you might pass two people heaving an AI-powered humanoid…",
     "pubDate": "2026-11-18T14:42:44.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.853Z"
+    "fetchedAt": "2026-11-20T09:31:00.946Z"
   },
   {
     "id": "a2b9ec69",
@@ -2205,7 +2433,7 @@
     "description": "New NVIDIA RTX Spark compact desktops from ASUS, Dell and MSI are available today, bringing local AI agents, image and video generation, and model fine-tuning to a dedicated Windows PC. With up to 128GB of unified memory and NVIDIA’s AI software sta…",
     "pubDate": "2026-11-18T14:00:31.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.239Z"
+    "fetchedAt": "2026-11-20T09:31:02.287Z"
   },
   {
     "id": "d7b949fb",
@@ -2313,7 +2541,7 @@
     "description": "Selon une étude d'IBM et d'Oxford Economics auprès de 1 667 responsables de l'IA, 18 % seulement contrôlent totalement les décisions d'investissement en IA. En Europe, 46 % disent que des agents exécutent déjà des actions dans les processus, mais 77…",
     "pubDate": "2026-11-18T13:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "22b89a03",
@@ -2409,7 +2637,7 @@
     "description": "Cette nouvelle fonctionnalité du service d’intelligence artificielle de Google vous permet de créer des sites interactifs à l’aide de données complexes.",
     "pubDate": "2026-11-18T11:11:01.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "bf1102d4",
@@ -2421,7 +2649,7 @@
     "description": "MAI Code 2 est disponible dans GitHub Copilot. Microsoft le dit à 96 % des performances de Claude Opus 5.5 pour 5 % du prix, sur sa propre moyenne de quatre tests de code, sans publier de tarif au token. Copilot Autopilot arrive chez les clients du…",
     "pubDate": "2026-11-18T11:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "4d1660b5",
@@ -2433,7 +2661,7 @@
     "description": "In a lab near Newark Airport in New Jersey, a team of around 30 experienced human sniffers are slowly working their way through every odor on Earth. Their careful notes—“nutty,” “peachy,” “marine”—are cross-referenced with a chemical analysis to cre…",
     "pubDate": "2026-11-18T10:20:30.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.853Z"
+    "fetchedAt": "2026-11-20T09:31:00.946Z"
   },
   {
     "id": "8677c3ae",
@@ -2457,7 +2685,7 @@
     "description": "Dean Ball, Head of Strategic Futures at OpenAI, examines how more capable AI could reshape society and how people can retain control of their institutions.",
     "pubDate": "2026-11-18T10:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "4ab3d3bf",
@@ -2493,7 +2721,7 @@
     "description": "L'Appel de Paris pour la sécurité de l'IA, publié par l'Élysée le 9 novembre 2026, réunissait le 18 novembre 18 États, 10 entreprises et 11 organisations. Les développeurs s'y engagent à des mécanismes d'arrêt de leurs modèles, entraînement et usage…",
     "pubDate": "2026-11-18T09:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "743dbcee",
@@ -2505,7 +2733,7 @@
     "description": "Ce ordinateur est conçu pour les utilisateurs expérimentés et les développeurs, tirant pleinement parti des dernières avancées en matière de flux de travail basés sur l'IA. Pour tous les autres, la bête est surpuissante.",
     "pubDate": "2026-11-18T08:11:32.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "27cce1a8",
@@ -2541,7 +2769,7 @@
     "description": "See how Codex runs commands on your machine while enforcing the filesystem and network limits you control across macOS, Linux, and Windows.",
     "pubDate": "2026-11-18T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "0648a466",
@@ -2553,7 +2781,7 @@
     "description": "OpenAI measures how coding agents are accelerating AI research, where their performance remains uneven, and what this signals about recursive self-improvement.",
     "pubDate": "2026-11-18T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "fcc24d74",
@@ -2565,7 +2793,7 @@
     "description": "Sumitomo Life uses ChatGPT Enterprise to research insurers, prepare proposals, and draft code for investment analysis. Early use by executives helped drive adoption.",
     "pubDate": "2026-11-18T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "13bcbc5a",
@@ -2577,7 +2805,7 @@
     "description": "Nvidia publie 115,8 milliards de dollars de chiffre d'affaires pour le trimestre clos le 25 octobre, au-dessus de sa prévision, et vise 130 milliards pour le suivant, qui compte quatorze semaines. Colette Kress, directrice générale par intérim, relè…",
     "pubDate": "2026-11-18T07:26:37.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "8d760136",
@@ -2589,7 +2817,7 @@
     "description": "At Zapier, we're big believers in automation. That's a given. But our platform goes beyond automating simple \"if this, then that\" work—you can build fully automated systems for your work. You can set these systems up from the AI tool you already use…",
     "pubDate": "2026-11-18T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "b56b8755",
@@ -2601,7 +2829,7 @@
     "description": "H Company rend sa plateforme d'agents d'IA disponible sur l'AWS European Sovereign Cloud. L'inférence des clients européens qui le demandent tourne dans l'Union, sur des instances gérées par Nvidia ; l'entraînement des modèles reste sur l'infrastruc…",
     "pubDate": "2026-11-18T07:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
+    "fetchedAt": "2026-11-20T09:31:01.927Z"
   },
   {
     "id": "bdfec246",
@@ -2613,7 +2841,7 @@
     "description": "OpenAI explains how it manages frontier AI risk from training through deployment with model alignment, sandboxing, blocking safeguards, and monitoring.",
     "pubDate": "2026-11-18T06:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "eefb5653",
@@ -2625,7 +2853,7 @@
     "description": "Double authentification, rôles minimaux, accès partenaire pour les agences : Yohan Bernardin, fondateur de l’agence montpelliéraine The Gratin, détaille les réglages Meta Business et TikTok Business Center qui limitent les dégâts d’un piratage de co…",
     "pubDate": "2026-11-18T05:11:22.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.305Z"
+    "fetchedAt": "2026-11-20T09:31:01.367Z"
   },
   {
     "id": "632feca3",
@@ -2637,7 +2865,7 @@
     "description": "Unfortunately for me and my appallingly long TBR list, they still haven't invented a way to hand off my entire workload to a robot so I can curl up on the couch with my Border Collie mix and binge fantasy novels instead. But AI agents are the closes…",
     "pubDate": "2026-11-18T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "d7512c4f",
@@ -2649,7 +2877,7 @@
     "description": "Growing up as a band kid, I would have considered it the height of achievement to someday conduct a symphonic orchestra. (What can I say—I was really cool and popular as a teenager.) As an adult tech writer (equally as cool), workflow orchestration…",
     "pubDate": "2026-11-18T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "d981363a",
@@ -2661,7 +2889,7 @@
     "description": "When you read the word \"apple,\" what image pops into your head? For me, it's usually a blurry outline of an apple, or (if I'm reading fast) just a loose connection to what the word means. Imagine my jealousy when I discovered that I fall on the apha…",
     "pubDate": "2026-11-18T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "ec7671cc",
@@ -2673,7 +2901,7 @@
     "description": "These days, more and more customers prefer to interact with businesses through messaging. If you've already invested in chat-based marketing and sales, you're probably familiar with Telegram, a popular cloud-based, encrypted instant messaging servic…",
     "pubDate": "2026-11-18T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "3ccaf3de",
@@ -2709,7 +2937,7 @@
     "description": "Keeping track of all the new AI models getting released at the moment is practically a full-time job. The GPT-6 models were first released about two months after the GPT-5.6 series, which itself was released less than three months after GPT 5.5—you…",
     "pubDate": "2026-11-18T04:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
+    "fetchedAt": "2026-11-20T09:31:02.100Z"
   },
   {
     "id": "a70ad848",
@@ -2757,7 +2985,7 @@
     "description": "Le Groupe Figaro and OpenAI partner to bring Le Figaro’s journalism to ChatGPT through summaries and excerpts, with links to original stories.",
     "pubDate": "2026-11-18T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   },
   {
     "id": "92cffe4d",
@@ -2769,234 +2997,6 @@
     "description": "OpenAI models optimized circuits used in Jalapeño silicon and improved RISC‑V core designs, showing progress in AI-assisted chip design with GPT‑6 Astra.",
     "pubDate": "2026-11-18T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
-  },
-  {
-    "id": "a784f11b",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "Rumble-2-Flash: an open 0.5B speech model for 40+ languages",
-    "link": "https://huggingface.co/blog/rumble-2-flash",
-    "description": "",
-    "pubDate": "2026-11-18T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.794Z"
-  },
-  {
-    "id": "d3854d15",
-    "feedId": "feed_73d2bb9d",
-    "feedName": "Hugging Face Blog",
-    "source": "Hugging Face Blog",
-    "title": "180B Parameters, 32GB of RAM: Pushing MoE Inference to the Limit with Transformers",
-    "link": "https://huggingface.co/blog/moe-expert-streaming",
-    "description": "",
-    "pubDate": "2026-11-18T00:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.794Z"
-  },
-  {
-    "id": "f820bf74",
-    "feedId": "feed_d72ae229",
-    "feedName": "The Verge - AI",
-    "source": "The Verge - AI",
-    "title": "Satya Nadella says he’s AGI-pilled now",
-    "link": "https://www.theverge.com/tech/1036111/satya-nadella-says-hes-agi-pilled-now",
-    "description": "Microsoft CEO Satya Nadella says he's AGI-pilled, at least when it comes to how AI might make startling changes to the structure of the economy and how politics might change because of it. \"I am AGI-pilled in the sense that at an economy level, what…",
-    "pubDate": "2026-11-17T23:41:18.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T22:50:18.668Z"
-  },
-  {
-    "id": "874096e5",
-    "feedId": "feed_592e3479",
-    "feedName": "Simon Willison Weblog",
-    "source": "Simon Willison Weblog",
-    "title": "External sandboxes for coding agents",
-    "link": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
-    "description": "External sandboxes for coding agents I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake or prompt injection attack might cause them to take…",
-    "pubDate": "2026-11-17T22:52:29.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.884Z"
-  },
-  {
-    "id": "0cb8606a",
-    "feedId": "feed_592e3479",
-    "feedName": "Simon Willison Weblog",
-    "source": "Simon Willison Weblog",
-    "title": "GPT‑6.2 Astra and GPT‑6.2 Sol",
-    "link": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/",
-    "description": "GPT‑6.2 Astra and GPT‑6.2 Sol OpenAI: We’re introducing GPT‑6.2 Astra, our new frontier model for your hardest projects, and GPT‑6.2 Sol, our efficient, versatile model for everyday work. They're available in the API as gpt-6.2-astra and gpt-6.2-sol…",
-    "pubDate": "2026-11-17T22:38:52.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.884Z"
-  },
-  {
-    "id": "0b004ce8",
-    "feedId": "feed_d72ae229",
-    "feedName": "The Verge - AI",
-    "source": "The Verge - AI",
-    "title": "Nvidia’s Q3 earnings hit the mark, without mentioning the whole Jensen Huang thing",
-    "link": "https://www.theverge.com/tech/1036032/nvidia-q3-2027-jensen-huang",
-    "description": "Interim Nvidia CEO Colette Kress announced the company's Q3 earnings on Tuesday, without initially mentioning former CEO Jensen Huang or the details of his departure, or possible attempt at a return. On the earnings call accompanying the release, bo…",
-    "pubDate": "2026-11-17T21:40:59.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T18:41:30.802Z"
-  },
-  {
-    "id": "31a006a3",
-    "feedId": "feed_d72ae229",
-    "feedName": "The Verge - AI",
-    "source": "The Verge - AI",
-    "title": "Not even Sam Altman is safe from AI deepfakes on Instagram",
-    "link": "https://www.theverge.com/news/1035957/meta-alexandr-wang-sam-altman-instagram-ai-deepfake",
-    "description": "Instagram is filled with people posting deepfaked content - including, as of late, from one of Meta's most prominent executives. Earlier in November, Alexandr Wang, Meta's chief AI officer, shared a short clip to promote Muse, the company's consumer…",
-    "pubDate": "2026-11-17T21:00:55.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T18:41:30.802Z"
-  },
-  {
-    "id": "ee1581bb",
-    "feedId": "feed_7f6b34f5",
-    "feedName": "ActuIA",
-    "source": "ActuIA",
-    "title": "Genesis AI lève 500 millions de dollars pour mettre ses robots Eno à l'usine",
-    "link": "https://www.actuia.com/actualite/genesis-ai-leve-500-millions-de-dollars-pour-mettre-ses-robots-eno-a-lusine/",
-    "description": "Genesis AI, fondée en 2024 par Zhou Xian et Théophile Gervet et installée à Paris et en Californie, lève 500 millions de dollars en série A pour une valorisation de 3,5 milliards. Le tour est mené par Khosla Ventures, Premji Invest et Eclipse, avec…",
-    "pubDate": "2026-11-17T18:58:29.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
-  },
-  {
-    "id": "640754b6",
-    "feedId": "feed_d72ae229",
-    "feedName": "The Verge - AI",
-    "source": "The Verge - AI",
-    "title": "Google’s Spark AI agent becomes ‘Tasks’ — and now it’s free",
-    "link": "https://www.theverge.com/tech/1035756/google-spark-ai-tasks-free",
-    "description": "Google is rebranding its Spark AI agent as \"Tasks\" and making it free to use. The feature, which is powered by Google's new Gemini 4 Hydrogen AI model, can do things like create meal plans, manage your calendar, and dig through your emails to find r…",
-    "pubDate": "2026-11-17T18:58:01.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T18:41:30.802Z"
-  },
-  {
-    "id": "289cf95a",
-    "feedId": "feed_e5f69fa3",
-    "feedName": "Open AI blog",
-    "source": "Open AI blog",
-    "title": "Introducing GPT-6.2 Astra and Sol",
-    "link": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
-    "description": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
-    "pubDate": "2026-11-17T17:45:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.267Z"
-  },
-  {
-    "id": "39ff0c2b",
-    "feedId": "feed_7f6b34f5",
-    "feedName": "ActuIA",
-    "source": "ActuIA",
-    "title": "Chez Novares, un robot humanoïde apprend sa tâche en onze minutes sur la ligne",
-    "link": "https://www.actuia.com/actualite/chez-novares-un-robot-humanoide-apprend-sa-tache-en-onze-minutes-sur-la-ligne/",
-    "description": "Dans l'usine Novares de Seseña, en Espagne, un robot humanoïde Unitree intégré par Innov8 détecte les pièces à 100 %, les manipule avec 99,5 % de réussite et tient 60 minutes en autonomie. Le logiciel de Bleu Robotics, start-up parisienne cofondée p…",
-    "pubDate": "2026-11-17T17:05:53.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
-  },
-  {
-    "id": "8b572679",
-    "feedId": "feed_9bbd3683",
-    "feedName": "Google AI Blog",
-    "source": "Google AI Blog",
-    "title": "Put Gemini to work for you",
-    "link": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
-    "description": "Tasks in Gemini is now free of charge in six countries, with new features starting in the U.S. and deeper Google Workspace integration to get things done on your behalf.",
-    "pubDate": "2026-11-17T17:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.897Z"
-  },
-  {
-    "id": "368ad8ac",
-    "feedId": "feed_592e3479",
-    "feedName": "Simon Willison Weblog",
-    "source": "Simon Willison Weblog",
-    "title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
-    "link": "https://simonwillison.net/2026/Nov/17/datasette-lite/",
-    "description": "Datasette Lite is my port of the Datasette Python application to run directly in the browser using WebAssembly and Pyodide . I've released a complete rewrite of Datasette Lite using service workers, and it's now almost indistinguishable from the rea…",
-    "pubDate": "2026-11-17T16:48:33.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.884Z"
-  },
-  {
-    "id": "72e292b4",
-    "feedId": "feed_d47aff04",
-    "feedName": "Zapier Blog",
-    "source": "Zapier Blog",
-    "title": "Link any Facebook Page to LinkedIn and publish posts automatically",
-    "link": "https://zapier.com/blog/link-facebook-page-to-linkedin",
-    "description": "Do you copy posts from your Facebook Page and paste them into LinkedIn? What if you didn't have to do the copying and pasting yourself? Set up a Zap once, and every new post on your Facebook Page gets published to LinkedIn on its own, with no more c…",
-    "pubDate": "2026-11-17T16:44:00.000Z",
-    "category": "NoCode",
-    "fetchedAt": "2026-11-20T01:56:37.130Z"
-  },
-  {
-    "id": "8a451825",
-    "feedId": "feed_d72ae229",
-    "feedName": "The Verge - AI",
-    "source": "The Verge - AI",
-    "title": "The DOJ says it’s investigating Megaspeed",
-    "link": "https://www.theverge.com/policy/1035410/doj-megaspeed-nvidia-investigation-update",
-    "description": "The Justice and Commerce Departments said that they are investigating Megaspeed, the Singapore-based data center company intertwined with the resignation of Nvidia CEO Jensen Huang, after reporting suggested an investigation had been halted last yea…",
-    "pubDate": "2026-11-17T16:19:03.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T18:36:57.887Z"
-  },
-  {
-    "id": "8bbb26c5",
-    "feedId": "feed_d72ae229",
-    "feedName": "The Verge - AI",
-    "source": "The Verge - AI",
-    "title": "Jensen Huang says he’s willing to return as Nvidia CEO",
-    "link": "https://www.theverge.com/tech/1035420/jensen-huang-nvidia-return-as-ceo-statement",
-    "description": "Jensen Huang, who resigned as Nvidia's CEO last week, would be willing to return as CEO if the company's board of directors wanted it, he said in a statement reported on by The Wall Street Journal. \"Since my departure, I've seen an outpouring of cal…",
-    "pubDate": "2026-11-17T16:09:57.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-18T17:11:47.880Z"
-  },
-  {
-    "id": "c94ed4ac",
-    "feedId": "feed_7f6b34f5",
-    "feedName": "ActuIA",
-    "source": "ActuIA",
-    "title": "Data centers : le non des urnes américaines, 46 fois sur 47",
-    "link": "https://www.actuia.com/actualite/data-centers-le-non-des-urnes-americaines-46-fois-sur-47/",
-    "description": "En 2026, les électeurs américains ont choisi de limiter les centres de données dans 46 consultations locales sur 47, la plupart le 3 novembre, dont 21 dans l'Ohio, où Trenton bloque un projet Amazon de 1 000 mégawatts. L'opposition réunit électeurs…",
-    "pubDate": "2026-11-17T15:30:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:36.402Z"
-  },
-  {
-    "id": "d3dde90e",
-    "feedId": "feed_2b647a44",
-    "feedName": "MIT Tech Review - IA",
-    "source": "MIT Tech Review - IA",
-    "title": "Research Reports",
-    "link": "https://www.technologyreview.com/2026/11/17/1148203/research-reports/",
-    "description": "To access a report, click on the corresponding image below.",
-    "pubDate": "2026-11-17T14:39:46.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:35.853Z"
-  },
-  {
-    "id": "f040b2af",
-    "feedId": "feed_5c57c121",
-    "feedName": "Nvidia Blog",
-    "source": "Nvidia Blog",
-    "title": "Ian Buck Kicks Off NVIDIA’s Week at SC26 as Science Enters the Age of Agents",
-    "link": "https://blogs.nvidia.com/blog/ian-buck-sc26/",
-    "description": "NVIDIA’s Ian Buck kicked off the company’s week at SC26 in Chicago on Monday with new tools for AI agents, software that can plan experiments, run code and check results on researchers’ own systems. In NVIDIA’s special address, Buck announced Nemotr…",
-    "pubDate": "2026-11-17T14:00:10.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-20T01:56:37.239Z"
+    "fetchedAt": "2026-11-20T09:31:02.237Z"
   }
 ]
