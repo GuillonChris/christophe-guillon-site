@@ -1,5 +1,461 @@
 [
   {
+    "id": "926cb664",
+    "feedId": "feed_d47aff04",
+    "feedName": "Zapier Blog",
+    "source": "Zapier Blog",
+    "title": "How Panoramic Properties caught a missing field in its leasing workflow",
+    "link": "https://zapier.com/blog/panoramic-properties-next-gen-zaps",
+    "description": "Adam Julien has a rule about Fridays. \"I never want to put anything live on a Friday and then be gone for the weekend,\" he says. He is a marketing coordinator at Panoramic Properties, with some programming experience and a background in game develop…",
+    "pubDate": "2026-11-25T14:00:00.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
+  },
+  {
+    "id": "587e5675",
+    "feedId": "feed_d72ae229",
+    "feedName": "The Verge - AI",
+    "source": "The Verge - AI",
+    "title": "David Fincher is being dragged for suspected use of AI in his latest film",
+    "link": "https://www.theverge.com/entertainment/1041417/david-fincher-netflix-cliff-booth-ai-interpositive",
+    "description": "Though David Fincher's fans had been eagerly anticipating The Further Mis-Adventures of Cliff Booth, early screenings of the Once Upon a Time in Hollywood sequel starring Brad Pitt have raised questions about whether generative AI was used in the fi…",
+    "pubDate": "2026-11-24T18:15:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
+  },
+  {
+    "id": "1fc3511f",
+    "feedId": "feed_d72ae229",
+    "feedName": "The Verge - AI",
+    "source": "The Verge - AI",
+    "title": "Tidal will start banning AI-generated music next month",
+    "link": "https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban",
+    "description": "Tidal is officially banning AI-generated music on December 9th. As a result of this change, Tidal will delete around 29 million AI-generated songs and reject an estimated 80,000 to 85,000 tracks per day, according to Tidal music lead Robert Andersen…",
+    "pubDate": "2026-11-24T17:17:09.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
+  },
+  {
+    "id": "5f7fc0d6",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Espace, intelligence artificielle , nucléaire : les ambitions du nouveau directeur de Mines Nancy",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://etudiant.lefigaro.fr/article/etudes/espace-intelligence-artificielle-nucleaire-les-ambitions-du-nouveau-directeur-de-mines-nancy-20261124/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2Awo5NdXLE5RrkmhGiS8wD",
+    "description": "Espace, intelligence artificielle , nucléaire : les ambitions du nouveau directeur de Mines Nancy &middot; LE FIGARO. &middot; FRANÇOIS ALTER &middot; Sa pédagogie la ...",
+    "pubDate": "2026-11-24T17:14:28.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "0a54052f",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle et création de poste au service technique font débat au conseil municipal",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.dna.fr/politique/2026/11/24/intelligence-artificielle-et-creation-de-poste-au-service-technique-font-debat-au-conseil-municipal&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw220p9tDk2M9IhIlQtkPZ14",
+    "description": "Benfeld Intelligence artificielle et création de poste au service technique font débat au conseil municipal. Conseil municipal houleux ce lundi 23 ...",
+    "pubDate": "2026-11-24T17:06:58.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "6302c766",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "«La formation continue ne saurait se résumer à l' intelligence artificielle » - Le Figaro",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lefigaro.fr/decideurs/management/la-formation-continue-ne-saurait-se-resumer-a-l-intelligence-artificielle-20261124&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1cL1wVJ3TcC6QFVsXSQCaT",
+    "description": "L' intelligence artificielle change-t-elle les compétences attendues des managers ? Il y a une accélération autour de l'IA, mais la formation continue ...",
+    "pubDate": "2026-11-24T17:00:11.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "759f29d1",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "À quoi ressemblera l'Essonne en 2050 ? Climat, vieillissement, intelligence artificielle … Le ... - Actu",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://actu.fr/societe/a-quoi-ressemblera-l-essonne-en-2050-climat-vieillissement-intelligence-artificielle-le-departement-veut-votre-avis_65092591.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0l7OlTET-dZLvl48gjl-2f",
+    "description": "... intelligence artificielle . La transition démographique et sociale est également au cœur de cette consultation, car le territoire essonnien est ...",
+    "pubDate": "2026-11-24T16:57:08.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "53605c68",
+    "feedId": "feed_592e3479",
+    "feedName": "Simon Willison Weblog",
+    "source": "Simon Willison Weblog",
+    "title": "GPT 6.2 Astra Solves a Historical Mystery",
+    "link": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery/",
+    "description": "GPT 6.2 Astra Solves a Historical Mystery Here's an interesting case-study in using GPT-6.2 Astra for historical research, from history professor Mark Humphries: With only minimal prompting, GPT-6.2 Astra was able to autonomously identify the creato…",
+    "pubDate": "2026-11-24T16:53:59.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:42.610Z"
+  },
+  {
+    "id": "24f2fdb5",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle : en France, les postes les plus exposés sont majoritairement occupés ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.tf1info.fr/high-tech/intelligence-artificielle-en-france-les-postes-les-plus-exposes-sont-majoritairement-occupes-par-des-femmes-2477906.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3wQofApGQAzM0LnE8twSIc",
+    "description": "[VIDÉO] ▶️ Les métiers les plus menacés par l' intelligence artificielle générative en France sont des postes majoritairement occupés par des ...",
+    "pubDate": "2026-11-24T16:49:16.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "7e27f68e",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle : les métiers de bureau occupés par des femmes et des apprentis sont ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.sudouest.fr/sciences-et-technologie/intelligence-artificielle/intelligence-artificielle-les-metiers-de-bureau-occupes-par-des-femmes-et-des-apprentis-sont-les-plus-menaces-31655532.php&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2DiQhqDEwDHICUvl_SuBCE",
+    "description": "Les métiers les plus exposés à l' intelligence artificielle générative en France sont des métiers de bureau, majoritairement occupés par des femmes et ...",
+    "pubDate": "2026-11-24T16:48:57.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "52385917",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Elle avait obtenu un sursis pour payer ses loyers en retard, mais a été chassée de son ... - BFM",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.bfmtv.com/tech/intelligence-artificielle/elle-avait-obtenu-un-sursis-pour-payer-ses-loyers-en-retard-mais-a-ete-chassee-de-son-appartement-avant-l-heure-l-interlocutrice-compatissante-avec-qui-elle-parlait-par-mail-etait-une-l-ia_AN-202611240688.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1BbZ1Yw1mi_3Vk79w86Kvr",
+    "description": "... intelligence artificielle , rapporte WRAL News. Une distinction impossible à faire puisque les mails signés Colony Townhome Apartments ne faisaient ...",
+    "pubDate": "2026-11-24T16:44:57.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "449bedd4",
+    "feedId": "feed_73d2bb9d",
+    "feedName": "Hugging Face Blog",
+    "source": "Hugging Face Blog",
+    "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
+    "link": "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance",
+    "description": "",
+    "pubDate": "2026-11-24T16:34:13.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:42.622Z"
+  },
+  {
+    "id": "779b24ce",
+    "feedId": "feed_d72ae229",
+    "feedName": "The Verge - AI",
+    "source": "The Verge - AI",
+    "title": "Jensen Huang deepfakes are the hot new AI slop",
+    "link": "https://www.theverge.com/tech/1041222/jensen-huang-nvidia-scandal-deepfakes",
+    "description": "Jensen Huang is partying it up in Ibiza. In a video with nearly 6 million views on Instagram, the former CEO of Nvidia is dancing in a crowded club, champagne glass in hand, still wearing his signature black leather jacket. Suddenly, from behind him…",
+    "pubDate": "2026-11-24T16:30:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
+  },
+  {
+    "id": "70c5339c",
+    "feedId": "feed_d72ae229",
+    "feedName": "The Verge - AI",
+    "source": "The Verge - AI",
+    "title": "The New York Times warns photographers not to update Photoshop over AI features",
+    "link": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+    "description": "The New York Times is asking freelance photographers not to use the newest version of Adobe Photoshop because features in the 2027 update use AI \"in ways that may not be apparent to users.\" In an email seen by The Verge and posted on Threads, two of…",
+    "pubDate": "2026-11-24T16:09:23.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
+  },
+  {
+    "id": "bb79b16f",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "IA agentique : le Royaume-Uni prépare son encadrement financier | Le Revenu",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lerevenu.com/actualite-economique/actualite-europe/intelligence-artificielle-agentique-le-royaume-uni-veut-renforcer-son-encadrement-financier/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2gfJe30DuC2RmGin-2kmad",
+    "description": "Intelligence artificielle agentique : le Royaume-Uni veut renforcer son encadrement financier &middot; Le lancement de Muse par Meta accélère les réflexions ...",
+    "pubDate": "2026-11-24T16:01:46.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "69362ff5",
+    "feedId": "feed_9bbd3683",
+    "feedName": "Google AI Blog",
+    "source": "Google AI Blog",
+    "title": "How Gemini is changing the game for Golden State's organization and fans.",
+    "link": "https://blog.google/products-and-platforms/products/gemini/gemini-golden-state/",
+    "description": "Google Gemini partners with Golden State to power fan experiences and business operations for the Warriors, Valkyries, and Chase Center. See the news.",
+    "pubDate": "2026-11-24T16:00:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:42.776Z"
+  },
+  {
+    "id": "808a146d",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Noël : Peluches, jouets connectés… L' intelligence artificielle s'invite aussi sous le sapin ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.20minutes.fr/societe/4265411-20261124-noel-peluches-jouets-connectes-intelligence-artificielle-invite-aussi-sous-sapin-parents-pensez&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0f1nyWHd4yb99VxkO-42M0",
+    "description": "Cette année, vos enfants ont sûrement déjà repéré une toute nouvelle gamme de cadeaux : les jouets dotés d' intelligence artificielle . Peluches ...",
+    "pubDate": "2026-11-24T15:58:05.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "dc97751c",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L'IA utilisée individuellement ne transforme pas l'organisation, c'est là le problème",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://acteurspublics.fr/webtv/emissions/salon-des-maires-et-des-collectivites-locales/lia-utilisee-individuellement-ne-transforme-pas-lorganisation-cest-la-le-probleme/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0x2SRgWtvQ4mVjuK4C_Uft",
+    "description": "... intelligence artificielle ne peut produire des économies réelles pour les collectivités qu'à condition d'être pensée comme un véritable programme ...",
+    "pubDate": "2026-11-24T15:48:08.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "12bd10f5",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "RDC : l' intelligence artificielle présentée comme une opportunité plutôt qu'une menace",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://acp.cd/urbain/rdc-lintelligence-artificielle-presentee-comme-une-opportunite-plutot-quune-menace/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1hCBWyFBGlLn4i7KFBwHTj",
+    "description": "Kinshasa, 24 novembre 2026 (ACP).- Les mutations technologiques, notamment l' intelligence artificielle (IA), ont été présentées mardi comme une ...",
+    "pubDate": "2026-11-24T15:44:43.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "4c2e4e59",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Le dollar progresse, l'euphorie renouvelée autour de l' intelligence artificielle alimentant les ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.zonebourse.com/actualite-bourse/le-dollar-progresse-la-euphorie-renouvelee-autour-de-la-intelligence-artificielle-alimentant-les-ce7851dad081f224&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2C3adbAvMduO6FoPmPsIu1",
+    "description": "Cette décision a ravivé l'euphorie autour de l' intelligence artificielle et déclenché une envolée fulgurante des marchés d'actions. Nvidia a ajouté ...",
+    "pubDate": "2026-11-24T15:38:55.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "a71e424b",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Le blues des jeunes mathématiciens face au développement de l' intelligence artificielle",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.radiofrance.fr/franceculture/podcasts/l-info-de-france-culture/le-blues-des-jeunes-mathematiciens-face-au-developpement-de-l-intelligence-artificielle-2018941&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0r9SUskiCfyEOzXGCs1x3c",
+    "description": "Cette nouvelle annonce non encore vérifiée sur les progrès de l' intelligence artificielle inquiète les jeunes chercheurs en mathématiques.",
+    "pubDate": "2026-11-24T15:27:27.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "2631c02e",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Météo-France devient partenaire du socle interministériel d'IA générative de l'État",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.numerique.gouv.fr/actualites/meteo-france-devient-partenaire-du-socle-interministeriel-dia-generative-de-letat/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2tcNhSjIs5TnqMH7hPYKye",
+    "description": "La DINUM et Météo-France renforcent leur coopération dans le domaine de l' intelligence artificielle . Le 17 novembre 2026, Walter Arnaud, directeur ...",
+    "pubDate": "2026-11-24T15:17:20.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "a90bc1bf",
+    "feedId": "feed_2b647a44",
+    "feedName": "MIT Tech Review - IA",
+    "source": "MIT Tech Review - IA",
+    "title": "Raising the stakes for enterprise networks with AI modernization",
+    "link": "https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization/",
+    "description": "Enterprise networks are under severe strain. As companies rush to deploy artificial intelligence, the technology is quickly becoming the biggest source of demand on the network. Now, agentic AI is adding to the load. Tasks conducted by AI agents gen…",
+    "pubDate": "2026-11-24T15:15:16.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:42.741Z"
+  },
+  {
+    "id": "95863706",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Jensen Huang de retour à la tête de Nvidia, sous l'influence de Donald Trump - LeMonde.fr",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lemonde.fr/international/video/2026/11/24/jensen-huang-de-retour-a-la-tete-de-nvidia-sous-l-influence-de-donald-trump_6814742_3210.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0JnQUuoR1W8vnIWe1w12aG",
+    "description": "Intelligence artificielle Intelligence artificielle Intelligence artificielle . Jensen Huang de retour à la tête de Nvidia, sous l'influence de ...",
+    "pubDate": "2026-11-24T15:15:11.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "4e9c6ee1",
+    "feedId": "feed_245a5c89",
+    "feedName": "Bubble Blog",
+    "source": "Bubble Blog",
+    "title": "How to Publish Your App to the App Store in 2026",
+    "link": "https://bubble.io/blog/how-to-publish-app-to-app-store/",
+    "description": "Ship your iOS app with confidence — this guide walks you through Apple Developer setup, App Store Connect, screenshots, privacy, TestFlight, and review, including 2026 SDK and age‑rating updates.",
+    "pubDate": "2026-11-24T15:08:00.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.604Z"
+  },
+  {
+    "id": "e95b7282",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Apple Intelligence : un plafond quotidien arrive sur iPhone, iCloud+ ne le relève pas en ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.jechange.fr/telecom/mobile/news/apple-intelligence-plafond-quotidien-iphone-icloud-ne-releve-pas-france-59-99-euros&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2KSw67j7Pckb2PY7xZOv1i",
+    "description": "Les fonctions d' intelligence artificielle de votre iPhone qui passent par les serveurs d'Apple vont recevoir une limite quotidienne, et en France ...",
+    "pubDate": "2026-11-24T14:59:43.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "a87ab6bd",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Le millefeuille numérique bien positionné de Schneider Electric - Investir - Les Echos",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://investir.lesechos.fr/conseils-boursiers/conseils-actions/le-millefeuille-numerique-bien-positionne-de-schneider-electric-2264311&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1Jci5A9ovufzGGaCx9ZJ1_",
+    "description": "Le groupe fournit directement le marché des data centers, mais il propose également l' intelligence artificielle dans ses solutions de gestion de ...",
+    "pubDate": "2026-11-24T14:50:04.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "661c78d9",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L'innovation et l' intelligence artificielle au cœur des débats de la chambre de commerce et d ...",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.midilibre.fr/2026/11/24/linnovation-et-lintelligence-artificielle-au-coeur-des-debats-de-la-chambre-de-commerce-et-dindustrie-de-lozere-13669060.php&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1oxlrhY4YbaXyAjrYZ5CKH",
+    "description": "L'innovation et l' intelligence artificielle au cœur des débats de la chambre de commerce et d'industrie de Lozère. Abonnés.",
+    "pubDate": "2026-11-24T14:41:38.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "8a5014c3",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "L'IA se diffuse dans les entreprises, mais la formation ne suit pas… - Journaldunet.com",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.journaldunet.com/intelligence-artificielle/1558443-l-ia-se-diffuse-dans-les-entreprises-mais-la-formation-ne-suit-pas/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2it0BIBp096taYjLtUAiao",
+    "description": "Plus de 70 % des cadres français n'ont reçu aucune formation à l'utilisation de l' intelligence artificielle (Microsoft x YouGov, janvier 2026).",
+    "pubDate": "2026-11-24T14:35:41.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "931f96f7",
+    "feedId": "feed_d5c7b40e",
+    "feedName": "Alertes Google IA",
+    "source": "Alertes Google IA",
+    "title": "Intelligence artificielle : c'est quoi un robot conversationnel ? - Ouest-France",
+    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ouest-france.fr/high-tech/intelligence-artificielle/intelligence-artificielle-cest-quoi-un-robot-conversationnel-220ddbae-e7f7-11f1-9b33-2f81462d3339&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1gL4X2Non6RHZvItNCeQ2F",
+    "description": "Ils sont l'application la plus généralisée de l' intelligence artificielle (IA). Mais que sont les robots conversationnels, exactement ?",
+    "pubDate": "2026-11-24T14:35:30.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.655Z"
+  },
+  {
+    "id": "b67ed96e",
+    "feedId": "feed_25bf0ace",
+    "feedName": "n8n Blog",
+    "source": "n8n Blog",
+    "title": "Production AI Playbook: Audit & trace for AI agents",
+    "link": "https://blog.n8n.io/production-ai-playbook-audit-trace-for-ai-agents/",
+    "description": "Reconstruct an AI decision, and retain the records needed to explain it later. Five hands-on n8n exercises: reading saved executions, tagging decisions for search, tracing tool calls with OpenTelemetry, and proving which workflow version ran.",
+    "pubDate": "2026-11-24T14:30:29.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.079Z"
+  },
+  {
+    "id": "a7a4a72f",
+    "feedId": "feed_7f6b34f5",
+    "feedName": "ActuIA",
+    "source": "ActuIA",
+    "title": "À Choose France, les 3 milliards de centres de données datent de juillet",
+    "link": "https://www.actuia.com/actualite/a-choose-france-les-3-milliards-de-centres-de-donnees-datent-de-juillet/",
+    "description": "Le 23 novembre 2026, Bercy a présenté 273 projets d'entreprises françaises pour 42,5 milliards d'euros, dont 14,9 milliards inédits. Le dossier numérique ne compte que 40 projets, et le seul chiffré en milliards — la coentreprise de centres de donné…",
+    "pubDate": "2026-11-24T13:01:00.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
+  },
+  {
+    "id": "d82cde61",
+    "feedId": "feed_7f6b34f5",
+    "feedName": "ActuIA",
+    "source": "ActuIA",
+    "title": "De la stratégie aux usages métiers : quelles compétences pour piloter et déployer l’intelligence artificielle ?",
+    "link": "https://www.actuia.com/actualite/de-la-strategie-aux-usages-metiers-quelles-competences-pour-piloter-et-deployer-lintelligence-artificielle-1/",
+    "description": "IMT-BS structure son offre de formation autour de trois parcours dédiés à l'IA : le pilotage, la réalisation technique et les applications métiers. L'enjeu affiché est de transformer l'IA en compétence professionnelle à part entière, intégrée aux pr…",
+    "pubDate": "2026-11-24T12:21:25.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
+  },
+  {
+    "id": "dd1cc17d",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "ZDNET Morning 24/11/2026 : Influence politique derrière la réintégration de Jensen Huang, Rétention cognitive et usage des IA, Google Chrome : six réglages clés pour la sécurité,...",
+    "link": "https://www.zdnet.fr/actualites/zdnet-morning-24-11-2026-influence-politique-derriere-la-reintegration-de-jensen-huang-retention-cognitive-et-usage-des-ia-google-chrome-six-reglages-cles-pour-la-securite-508481.htm",
+    "description": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
+    "pubDate": "2026-11-24T10:11:27.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "edb76121",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Nvidia : Donald Trump a pesé en coulisses sur le retour de Jensen Huang",
+    "link": "https://www.zdnet.fr/actualites/nvidia-donald-trump-a-pese-en-coulisses-sur-le-retour-de-jensen-huang-508468.htm",
+    "description": "Quelques jours après avoir exclu tout retour de Jensen Huang à la tête de Nvidia, le conseil d’administration du géant américain des semi-conducteurs a fait volte-face sous la pression de Donald Trump.",
+    "pubDate": "2026-11-24T10:11:22.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "4f547d9b",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Préparer les ventes de fin d'année avec Hostinger Cloud Startup à prix réduit",
+    "link": "https://www.zdnet.fr/publicite/preparer-les-ventes-de-fin-dannee-avec-hostinger-cloud-startup-a-prix-reduit-507253.htm",
+    "description": "Avec 69 % de réduction sur son offre Cloud Startup, Hostinger propose un hébergement plus généreux à prix réduit. Une formule à considérer pour développer un site ou une boutique en ligne.",
+    "pubDate": "2026-11-24T10:11:21.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "8844afc5",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Arm prolonge son PDG Rene Haas jusqu’en 2033",
+    "link": "https://www.zdnet.fr/actualites/arm-prolonge-son-pdg-rene-haas-jusquen-2033-508474.htm",
+    "description": "Arm a annoncé que son directeur général, Rene Haas, prolonge son contrat jusqu’en 2033. Cité parmi les successeurs possibles de Jensen Huang chez Nvidia, il devient aussi vice-président de SoftBank Group, actionnaire majoritaire d’Arm.",
+    "pubDate": "2026-11-24T09:11:15.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "d87998ad",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "ZD Tech : L'intelligence artificielle rend-elle vos équipes amnésiques ? L'étude du MIT alerte",
+    "link": "https://www.zdnet.fr/actualites/zd-tech-lintelligence-artificielle-rend-elle-vos-equipes-amnesiques-letude-du-mit-alerte-508457.htm",
+    "description": "Déléguer vos synthèses à une intelligence artificielle générative fait gagner du temps, mais dégrade vos capacités cérébrales. 80 % des professionnels oublient leur travail assisté par IA, contre 10 % sans aide.",
+    "pubDate": "2026-11-24T08:11:36.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
     "id": "77deb08d",
     "feedId": "feed_3ad51128",
     "feedName": "ZDNet France - IA",
@@ -9,7 +465,91 @@
     "description": "Tim Scott, président de la commission bancaire du Sénat américain, a fixé au 3 décembre l’audition publique de Jensen Huang sur le contrôle des exportations de puces, quelques heures après son retour à la tête de Nvidia.",
     "pubDate": "2026-11-24T07:11:54.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "702cb6d9",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Data centers IA : pourquoi (et comment) l'industrie prépare sa grande bascule vers le 800 VDC",
+    "link": "https://www.zdnet.fr/actualites/data-centers-ia-pourquoi-et-comment-lindustrie-prepare-sa-grande-bascule-vers-le-800-vdc-508520.htm",
+    "description": "Face à l'explosion de la densité thermique et électrique des serveurs d'intelligence artificielle, les architectures traditionnelles en courant alternatif touchent leurs limites physiques. Poussé par Nvidia, Google, Microsoft et l'écosystème OCP, le…",
+    "pubDate": "2026-11-24T07:11:08.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "54d82557",
+    "feedId": "feed_d47aff04",
+    "feedName": "Zapier Blog",
+    "source": "Zapier Blog",
+    "title": "Zapier examples: Ways to use automation at work",
+    "link": "https://zapier.com/blog/zapier-automation-examples",
+    "description": "When you want to get more done and have more impact at work, automation can help. Zapier helps you turn your tools into powerful processes. Whether you need to automate a simple task or build an entire automated system, you can do it all on Zapier.…",
+    "pubDate": "2026-11-24T07:00:00.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
+  },
+  {
+    "id": "1984a531",
+    "feedId": "feed_d47aff04",
+    "feedName": "Zapier Blog",
+    "source": "Zapier Blog",
+    "title": "Workflow automation: What it is, why it matters, and how you can use it",
+    "link": "https://zapier.com/blog/workflow-automation",
+    "description": "We use software to make our lives easier. But these tools—just like the businesses and people who use them—often come with their own quirks. They might not format things just how you like it, for example. Or they might be missing a key feature or tw…",
+    "pubDate": "2026-11-24T07:00:00.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
+  },
+  {
+    "id": "c4c33ab8",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "En France, le DNS alternatif de Quad9 tire sa révérence",
+    "link": "https://www.zdnet.fr/actualites/en-france-le-dns-alternatif-de-quad9-tire-sa-reverence-508526.htm",
+    "description": "Le service de DNS alternatif Quad9 a coupé ce matin l'accès à ses services à destination des utilisateurs français. La fondation basée en Suisse explique refuser de se plier à une décision de justice qui lui demandait de bloquer l'accès à des sites…",
+    "pubDate": "2026-11-24T06:11:27.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "c5577aa3",
+    "feedId": "feed_d47aff04",
+    "feedName": "Zapier Blog",
+    "source": "Zapier Blog",
+    "title": "5 systems you should automate today",
+    "link": "https://zapier.com/blog/what-you-should-automate",
+    "description": "The people on your team have extraordinary ideas. But their brilliance can't surface, much less get deployed at scale, if everyone's bogged down with disconnected tools and colorless operational work. Unless they delegate that work to Zapier, that i…",
+    "pubDate": "2026-11-24T06:00:00.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
+  },
+  {
+    "id": "fddb0a9a",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Régis Karakozian, KDDI France : Migration Cloud : le véritable défi n'est pas de migrer, mais d'assurer la continuité d'activité",
+    "link": "https://www.zdnet.fr/tribune/regis-karakozian-kddi-france-migration-cloud-le-veritable-defi-nest-pas-de-migrer-mais-dassurer-la-continuite-dactivite-508168.htm",
+    "description": "Migrer vers le Cloud ne suffit plus à garantir le succès d’un projet de transformation : encore faut-il que cette bascule ne compromette jamais la continuité d’activité. Régis Karakozian, Directeur Cloud chez KDDI France, détaille les points de vigi…",
+    "pubDate": "2026-11-24T05:11:36.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "355a4eed",
+    "feedId": "feed_d47aff04",
+    "feedName": "Zapier Blog",
+    "source": "Zapier Blog",
+    "title": "Which AI models can you automate on Zapier? (OpenAI, Anthropic, Google, Moonshot AI, Z.ai, and more)",
+    "link": "https://zapier.com/blog/ai-models-on-zapier",
+    "description": "Staying up to date on the latest AI models is like trying to keep my house vacuumed in the height of my dog's shedding season (a losing battle). New AI models drop practically every week, and it's not exactly obvious which ones deserve a spot in you…",
+    "pubDate": "2026-11-24T05:00:00.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "671044b5",
@@ -21,7 +561,43 @@
     "description": "Release: datasette-charts 0.2a0 I introduced this new charting plugin for Datasette yesterday . Today it's gained integration with Datasette Agent , so now you can ask chat for a chart and it will create one for you using the same underlying chart s…",
     "pubDate": "2026-11-24T04:24:29.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.471Z"
+    "fetchedAt": "2026-11-24T18:27:42.610Z"
+  },
+  {
+    "id": "e9e61a73",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Protéger dix PC avec Avast : ce que comprend l’abonnement Premium Security",
+    "link": "https://www.zdnet.fr/publicite/proteger-dix-pc-avec-avast-ce-que-comprend-labonnement-premium-security-507829.htm",
+    "description": "Avec sa licence pour dix appareils et une remise de 60 % la première année, Avast One Premium Security peut couvrir plusieurs ordinateurs et mobiles au sein d’un même foyer.",
+    "pubDate": "2026-11-24T04:11:56.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "7bb4dfcf",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Assistant IA pour l’e-commerce : copilote et tais-toi !",
+    "link": "https://www.zdnet.fr/actualites/assistant-ia-pour-le-commerce-copilote-et-tais-toi-508510.htm",
+    "description": "L’acheteur accepte de déléguer certaines tâches, mais tend à cantonner l’assistant IA à un rôle de copilote pour conserver le pouvoir de décision. C’est une des observations de l’étude de la chaire TREND(S) menée par des chercheurs français.",
+    "pubDate": "2026-11-24T04:11:54.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "e83d902f",
+    "feedId": "feed_d47aff04",
+    "feedName": "Zapier Blog",
+    "source": "Zapier Blog",
+    "title": "What is Google Gemini?",
+    "link": "https://zapier.com/blog/google-gemini",
+    "description": "Google has been in its \"Gemini era\" for a couple years now, and while the confusing rebrandings have slowed, everything else continues to improve at a rapid pace. Gemini is the name Google gave to its current generation family of multimodal AI model…",
+    "pubDate": "2026-11-24T04:00:00.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "44d3703b",
@@ -30,10 +606,94 @@
     "source": "Simon Willison Weblog",
     "title": "datasette-agent 0.7a1",
     "link": "https://simonwillison.net/2026/Nov/24/datasette-agent/",
-    "description": "Release: datasette-agent 0.7a1 I small improvement to Datasette Agent : chat sessions can open an iframe side panel, and that panel can then navigate to different pages. This version improves navigation by fragment hashes, for deeper integration wit…",
+    "description": "Release: datasette-agent 0.7a1 A small improvement to Datasette Agent : chat sessions could already open an iframe side panel that could then navigate to different pages. This version improves navigation by fragment hashes, for deeper integration wi…",
     "pubDate": "2026-11-24T03:45:57.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.471Z"
+    "fetchedAt": "2026-11-24T18:27:42.610Z"
+  },
+  {
+    "id": "5802b676",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Terres rares : la France veut des stocks stratégiques pour contrer la Chine dès 2027",
+    "link": "https://www.zdnet.fr/actualites/terres-rares-la-france-veut-des-stocks-strategiques-pour-contrer-la-chine-des-2027-508511.htm",
+    "description": "L'Élysée officialise la création de réserves nationales pour une vingtaine de métaux prioritaires dès 2027. Piloté par la Caisse des dépôts, ce dispositif d'achats mutualisés couple souveraineté et durcissement des règles d'attribution des subventio…",
+    "pubDate": "2026-11-24T03:11:41.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "6cd519e0",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "eSIM Égypte : quelle solution choisir pour rester connecté en voyage ?",
+    "link": "https://www.zdnet.fr/guide-achat/esim-egypte-quelle-solution-choisir-pour-rester-connecte-en-voyage-497759.htm",
+    "description": "Pour un voyage en Égypte, l’eSIM est souvent la solution la plus simple pour avoir internet dès l’arrivée, sans acheter une carte SIM physique à l’aéroport. Airalo, Ubigi, Holafly, Orange Travel et plusieurs offres connectées aux réseaux locaux comm…",
+    "pubDate": "2026-11-24T03:11:31.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "cc742fa2",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "J'ai joué à GTA VI en streaming sur mon PC, c'était génial, même avec un peu de lag",
+    "link": "https://www.zdnet.fr/actualites/jai-joue-a-gta-vi-en-streaming-sur-mon-pc-cetait-genial-meme-avec-un-peu-de-lag-508504.htm",
+    "description": "J'ai streamé les premières heures de gameplay de GTA VI pour mes amis via Discord, et ça m'a valu d'être sacré numéro un du groupe.",
+    "pubDate": "2026-11-24T03:11:19.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "5f6785ed",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Claude peut désormais générer du code pour vous, comment essayer (si vous osez)",
+    "link": "https://www.zdnet.fr/actualites/claude-peut-desormais-generer-du-code-pour-vous-comment-essayer-si-vous-osez-508495.htm",
+    "description": "Accepteriez-vous que quelques agents de Claude vérifient et publient votre code à votre place ?",
+    "pubDate": "2026-11-24T02:11:46.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "1a7d8f8c",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "J'utilise WordCraft, ce clone de MS Word, depuis un mois, et je l'apprécie encore plus maintenant",
+    "link": "https://www.zdnet.fr/guide-achat/jutilise-wordcraft-ce-clone-de-ms-word-depuis-un-mois-et-je-lapprecie-encore-plus-maintenant-508501.htm",
+    "description": "Je ne pensais pas continuer à utiliser WordCraft sur le long terme, mais après un mois d'utilisation, je ne me vois pas revenir à Google Docs ou à LibreOffice. Voici pourquoi.",
+    "pubDate": "2026-11-24T02:11:38.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "c851e87a",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Vous avez besoin d'un casque pour GTA VI ? Utilisez ceux que vous possédez déjà, en ajustant quelques paramètres",
+    "link": "https://www.zdnet.fr/actualites/vous-avez-besoin-dun-casque-pour-gta-vi-utilisez-ceux-que-vous-possedez-deja-en-ajustant-quelques-parametres-508498.htm",
+    "description": "Si vous n'êtes pas encore prêt à acheter un casque de jeu dédié, cette solution gratuite vous permet de profiter de GTA VI sur votre PS5 ou votre Xbox avec un son de meilleure qualité.",
+    "pubDate": "2026-11-24T02:11:30.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "19caa0ac",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Comment sauvegarder vos vidéos de l'application Google Nest avant sa fermeture en janvier",
+    "link": "https://www.zdnet.fr/actualites/comment-sauvegarder-vos-videos-de-lapplication-google-nest-avant-sa-fermeture-en-janvier-508492.htm",
+    "description": "Google va supprimer l'application Nest au profit de l'application Google Home. Voici comment transférer vos données.",
+    "pubDate": "2026-11-24T02:11:05.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "9345b209",
@@ -46,6 +706,30 @@
     "pubDate": "2026-11-24T01:27:43.000Z",
     "category": "IA",
     "fetchedAt": "2026-11-24T06:35:18.619Z"
+  },
+  {
+    "id": "ecb9b8d1",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Il faudra attendre 2028 pour voir une Galaxy Watch 10, voici pourquoi",
+    "link": "https://www.zdnet.fr/actualites/il-faudra-attendre-2028-pour-voir-une-galaxy-watch-10-voici-pourquoi-508489.htm",
+    "description": "Samsung reporterait le lancement de la Galaxy Watch 10 dans le but de réduire ses coûts. Voici ce qu'il faut savoir.",
+    "pubDate": "2026-11-24T01:11:19.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
+  },
+  {
+    "id": "b6bfb1e9",
+    "feedId": "feed_3ad51128",
+    "feedName": "ZDNet France - IA",
+    "source": "ZDNet France - IA",
+    "title": "Free lance un service de traduction des appels téléphoniques, et voici quelles sont les alternatives",
+    "link": "https://www.zdnet.fr/actualites/free-lance-un-service-de-traduction-des-appels-telephoniques-et-voici-quelles-sont-les-alternatives-508483.htm",
+    "description": "Free est le premier opérateur mobile en France à proposer la traduction instantanée des conversations dans dix langues. Il la réserve à ses abonnés aux forfaits Max. Ce type de service est aussi pris en charge nativement par les derniers modèles de…",
+    "pubDate": "2026-11-24T01:11:12.000Z",
+    "category": "IA",
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "a20b3606",
@@ -84,6 +768,18 @@
     "fetchedAt": "2026-11-24T06:35:18.619Z"
   },
   {
+    "id": "23829925",
+    "feedId": "feed_d47aff04",
+    "feedName": "Zapier Blog",
+    "source": "Zapier Blog",
+    "title": "OpenAI Agent Builder is shutting down: How to export your workflows and move to Zapier",
+    "link": "https://zapier.com/blog/openai-agent-builder-alternatives",
+    "description": "OpenAI is shutting down Agent Builder on November 30, 2026, so if you built workflows there, you've got a short window to get them out. And inconveniently, OpenAI hands you Agents SDK code on the way out, not a workflow you can open in another tool.…",
+    "pubDate": "2026-11-24T00:00:00.000Z",
+    "category": "NoCode",
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
+  },
+  {
     "id": "22ae164d",
     "feedId": "feed_592e3479",
     "feedName": "Simon Willison Weblog",
@@ -93,7 +789,7 @@
     "description": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer GLM 5.4 is now available from Chinese AI lab Z.ai. It's their first model to use a looped transformer architecture, which they describe like this: In a standard Transformer, each lay…",
     "pubDate": "2026-11-23T23:40:49.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.471Z"
+    "fetchedAt": "2026-11-24T18:27:42.610Z"
   },
   {
     "id": "6e670ae0",
@@ -141,7 +837,7 @@
     "description": "After Nvidia's board accepted Jensen Huang's resignation as CEO, following reports that Huang had an affair with an alleged Chinese spy, President Donald Trump, too, appeared to submit to the new reality. Appearing on Stephen A. Smith's radio show s…",
     "pubDate": "2026-11-23T22:25:12.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.434Z"
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
   },
   {
     "id": "405a97b5",
@@ -153,7 +849,7 @@
     "description": "After the leather-jacketed CEO, president, and co-founder of Nvidia, Jensen Huang, acknowledged an affair with Megaspeed exec Alice Huang, his company initially announced an investigation. However, after The New York Times reported there was evidenc…",
     "pubDate": "2026-11-23T22:10:32.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.434Z"
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
   },
   {
     "id": "4c698365",
@@ -165,7 +861,7 @@
     "description": "I suppose I must issue a hearty congratulations to Jensen Huang. Huang is CEO of Nvidia again, to the surprise of basically everyone except President Donald Trump and Vice President JD Vance, who made sure it happened. Now, those of us who had some…",
     "pubDate": "2026-11-23T22:09:26.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.434Z"
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
   },
   {
     "id": "f0f67138",
@@ -177,7 +873,7 @@
     "description": "Ladybird is an astonishingly ambitious project: a new browser, in 2026, with its own implementation of most of the key components - HTML parsing, CSS engine, layout, JavaScript, even WebAssembly. It still uses a few external components - things like…",
     "pubDate": "2026-11-23T21:46:35.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.471Z"
+    "fetchedAt": "2026-11-24T18:27:42.610Z"
   },
   {
     "id": "e53376da",
@@ -201,7 +897,7 @@
     "description": "OpenAI and Cisco introduce Shirudo, an open-source runtime for Linux. It helps teams protect running systems while they roll out patches.",
     "pubDate": "2026-11-23T21:20:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.735Z"
+    "fetchedAt": "2026-11-24T18:27:43.912Z"
   },
   {
     "id": "4a9f9ec0",
@@ -225,7 +921,7 @@
     "description": "The clean energy revolution hinges on electrifying the entire global economy just as power-hungry data centers are surging. It's a challenge delegates from all over the world had to grapple with during the United Nations climate conference, called C…",
     "pubDate": "2026-11-23T21:09:37.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.434Z"
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
   },
   {
     "id": "2f3483ae",
@@ -249,7 +945,7 @@
     "description": "Anthropic is launching some new Claude AI features to help software engineers ship code. As part of a new Claude Ship product being announced today, Claude now can review, fix, and approve pull requests. Engineers have already been able to take adva…",
     "pubDate": "2026-11-23T20:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.434Z"
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
   },
   {
     "id": "17a27ec2",
@@ -261,7 +957,7 @@
     "description": "The Jensen Huang era of Nvidia nearly came to an end this month. Huang, who three decades ago cofounded what's come to be considered one of the most important companies in AI, resigned from his role on November 12th over mounting scrutiny around his…",
     "pubDate": "2026-11-23T19:57:18.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.434Z"
+    "fetchedAt": "2026-11-24T18:27:42.686Z"
   },
   {
     "id": "cb288417",
@@ -417,7 +1113,7 @@
     "description": "Le conseil d'administration de Nvidia a voté à l'unanimité, le 22 novembre, le retour de Jensen Huang comme directeur général et administrateur, annoncé le 23 novembre, onze jours après sa démission et six jours après avoir écarté ce retour. Il invo…",
     "pubDate": "2026-11-23T17:50:26.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "6c8d8413",
@@ -429,7 +1125,7 @@
     "description": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Before going public last week, Anthropic named the possibility that AI could be conscious or sentient as a risk…",
     "pubDate": "2026-11-23T17:36:08.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.468Z"
+    "fetchedAt": "2026-11-24T18:27:42.741Z"
   },
   {
     "id": "8a861dbc",
@@ -465,7 +1161,7 @@
     "description": "",
     "pubDate": "2026-11-23T17:20:37.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.439Z"
+    "fetchedAt": "2026-11-24T18:27:42.622Z"
   },
   {
     "id": "de04ad24",
@@ -525,7 +1221,7 @@
     "description": "The elves don’t have to be the only ones busy in the workshop this holiday season. With the lights twinkling and the gift wrap out, it’s the perfect time to give someone — or yourself — a spark to take a hobby to the next level. For some, that means…",
     "pubDate": "2026-11-23T17:00:08.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.707Z"
+    "fetchedAt": "2026-11-24T18:27:43.897Z"
   },
   {
     "id": "c04eb63b",
@@ -537,7 +1233,7 @@
     "description": "Prototypes are essential for mobile apps — but creating an effective prototype isn’t always easy. Here’s a step-by-step guide to making mobile apps that help you build a successful product.",
     "pubDate": "2026-11-23T17:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.483Z"
+    "fetchedAt": "2026-11-24T18:27:43.604Z"
   },
   {
     "id": "fb4cb81b",
@@ -549,7 +1245,7 @@
     "description": "Get more helpful Search responses by securely opting in to connect Google Wallet, Drive, and the Gemini app to Personal Intelligence in AI Mode.",
     "pubDate": "2026-11-23T17:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.545Z"
+    "fetchedAt": "2026-11-24T18:27:42.776Z"
   },
   {
     "id": "7e6897b0",
@@ -561,7 +1257,7 @@
     "description": "Using agent teams and formal verification to improve quantum algorithms for fusion and chemistry.",
     "pubDate": "2026-11-23T16:59:40.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.717Z"
+    "fetchedAt": "2026-11-24T18:27:44.171Z"
   },
   {
     "id": "d2d27b7c",
@@ -633,7 +1329,7 @@
     "description": "OpenAI a publié le 18 novembre 2026 un deuxième bilan de l'usage des agents de code dans sa recherche. Le taux de réussite sans intervention varie selon la tâche, de 79 % pour surveiller un entraînement à 43 % pour construire du code et des données…",
     "pubDate": "2026-11-23T15:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "417a84a4",
@@ -645,7 +1341,7 @@
     "description": "Learn how an AI drag and drop app builder combines AI generation with direct visual control, so you can go from idea to a real production app without code.",
     "pubDate": "2026-11-23T15:18:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.483Z"
+    "fetchedAt": "2026-11-24T18:27:43.604Z"
   },
   {
     "id": "d3aa37d2",
@@ -657,7 +1353,7 @@
     "description": "OpenRouter a exclu le 22 novembre 2026 trois fournisseurs d'inférence, sans les nommer, et retiré 125 endpoints de l'éligibilité Zero Data Retention (ZDR), après l'expérience de Dragos qui a glissé des secrets traçables dans environ deux millions de…",
     "pubDate": "2026-11-23T15:10:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "2e375553",
@@ -669,7 +1365,7 @@
     "description": "La 48e Assemblée mondiale pour la protection de la vie privée a adopté à Bruxelles une résolution sur l'IA à l'école, préparée par le groupe de travail que préside la CNIL. Sans force obligatoire, elle demande aux concepteurs d'outils d'exclure dès…",
     "pubDate": "2026-11-23T14:50:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "661f2c62",
@@ -681,7 +1377,7 @@
     "description": "Your AI agent can already draft replies, summarize a long thread, and flag what's urgent. But when the chat ends, so does the help. Someone still has to save the attachment, log the new lead, and send the follow-up after the meeting. Now you can set…",
     "pubDate": "2026-11-23T14:45:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "d12fd5c1",
@@ -693,7 +1389,7 @@
     "description": "Fasterize a mesuré la préparation technique de 1 469 grands sites français face aux robots et aux agents d'IA. Chez près d'un marchand sur deux, des prix ou des stocks ne s'affichent qu'après exécution du JavaScript, que la plupart des robots d'IA n…",
     "pubDate": "2026-11-23T14:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "95bd03dd",
@@ -705,7 +1401,7 @@
     "description": "This post covers an incident with a lead routing workflow and how n8n’s access controls help: projects and roles, SSO, and 2FA enforcement. Each one stops the incident at a different point.",
     "pubDate": "2026-11-23T14:02:02.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:17.868Z"
+    "fetchedAt": "2026-11-24T18:27:43.079Z"
   },
   {
     "id": "1e16a920",
@@ -717,7 +1413,7 @@
     "description": "Yokogawa ajoute à CENTUM R7.02, sorti le 19 novembre 2026, un bloc de contrôle par apprentissage par renforcement et un capteur logiciel par IA. L'algorithme FKDPP conduit depuis 2022 une colonne de butadiène à Yokkaichi, et Yokogawa a annoncé en oc…",
     "pubDate": "2026-11-23T13:56:32.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "af2036cd",
@@ -765,7 +1461,7 @@
     "description": "La CEDH a exclu pour deux ans une avocate roumaine dont les observations, rédigées avec des outils d'IA, citaient des affaires inexistantes et des paragraphes inventés. Prise par le président sur proposition d'une chambre, au titre de l'article 44D…",
     "pubDate": "2026-11-23T12:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "deee65be",
@@ -777,7 +1473,7 @@
     "description": "Everything you need to know about Bubble’s AI app builder — from how it works to how to get started for free.",
     "pubDate": "2026-11-23T11:34:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.483Z"
+    "fetchedAt": "2026-11-24T18:27:43.604Z"
   },
   {
     "id": "e9764b71",
@@ -789,7 +1485,7 @@
     "description": "Pour renforcer la confidentialité et la sécurité, réduire les interruptions et améliorer la productivité, voici les réglages par défaut du navigateur de Google à modifier.",
     "pubDate": "2026-11-23T11:11:54.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "fab7afbe",
@@ -837,7 +1533,7 @@
     "description": "Deuxième séance d'Anthropic (ANT) le 20 novembre : plus bas à 83,05 dollars, cinq cents au-dessus du prix d'introduction de 83 dollars, clôture à 88,91 dollars (-8,5 %), environ 400 millions d'actions échangées. Le Nasdaq a perdu 5,28 %, le S&P 500…",
     "pubDate": "2026-11-23T09:30:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "4d1747f1",
@@ -885,7 +1581,7 @@
     "description": "Watch OpenAI’s Stacey Wang and Craig Bruney, Mary O’Carroll of LECG, and Cooley’s Richard Segal explore how AI can help in-house legal teams connect business context, build reusable workflows and get more from outside counsel.",
     "pubDate": "2026-11-23T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.735Z"
+    "fetchedAt": "2026-11-24T18:27:43.912Z"
   },
   {
     "id": "2dfd052a",
@@ -897,7 +1593,7 @@
     "description": "Richpanel uses GPT-6 Astra and GPT-6.1 Sol to equip its AI support agents with tools and procedures, and GPT-6 Luna for their conversations.",
     "pubDate": "2026-11-23T08:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.735Z"
+    "fetchedAt": "2026-11-24T18:27:43.912Z"
   },
   {
     "id": "23562638",
@@ -909,7 +1605,7 @@
     "description": "Your AI agent already helps you brainstorm video ideas, tighten scripts, and write descriptions. But when the chat ends, so does the help. Someone still has to share the new video in Slack, log it in a spreadsheet, and dig through the comments. Now…",
     "pubDate": "2026-11-23T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "fd9cf19c",
@@ -921,7 +1617,7 @@
     "description": "Your AI agent can brainstorm captions, reword a post for LinkedIn, and sum up what people are saying about your launch. Then the chat ends, and the posting, the replying, and the resharing are back on your plate. Now you can start social media autom…",
     "pubDate": "2026-11-23T08:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "d9ec3467",
@@ -933,7 +1629,7 @@
     "description": "AMD a finalisé le 17 novembre 2026 le rachat de Taalas, start-up torontoise fondée en 2023, que son rapport trimestriel valorise environ 2,9 milliards de dollars en numéraire et en actions, dont jusqu'à 1,4 milliard conditionnel. Taalas grave les po…",
     "pubDate": "2026-11-23T07:35:50.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.184Z"
+    "fetchedAt": "2026-11-24T18:27:43.372Z"
   },
   {
     "id": "b9712f63",
@@ -993,7 +1689,7 @@
     "description": "En associant un refroidisseur thermoélectrique et un ventilateur, il maintient votre iPhone à une température optimale pendant qu'il se recharge, préservant ainsi sa batterie.",
     "pubDate": "2026-11-23T07:11:56.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "cc446ba5",
@@ -1005,7 +1701,7 @@
     "description": "L’établissement de santé a activé son « Plan blanc » pour faire face à ce piratage informatique.",
     "pubDate": "2026-11-23T07:11:26.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "fb1d7fe0",
@@ -1017,7 +1713,7 @@
     "description": "Les chercheurs ont tenté de contourner les mécanismes de protection de l'IA pour générer des plans d'attaque terroriste. Les résultats mettent en évidence des failles de sécurité préoccupantes et soulèvent des questions quant à la prévention des uti…",
     "pubDate": "2026-11-23T07:11:13.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "19db8dc9",
@@ -1065,7 +1761,7 @@
     "description": "Your AI agent can already write a prompt, generate an image, and suggest ten variations. The trouble is that the image stays in the chat. Someone still has to download it, rename it, drop it into the brief, and send it to the person who asked. You c…",
     "pubDate": "2026-11-23T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "c011b152",
@@ -1077,7 +1773,7 @@
     "description": "OpenAI is rolling out new models all the time, and you can see the improvements and power even in a quick back-and-forth with ChatGPT. But as much as we all love shooting the breeze with an AI chatbot, the real question is how you can put the AI mod…",
     "pubDate": "2026-11-23T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "a1e21e50",
@@ -1089,7 +1785,7 @@
     "description": "Your AI assistant is good at reading an inbox. It can summarize a long thread, draft a reply, and flag what needs your attention. Then you close the tab, and Gmail goes back to being a pile. The invoice is still sitting in an attachment, the new lea…",
     "pubDate": "2026-11-23T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "3a5eea2f",
@@ -1101,7 +1797,7 @@
     "description": "Your AI assistant is great at helping you write a formula, clean up a messy column, or summarize a tab. Then you close the chat, and the spreadsheet is still waiting on you to paste in last night's leads, log the new orders, and ping the team about…",
     "pubDate": "2026-11-23T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "aef74409",
@@ -1113,7 +1809,7 @@
     "description": "With every new model release, Claude tops almost every benchmark. And chatting with Claude makes it clear why: it's good at everything. But while there's power in a back-and-forth conversation, you can accomplish a lot more when you use Zapier to co…",
     "pubDate": "2026-11-23T07:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "b4cd7ea3",
@@ -1173,7 +1869,7 @@
     "description": "Entre exigences de souveraineté, réglementation européenne et systèmes hérités, moderniser sans perdre le contrôle des données reste un défi pour les administrations publiques. Martin Hosken, Technical Director, Defence & National Security EMEA chez…",
     "pubDate": "2026-11-23T05:11:30.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "c833f90c",
@@ -1185,7 +1881,7 @@
     "description": "A few years ago, my husband and I adopted two kittens. Before they arrived home, I frantically researched everything I could about keeping cats alive because I knew nothing. Eventually, I found myself begging a coworker to help me web scrape a non-s…",
     "pubDate": "2026-11-23T05:00:00.000Z",
     "category": "NoCode",
-    "fetchedAt": "2026-11-24T06:35:18.458Z"
+    "fetchedAt": "2026-11-24T18:27:43.827Z"
   },
   {
     "id": "09513b0b",
@@ -1209,7 +1905,7 @@
     "description": "Avec son pack Plus à 1,20 € TTC par mois pendant un an, IONOS propose un hébergement Web enrichi de plusieurs services. Voici ce que cette formule ajoute au prix d’appel.",
     "pubDate": "2026-11-23T04:11:59.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "a0d423f4",
@@ -1221,7 +1917,7 @@
     "description": "Allemagne, Italie, Pologne et Suède s’alignent sur la France et son projet de création d’un centre international pour l’IA de défense, l’ICAID. Installé à Rennes. Le centre doit en principe entrer en service à l’été 2027.",
     "pubDate": "2026-11-23T04:11:55.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "960c8ec1",
@@ -1233,7 +1929,7 @@
     "description": "Le conseil d'administration de Nvidia a voté à l'unanimité le retour de Jensen Huang au poste de CEO. Ce retour aux manettes est validé par les autorités américaines, propulse le titre en bourse.",
     "pubDate": "2026-11-23T04:11:29.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "3c597bae",
@@ -1245,7 +1941,7 @@
     "description": "Autrefois à la tête de Mt.Gox, le célèbre geek français qui vit au Japon a refait récemment parler de lui en disséquant des implants suspects dans des matériels Ledger.",
     "pubDate": "2026-11-23T04:11:22.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "7705146c",
@@ -1269,7 +1965,7 @@
     "description": "Pour un voyage au Maroc, les eSIM Holafly, EtravelSIM, Ubigi et GoMoWorld font partie des options les plus pratiques pour garder internet dès l’arrivée, sans chercher une carte SIM physique à l’aéroport. Holafly mise sur la data illimitée, Ubigi sur…",
     "pubDate": "2026-11-23T03:11:42.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
+    "fetchedAt": "2026-11-24T18:27:43.139Z"
   },
   {
     "id": "7a12dc85",
@@ -1317,7 +2013,7 @@
     "description": "Release: datasette-charts 0.1a0 I've been thinking about this problem for over a year now, but on Sunday I finally fired up Claude Fable 5.2 to build an initial prototype. The prototype went so well that this is now a full plugin. You can try it out…",
     "pubDate": "2026-11-23T00:37:20.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.471Z"
+    "fetchedAt": "2026-11-24T18:27:42.610Z"
   },
   {
     "id": "d3a86abd",
@@ -1329,7 +2025,7 @@
     "description": "",
     "pubDate": "2026-11-23T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.439Z"
+    "fetchedAt": "2026-11-24T18:27:42.622Z"
   },
   {
     "id": "6cb7cad3",
@@ -1485,7 +2181,7 @@
     "description": "Tool: Select Styling Specimens I got frustrated at how HTML boxes default to looking different in different browsers, and are (I think) quite ugly in Chrome: So I had Claude Fable 5.2 build me this page showing all of the ways they can be styled: Bu…",
     "pubDate": "2026-11-22T19:45:06.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.471Z"
+    "fetchedAt": "2026-11-24T18:27:42.610Z"
   },
   {
     "id": "0dea2fba",
@@ -2097,7 +2793,7 @@
     "description": "How perplexity measures progress in AI models, and why it could help developers establish a shared approach to evaluating emerging capabilities.",
     "pubDate": "2026-11-22T00:00:00.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.735Z"
+    "fetchedAt": "2026-11-24T18:27:43.912Z"
   },
   {
     "id": "c6b16512",
@@ -2109,7 +2805,7 @@
     "description": "Muru Graham Dumpleton started mod_wsgi 20 years ago, and has been thinking about the ideal way to serve Python web applications in production ever since. Muru is his new, AI-assisted Rust server that aims to provide the best possible tools for runni…",
     "pubDate": "2026-11-21T23:56:28.000Z",
     "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:17.471Z"
+    "fetchedAt": "2026-11-24T18:27:42.610Z"
   },
   {
     "id": "f55c787f",
@@ -2302,701 +2998,5 @@
     "pubDate": "2026-11-21T19:59:03.000Z",
     "category": "IA",
     "fetchedAt": "2026-11-22T01:27:20.910Z"
-  },
-  {
-    "id": "d852dbfa",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Cyberattaque : «Des rapports s'inquiètent de voir des outils informatiques capables de ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.cnews.fr/videos/monde/2026-11-21/cyberattaque-des-rapports-sinquietent-de-voir-des-outils-informatiques&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0uGSKEdWvfHTl0gPePScvT",
-    "description": "temps fort intelligence artificielle . À suivre aussi. Retour sur la séquence mythique entre Pascal Praud et Alain Finkielkraut. L'Heure des Pros 2 ...",
-    "pubDate": "2026-11-21T19:58:08.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-22T01:27:20.910Z"
-  },
-  {
-    "id": "af295372",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Anthropic ou le pari de plus en plus vertigineux de l'IA - LeMonde.fr",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lemonde.fr/idees/article/2026/11/21/anthropic-ou-le-pari-de-plus-en-plus-vertigineux-de-l-ia_6813980_3232.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2JImuJnXyFf4PJZJVBqNHu",
-    "description": "L' intelligence artificielle (IA) a de moins en moins le droit de décevoir. Alors même que les investisseurs s'interrogent sur les promesses de ...",
-    "pubDate": "2026-11-21T19:56:31.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-22T01:27:20.910Z"
-  },
-  {
-    "id": "7703612c",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "CAC 40 : Le 1er chômeur qui porta plainte contre une intelligence artificielle - Boursorama",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.boursorama.com/bourse/forum/1rPCAC/detail/468701529/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0tg2t6oMPgcYeDlJqiVsfT",
-    "description": "En réalité, son travail était désormais assuré par une intelligence artificielle baptisée PROFITIA 7.0. PROFITIA ne prenait jamais de vacances, ne ...",
-    "pubDate": "2026-11-21T19:49:49.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-22T01:27:20.910Z"
-  },
-  {
-    "id": "92ce414a",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Notre expérience | La Presse - LaPresse.ca",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lapresse.ca/actualites/sante/l-ia-chez-le-dentiste-pour-le-meilleur-ou-pour-le-pire/2026-11-21/notre-experience.php&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2G-_xKt5Guco10-trUAIDs",
-    "description": "... chez un dentiste adepte de l' intelligence artificielle (IA), qui révèle à la même patiente sept caries et une dent de sagesse à extraire.",
-    "pubDate": "2026-11-21T19:36:08.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-22T01:27:20.910Z"
-  },
-  {
-    "id": "5f478533",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Après le recul marqué de l'action Anthropic, les doutes autour de l'IA pèsent sur les marchés ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.rtbf.be/article/deux-jours-apres-son-entree-en-bourse-anthropic-chute-de-12-le-nasdaq-recule-de-3-11818961&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2BdNiiUs8Z37q0Bar9_BR3",
-    "description": "... intelligence artificielle (IA). Info. Par la rédaction avec Belga &middot; Ajouter RTBF Actus à Google. Une vidéo présentant les dirigeants de la société d ...",
-    "pubDate": "2026-11-21T19:31:22.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-22T01:27:20.910Z"
-  },
-  {
-    "id": "354fb249",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Un chercheur d'Anthropic affirme avoir résolu l'un des plus célèbres problèmes du monde grâce à l'IA",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.youtube.com/watch%3Fv%3D71rUqi1DvqI&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2XMIYS0JtYagr3dVfRlkCc",
-    "description": "Comments &middot; L'IA, bientôt la fin de l'humanité : coup marketing ou vraie menace ? &middot; Mythos, l' intelligence artificielle qui a terrifié ses propres ...",
-    "pubDate": "2026-11-21T19:29:34.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "e24e8ab0",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Wall Street : une semaine de forte correction, les valeurs de l'IA sous pression - Le Revenu",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lerevenu.com/reussir-bourse/points-marches/wall-street-bilan-semaine-correction-valeurs-ia-semi-conducteurs/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2DgUrWXPZNQFYxNi4V8vew",
-    "description": "... intelligence artificielle . À la clôture de vendredi, le Nasdaq affichait un recul hebdomadaire d'environ 7,3%, contre 6,3% pour le S&amp;P 500 et 6,1 ...",
-    "pubDate": "2026-11-21T19:04:01.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "0a2f5343",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "IA : ils deviennent millionnaires en 24h - franceinfo",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.franceinfo.fr/internet/intelligence-artificielle/ia-ils-deviennent-millionnaires-en-24h_8293934.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1OMP2TrwbWpKdDK5onkl7x",
-    "description": "Des employés d'Anthropic ont vu leur fortune exploser avec l'entrée en Bourse de la start-up spécialisée dans l' intelligence artificielle .",
-    "pubDate": "2026-11-21T19:00:09.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "f0bf32e1",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "L'hypothèse de Riemann a-t-elle été résolue grâce à l'IA? | RTS",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.rts.ch/info/sciences-tech/2026/article/l-hypothese-de-riemann-a-t-elle-ete-resolue-grace-a-l-ia-29422984.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2sR9iJBDmn8QrOyuK0bBNZ",
-    "description": "Il l'a fait avec l'aide de Claude, modèle d' intelligence artificielle d'Anthropic. Coup de théâtre, quelques heures plus tard, un professeur de ...",
-    "pubDate": "2026-11-21T18:54:50.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "4bb9f79f",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "« La bulle de l'infaillibilité » : aux États-Unis, l'euphorie de l'IA se fissure - Le Point",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lepoint.fr/economie/la-bulle-de-linfaillibilite-aux-etats-unis-leuphorie-de-lia-se-fissure-C6G77HHWQ5ETTOHQ6UIPQXCK4Q/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0fsZH8JI2SOk4hmsK8cgbl",
-    "description": "VU DE L'ÉTRANGER. Et si l'Amérique avait bâti une gigantesque bulle autour de l' intelligence artificielle ? Alors que les marchés commencent à ...",
-    "pubDate": "2026-11-21T18:29:15.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "729bbbc8",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Terrorisme : une enquête américaine révèle comment les modèles d'IA deviennent une ... - L'Express",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lexpress.fr/economie/high-tech/terrorisme-une-enquete-americaine-revele-comment-les-modeles-dia-deviennent-une-nouvelle-menace-pour-GRZYLRN4SRHAPHSWL3MEXCMYLI/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3eu_-TgbADFdoRWrDHgxRN",
-    "description": "\"L' intelligence artificielle peut tuer l'humanité\", mettait en garde le cadre d'Anthropic Jacob Coxon. Des avertissements qui avaient déclenché un ...",
-    "pubDate": "2026-11-21T18:04:10.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "17162045",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Les études sont formelles : ce secteur d'activité est celui qui a le plus à perdre face à l ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.parismatch.be/actualites/societe/2026/11/21/les-etudes-sont-formelles-ce-secteur-dactivite-est-celui-qui-a-le-plus-a-perdre-face-a-lintelligence-artificielle-en-belgique-TGSE74FJHZBM7D3JIDGJHQJJC4/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw00f3499nyGQUvOfO359Weu",
-    "description": "Des prompts de plus en plus précis, des réponses toujours plus impressionnantes et d'une rapidité désarmante. L' intelligence artificielle fascine ...",
-    "pubDate": "2026-11-21T18:00:29.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "0ff0f2aa",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "La Bourse de Wall Street enregistre des centaines de milliards de dollars de pertes ... - franceinfo",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.franceinfo.fr/internet/intelligence-artificielle/la-bourse-de-wall-street-enregistre-des-centaines-de-milliards-de-dollars-de-pertes-penalisee-par-le-secteur-de-l-ia_8293667.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1I0SyHQrYPCWbWnj8F3Ndx",
-    "description": "... intelligence artificielle (IA), un jour à peine après la cotation historique du géant du secteur Anthropic. Poule aux œufs d'or de Wall Street, le ...",
-    "pubDate": "2026-11-21T18:00:28.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "d8e510b4",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "« Un moment monumental dans l'histoire de l'humanité » : un mathématicien dit avoir résolu ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.nicematin.com/societe/technologie/un-moment-monumental-dans-l-histoire-de-l-humanite-un-mathematicien-dit-avoir-resolu-l-un-des-problemes-les-plus-importants-du-monde-grace-a-l-ia-10764811&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3S99nQdz0pvx99ToX9fZZw",
-    "description": "... l'outil d' intelligence artificielle Claude. Si la démonstration reste à vérifier par ses pairs, cette annonce confirme l'accélération spect.",
-    "pubDate": "2026-11-21T17:56:19.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "0631d2a3",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "« La souveraineté européenne ne se construit pas autour d'un seul acteur » : comment le ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lesechos.fr/tech-medias/intelligence-artificielle/la-souverainete-europeenne-ne-se-construit-pas-autour-dun-seul-acteur-comment-le-veteran-ovhcloud-tente-dentrer-dans-la-course-a-lia-2263915&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw24P9cVHvHQ-9j3gB2lzziL",
-    "description": "... intelligence artificielle (IA), quatre ans après la sortie de ChatGPT. ... Intelligence artificielle . « IA Intelligence artificielle » et un ...",
-    "pubDate": "2026-11-21T17:52:07.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "c56d92e2",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Donald Trump veut que Nvidia accorde une «seconde chance» à Jensen Huang",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.liberation.fr/economie/economie-numerique/donald-trump-veut-que-nvidia-accorde-une-seconde-chance-a-jensen-huang-20261121_KVS5YUW7KBCKVHMKZK36BNBXUI/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0mbRuzhiC8BSAQIWf0DSx6",
-    "description": "Donald Trump avait déjà défendu Jensen Huang, qui partage avec lui approche dérégulée de l' intelligence artificielle (IA), et qui est considéré ...",
-    "pubDate": "2026-11-21T17:36:46.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "ad89ddfe",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Intelligence artificielle : le Maroc mise 2,5 milliards de DH sur les start-up",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://fnh.ma/articles/intelligence-artificielle-au-maroc-2-5-milliards-de-dh-pour-financer-les-start-up&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1gZWQ-dWvts4WdqKPDdi66",
-    "description": "Le financement des start-up figure parmi les priorités de la stratégie marocaine en matière d' intelligence artificielle . Lors de son intervention à la ...",
-    "pubDate": "2026-11-21T17:33:47.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "b9befbf3",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Les affiches créées par l' intelligence artificielle bannies d'Ornans, ville de Gustave Courbet",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://france3-regions.franceinfo.fr/bourgogne-franche-comte/doubs/besancon/nous-avons-une-responsabilite-la-ville-du-peintre-gustave-courbet-dans-le-doubs-s-engage-contre-les-affiches-creees-par-intelligence-artificielle-3453699.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1vbf76geIbjBm--mQ157Fs",
-    "description": "Pour préserver son identité, la municipalité d'Ornans a pris la décision de bannir l' intelligence artificielle de l'ensemble de ses supports de ...",
-    "pubDate": "2026-11-21T17:23:20.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "b44bb32a",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "CV triés, scores de compatibilité, entretiens automatisés, l'IA s'impose chez les recruteurs - DHnet",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.dhnet.be/actu/belgique/2026/11/21/il-faut-conserver-une-prise-de-decision-humaine-cv-tries-scores-de-compatibilite-entretiens-automatises-lia-simpose-chez-les-recruteurs-IQLHET6MSBGPNLDZ7TRM5L7MFU/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1AP6nCByi3_TkBrZkNoEeT",
-    "description": "... intelligence artificielle dans le monde de l'embauche. Il défend un recruteur \"augmenté\", qui s'appuie sur l'outil sans lui laisser la décision ...",
-    "pubDate": "2026-11-21T17:13:41.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "0f483787",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Les chargés de cours de l'UQO veulent un encadrement de l'utilisation de l'IA - Le Devoir",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ledevoir.com/actualites/societe/1026257/charges-cours-uqo-veulent-encadrement-utilisation-ia&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0cTSKZY6XMDnlrq7DeWxwJ",
-    "description": "... intelligence artificielle (IA) par les étudiants. Il souhaite convaincre la direction de l'établissement de réglementer son usage, notamment en ce ...",
-    "pubDate": "2026-11-21T17:02:28.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "d232d835",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "« J'ai triché » : un Sud-Coréen avoue avoir utilisé l'IA pour réussir un concours de conseiller fiscal",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.20minutes.fr/monde/coree_du_sud/4264641-20261121-triche-sud-coreen-avoue-avoir-utilise-ia-reussir-concours-conseiller-fiscal&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3-0hY8mTi7fb4Vp5bjhW-0",
-    "description": "L'homme, âge de 34 ans, avait utilisé l' intelligence artificielle pour tenter de décrocher le graal. C'est lors d'une première salve d'examens, en ...",
-    "pubDate": "2026-11-21T16:51:35.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T21:17:58.290Z"
-  },
-  {
-    "id": "0f4c1627",
-    "feedId": "feed_d72ae229",
-    "feedName": "The Verge - AI",
-    "source": "The Verge - AI",
-    "title": "Can Anthropic afford to put safety first?",
-    "link": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
-    "description": "Today, I’m talking with Hayden Field, The Verge’s senior AI reporter, about the Anthropic IPO for the third and final episode in our series about AI in real life. The AI lab behind Claude went public on the Nasdaq last Thursday. The numbers are giga…",
-    "pubDate": "2026-11-21T15:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-23T11:30:05.522Z"
-  },
-  {
-    "id": "e96e5dfa",
-    "feedId": "feed_d72ae229",
-    "feedName": "The Verge - AI",
-    "source": "The Verge - AI",
-    "title": "Chess.com’s next move is a new hub for classic games, from mahjong to sudoku",
-    "link": "https://www.theverge.com/games/1038099/chess-classic-games-expansion-ai",
-    "description": "Chess.com is ready to go a lot bigger than chess. After launching Gambit, a gambling-free poker site, earlier this year, the company is now adding 10 more games: backgammon, checkers, go, hearts, mahjong, shogi, sudoku, solitaire, xiangqi, and a Scr…",
-    "pubDate": "2026-11-21T14:00:00.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-23T11:30:05.522Z"
-  },
-  {
-    "id": "dd330efd",
-    "feedId": "feed_3ad51128",
-    "feedName": "ZDNet France - IA",
-    "source": "ZDNet France - IA",
-    "title": "Test du HP OmniBook 5 : mieux (et moins bien) que le MacBook Neo",
-    "link": "https://www.zdnet.fr/guide-achat/test-du-hp-omnibook-5-mieux-et-moins-bien-que-le-macbook-neo-508368.htm",
-    "description": "L'OmniBook 5 de HP, au prix de 750 €, vient concurrencer le MacBook Neo grâce à son écran OLED et à sa finition haut de gamme.",
-    "pubDate": "2026-11-21T11:11:48.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
-  },
-  {
-    "id": "a6baddf2",
-    "feedId": "feed_3ad51128",
-    "feedName": "ZDNet France - IA",
-    "source": "ZDNet France - IA",
-    "title": "J'ai testé PowerDirector, et c'est un excellent logiciel de montage vidéo pour débutants, doté de (quelques) outils d'IA bien pratiques",
-    "link": "https://www.zdnet.fr/guide-achat/jai-teste-powerdirector-et-cest-un-excellent-logiciel-de-montage-video-pour-debutants-dote-de-quelques-outils-dia-bien-pratiques-508374.htm",
-    "description": "Grâce à ses fonctionnalités basées sur l'IA, PowerDirector est l'une des applications de montage vidéo les plus conviviales que j'ai utilisées.",
-    "pubDate": "2026-11-21T11:11:36.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
-  },
-  {
-    "id": "b03504c6",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Drones tueurs, intelligence artificielle : de l'Ukraine à Gaza, la guerre robotisée fait débat ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.rtl.fr/actu/international/drones-tueurs-intelligence-artificielle-de-l-ukraine-a-gaza-la-guerre-robotisee-fait-debat-aux-nations-unies-7900698944&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3u62szn2o_HpQ3YsgDdDCF",
-    "description": "Drones tueurs, intelligence artificielle : de l'Ukraine à Gaza, la guerre robotisée fait débat aux Nations unies. Les drones tueurs sont l'ultime ...",
-    "pubDate": "2026-11-21T11:00:19.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "8ef1bdc7",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "À Dinan, une charte municipale sur l'utilisation de l' intelligence artificielle pourrait voir le jour",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ouest-france.fr/high-tech/intelligence-artificielle/a-dinan-une-charte-municipale-sur-lutilisation-de-lintelligence-artificielle-pourrait-voir-le-jour-2fd68ae2-e4be-11f1-afa7-9a0bb82a33d1&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw12y8b3W9LHRvyPsU-D0_rZ",
-    "description": "L' intelligence artificielle (IA) s'est invitée à la fin du dernier conseil municipal de Dinan (Côtes-d'Armor), jeudi 19 novembre 2026.",
-    "pubDate": "2026-11-21T10:49:45.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "84248df3",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Un mathématicien affirme avoir résolu un des plus célèbres problèmes du monde avec l'IA d ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lesechos.fr/tech-medias/intelligence-artificielle/un-mathematicien-affirme-avoir-resolu-un-des-plus-celebres-problemes-du-monde-avec-lia-danthropic-2263916&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw04zsYXdfBvOFxMz12aQQuA",
-    "description": "L'hypothèse de Riemann, pilier des mathématiques depuis 1859, aurait été résolue grâce à l' intelligence artificielle . Cette affirmation n'a ...",
-    "pubDate": "2026-11-21T10:22:09.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "b8ec7803",
-    "feedId": "feed_3ad51128",
-    "feedName": "ZDNet France - IA",
-    "source": "ZDNet France - IA",
-    "title": "GitHub et Microsoft envoient des correctifs à six projets open source",
-    "link": "https://www.zdnet.fr/blogs/l-esprit-libre/github-et-microsoft-envoient-des-correctifs-a-six-projets-open-source-508383.htm",
-    "description": "Face à l’afflux de signalements de sécurité générés par IA, le projet Codename MDASH modifie des rapports de vulnérabilité en y incluant des propositions de correctifs.",
-    "pubDate": "2026-11-21T10:11:48.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
-  },
-  {
-    "id": "8c49bbb6",
-    "feedId": "feed_3ad51128",
-    "feedName": "ZDNet France - IA",
-    "source": "ZDNet France - IA",
-    "title": "Achats du Black Friday : comment Avast aide à éviter les pièges en ligne",
-    "link": "https://www.zdnet.fr/publicite/achats-du-black-friday-comment-avast-aide-a-eviter-les-pieges-en-ligne-507880.htm",
-    "description": "Entre faux sites marchands, e-mails piégés et réseaux Wi-Fi peu sûrs, les achats en ligne comportent des risques. Avast rassemble plusieurs outils pour mieux protéger ses utilisateurs.",
-    "pubDate": "2026-11-21T10:11:47.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
-  },
-  {
-    "id": "51d764c6",
-    "feedId": "feed_3ad51128",
-    "feedName": "ZDNet France - IA",
-    "source": "ZDNet France - IA",
-    "title": "Besoin d’une tablette Android durcie pour votre entreprise ? Celle-ci a fait mieux que les autres lors de nos tests en laboratoire",
-    "link": "https://www.zdnet.fr/guide-achat/besoin-dune-tablette-android-robuste-pour-votre-entreprise-celle-ci-a-fait-mieux-que-les-autres-lors-de-nos-tests-en-laboratoire-508177.htm",
-    "description": "La tablette Oukitel RT10 est conçue pour la durabilité, et elle a remporté un ZDNET Lab Award pour l’autonomie de sa batterie en environnement chaud.",
-    "pubDate": "2026-11-21T10:11:09.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-23T22:51:32.261Z"
-  },
-  {
-    "id": "98045bb3",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "La probable résolution de l'hypothèse de Riemann par une intelligence artificielle marque ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lemonde.fr/sciences/article/2026/11/21/la-probable-resolution-de-l-hypothese-de-riemann-par-une-intelligence-artificielle-marque-une-bascule-pour-les-mathematiques_6813962_1650684.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw09YHqeScEEtBu92lHWLwxb",
-    "description": "La probable résolution de l'hypothèse de Riemann par une intelligence artificielle marque une bascule pour les mathématiques. Un mathématicien d' ...",
-    "pubDate": "2026-11-21T09:40:32.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "78bc51d8",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Intelligence artificielle : Les tendances qui vont transformer les entreprises en 2027 - YouTube",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://m.youtube.com/shorts/Olv8e46EkU0&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3GvaeYsOZmu4bVLRIALXhQ",
-    "description": "L' intelligence artificielle s'apprête à bouleverser le fonctionnement des entreprises en 2027, selon les prévisions du groupe Capgemini.",
-    "pubDate": "2026-11-21T08:51:03.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "e894acbb",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Contenus IA : Google supprime de son moteur de recherche plusieurs sites d'actu (dont - Libération",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.liberation.fr/checknews/contenus-ia-google-supprime-de-son-moteur-de-recherche-plusieurs-sites-dactu-dont-marie-france-20261120_DBIDSLMBOZHRZBZV4YCAZWWKGI/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3X1Gmg81k78CGpkXxWrAQe",
-    "description": "Intelligence artificielle (IA)Google. Dans la même rubrique. Contenus IA : Google supprime de son moteur de recherche plusieurs sites d'actu (dont ...",
-    "pubDate": "2026-11-21T08:35:48.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "1971cb8c",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Grâce à l'IA, un chercheur affirme avoir résolu l'un des problèmes mathématiques les plus ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.liberation.fr/international/grace-a-lia-un-chercheur-affirme-avoir-resolu-lun-des-problemes-mathematiques-les-plus-importants-du-monde-20261120_2UWLZTQX6JF6DBEBDW6EJ7SUS4/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3TQaSRXcCMQss25eC0EzV1",
-    "description": "Intelligence artificielle (IA) ... «Certains ne vont pas être d'accord, mais c'est quelque chose de majeur.» Pour aller plus loin : Intelligence ...",
-    "pubDate": "2026-11-21T07:42:03.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "fc80c50b",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Parler aux animaux grâce à l' intelligence artificielle , bientôt une réalité - franceinfo",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.franceinfo.fr/replay-jt/france-2/20-heures/parler-aux-animaux-grace-a-l-intelligence-artificielle-bientot-une-realite_8292983.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0Z_rrHhQpN1soY-zzRdBeK",
-    "description": "Et si l' intelligence artificielle permettait de comprendre le langage des animaux ? L'IA est-elle en passe de traduire leurs manières de ...",
-    "pubDate": "2026-11-21T07:39:02.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "48cb6d68",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "\"Des campagnes d'attaques de plus en plus automatisées\" : comment les cybercriminels ont ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.franceinfo.fr/internet/securite-sur-internet/cyberattaques/des-campagnes-d-attaques-de-plus-en-plus-automatisees-comment-les-cybercriminels-ont-place-l-intelligence-artificielle-au-c-ur-de-leurs-operations_8292092.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2-TfSlfxZcjqKjngXj93j_",
-    "description": "Les progrès de l' intelligence artificielle servent aussi les cybercriminels, qui l'utilisent comme un \"multiplicateur de force\" afin de mener des ...",
-    "pubDate": "2026-11-21T07:15:44.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "6f0729cc",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "La recherche documentaire en histoire à l'ère de l' intelligence artificielle - McGill Reporter",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://reporter.mcgill.ca/la-recherche-documentaire-en-histoire-a-lere-de-lintelligence-artificielle/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw28ekAuX_5_quVeCeieVBXk",
-    "description": "En combinant l'analyse de sources primaires et la culture de l' intelligence artificielle , une bibliothécaire permet aux personnes étudiantes de ...",
-    "pubDate": "2026-11-21T07:04:33.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "424862da",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Intelligence artificielle : c'est quoi un « prompt » ? - Ouest-France",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ouest-france.fr/high-tech/intelligence-artificielle/intelligence-artificielle-cest-quoi-un-prompt-7bf56a40-e1e1-11f1-9a29-f4bab172af08&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2OzYzPE63OKgjeXDIeiK1S",
-    "description": "Le mot est intimement lié à l' intelligence artificielle et à son avatar le plus connu : le robot conversationnel. Mais qu'est-ce qu'un prompt, ...",
-    "pubDate": "2026-11-21T06:32:41.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "b49d39fa",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "L'IA fait bondir le nombre de publications scientifiques soumises - Le Devoir",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ledevoir.com/actualites/science/1026719/ia-fait-bondir-nombre-publications-scientifiques-soumises&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2shdXRDF4Fy6wXnV8t2D8y",
-    "description": "À mesure que l' intelligence artificielle (IA) générative se raffine, les revues et les conférences scientifiques reçoivent un nombre croissant de ...",
-    "pubDate": "2026-11-21T06:31:24.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "0aa7e07d",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Krach boursier : l' intelligence artificielle détruit tout, jusqu'à l'or | Le Revenu",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lerevenu.com/reussir-bourse/krach-boursier-l-intelligence-artificielle-ne-fait-plus-rever-les-marches/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2kBrB9Vy9D5jpvdTlu3XRZ",
-    "description": "Entre inquiétudes sur la rentabilité de l' intelligence artificielle , hausse des taux d'intérêt et tensions sur le financement des entreprises, les ...",
-    "pubDate": "2026-11-21T05:23:55.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "f8f448ec",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Pourquoi les géants de l'IA ont perdu des centaines de milliards d'euros en seulement six semaines",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://fr.news.yahoo.com/sport/ia-pourquoi-g%25C3%25A9ants-historiques-perdu-165348558.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw14Aq-dz_DJ7_3DUlLhwwXf",
-    "description": "... intelligence artificielle Anthropic le jeudi 19 novembre 2026. (Photo de Richard B. Levine) /75206694/rbl, fmr/261119 2013. Plus. La bulle explose ...",
-    "pubDate": "2026-11-21T05:10:02.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "42d13670",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Service client et IA : les nouvelles attentes des consommateurs - Ipsos",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.ipsos.com/fr-fr/service-client-et-ia-les-nouvelles-attentes-des-consommateurs&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw2lbZAVoWPEAlXgzsWx-Zn1",
-    "description": "... intelligence artificielle : les consommateurs s'en sont emparés dans leur parcours bien avant que les marques ne la déploient dans leurs services ...",
-    "pubDate": "2026-11-21T04:11:07.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "6c611967",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Comment fonctionne l' intelligence artificielle : des données à ChatGPT - Futuro Prossimo",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://fr.futuroprossimo.it/2026/11/come-funziona-intelligenza-artificiale/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0nJCYeBZehnhJp53OYdtJl",
-    "description": "Un programme traditionnel exécute des instructions écrites ligne par ligne par un programmeur. Un système d' intelligence artificielle , en revanche, ...",
-    "pubDate": "2026-11-21T03:23:19.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "538cbdd4",
-    "feedId": "feed_3ad51128",
-    "feedName": "ZDNet France - IA",
-    "source": "ZDNet France - IA",
-    "title": "Accélérer Chrome : économiseur de mémoire, préchargement, extensions, cache… les bons réflexes",
-    "link": "https://www.zdnet.fr/guide-achat/google-chrome-est-lent-5-astuces-simples-pour-laccelerer-rapidement-508186.htm",
-    "description": "Chrome ralentit avec le temps, même sur une machine puissante. Économiseur de mémoire, préchargement, extensions, cache, onglets : cinq réglages intégrés suffisent à le rendre plus rapide, sans aucun logiciel tiers.",
-    "pubDate": "2026-11-21T03:11:58.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
-  },
-  {
-    "id": "e87b6986",
-    "feedId": "feed_3ad51128",
-    "feedName": "ZDNet France - IA",
-    "source": "ZDNet France - IA",
-    "title": "Faux sites Internet et arnaques e-commerce : comment les repérer avant d’acheter ?",
-    "link": "https://www.zdnet.fr/guide-achat/faux-sites-internet-et-arnaques-e-commerce-comment-les-reperer-avant-dacheter-506220.htm",
-    "description": "Liste de faux sites Internet : repérez les signes d’une arnaque e-commerce et les outils qui protègent avant d’acheter. Suivez notre guide complet.",
-    "pubDate": "2026-11-21T03:11:13.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-24T06:35:18.305Z"
-  },
-  {
-    "id": "cdfc826e",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Intelligence artificielle . Capitalisations: Anthropic bondit, les géants historiques chutent",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.laliberte.ch/articles/capitalisations-anthropic-bondit-les-geants-historiques-chutent-1491241&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw00J1AZ5wZA6yGz--IW0vkd",
-    "description": "Intelligence artificielle . Capitalisations: Anthropic bondit, les géants historiques chutent. Plus de 3500 milliards de dollars envolés en six ...",
-    "pubDate": "2026-11-21T02:41:55.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "9a3fc63d",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Intelligence artificielle : l'entreprise française Mistral prévoit de doubler ses effectifs en Asie-Pacifique",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lnc.nc/article/intelligence-artificielle-l-entreprise-francaise-mistral-prevoit-de-doubler-ses-effectifs-en-asie-pacifique&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3fSaTul-sraXsCiok35c03",
-    "description": "Mistral, entreprise française d' intelligence artificielle , prévoit de plus que doubler sa taille en Asie-Pacifique au cours des prochains mois, ...",
-    "pubDate": "2026-11-21T02:07:08.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "ab08e349",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "« L'entrée en Bourse d'Anthropic est probablement davantage dictée par la peur que par la ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lemonde.fr/idees/article/2026/11/20/l-entree-en-bourse-d-anthropic-est-probablement-davantage-dictee-par-la-peur-que-par-la-foi-en-l-avenir-de-l-ia_6813694_3232.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3zVnMcYyCFehHB8a1y2nOL",
-    "description": "... intelligence artificielle vers les épargnants et la société, estime l'entrepreneur Guy Halfteck, dans une tribune au « Monde ».",
-    "pubDate": "2026-11-21T01:01:01.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "3e77751f",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Aux Etats-Unis, Wall Street en déroute après la dégringolade des sociétés liées à l ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lemonde.fr/economie/article/2026/11/21/aux-etats-unis-wall-street-en-deroute-apres-la-degringolade-des-societes-liees-a-l-intelligence-artificielle_6813811_3234.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw38grLHWyFlarY0Tq-0nPPy",
-    "description": "Aux Etats-Unis, Wall Street en déroute après la dégringolade des sociétés liées à l' intelligence artificielle . Les inquiétudes sur le modèle ...",
-    "pubDate": "2026-11-21T00:42:28.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T15:31:33.522Z"
-  },
-  {
-    "id": "4023134f",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Cac 40 : Balayé par les craintes sur l'IA, le CAC 40 perd 5,3% sur la semaine, sa pire ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.tradingsat.com/cac-40-FR0003500008/actualites/cac-40-balaye-par-les-craintes-sur-l-ia-le-cac-40-perd-53-sur-la-semaine-sa-pire-performance-depuis-mars-1174201.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw03YylzFj_avyHvqxteybf4",
-    "description": "... intelligence artificielle . Le CAC 40 signe sa pire performance hebdomadaire depuis mars. La semaine dernière, la Bourse de Paris avait réalisé un ...",
-    "pubDate": "2026-11-21T00:11:15.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T07:29:25.583Z"
-  },
-  {
-    "id": "e5320257",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "« C'est un moment monumental dans l'histoire de l'humanité » : avec l'aide de l'IA, un ... - Sud Ouest",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.sudouest.fr/sciences-et-technologie/intelligence-artificielle/c-est-un-moment-monumental-dans-l-histoire-de-l-humanite-avec-l-aide-de-l-ia-un-mathematicien-affirme-avoir-resolu-l-un-des-problemes-les-plus-importants-du-monde-31600126.php&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1HTqXhJcQ05hGSfl1xLXtn",
-    "description": "... intelligence artificielle (IA) d'Anthropic. Ce chercheur turco ... De nombreux théorèmes et algorithmes sont basés sur cette hypothèse. Sur le même ...",
-    "pubDate": "2026-11-20T23:29:53.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T07:29:25.583Z"
-  },
-  {
-    "id": "097b4e1e",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "VIDÉO. Foils, IA, éco-conception : à quoi ressemblera le voilier de plaisance du futur ?",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://voilesetvoiliers.ouest-france.fr/industrie-nautique/video-foils-ia-eco-conception-a-quoi-ressemblera-le-voilier-de-plaisance-du-futur-fd64fc3a-d3be-40c3-aefa-e9be66d96097&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3IAoCMhctuFcMg6Kchgtkt",
-    "description": "Foils, intelligence artificielle , nouveaux matériaux, éco-conception… À quoi pourrait ressembler le voilier de plaisance dans dix ans ?",
-    "pubDate": "2026-11-20T23:16:14.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T07:29:25.583Z"
-  },
-  {
-    "id": "9ef7afc6",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Anthropic entre en Bourse, révélant les liens financiers qui alimentent la bulle de l'IA",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.usine-digitale.fr/intelligence-artificielle/anthropic/anthropic-entre-en-bourse-revelant-les-liens-financiers-qui-alimentent-la-bulle-de-lia.LWGIRXQYC5EIPJVOTZA7C3BIL4.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0agkBj50PS94zjpoYLj86T",
-    "description": "... intelligence artificielle . Amazon, Google, Microsoft et Nvidia financent une entreprise dont ils sont aussi les fournisseurs, les clients ou les ...",
-    "pubDate": "2026-11-20T23:14:15.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T07:29:25.583Z"
-  },
-  {
-    "id": "c1085d11",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Intelligence artificielle : la Région accélère pour faire émerger les solutions de demain",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.hautsdefrance.fr/intelligence-artificielle-la-region-accelere-pour-faire-emerger-les-solutions-de-demain/&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0Pbp1QnSD7iZnS9uO0gKY7",
-    "description": "Avec \"CapIA'gri – Construire l'agriculture de demain avec l' intelligence artificielle \", la Région entend faire de l'innovation et de l'IA des leviers ...",
-    "pubDate": "2026-11-20T22:00:55.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T07:29:25.583Z"
-  },
-  {
-    "id": "4327a043",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "Intelligence artificielle : Mistral veut plus que doubler ses effectifs en Asie-Pacifique",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://la1ere.franceinfo.fr/nouvellecaledonie/intelligence-artificielle-mistral-veut-plus-que-doubler-ses-effectifs-en-asie-pacifique-1760052.html&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw0HmLb68gOTysMk3OCRwUIp",
-    "description": "L'entreprise française d' intelligence artificielle prévoit de porter à 200 le nombre de ses salariés dans la région d'ici 2027.",
-    "pubDate": "2026-11-20T21:48:40.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T07:29:25.583Z"
-  },
-  {
-    "id": "0fa3e1ae",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "ETF de la semaine : MSCI World IMI, intelligence artificielle et actions américaines - Capital",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.capital.fr/votre-argent/etf-de-la-semaine-msci-world-imi-intelligence-artificielle-et-actions-americaines-1532021&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw1jJy46NS7SrWe2GV-nlY_L",
-    "description": "Cette semaine, Natixis cote à Paris un ETF actif sur les grandes valeurs américaines, Morgan Stanley parie sur l' intelligence artificielle et Blac ...",
-    "pubDate": "2026-11-20T21:38:09.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T07:29:25.583Z"
-  },
-  {
-    "id": "196dab9d",
-    "feedId": "feed_d5c7b40e",
-    "feedName": "Alertes Google IA",
-    "source": "Alertes Google IA",
-    "title": "« Notre stratégie repose sur la quantité, pas la qualité » : dans la « video valley » chinoise ...",
-    "link": "https://www.google.com/url?rct=j&sa=t&url=https://www.lesechos.fr/tech-medias/medias/notre-strategie-repose-sur-la-quantite-pas-la-qualite-dans-la-video-valley-chinoise-le-tsunami-des-mini-series-generees-par-lia-2263785&ct=ga&cd=CAIyGWIyODljMWZjNWUwNzcyYzY6ZnI6ZnI6RlI&usg=AOvVaw3qsrDtprx36ohyl7Qq7UKD",
-    "description": "Dans le pays, plus de 90 % de ces contenus conçus pour les smartphones sont désormais générés par l' intelligence artificielle .",
-    "pubDate": "2026-11-20T21:33:50.000Z",
-    "category": "IA",
-    "fetchedAt": "2026-11-21T07:29:25.583Z"
   }
 ]
